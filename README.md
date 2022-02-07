@@ -7,6 +7,7 @@ Projet de DAW - Groupe 8
 
 #### Membres du projet :
 
+* **Dorian BARSONI** - [@DorianBarsoni](https://github.com/DorianBarsoni)
 * **Zeina-Hélène AL-HALABI** - [@ZHAlHalabi](https://github.com/ZHAlHalabi)
 * **Betul SENER** - [@BetulDSENER](https://github.com/BetulDSENER)
 * **Orlane TISSERAND** - [@Orlane_TISSERAND](https://github.com/Orlane_TISSERAND)
