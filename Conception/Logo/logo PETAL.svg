@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="logo PETAL.svg"
+   inkscape:export-filename="C:\Users\drago\Desktop\logo v2.png"
+   inkscape:export-xdpi="96.854919"
+   inkscape:export-ydpi="96.854919"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.2316035"
+     inkscape:cx="363.75342"
+     inkscape:cy="470.93076"
+     inkscape:window-width="1920"
+     inkscape:window-height="1002"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer3" />
+  <defs
+     id="defs2">
+    <rect
+       x="-58.348795"
+       y="822.44016"
+       width="953.0303"
+       height="241.73072"
+       id="rect12484" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1400">
+      <stop
+         style="stop-color:#ff00c9;stop-opacity:0.89711934"
+         offset="0"
+         id="stop1396" />
+      <stop
+         style="stop-color:#fa0000;stop-opacity:0.89803922"
+         offset="1"
+         id="stop1398" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1400"
+       id="radialGradient46179"
+       cx="259.36914"
+       cy="967.88037"
+       fx="259.36914"
+       fy="967.88037"
+       r="314.4375"
+       gradientTransform="matrix(2.4756887,0,0,2.4876311,-382.74811,-1439.8489)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1400"
+       id="linearGradient1226"
+       x1="623.83783"
+       y1="108.10074"
+       x2="185.27696"
+       y2="52.429424"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-328.26091,57.326274)" />
+  </defs>
+  <g
+     inkscape:label="Texte"
+     inkscape:groupmode="layer"
+     id="layer1"
+     sodipodi:insensitive="true"
+     style="display:inline">
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,37.492574,-23.524752)"
+       id="text12482"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect12484);fill:url(#radialGradient46179);fill-opacity:1;stroke:none"><tspan
+         x="-58.349609"
+         y="1037.396"
+         id="tspan684"><tspan
+           style="font-size:192px;font-family:Castellar;-inkscape-font-specification:'Castellar, Normal'"
+           id="tspan682">PETAL</tspan></tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Logo"
+     style="display:inline">
+    <path
+       style="fill:url(#linearGradient1226);fill-opacity:1;stroke-width:0.264583"
+       d="m 208.02938,155.34972 c -0.12531,12.27503 -11.53376,17.82848 -21.46985,19.26463 -16.81848,2.43092 -33.80693,3.66099 -50.25255,8.47463 -14.05273,4.11324 -27.4421,10.12445 -41.385356,14.35216 -17.099736,5.18478 -36.593876,10.70939 -53.704493,3.54515 C 29.030693,195.88381 21.759553,183.9584 15.653404,172.50004 9.0119478,160.03717 3.3048273,146.76927 3.4058786,132.55645 3.5127883,117.51965 10.127423,103.07727 10.180464,88.0265 10.21655,77.786732 15.596396,69.98524 23.940826,64.808045 c 9.989025,-6.197562 21.289311,-9.445389 30.863882,-16.154541 9.089941,-6.369559 20.986427,-5.553272 31.297746,-3.568188 23.362006,4.497538 44.100396,17.660683 61.079596,33.983417 17.75881,17.072201 35.85743,33.983907 51.4209,53.073777 5.21513,6.39678 9.52165,13.87955 9.42643,23.20721 z"
+       id="path211"
+       sodipodi:nodetypes="ssssssssssssss" />
+  </g>
+</svg>
