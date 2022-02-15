@@ -1,4 +1,4 @@
-# DAW-GRP-8
+# PETAL
 Projet de DAW - Groupe 8
 
 - Lien de l'application pour lire un fichier MPP - Diagramme de Gantt (quand on à pas Microsoft Project) : [LIEN](https://www.rationalplan.com/download/RationalPlanV-5.8.1.exe)
