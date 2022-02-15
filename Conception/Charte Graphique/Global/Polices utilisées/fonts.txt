@@ -1,2 +1,3 @@
 Textes : https://fonts.google.com/specimen/Quicksand
-Tites : https://fonts.google.com/specimen/Vollkorn
+Titres : https://fonts.google.com/specimen/Vollkorn
+Logo : https://fonts.google.com/specimen/Alice
