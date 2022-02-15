@@ -9,9 +9,9 @@
    id="svg5"
    inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
    sodipodi:docname="logo PETAL.svg"
-   inkscape:export-filename="C:\Users\drago\Desktop\logo v2.png"
-   inkscape:export-xdpi="96.854919"
-   inkscape:export-ydpi="96.854919"
+   inkscape:export-filename="C:\Users\drago\Desktop\logo v3.png"
+   inkscape:export-xdpi="968.23944"
+   inkscape:export-ydpi="968.23944"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -27,15 +27,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="1.2316035"
-     inkscape:cx="363.75342"
-     inkscape:cy="470.93076"
+     inkscape:zoom="0.87087519"
+     inkscape:cx="784.84266"
+     inkscape:cy="637.28995"
      inkscape:window-width="1920"
      inkscape:window-height="1002"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer3" />
+     inkscape:current-layer="layer1" />
   <defs
      id="defs2">
     <rect
@@ -56,17 +56,6 @@
          offset="1"
          id="stop1398" />
     </linearGradient>
-    <radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient1400"
-       id="radialGradient46179"
-       cx="259.36914"
-       cy="967.88037"
-       fx="259.36914"
-       fy="967.88037"
-       r="314.4375"
-       gradientTransform="matrix(2.4756887,0,0,2.4876311,-382.74811,-1439.8489)"
-       gradientUnits="userSpaceOnUse" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient1400"
@@ -77,23 +66,59 @@
        y2="52.429424"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(-328.26091,57.326274)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1400"
+       id="radialGradient46179-2"
+       cx="259.36914"
+       cy="967.88037"
+       fx="259.36914"
+       fy="967.88037"
+       r="314.4375"
+       gradientTransform="matrix(2.4756887,0,0,2.4876311,-382.74811,-1439.8489)"
+       gradientUnits="userSpaceOnUse" />
+    <rect
+       x="-58.348797"
+       y="822.44019"
+       width="953.03027"
+       height="241.73071"
+       id="rect12484-0" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1400"
+       id="radialGradient843"
+       cx="259.36914"
+       cy="967.88037"
+       fx="259.36914"
+       fy="967.88037"
+       r="314.4375"
+       gradientTransform="matrix(2.4756887,0,0,2.4876311,-382.74811,-1439.8489)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1400"
+       id="radialGradient851"
+       cx="259.36914"
+       cy="967.88037"
+       fx="259.36914"
+       fy="967.88037"
+       r="314.4375"
+       gradientTransform="matrix(2.4756887,0,0,2.4876311,-382.74811,-1439.8489)"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <g
      inkscape:label="Texte"
      inkscape:groupmode="layer"
      id="layer1"
-     sodipodi:insensitive="true"
      style="display:inline">
     <text
        xml:space="preserve"
-       transform="matrix(0.26458333,0,0,0.26458333,37.492574,-23.524752)"
-       id="text12482"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect12484);fill:url(#radialGradient46179);fill-opacity:1;stroke:none"><tspan
+       transform="matrix(1.4206207,0,0,1.4206207,99.845523,-970.00209)"
+       id="text12482-2"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:Alice;-inkscape-font-specification:'Alice, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:1.86245px;white-space:pre;shape-inside:url(#rect12484-0);display:inline;fill:url(#radialGradient46179-2);fill-opacity:1;stroke:none"><tspan
          x="-58.349609"
-         y="1037.396"
-         id="tspan684"><tspan
-           style="font-size:192px;font-family:Castellar;-inkscape-font-specification:'Castellar, Normal'"
-           id="tspan682">PETAL</tspan></tspan></text>
+         y="859.25048"
+         id="tspan34180">PETAL</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
