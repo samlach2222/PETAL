@@ -1,6 +1,6 @@
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/44367571/154156128-d2d4c0ca-70a4-4c97-a4dd-328f69abaeb4.svg" width="40%">
- </p>
+  <img src="https://user-images.githubusercontent.com/89837262/154356870-b1cdaffa-8b03-4cdb-bc8b-62310a50e182.svg" width="40%">
+</p>
 
 Projet de DAW - Groupe 8
 
