@@ -1,0 +1,49 @@
+[Fri Mar 04 11:20:43.705219 2022] [ssl:warn] [pid 21012:tid 700] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Mar 04 11:20:43.706319 2022] [ssl:warn] [pid 21012:tid 700] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Mar 04 11:20:44.620670 2022] [ssl:warn] [pid 21012:tid 700] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Fri Mar 04 11:20:44.620670 2022] [ssl:warn] [pid 21012:tid 700] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Mar 04 11:20:44.620670 2022] [ssl:warn] [pid 21012:tid 700] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Mar 04 11:20:44.851459 2022] [mpm_winnt:notice] [pid 21012:tid 700] AH00455: Apache/2.4.18 (Win32) OpenSSL/1.0.2f PHP/5.6.18 configured -- resuming normal operations
+[Fri Mar 04 11:20:44.851459 2022] [mpm_winnt:notice] [pid 21012:tid 700] AH00456: Server built: Jan 28 2016 09:58:25
+[Fri Mar 04 11:20:44.851459 2022] [core:notice] [pid 21012:tid 700] AH00094: Command line: 'D:\\WINDOWS\\Documents\\GitHub\\PETAL\\PETAL\\bin\\apache\\bin\\httpd.exe -d D:/WINDOWS/Documents/GitHub/PETAL/PETAL/bin/apache -f D:\\WINDOWS\\Documents\\GitHub\\PETAL\\PETAL\\bin\\apache\\conf\\httpd.conf'
+[Fri Mar 04 11:20:44.873992 2022] [mpm_winnt:notice] [pid 21012:tid 700] AH00418: Parent: Created child process 1668
+[Fri Mar 04 11:20:47.333344 2022] [ssl:warn] [pid 1668:tid 656] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Mar 04 11:20:47.334486 2022] [ssl:warn] [pid 1668:tid 656] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Mar 04 11:20:47.612680 2022] [ssl:warn] [pid 1668:tid 656] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Fri Mar 04 11:20:47.613681 2022] [ssl:warn] [pid 1668:tid 656] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Mar 04 11:20:47.613681 2022] [ssl:warn] [pid 1668:tid 656] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Mar 04 11:20:47.675593 2022] [mpm_winnt:notice] [pid 1668:tid 656] AH00354: Child: Starting 64 worker threads.
+[Fri Mar 04 11:40:32.035777 2022] [mpm_winnt:crit] [pid 1668:tid 656] AH02538: Child: Parent process exited abruptly. Child process is ending
+[Fri Mar 04 11:43:36.075335 2022] [ssl:warn] [pid 14060:tid 672] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Mar 04 11:43:36.085524 2022] [ssl:warn] [pid 14060:tid 672] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Mar 04 11:43:36.319323 2022] [core:warn] [pid 14060:tid 672] AH00098: pid file D:/WINDOWS/Documents/GitHub/PETAL/PETAL/bin/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri Mar 04 11:43:36.612436 2022] [ssl:warn] [pid 14060:tid 672] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Fri Mar 04 11:43:36.613436 2022] [ssl:warn] [pid 14060:tid 672] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Mar 04 11:43:36.613436 2022] [ssl:warn] [pid 14060:tid 672] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Mar 04 11:43:42.873430 2022] [mpm_winnt:notice] [pid 14060:tid 672] AH00455: Apache/2.4.18 (Win32) OpenSSL/1.0.2f PHP/5.6.18 configured -- resuming normal operations
+[Fri Mar 04 11:43:42.873430 2022] [mpm_winnt:notice] [pid 14060:tid 672] AH00456: Server built: Jan 28 2016 09:58:25
+[Fri Mar 04 11:43:42.873430 2022] [core:notice] [pid 14060:tid 672] AH00094: Command line: 'D:\\WINDOWS\\Documents\\GitHub\\PETAL\\PETAL\\bin\\apache\\bin\\httpd.exe -d D:/WINDOWS/Documents/GitHub/PETAL/PETAL/bin/apache -f D:\\WINDOWS\\Documents\\GitHub\\PETAL\\PETAL\\bin\\apache\\conf\\httpd.conf'
+[Fri Mar 04 11:43:42.879378 2022] [mpm_winnt:notice] [pid 14060:tid 672] AH00418: Parent: Created child process 13700
+[Fri Mar 04 11:43:44.770018 2022] [ssl:warn] [pid 13700:tid 608] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Mar 04 11:43:44.771023 2022] [ssl:warn] [pid 13700:tid 608] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Mar 04 11:43:45.314372 2022] [ssl:warn] [pid 13700:tid 608] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Fri Mar 04 11:43:45.316374 2022] [ssl:warn] [pid 13700:tid 608] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Mar 04 11:43:45.316374 2022] [ssl:warn] [pid 13700:tid 608] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Mar 04 11:43:45.387127 2022] [mpm_winnt:notice] [pid 13700:tid 608] AH00354: Child: Starting 64 worker threads.
+[Fri Mar 04 11:45:25.757843 2022] [mpm_winnt:crit] [pid 13700:tid 608] AH02538: Child: Parent process exited abruptly. Child process is ending
+[Fri Mar 04 11:46:37.943390 2022] [ssl:warn] [pid 5000:tid 580] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Mar 04 11:46:37.944392 2022] [ssl:warn] [pid 5000:tid 580] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Mar 04 11:46:38.061670 2022] [core:warn] [pid 5000:tid 580] AH00098: pid file D:/WINDOWS/Documents/GitHub/PETAL/PETAL/bin/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri Mar 04 11:46:38.444147 2022] [ssl:warn] [pid 5000:tid 580] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Fri Mar 04 11:46:38.448309 2022] [ssl:warn] [pid 5000:tid 580] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Mar 04 11:46:38.448309 2022] [ssl:warn] [pid 5000:tid 580] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Mar 04 11:46:41.196072 2022] [mpm_winnt:notice] [pid 5000:tid 580] AH00455: Apache/2.4.18 (Win32) OpenSSL/1.0.2f PHP/7.0.3 configured -- resuming normal operations
+[Fri Mar 04 11:46:41.196072 2022] [mpm_winnt:notice] [pid 5000:tid 580] AH00456: Server built: Jan 28 2016 09:58:25
+[Fri Mar 04 11:46:41.196072 2022] [core:notice] [pid 5000:tid 580] AH00094: Command line: 'D:\\WINDOWS\\Documents\\GitHub\\PETAL\\PETAL\\bin\\apache\\bin\\httpd.exe -d D:/WINDOWS/Documents/GitHub/PETAL/PETAL/bin/apache -f D:\\WINDOWS\\Documents\\GitHub\\PETAL\\PETAL\\bin\\apache\\conf\\httpd.conf'
+[Fri Mar 04 11:46:41.209700 2022] [mpm_winnt:notice] [pid 5000:tid 580] AH00418: Parent: Created child process 7392
+[Fri Mar 04 11:46:43.736665 2022] [ssl:warn] [pid 7392:tid 604] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Mar 04 11:46:43.738728 2022] [ssl:warn] [pid 7392:tid 604] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Mar 04 11:46:44.233761 2022] [ssl:warn] [pid 7392:tid 604] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Fri Mar 04 11:46:44.233761 2022] [ssl:warn] [pid 7392:tid 604] AH01906: main-serveur:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Mar 04 11:46:44.233761 2022] [ssl:warn] [pid 7392:tid 604] AH01909: main-serveur:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Mar 04 11:46:44.276619 2022] [mpm_winnt:notice] [pid 7392:tid 604] AH00354: Child: Starting 64 worker threads.
