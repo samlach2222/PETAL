@@ -11,6 +11,9 @@ PETAL/bin/apache/conf/extra/httpd-ssl.conf
 PETAL/bin/apache/conf/httpd.conf
 PETAL/bin/apache/logs/*
 !PETAL/bin/apache/logs/raclette
+PETAL/bin/apache/sessions/*
+!PETAL/bin/apache/sessions/raclette
+!PETAL/bin/apache/tools/raclette
 PETAL/bin/apache/php.ini
 PETAL/bin/database/mysql-5.7.11/data/*.err
 PETAL/bin/database/mysql-5.7.11/data/*.pid
