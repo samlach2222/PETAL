@@ -1,2 +1,2 @@
-PETAL/phpapps/** linguist-detectable=false
-PETAL/bin/**.frm linguist-detectable=false
+PETAL/PETAL/phpapps/** linguist-detectable=false
+PETAL/PETAL/bin/**.frm linguist-detectable=false
