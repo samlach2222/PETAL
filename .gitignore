@@ -1,3 +1,22 @@
 desktop.ini
 
+#Fichier photoshop
 debug.log
+
+#Fichiers uwamp
+PETAL/bin/apache/conf/extra/httpd-autoindex.conf
+PETAL/bin/apache/conf/extra/httpd-dav.conf
+PETAL/bin/apache/conf/extra/httpd-multilang-errordoc.conf
+PETAL/bin/apache/conf/extra/httpd-ssl.conf
+PETAL/bin/apache/conf/httpd.conf
+PETAL/bin/apache/logs/*
+!PETAL/bin/apache/logs/raclette
+PETAL/bin/apache/php.ini
+PETAL/bin/database/mysql-5.7.11/data/*.err
+PETAL/bin/database/mysql-5.7.11/data/*.pid
+PETAL/bin/database/mysql-5.7.11/data/ib_buffer_pool
+PETAL/bin/database/mysql-5.7.11/data/ib_logfile0
+PETAL/bin/database/mysql-5.7.11/data/ib_logfile1
+PETAL/bin/database/mysql-5.7.11/data/ibtmp1
+PETAL/bin/database/mysql-5.7.11/my.ini
+PETAL/uwamp.ini
