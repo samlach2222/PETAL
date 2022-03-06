@@ -23,3 +23,7 @@ PETAL/bin/database/mysql-5.7.11/data/ib_logfile1
 PETAL/bin/database/mysql-5.7.11/data/ibtmp1
 PETAL/bin/database/mysql-5.7.11/my.ini
 PETAL/uwamp.ini
+
+Fichiers temporaires pour le hook pre-commit
+stagedFiles.tmp
+uwampCommitableFiles.tmp
