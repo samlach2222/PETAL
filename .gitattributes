@@ -1,2 +1,5 @@
 PETAL/phpapps/** linguist-detectable=false
 PETAL/bin/** linguist-detectable=false
+
+*.bat eol=crlf
+*.hook eol=lf
