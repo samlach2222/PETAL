@@ -1,5 +1,5 @@
 #!/bin/sh
-version="Version 1.0"
+version="Version 1.1"
 echo "pre-commit: $version"
 
 #Fonction end pour quitter le script
@@ -62,8 +62,18 @@ echo "pre-commit: Trie les fichiers temporaires"
 sort -o stagedFiles.tmp stagedFiles.tmp
 sort -o uwampCommitableFiles.tmp uwampCommitableFiles.tmp
 
-echo "pre-commit: Réajoute les fichiers dans PETAL étant à la fois à commit et pouvant être commit"
-comm -12 stagedFiles.tmp uwampCommitableFiles.tmp | xargs -d '\n' -L1 git add
+#(VOIR LES find AU DESSUS)
+#CHANGER LE PARAGRAPHE SUIVANT EN
+#echo "pre-commit: Réajoute les fichiers dans PETAL étant à la fois à commit et pouvant être commit"
+#comm -12 stagedFiles.tmp uwampCommitableFiles.tmp | xargs -d '\n' -L1 git add
+#UNE FOIS QUE LA BDD SERA CRÉE (phpmyadmin sera déjà enlevé avec les find)
+echo "pre-commit: Réajoute les fichiers dans PETAL étant à la fois à commit et pouvant être commit, en enlevant ceux de la BDD phpmyadmin"
+comm -12 stagedFiles.tmp uwampCommitableFiles.tmp | while read -r line ; do
+	#Si le fichier n'est pas dans le dossier de la BDD phpmyadmin
+    if [[ $line != PETAL/bin/database/mysql-5.7.11/data/phpmyadmin/* ]]; then
+		git add "$line"
+	fi
+done
 
 if [ `git diff --cached --numstat | wc -l` == 0 ]; then
 	echo "pre-commit: ERREUR, IL NE RESTE AUCUN FICHIER À COMMIT"
