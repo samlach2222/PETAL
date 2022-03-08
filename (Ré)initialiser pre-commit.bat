@@ -6,6 +6,7 @@ chcp 65001
 echo Version 1.1
 echo.
 echo Déplace et renomme le fichier "pre-commit.hook" vers ".git\hooks\pre-commit"
-xcopy /Y /F /I "pre-commit.hook" ".git\hooks\pre-commit"
+copy "pre-commit.hook" ".git\hooks\"
+move ".git\hooks\pre-commit.hook" ".git\hooks\pre-commit"
 echo OK
 TIMEOUT 3
