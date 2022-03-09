@@ -82,9 +82,8 @@ CREATE TABLE Cours (
     nomCours VARCHAR(50) NOT NULL,
     fichier VARCHAR(2083) NOT NULL,
     nomMatiere VARCHAR(50) NOT NULL,
-    typeCours VARCHAR(2) NOT NULL,
+    typeCours VARCHAR(2) NOT NULL ENUM('CM','TD','TP'),
     PRIMARY KEY (nomCours),
-    CONSTRAINT CHK_typeCours CHECK(typeCours IN ('CM', 'TD', 'TP')),
     FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere)
 );
 
