@@ -46,10 +46,8 @@ CREATE TABLE Etudiant (
 CREATE TABLE Matiere (
     nomMatiere VARCHAR(50) NOT NULL,
     image LONGBLOB,
-    numAdministrateur INT NOT NULL,
     id INT NOT NULL,
     PRIMARY KEY(nomMatiere),
-    FOREIGN KEY(numAdministrateur) REFERENCES Administrateur(numAdministrateur),
     FOREIGN KEY(id) REFERENCES Utilisateur(id)
 );
 
@@ -84,8 +82,9 @@ CREATE TABLE Cours (
     nomCours VARCHAR(50) NOT NULL,
     fichier VARCHAR(2083) NOT NULL,
     nomMatiere VARCHAR(50) NOT NULL,
-    typeCours VARCHAR(2) NOT NULL CHECK (typeCours="CM"| typeCours="TD" | typeCours="TP"),
+    typeCours VARCHAR(2) NOT NULL,
     PRIMARY KEY (nomCours),
+    CONSTRAINT CHK_typeCours CHECK(typeCours IN ('CM', 'TD', 'TP')),
     FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere)
 );
 
@@ -93,7 +92,7 @@ CREATE TABLE QCM (
     nomQCM VARCHAR(50) NOT NULL,
     nomMatiere VARCHAR(50) NOT NULL,
     dateHeureFin DATETIME,
-    evalue BOOL NOT NULL,
+    evalue BOOLEAN NOT NULL,
     moyenne DECIMAL(4,2),
     nomCours VARCHAR(50),
     PRIMARY KEY (nomQCM),
@@ -124,7 +123,7 @@ CREATE TABLE ReponseDeEtudiant (
     id INT NOT NULL,
     idQuestion INT NOT NULL,
     reponseChoisie VARCHAR(7),
-    reponseJuste BOOL,
+    reponseJuste BOOLEAN,
     PRIMARY KEY (id, idQuestion),
     FOREIGN KEY id REFERENCES Etudiant(id),
     FOREIGN KEY idQuestion REFERENCES Question(idQuestion)
