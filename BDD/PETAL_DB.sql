@@ -82,7 +82,7 @@ CREATE TABLE Cours (
     nomCours VARCHAR(50) NOT NULL,
     fichier VARCHAR(2083) NOT NULL,
     nomMatiere VARCHAR(50) NOT NULL,
-    typeCours VARCHAR(2) NOT NULL ENUM('CM','TD','TP'),
+    typeCours ENUM('CM','TD','TP') NOT NULL,
     PRIMARY KEY (nomCours),
     FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere)
 );
@@ -124,6 +124,6 @@ CREATE TABLE ReponseDeEtudiant (
     reponseChoisie VARCHAR(7),
     reponseJuste BOOLEAN,
     PRIMARY KEY (id, idQuestion),
-    FOREIGN KEY id REFERENCES Etudiant(id),
-    FOREIGN KEY idQuestion REFERENCES Question(idQuestion)
+    FOREIGN KEY (id) REFERENCES Etudiant(id),
+    FOREIGN KEY (idQuestion) REFERENCES Question(idQuestion)
 );
