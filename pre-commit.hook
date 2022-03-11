@@ -1,8 +1,8 @@
 #!/bin/sh
-version="Version 1.4"
+version="Version 2.0"
 echo "pre-commit: $version"
 
-#Fonction end pour quitter le script
+# Fonction end pour quitter le script
 End(){
 	echo "pre-commit: FIN, supprime les fichiers temporaires"
 	rm -f stagedFiles.tmp
@@ -11,20 +11,20 @@ End(){
 	exit $1
 }
 
-#Interrompt dès qu'une erreur est rencontrée
+# Interrompt dès qu'une erreur est rencontrée
 set -e
 
-#Arrête le script et demande d'exécuter le batch si les versions ne correspondent pas
+# Arrête le script et demande d'exécuter le batch si les versions ne correspondent pas
 echo "pre-commit: Check la version du hook pre-commit"
 read -r firstLineBatch<"(Ré)initialiser pre-commit.bat"
-#Enlève le caractère CR de firstLineBatch pour pouvoir comparer
+# Enlève le caractère CR de firstLineBatch pour pouvoir comparer
 if [[ "${firstLineBatch%$'\r'}" != "::$version" ]]; then
 	echo -e "\npre-commit: ERREUR, VEUILLEZ LANCER LE BATCH \"(Ré)initialiser pre-commit.bat\" POUR METTRE LE PRE-COMMIT À JOUR\n"
 	End 1
 fi
 
-#Par défaut les commandes git n'output pas en UTF-8
-#L'activer permet de supporter l'UTF-8 pour la suite de ce bash
+# Par défaut les commandes git n'output pas en UTF-8
+# L'activer permet de supporter l'UTF-8 pour la suite de ce bash
 echo "pre-commit: Active les outputs UTF-8 avec git pour ce repo"
 git config core.quotepath off
 
@@ -47,8 +47,8 @@ else
 	echo "pre-commit: Il y a des fichiers à commit se trouvant dans PETAL"
 fi
 
-echo "pre-commit: Crée et remplie le fichier uwampCommitableFiles.tmp avec les fichiers dans PETAL pouvant être commit"
-# Fichiers Base De Données
+echo "pre-commit: Crée et remplie les fichiers uwampBDDCommitableFiles.tmp et uwampWebCommitableFiles.tmp avec les fichiers dans PETAL pouvant être commit"
+# Fichiers Base De Données (ibdata1 est le seul fichier nécessaire, en + des BDD créées)
 find PETAL/bin/database/mysql-5.7.11/data/petal_db -type f -exec echo {} > uwampBDDCommitableFiles.tmp \;
 echo "PETAL/bin/database/mysql-5.7.11/data/ibdata1" >> uwampBDDCommitableFiles.tmp
 # Fichiers Web
@@ -58,14 +58,33 @@ echo "pre-commit: Enlève les fichiers dans PETAL des fichiers à commit"
 git reset HEAD -- PETAL
 
 # Trier les fichiers dans l'ordre alphabétique est nécessaire pour
-# la commande comm utilisée après
+# les commandes comm utilisées après
 echo "pre-commit: Trie les fichiers temporaires"
 sort -o stagedFiles.tmp stagedFiles.tmp
 sort -o uwampBDDCommitableFiles.tmp uwampBDDCommitableFiles.tmp
 sort -o uwampWebCommitableFiles.tmp uwampWebCommitableFiles.tmp
 
-echo "pre-commit: Réajoute les fichiers dans PETAL étant à la fois à commit et pouvant être commit"
-comm -12 stagedFiles.tmp uwampBDDCommitableFiles.tmp | xargs -d '\n' -L1 git add
+# Si au moins 1 fichier BDD dans PETAL est à commit, il faut
+# commit tous les fichiers BDD dans PETAL
+echo "pre-commit: Check s'il y a des fichiers BDD dans PETAL parmi les fichiers à commit"
+FichiersBDDSelectionnes=0
+while IFS= read -r line; do
+    if [[ $line == PETAL/bin/database/mysql-5.7.11/data/* ]]; then
+		FichiersBDDSelectionnes=1
+		break
+	fi
+done < stagedFiles.tmp
+
+if [ $FichiersBDDSelectionnes == 1 ]; then
+	echo "pre-commit: Au moins 1 fichier BDD dans PETAL à commit, ajoute tous les fichiers BDD dans PETAL"
+	while IFS= read -r line; do
+		git add $line
+	done < uwampBDDCommitableFiles.tmp
+else
+	echo "pre-commit: Pas de fichier BDD dans PETAL à commit"
+fi
+
+echo "pre-commit: Ajoute les fichiers Web dans PETAL étant à la fois à commit et pouvant être commit"
 comm -12 stagedFiles.tmp uwampWebCommitableFiles.tmp | xargs -d '\n' -L1 git add
 
 if [ `git diff --cached --numstat | wc -l` == 0 ]; then
