@@ -1,5 +1,5 @@
 #!/bin/sh
-version="Version 2.0"
+version="Version 2.1"
 echo "pre-commit: $version"
 
 # Fonction end pour quitter le script
@@ -40,7 +40,7 @@ while IFS= read -r line; do
 	fi
 done < stagedFiles.tmp
 
-if [ $sortieRapide == 1 ]; then
+if [[ $sortieRapide == 1 ]]; then
 	echo "pre-commit: Aucun fichier à commit n'est dans PETAL, sortie rapide"
 	End 0
 else
@@ -69,13 +69,13 @@ sort -o uwampWebCommitableFiles.tmp uwampWebCommitableFiles.tmp
 echo "pre-commit: Check s'il y a des fichiers BDD dans PETAL parmi les fichiers à commit"
 FichiersBDDSelectionnes=0
 while IFS= read -r line; do
-    if [[ $line == PETAL/bin/database/mysql-5.7.11/data/* ]]; then
+    if [[ $line == PETAL/bin/database/mysql-5.7.11/data/ibdata1 || $line == PETAL/bin/database/mysql-5.7.11/data/petal_db/* ]]; then
 		FichiersBDDSelectionnes=1
 		break
 	fi
 done < stagedFiles.tmp
 
-if [ $FichiersBDDSelectionnes == 1 ]; then
+if [[ $FichiersBDDSelectionnes == 1 ]]; then
 	echo "pre-commit: Au moins 1 fichier BDD dans PETAL à commit, ajoute tous les fichiers BDD dans PETAL"
 	while IFS= read -r line; do
 		git add $line
@@ -87,7 +87,7 @@ fi
 echo "pre-commit: Ajoute les fichiers Web dans PETAL étant à la fois à commit et pouvant être commit"
 comm -12 stagedFiles.tmp uwampWebCommitableFiles.tmp | xargs -d '\n' -L1 git add
 
-if [ `git diff --cached --numstat | wc -l` == 0 ]; then
+if [[ `git diff --cached --numstat | wc -l` == 0 ]]; then
 	echo -e "\npre-commit: ERREUR, IL NE RESTE AUCUN FICHIER À COMMIT\n"
 	End 1
 fi

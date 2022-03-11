@@ -1,9 +1,9 @@
-::Version 2.0
+::Version 2.1
 @ECHO OFF
 cd "%~dp0"
 chcp 65001
 
-echo Version 2.0
+echo Version 2.1
 echo.
 echo Déplace et renomme le fichier "pre-commit.hook" vers ".git\hooks\pre-commit"
 copy "pre-commit.hook" ".git\hooks\"
