@@ -1,12 +1,13 @@
 #!/bin/sh
-version="Version 1.2"
+version="Version 1.3"
 echo "pre-commit: $version"
 
 #Fonction end pour quitter le script
 End(){
 	echo "pre-commit: FIN, supprime les fichiers temporaires"
 	rm -f stagedFiles.tmp
-	rm -f uwampCommitableFiles.tmp
+	rm -f uwampBDDCommitableFiles.tmp
+	rm -f uwampWebCommitableFiles.tmp
 	exit $1
 }
 
@@ -47,22 +48,25 @@ else
 fi
 
 echo "pre-commit: Crée et remplie le fichier uwampCommitableFiles.tmp avec les fichiers dans PETAL pouvant être commit"
-find PETAL/bin/database/mysql-5.7.11/data/petal_db -type f -exec echo {} > uwampCommitableFiles.tmp \;
-find PETAL/bin/database/mysql-5.7.11/data/mysql -type f -exec echo {} >> uwampCommitableFiles.tmp \;
-find PETAL/bin/database/mysql-5.7.11/data/performance_schema -type f -exec echo {} >> uwampCommitableFiles.tmp \;
-find PETAL/bin/database/mysql-5.7.11/data/sys -type f -exec echo {} >> uwampCommitableFiles.tmp \;
-find PETAL/www -type f -exec echo {} >> uwampCommitableFiles.tmp \;
-echo "PETAL/bin/database/mysql-5.7.11/data/ibdata1" >> uwampCommitableFiles.tmp
+# Fichiers Base De Données
+find PETAL/bin/database/mysql-5.7.11/data/petal_db -type f -exec echo {} > uwampBDDCommitableFiles.tmp \;
+echo "PETAL/bin/database/mysql-5.7.11/data/ibdata1" >> uwampBDDCommitableFiles.tmp
+# Fichiers Web
+find PETAL/www -type f -exec echo {} > uwampWebCommitableFiles.tmp \;
 
 echo "pre-commit: Enlève les fichiers dans PETAL des fichiers à commit"
 git reset HEAD -- PETAL
 
+# Trier les fichiers dans l'ordre alphabétique est nécessaire pour
+# la commande comm utilisée après
 echo "pre-commit: Trie les fichiers temporaires"
 sort -o stagedFiles.tmp stagedFiles.tmp
-sort -o uwampCommitableFiles.tmp uwampCommitableFiles.tmp
+sort -o uwampBDDCommitableFiles.tmp uwampBDDCommitableFiles.tmp
+sort -o uwampWebCommitableFiles.tmp uwampWebCommitableFiles.tmp
 
 echo "pre-commit: Réajoute les fichiers dans PETAL étant à la fois à commit et pouvant être commit"
-comm -12 stagedFiles.tmp uwampCommitableFiles.tmp | xargs -d '\n' -L1 git add
+comm -12 stagedFiles.tmp uwampBDDCommitableFiles.tmp | xargs -d '\n' -L1 git add
+comm -12 stagedFiles.tmp uwampWebCommitableFiles.tmp | xargs -d '\n' -L1 git add
 
 if [ `git diff --cached --numstat | wc -l` == 0 ]; then
 	echo "pre-commit: ERREUR, IL NE RESTE AUCUN FICHIER À COMMIT"

@@ -26,4 +26,5 @@ PETAL/uwamp.ini
 
 Fichiers temporaires pour le hook pre-commit
 stagedFiles.tmp
-uwampCommitableFiles.tmp
+uwampBDDCommitableFiles.tmp
+uwampWebCommitableFiles.tmp
