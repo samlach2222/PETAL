@@ -1,5 +1,5 @@
 #!/bin/sh
-version="Version 2.1"
+version="Version 3.0"
 echo "pre-commit: $version"
 
 # Fonction end pour quitter le script
@@ -16,7 +16,7 @@ set -e
 
 # Arrête le script et demande d'exécuter le batch si les versions ne correspondent pas
 echo "pre-commit: Check la version du hook pre-commit"
-read -r firstLineBatch<"(Ré)initialiser pre-commit.bat"
+read -r firstLineBatch < "(Ré)initialiser pre-commit.bat"
 # Enlève le caractère CR de firstLineBatch pour pouvoir comparer
 if [[ "${firstLineBatch%$'\r'}" != "::$version" ]]; then
 	echo -e "\npre-commit: ERREUR, VEUILLEZ LANCER LE BATCH \"(Ré)initialiser pre-commit.bat\" POUR METTRE LE PRE-COMMIT À JOUR\n"
@@ -32,13 +32,9 @@ echo "pre-commit: Crée et remplie le fichier stagedFiles.tmp avec les fichiers 
 git diff --name-only --cached > stagedFiles.tmp
 
 echo "pre-commit: Check s'il y a des fichiers dans PETAL parmi les fichiers à commit"
-sortieRapide=1
-while IFS= read -r line; do
-    if [[ $line == PETAL/* ]]; then
-		sortieRapide=0
-		break
-	fi
-done < stagedFiles.tmp
+sortieRapide=$(awk 'BEGIN {awk_sortieRapide=1}
+/PETAL\// {awk_sortieRapide=0; exit}
+END {print awk_sortieRapide}' stagedFiles.tmp)
 
 if [[ $sortieRapide == 1 ]]; then
 	echo "pre-commit: Aucun fichier à commit n'est dans PETAL, sortie rapide"
@@ -67,19 +63,13 @@ sort -o uwampWebCommitableFiles.tmp uwampWebCommitableFiles.tmp
 # Si au moins 1 fichier BDD dans PETAL est à commit, il faut
 # commit tous les fichiers BDD dans PETAL
 echo "pre-commit: Check s'il y a des fichiers BDD dans PETAL parmi les fichiers à commit"
-FichiersBDDSelectionnes=0
-while IFS= read -r line; do
-    if [[ $line == PETAL/bin/database/mysql-5.7.11/data/ibdata1 || $line == PETAL/bin/database/mysql-5.7.11/data/petal_db/* ]]; then
-		FichiersBDDSelectionnes=1
-		break
-	fi
-done < stagedFiles.tmp
+FichiersBDDSelectionnes=$(awk 'BEGIN {awk_FichiersBDDSelectionnes=0}
+/PETAL\/bin\/database\/mysql-5.7.11\/data\/(ibdata1|petal_db\/)/ {awk_FichiersBDDSelectionnes=1; exit}
+END {print awk_FichiersBDDSelectionnes}' stagedFiles.tmp)
 
 if [[ $FichiersBDDSelectionnes == 1 ]]; then
 	echo "pre-commit: Au moins 1 fichier BDD dans PETAL à commit, ajoute tous les fichiers BDD dans PETAL"
-	while IFS= read -r line; do
-		git add $line
-	done < uwampBDDCommitableFiles.tmp
+	awk '{system("git add " "\"" $0 "\"")}' uwampBDDCommitableFiles.tmp
 else
 	echo "pre-commit: Pas de fichier BDD dans PETAL à commit"
 fi
