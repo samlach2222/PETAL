@@ -39,6 +39,7 @@ a {
     height: 20em;
     align-items: center;
     justify-content: space-around;
+    background-color: #1D0027;
 }
 
 #logoNomPrenom {
@@ -77,4 +78,9 @@ button {
     text-align: center;
     padding-top: 1em;
     padding-bottom: 1em;
+}
+
+#bandeau {
+    position:relative;
+    z-index : 2;
 }
