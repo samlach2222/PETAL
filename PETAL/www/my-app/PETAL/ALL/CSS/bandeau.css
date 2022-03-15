@@ -2,12 +2,22 @@ body {
     background-color: #1D0027;
     color: #EEE0E8;
     margin: 0;
+    font-family: Vollkorn, sans-serif;
+}
+
+@font-face {
+    font-family: Quicksand;
+    src: url(../../Ressources/Fonts/Quicksand/Quicksand-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: Vollkorn;
+    src: url(../../Ressources/Fonts/Vollkorn/Vollkorn-VariableFont_wght.ttf);
 }
 
 #top-bar {
     background-color: #A30080;
     font-size: 2.5em;
-    font-family: Verdana;
     display: flex;
     flex-direction: row;
     justify-content: space-between; 
@@ -61,7 +71,6 @@ a {
 }
 
 button {
-    font-family: Verdana;
     font-size: 2em;
     padding: 0.25em;
     border-radius: 0.3em;
