@@ -1,5 +1,5 @@
 #!/bin/sh
-version="Version 4.0"
+version="Version 4.1"
 echo "pre-commit: $version"
 
 # Fonction end pour quitter le script
@@ -17,7 +17,9 @@ echo "pre-commit: Check la version du hook pre-commit"
 read -r firstLineBatch < "(Ré)initialiser pre-commit.bat"
 # Enlève le caractère CR de firstLineBatch pour pouvoir comparer
 if [[ "${firstLineBatch%$'\r'}" != "::$version" ]]; then
-	echo -e "\npre-commit: ERREUR, VEUILLEZ LANCER LE BATCH \"(Ré)initialiser pre-commit.bat\" POUR METTRE LE PRE-COMMIT À JOUR\n"
+	cp -f "pre-commit.hook" ".git/hooks/pre-commit"
+	echo -e "\npre-commit: Le hook pre-commit a été mis à jour"
+	echo -e "pre-commit: VEUILLEZ COMMIT À NOUVEAU\n"
 	End 1
 fi
 
