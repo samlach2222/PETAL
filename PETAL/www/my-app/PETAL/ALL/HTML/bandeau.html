@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="icon" type="image/x-icon" href="../../Ressources/Icon/logo%20PETAL.svg">
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../../Ressources/Icon/logo%20PETAL.svg">
+    <link href="../css/bandeau.css" rel="stylesheet" type="text/css">
     <title>Title</title>
 </head>
 <body>
     <div id="top-bar" class="top-bar">
 
+        <div id="boutonForum">
+            <a href="listeforum.html"> Forum </a>
+        </div>
+
+        <div id="top-bar-right" onclick="popup()">
+            <span>Prénom NOM</span>
+            <img src="../../Ressources/Icon/logo PETAL.svg" width="40px" height="40px"/>
+        </div>
     </div>
+
+    <div id="popup">
+        <div id="logoNomPrenom" href="espace_perso.html">
+            <img id="imgPopup" src="../../Ressources/Icon/logo PETAL.svg" width="100px" height="100px"/>
+            <span id="nomprenom">Prénom NOM</span>
+        </div>
+        <span id="switch">switch thème</span>
+        <button>Déconnexion</button>
+    </div>
+
 </body>
 </html>

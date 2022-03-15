@@ -1,0 +1,80 @@
+body {
+    background-color: #1D0027;
+    color: #EEE0E8;
+    margin: 0;
+}
+
+#top-bar {
+    background-color: #A30080;
+    font-size: 2.5em;
+    font-family: Verdana;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    height: 1.8em;
+    align-items: center;
+    padding-left: 1.2%;
+    padding-right: 1.2%;
+}
+
+a {
+    color: #EEE0E8;
+    text-decoration: NONE;
+}
+
+#top-bar-right {
+    align-items: center;
+}
+
+#popup {
+    margin-left: auto;
+    border-color: #A30080;
+    border-style: solid;
+    border-top: 0;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    display: flex;
+    flex-direction: column;
+    width: 19em;
+    height: 20em;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#logoNomPrenom {
+    display: flex;
+    flex-direction: column;
+}
+
+#imgPopup {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+    border-style: solid;
+    border-color: #EEE0E8;
+    border-radius: 50%;
+}
+
+#nomprenom {
+    font-size: 2em;
+}
+
+button {
+    font-family: Verdana;
+    font-size: 2em;
+    padding: 0.25em;
+    border-radius: 0.3em;
+    background-color: #8F0039;
+    color: #EEE0E8;
+}
+
+#switch {
+    border-style: solid;
+    border-right: #EEE0E8;
+    border-left: #EEE0E8;
+    border-width: 0.15em;
+    width: 70%;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
