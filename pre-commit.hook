@@ -1,13 +1,11 @@
 #!/bin/sh
-version="Version 3.0"
+version="Version 4.0"
 echo "pre-commit: $version"
 
 # Fonction end pour quitter le script
 End(){
-	echo "pre-commit: FIN, supprime les fichiers temporaires"
+	echo "pre-commit: FIN, supprime le fichier temporaire stagedFiles.tmp"
 	rm -f stagedFiles.tmp
-	rm -f uwampBDDCommitableFiles.tmp
-	rm -f uwampWebCommitableFiles.tmp
 	exit $1
 }
 
@@ -43,22 +41,8 @@ else
 	echo "pre-commit: Il y a des fichiers à commit se trouvant dans PETAL"
 fi
 
-echo "pre-commit: Crée et remplie les fichiers uwampBDDCommitableFiles.tmp et uwampWebCommitableFiles.tmp avec les fichiers dans PETAL pouvant être commit"
-# Fichiers Base De Données (ibdata1 est le seul fichier nécessaire, en + des BDD créées)
-find PETAL/bin/database/mysql-5.7.11/data/petal_db -type f -exec echo {} > uwampBDDCommitableFiles.tmp \;
-echo "PETAL/bin/database/mysql-5.7.11/data/ibdata1" >> uwampBDDCommitableFiles.tmp
-# Fichiers Web
-find PETAL/www -type f -exec echo {} > uwampWebCommitableFiles.tmp \;
-
 echo "pre-commit: Enlève les fichiers dans PETAL des fichiers à commit"
-git reset HEAD -- PETAL
-
-# Trier les fichiers dans l'ordre alphabétique est nécessaire pour
-# les commandes comm utilisées après
-echo "pre-commit: Trie les fichiers temporaires"
-sort -o stagedFiles.tmp stagedFiles.tmp
-sort -o uwampBDDCommitableFiles.tmp uwampBDDCommitableFiles.tmp
-sort -o uwampWebCommitableFiles.tmp uwampWebCommitableFiles.tmp
+git reset -q HEAD -- PETAL
 
 # Si au moins 1 fichier BDD dans PETAL est à commit, il faut
 # commit tous les fichiers BDD dans PETAL
@@ -69,13 +53,14 @@ END {print awk_FichiersBDDSelectionnes}' stagedFiles.tmp)
 
 if [[ $FichiersBDDSelectionnes == 1 ]]; then
 	echo "pre-commit: Au moins 1 fichier BDD dans PETAL à commit, ajoute tous les fichiers BDD dans PETAL"
-	awk '{system("git add " "\"" $0 "\"")}' uwampBDDCommitableFiles.tmp
+	git add "PETAL/bin/database/mysql-5.7.11/data/ibdata1"
+	git add "PETAL/bin/database/mysql-5.7.11/data/petal_db"
 else
 	echo "pre-commit: Pas de fichier BDD dans PETAL à commit"
 fi
 
 echo "pre-commit: Ajoute les fichiers Web dans PETAL étant à la fois à commit et pouvant être commit"
-comm -12 stagedFiles.tmp uwampWebCommitableFiles.tmp | xargs -d '\n' -L1 git add
+awk '/PETAL\/www\// {system("git add " "\"" $0 "\"")}' stagedFiles.tmp
 
 if [[ `git diff --cached --numstat | wc -l` == 0 ]]; then
 	echo -e "\npre-commit: ERREUR, IL NE RESTE AUCUN FICHIER À COMMIT\n"
