@@ -1,0 +1,61 @@
+body {
+    background-color: #F5F5F5;
+    color: #1F1E1F;
+    font-family: Quicksand, sans-serif;
+}
+
+@font-face {
+    font-family: Quicksand;
+    src: url(../../Ressources/Fonts/Quicksand/Quicksand-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: Vollkorn;
+    src: url(../../Ressources/Fonts/Vollkorn/Vollkorn-VariableFont_wght.ttf);
+}
+
+h1 {
+    font-size: 3em;
+}
+
+.matiere {
+    width: 22em;
+    height: 22em;
+    border-collapse: separate; 
+    border-spacing: 0em;
+    border-radius: 10%;
+    border-style: solid;
+    border-color: #1F1E1F;
+    overflow: hidden;
+}
+
+th {
+    background-color: #CD5162;
+    border-width: 0em;
+    border-bottom-width: 0.15em;
+    border-style: solid;
+    border-color: #1F1E1F;
+    width: 1em;
+    height: 5em;
+}
+
+span {
+    font-size: 2em;
+}
+
+#centre {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.espace {
+    padding-left: 5em;
+    padding-right: 5em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.image {
+    background-color: #F88C95;
+    text-align: center;
+}
