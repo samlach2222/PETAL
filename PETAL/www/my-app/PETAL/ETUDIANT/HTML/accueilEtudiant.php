@@ -7,6 +7,8 @@
         <title>Page d'Accueil</title>
     </head>
     <body>
+        <?php include("../../ALL/HTML/bandeau.html");?>
+
         <h1>Recommandation de Cours :</h1>
 
         <table id="centre">
@@ -114,9 +116,5 @@
             </tr>
 
         </table>
-
-
-
-        <?php include("../../ALL/HTML/bandeau.html");?>
     </body>
 </html>
