@@ -9,7 +9,7 @@
     <body>
         <?php include("../../ALL/HTML/bandeau.html");?>
 
-        <div>
+        <div id="content">
             <h1>Recommandation de Cours :</h1>
 
             <table id="centre">
