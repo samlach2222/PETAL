@@ -9,112 +9,114 @@
     <body>
         <?php include("../../ALL/HTML/bandeau.html");?>
 
-        <h1>Recommandation de Cours :</h1>
+        <div>
+            <h1>Recommandation de Cours :</h1>
 
-        <table id="centre">
-            <tr>
-                <td class="espace">
+            <table id="centre">
+                <tr>
+                    <td class="espace">
 
-                    <table class="matiere">
-                        <tr>
-                            <th>
-                                <span>BDD</span>
-                            </th>
-                        </tr>
-                        <tr>
-                            <td class="image">
-                                Image 1
-                            </td>
-                        </tr>
-                        
-                    </table>
+                        <table class="matiere">
+                            <tr>
+                                <th>
+                                    <span>BDD</span>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="image">
+                                    Image 1
+                                </td>
+                            </tr>
+                            
+                        </table>
 
-                </td>
-                <td class="espace">
+                    </td>
+                    <td class="espace">
 
-                    <table class="matiere">
-                        <tr>
-                            <th>
-                                <span>CDAA</span>
-                            </th>
-                        </tr>
-                        <tr>
-                            <td class="image">
-                                Image 2
-                            </td>
-                        </tr>
-                    </table>
+                        <table class="matiere">
+                            <tr>
+                                <th>
+                                    <span>CDAA</span>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="image">
+                                    Image 2
+                                </td>
+                            </tr>
+                        </table>
 
-                </td>
-                <td class="espace">
+                    </td>
+                    <td class="espace">
 
-                    <table class="matiere">
-                        <tr>
-                            <th>
-                                <span>Modélisation</span>
-                            </th>
-                        </tr>
-                        <tr>
-                            <td class="image">
-                                Image 3
-                            </td>
-                        </tr>
-                    </table>
+                        <table class="matiere">
+                            <tr>
+                                <th>
+                                    <span>Modélisation</span>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="image">
+                                    Image 3
+                                </td>
+                            </tr>
+                        </table>
 
-                </td>
-            </tr>
+                    </td>
+                </tr>
 
-            <tr>
-                <td class="espace">
+                <tr>
+                    <td class="espace">
 
-                    <table class="matiere">
-                        <tr>
-                            <th>
-                                <span>Synthèse d'Images</span>
-                            </th>
-                        </tr>
-                        <tr>
-                            <td class="image">
-                                Image 4
-                            </td>
-                        </tr>
-                    </table>
+                        <table class="matiere">
+                            <tr>
+                                <th>
+                                    <span>Synthèse d'Images</span>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="image">
+                                    Image 4
+                                </td>
+                            </tr>
+                        </table>
 
-                </td>
-                <td class="espace">
+                    </td>
+                    <td class="espace">
 
-                    <table class="matiere">
-                        <tr>
-                            <th>
-                                <span>Systèmes & Réseaux</span>
-                            </th>
-                        </tr>
-                        <tr>
-                            <td class="image">
-                                Image 5
-                            </td>
-                        </tr>
-                    </table>
+                        <table class="matiere">
+                            <tr>
+                                <th>
+                                    <span>Systèmes & Réseaux</span>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="image">
+                                    Image 5
+                                </td>
+                            </tr>
+                        </table>
 
-                </td>
-                <td class="espace">
+                    </td>
+                    <td class="espace">
 
-                    <table class="matiere">
-                        <tr>
-                            <th>
-                                <span>Maths</span>
-                            </th>
-                        </tr>
-                        <tr>
-                            <td class="image">
-                                Image 6
-                            </td>
-                        </tr>
-                    </table>
+                        <table class="matiere">
+                            <tr>
+                                <th>
+                                    <span>Maths</span>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="image">
+                                    Image 6
+                                </td>
+                            </tr>
+                        </table>
 
-                </td>
-            </tr>
+                    </td>
+                </tr>
 
-        </table>
+            </table>
+        </div>
     </body>
 </html>
