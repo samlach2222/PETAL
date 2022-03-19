@@ -1,0 +1,95 @@
+body {
+    background-color: #F5F5F5;
+    color: #1F1E1F;
+    margin: 0;
+    font-family: Vollkorn, sans-serif;
+}
+
+@font-face {
+    font-family: Quicksand;
+    src: url(../../Ressources/Fonts/Quicksand/Quicksand-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: Vollkorn;
+    src: url(../../Ressources/Fonts/Vollkorn/Vollkorn-VariableFont_wght.ttf);
+}
+
+#top-bar {
+    background-color: #CD5162;
+    font-size: 2.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    height: 1.8em;
+    align-items: center;
+    padding-left: 1.2%;
+    padding-right: 1.2%;
+}
+
+a {
+    color: #1F1E1F;
+    text-decoration: NONE;
+}
+
+#top-bar-right {
+    align-items: center;
+}
+
+#popup {
+    margin-left: auto;
+    border-color: #1F1E1F;
+    border-style: solid;
+    border-top: 0;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    display: flex;
+    flex-direction: column;
+    width: 19em;
+    height: 20em;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #F88C95;
+}
+
+#logoNomPrenom {
+    display: flex;
+    flex-direction: column;
+}
+
+#imgPopup {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+    border-style: solid;
+    border-color: #1F1E1F;
+    border-radius: 50%;
+}
+
+#nomprenom {
+    font-size: 2em;
+}
+
+button {
+    font-size: 2em;
+    padding: 0.25em;
+    border-radius: 0.3em;
+    background-color: #CD5162;
+    color: #1F1E1F;
+}
+
+#switch {
+    border-style: solid;
+    border-right: #1F1E1F;
+    border-left: #1F1E1F;
+    border-width: 0.15em;
+    width: 70%;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#bandeau {
+    position:relative;
+    z-index : 2;
+}
