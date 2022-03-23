@@ -25,6 +25,8 @@ body {
     align-items: center;
     padding-left: 1.2%;
     padding-right: 1.2%;
+    border-bottom: 4px solid #1f1e1f;
+    border-spacing: 0em;
 }
 
 a {
