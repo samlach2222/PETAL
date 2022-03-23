@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <link rel="stylesheet" href="../../ALL/CSS/bandeau.css">
-    <link rel="stylesheet" href="../CSS/accueil_admin.css">
+    <link rel="stylesheet" href="../CSS/accueil_admin_dark.css">
     <link rel="icon" type="image/x-icon" href="../../Ressources/Icon/logo%20PETAL.svg">
     <meta charset="UTF-8">
     <title>Page d'accueil</title>
@@ -10,7 +10,6 @@
 <body>
     <?php include("../../ALL/HTML/bandeau.html");?>
     <div id="PageAccueil">
-    <span id="retour"><- Retour</span>
     <table id="centre">
         <tr>
             <td class="espace">
