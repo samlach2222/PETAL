@@ -1,0 +1,77 @@
+@font-face {
+    font-family: Quicksand;
+    src: url(../../Ressources/Fonts/Quicksand/Quicksand-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: Vollkorn;
+    src: url(../../Ressources/Fonts/Vollkorn/Vollkorn-VariableFont_wght.ttf);
+}
+
+body {
+    background-color: #1d0027;
+    color: #eee0e8;
+    font-family: Quicksand, sans-serif;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+th {
+    background-color: #FF00C9;
+    border-width: 0em;
+    border-bottom-width: 0.3em;
+    border-style: solid;
+    border-color: #eee0e8;
+    width: 1em;
+    height: 5em;
+}
+
+#centre {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#PageAccueil {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    margin-top: 6em;
+    display: flex;
+    flex-direction: column;
+}
+
+#retour {
+    padding-left: 1em;
+    font-size: 1em;
+}
+
+.espace {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.gestion {
+    width: 27em;
+    height: 36em;
+    border-collapse: separate; 
+    border-spacing: 0em;
+    border-radius: 10%;
+    border-style: solid;
+    border-width: 0.4em;
+    border-color: #eee0e8;
+    overflow: hidden;
+}
+
+.image {
+    background-color: #A30080;
+    text-align: center;
+}
+
+.titre {
+    font-size: 2em;
+}
