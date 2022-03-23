@@ -71,10 +71,10 @@ input[type="text"], input[type="tel"], input[type="email"], input[type="password
 
 #valider {
     background-color: #a30080;
-    margin-left: 40%;
+    margin-left: 10em;
 }
 
 #annuler {
     background-color: #8f0039;
-    margin-right: 40%;
+    margin-right: 10em;
 }
