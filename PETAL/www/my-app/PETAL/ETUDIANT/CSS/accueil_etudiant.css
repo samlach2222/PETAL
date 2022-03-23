@@ -1,6 +1,7 @@
+/* Include Bandeau.css */
+@import "../../ALL/CSS/bandeau_light.css";
+
 body {
-    background-color: #F5F5F5;
-    color: #1F1E1F;
     font-family: Quicksand, sans-serif;
     width: 100%;
     height: 100%;
@@ -18,18 +19,9 @@ body {
     flex-direction: column;
 }
 
-@font-face {
-    font-family: Quicksand;
-    src: url(../../Ressources/Fonts/Quicksand/Quicksand-VariableFont_wght.ttf);
-}
-
-@font-face {
-    font-family: Vollkorn;
-    src: url(../../Ressources/Fonts/Vollkorn/Vollkorn-VariableFont_wght.ttf);
-}
-
 h1 {
     font-size: 3em;
+    text-align: center;
 }
 
 .matiere {
@@ -53,7 +45,7 @@ th {
     height: 5em;
 }
 
-span {
+#NomCours {
     font-size: 2em;
 }
 
@@ -63,10 +55,7 @@ span {
 }
 
 .espace {
-    padding-left: 5em;
-    padding-right: 5em;
-    padding-bottom: 1em;
-    padding-top: 1em;
+    padding: 1em 5em;
 }
 
 .image {

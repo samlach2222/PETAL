@@ -2,7 +2,6 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../../ALL/CSS/bandeau_light.css">
         <link rel="stylesheet" href="../CSS/accueil_etudiant.css">
         <title>Page d'Accueil</title>
     </head>
@@ -19,7 +18,7 @@
                         <table class="matiere">
                             <tr>
                                 <th>
-                                    <span>BDD</span>
+                                    <span class="nomCours">BDD</span>
                                 </th>
                             </tr>
                             <tr>
@@ -36,7 +35,7 @@
                         <table class="matiere">
                             <tr>
                                 <th>
-                                    <span>CDAA</span>
+                                    <span class="nomCours">CDAA</span>
                                 </th>
                             </tr>
                             <tr>
@@ -52,7 +51,7 @@
                         <table class="matiere">
                             <tr>
                                 <th>
-                                    <span>Modélisation</span>
+                                    <span class="nomCours">Modélisation</span>
                                 </th>
                             </tr>
                             <tr>
@@ -71,7 +70,7 @@
                         <table class="matiere">
                             <tr>
                                 <th>
-                                    <span>Synthèse d'Images</span>
+                                    <span class="nomCours">Synthèse d'Images</span>
                                 </th>
                             </tr>
                             <tr>
@@ -87,7 +86,7 @@
                         <table class="matiere">
                             <tr>
                                 <th>
-                                    <span>Systèmes & Réseaux</span>
+                                    <span class="nomCours">Systèmes & Réseaux</span>
                                 </th>
                             </tr>
                             <tr>
@@ -103,7 +102,7 @@
                         <table class="matiere">
                             <tr>
                                 <th>
-                                    <span>Maths</span>
+                                    <span class="nomCours">Maths</span>
                                 </th>
                             </tr>
                             <tr>
@@ -115,7 +114,6 @@
 
                     </td>
                 </tr>
-
             </table>
         </div>
     </body>
