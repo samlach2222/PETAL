@@ -1,17 +1,7 @@
-@font-face {
-    font-family: Quicksand;
-    src: url(../../Ressources/Fonts/Quicksand/Quicksand-VariableFont_wght.ttf);
-}
-
-@font-face {
-    font-family: Vollkorn;
-    src: url(../../Ressources/Fonts/Vollkorn/Vollkorn-VariableFont_wght.ttf);
-}
+/* Include Bandeau.css */
+@import "../../ALL/CSS/bandeau.css";
 
 body {
-    background-color: #1d0027;
-    color: #eee0e8;
-    font-family: Quicksand, sans-serif;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -25,7 +15,6 @@ th {
     border-bottom-width: 0.3em;
     border-style: solid;
     border-color: #eee0e8;
-    width: 1em;
     height: 5em;
 }
 
@@ -38,27 +27,22 @@ th {
     position: absolute;
     top: 0;
     width: 100%;
-    margin-top: 8em;
+    margin-top: 4em;
     display: flex;
     flex-direction: column;
 }
 
 .espace {
-    padding-left: 2em;
-    padding-right: 2em;
-    padding-bottom: 1em;
-    padding-top: 1em;
+    padding: 1em 2em;
 }
 
 .gestion {
     width: 27em;
     height: 38em;
-    border-collapse: separate; 
+    border-collapse: separate;
     border-spacing: 0em;
     border-radius: 10%;
-    border-style: solid;
-    border-width: 0.4em;
-    border-color: #eee0e8;
+    border: solid 0.4em #eee0e8;
     overflow: hidden;
 }
 

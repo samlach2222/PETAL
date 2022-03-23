@@ -10,52 +10,52 @@
 <body>
     <?php include("../../ALL/HTML/bandeau.html");?>
     <div id="PageAccueil">
-    <table id="centre">
-        <tr>
-            <td class="espace">
-                <table class="gestion">
-                    <tr>
-                        <th>
-                            <span class="titre">Gestion des cours</span>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td class="image">
-                            Image
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td class="espace">
-                <table class="gestion">
-                    <tr>
-                        <th>
-                            <span class="titre">Gestion des QCM</span>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td class="image">
-                            Image
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td class="espace">
-                <table class="gestion">
-                    <tr>
-                        <th>
-                            <span class="titre">Gestion des utilisateurs</span>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td class="image">
-                            Image
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-</div>
+        <table id="centre">
+            <tr>
+                <td class="espace">
+                    <table class="gestion">
+                        <tr>
+                            <th>
+                                <span class="titre">Gestion des cours</span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="image">
+                                Image
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="espace">
+                    <table class="gestion">
+                        <tr>
+                            <th>
+                                <span class="titre">Gestion des QCM</span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="image">
+                                Image
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="espace">
+                    <table class="gestion">
+                        <tr>
+                            <th>
+                                <span class="titre">Gestion des utilisateurs</span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="image">
+                                Image
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
