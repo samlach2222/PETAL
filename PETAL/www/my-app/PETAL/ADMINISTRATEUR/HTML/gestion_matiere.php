@@ -4,14 +4,14 @@
     <link rel="stylesheet" href="../CSS/gestion_matiere_light.css">
     <link rel="icon" type="image/x-icon" href="../../Ressources/Icon/logo%20PETAL.svg">
     <meta charset="UTF-8">
-    <title>Gestion des cours</title>
+    <title>Gestion des matières</title>
 </head>
 
 <body>
     <?php include("../../ALL/HTML/bandeau.html");?>
     <div id="content">
         <div id="title">
-            <h1>Gestion des cours</h1>
+            <h1>Gestion des matières</h1>
         </div>
 
         <div id="toolbar">
@@ -134,6 +134,5 @@
             </table>
         </div>
     </div>
-
 </body>
 </html>
