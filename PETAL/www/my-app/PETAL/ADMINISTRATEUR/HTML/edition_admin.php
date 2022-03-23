@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="../CSS/edition_admin_dark.css">
+    <link rel="stylesheet" href="../CSS/edition_admin_light.css">
     <link rel="icon" type="image/x-icon" href="../../Ressources/Icon/logo%20PETAL.svg">
     <meta charset="UTF-8">
     <title>Edition d'un administrateur</title>
@@ -16,7 +16,7 @@
         <table>
             <tr>
                 <td colspan="2" >
-                    <input type="button" id="ajoutImageProfil" value="+"/>
+                    <input type="button" id="ajoutImageProfil" value=""/>
                 </td>
             </tr>
             <tr>

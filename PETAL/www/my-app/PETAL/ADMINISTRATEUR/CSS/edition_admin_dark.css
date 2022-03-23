@@ -51,7 +51,6 @@ table {
     border: 3px solid #a30080;
     background: url("../../Ressources/Pictures/Plus_Picture_Dark.png") no-repeat center;
     background-size: 50%;
-    color: #a30080;
 }
 
 input[type="text"], input[type="tel"], input[type="email"], input[type="password"] {
@@ -77,4 +76,8 @@ input[type="text"], input[type="tel"], input[type="email"], input[type="password
 #annuler {
     background-color: #8f0039;
     margin-right: 10em;
+}
+
+label {
+    font-size: 1.2em;
 }
