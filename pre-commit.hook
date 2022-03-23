@@ -1,5 +1,5 @@
 #!/bin/sh
-version="Version 4.1"
+version="Version 4.2"
 echo "pre-commit: $version"
 
 # Fonction end pour quitter le script
@@ -29,7 +29,7 @@ echo "pre-commit: Active les outputs UTF-8 avec git pour ce repo"
 git config core.quotepath off
 
 echo "pre-commit: Crée et remplie le fichier stagedFiles.tmp avec les fichiers à commit"
-git diff --name-only --cached > stagedFiles.tmp
+git diff --name-only --no-renames --cached > stagedFiles.tmp
 
 echo "pre-commit: Check s'il y a des fichiers dans PETAL parmi les fichiers à commit"
 sortieRapide=$(awk 'BEGIN {awk_sortieRapide=1}
