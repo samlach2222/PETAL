@@ -11,7 +11,7 @@
     <div id="content">
         <div class="bandeau">
             <h1 id="titre">Nom Matière</h1>
-            <a id="retour" href="accueilEtudiant.php"><- retour</a>
+            <a id="retour" href="accueil_etudiant.php"><- retour</a>
         </div>
         <h1>CM</h1>
             <div class="liste">

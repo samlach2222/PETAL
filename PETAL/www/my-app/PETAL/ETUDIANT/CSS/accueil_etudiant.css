@@ -1,5 +1,5 @@
 /* Include Bandeau.css */
-@import "../../ALL/CSS/bandeau_light.css";
+@import "../../ALL/CSS/bandeau.css";
 
 body {
     font-family: Quicksand, sans-serif;
@@ -31,16 +31,16 @@ h1 {
     border-spacing: 0em;
     border-radius: 10%;
     border-style: solid;
-    border-color: #1F1E1F;
+    border-color: #EEE0E8;
     overflow: hidden;
 }
 
 th {
-    background-color: #CD5162;
+    background-color: #FF00C9;
     border-width: 0em;
     border-bottom-width: 0.15em;
     border-style: solid;
-    border-color: #1F1E1F;
+    border-color: #EEE0E8;
     width: 1em;
     height: 5em;
 }
@@ -59,6 +59,6 @@ th {
 }
 
 .image {
-    background-color: #F88C95;
+    background-color: #A30080;
     text-align: center;
 }
