@@ -39,6 +39,6 @@
             <a href="https://google.com" target="_blank" class="lien">Evalutation n°1</a>
     </div>
     
-    <!--<?php include("../../ALL/HTML/bandeau.html");?>-->
+    <?php include("../../ALL/HTML/bandeau.html");?>
 </body>
 </html>
