@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="../../ALL/CSS/bandeau_light.css">
+    <link rel="stylesheet" href="../../ALL/CSS/bandeau.css">
     <link rel="stylesheet" href="../CSS/matiere.css">
     <link rel="icon" type="image/x-icon" href="../../Ressources/Icon/logo%20PETAL.svg">
     <meta charset="UTF-8">
@@ -10,8 +10,8 @@
 <body>
     <div id="content">
         <div class="bandeau">
-            <h1 class="titre">Nom Matière</h1>
-            <a class="retour" href="accueilEtudiant.php"><- retour</a>
+            <h1 id="titre">Nom Matière</h1>
+            <a id="retour" href="accueilEtudiant.php"><- retour</a>
         </div>
         <h1>CM</h1>
             <div class="liste">
@@ -39,6 +39,6 @@
             <a href="https://google.com" target="_blank" class="lien">Evalutation n°1</a>
     </div>
     
-    <?php include("../../ALL/HTML/bandeau.html");?>
+    <!--<?php include("../../ALL/HTML/bandeau.html");?>-->
 </body>
 </html>
