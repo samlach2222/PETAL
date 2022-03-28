@@ -1,86 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   width="230.29036mm"
-   height="230.29036mm"
-   viewBox="0 0 230.29036 230.29036"
-   version="1.1"
-   id="svg5"
-   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
-   sodipodi:docname="logo PETAL profil.svg"
-   inkscape:export-filename="logo.png"
-   inkscape:export-xdpi="968.23944"
-   inkscape:export-ydpi="968.23944"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview7"
-     pagecolor="#505050"
-     bordercolor="#eeeeee"
-     borderopacity="1"
-     inkscape:pageshadow="0"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="0"
-     inkscape:document-units="mm"
-     showgrid="false"
-     inkscape:zoom="0.4354376"
-     inkscape:cx="214.72652"
-     inkscape:cy="528.20428"
-     inkscape:window-width="1920"
-     inkscape:window-height="992"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0" />
-  <defs
-     id="defs2">
-    <linearGradient
-       inkscape:collect="always"
-       id="linearGradient1400">
-      <stop
-         style="stop-color:#ff00c9;stop-opacity:0.89711934"
-         offset="0"
-         id="stop1396" />
-      <stop
-         style="stop-color:#fa0000;stop-opacity:0.89803922"
-         offset="1"
-         id="stop1398" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient1400"
-       id="linearGradient1226"
-       x1="623.83783"
-       y1="108.10074"
-       x2="185.27696"
-       y2="52.429424"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(-328.26091,57.326274)" />
-    <rect
-       x="-58.348797"
-       y="822.44019"
-       width="953.03027"
-       height="241.73071"
-       id="rect12484-0" />
-  </defs>
-  <g
-     inkscape:groupmode="layer"
-     id="layer3"
-     inkscape:label="Logo"
-     style="display:inline"
-     transform="translate(9.4274368,-8.8814774)">
-    <path
-       style="fill:url(#linearGradient1226);fill-opacity:1;stroke-width:0.264583"
-       d="m 208.02938,155.34972 c -0.12531,12.27503 -11.53376,17.82848 -21.46985,19.26463 -16.81848,2.43092 -33.80693,3.66099 -50.25255,8.47463 -14.05273,4.11324 -27.4421,10.12445 -41.385356,14.35216 -17.099736,5.18478 -36.593876,10.70939 -53.704493,3.54515 C 29.030693,195.88381 21.759553,183.9584 15.653404,172.50004 9.0119478,160.03717 3.3048273,146.76927 3.4058786,132.55645 3.5127883,117.51965 10.127423,103.07727 10.180464,88.0265 10.21655,77.786732 15.596396,69.98524 23.940826,64.808045 c 9.989025,-6.197562 21.289311,-9.445389 30.863882,-16.154541 9.089941,-6.369559 20.986427,-5.553272 31.297746,-3.568188 23.362006,4.497538 44.100396,17.660683 61.079596,33.983417 17.75881,17.072201 35.85743,33.983907 51.4209,53.073777 5.21513,6.39678 9.52165,13.87955 9.42643,23.20721 z"
-       id="path211"
-       sodipodi:nodetypes="ssssssssssssss" />
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="230.29mm" height="230.29mm" version="1.1" viewBox="0 0 230.29 230.29" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<defs>
+		<linearGradient id="linearGradient1226" x1="623.84" x2="185.28" y1="108.1" y2="52.429" gradientTransform="translate(-328.26 57.326)" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#ff00c9" stop-opacity=".89712" offset="0"/>
+			<stop stop-color="#fa0000" stop-opacity=".89804" offset="1"/>
+		</linearGradient>
+	</defs>
+	<g transform="translate(9.4274 -8.8815)">
+		<path d="m208.03 155.35c-0.12531 12.275-11.534 17.828-21.47 19.265-16.818 2.4309-33.807 3.661-50.253 8.4746-14.053 4.1132-27.442 10.124-41.385 14.352-17.1 5.1848-36.594 10.709-53.704 3.5452-12.186-5.1025-19.458-17.028-25.564-28.486-6.6415-12.463-12.349-25.731-12.248-39.944 0.10691-15.037 6.7215-29.479 6.7746-44.53 0.036086-10.24 5.4159-18.041 13.76-23.218 9.989-6.1976 21.289-9.4454 30.864-16.155 9.0899-6.3696 20.986-5.5533 31.298-3.5682 23.362 4.4975 44.1 17.661 61.08 33.983 17.759 17.072 35.857 33.984 51.421 53.074 5.2151 6.3968 9.5216 13.88 9.4264 23.207z" fill="url(#linearGradient1226)" stroke-width=".26458"/>
+	</g>
 </svg>
