@@ -1,5 +1,5 @@
 /* Include Bandeau.css */
-@import "../../ALL/CSS/bandeau.css";
+@import "../../ALL/CSS/bandeau_light.css";
 
 body {
     font-family: Quicksand, sans-serif;
@@ -30,12 +30,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Partie gauche, liste des cours */
 #gauche-cours {
-    background-color: #8F0039;
+    background-color: #F88C95;
     height: 75%;
     padding-top: 5%;
     padding-bottom: 20%;
     width: 17%;
     float: left;
+    border-right: 4px solid #1f1e1f;
 }
 
 #gauche-cours ul {
@@ -66,12 +67,20 @@ h1, h2, h3, h4, h5, h6 {
 
 #droite-sujets table tr {
     text-align: center;
-    background-color: #A30080;
+    background-color: #F88C95;    
 }
 
-#droite-sujets table tr:first-child {
-    background-color: #FF00C9;
-    
+#droite-sujets table tr th, #droite-sujets table tr td {
+    border-top: 4px solid #1f1e1f;
+    border-bottom: 4px solid #1f1e1f;
+}
+
+#droite-sujets table tr > *:first-child {
+    border-left: 4px solid #1f1e1f;
+}
+
+#droite-sujets table tr > *:last-child {
+    border-right: 4px solid #1f1e1f;
 }
 
 #droite-sujets table tr th {
@@ -84,9 +93,10 @@ h1, h2, h3, h4, h5, h6 {
 
 #droite-sujets table tr td:first-child{
     text-decoration: underline;
+    color: #3532B5;
 }
 
-#droite-sujets table tr td img {
+#droite-sujets table tr img {
     vertical-align: middle;
 }
 
