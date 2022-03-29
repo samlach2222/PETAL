@@ -37,7 +37,8 @@ a {
 }
 
 #popup {
-    margin-left: auto;
+    position: absolute;
+    right: 0;
     border-color: #A30080;
     border-style: solid;
     border-top: 0;
@@ -50,7 +51,6 @@ a {
     align-items: center;
     justify-content: space-around;
     background-color: #1D0027;
-
 }
 
 #logoNomPrenom {
@@ -59,12 +59,12 @@ a {
 }
 
 #imgPopup {
-    margin-left: auto;
     margin-right: auto;
     margin-bottom: 10%;
     border-style: solid;
     border-color: #EEE0E8;
     border-radius: 50%;
+    margin-left: auto;
 }
 
 #nomprenom {
