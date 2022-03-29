@@ -1,0 +1,83 @@
+/* Include Bandeau.css */
+@import "../../ALL/CSS/bandeau_light.css";
+
+body {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+#title {
+    height: 20%;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#content {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    margin-top: 4em;
+    display: flex;
+    flex-direction: column;
+}
+
+/* DISABLE THE POPUP */
+#popup {
+    display: none;
+}
+
+td {
+    text-align: center;
+    width: 50%;
+    height: 100%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    overflow: hidden;
+}
+
+table {
+    width: 40%;
+    height: 100%;
+    margin: auto;
+}
+
+#ajoutImageProfil {
+    height: 15em;
+    width: 15em;
+    border-radius: 50%;
+    border: 3px solid #1f1e1f;
+    background: url("../../Ressources/Pictures/Plus_Picture_Light.png") no-repeat center #cd5162;
+    background-size: 50%;
+}
+
+input[type="text"], input[type="tel"], input[type="email"], input[type="password"] {
+    background-color: #f88c95;
+    border: 3px solid #1f1e1f;
+    height: 2em;
+}
+
+#valider, #annuler {
+    margin-top: 1.5em;
+    color: #1f1e1f;
+    width: 10em;
+    height: 3em;
+    border-radius: 0.8em;
+    border: 1px solid #1f1e1f;
+}
+
+#valider {
+    background-color: #cd5162;
+    margin-left: 10em;
+}
+
+#annuler {
+    background-color: #cd5162;
+    margin-right: 10em;
+}
+
+label {
+    font-size: 1.2em;
+}

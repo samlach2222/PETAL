@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="../CSS/edition_admin_light.css">
+    <link rel="stylesheet" href="../CSS/edition_admin_dark.css">
     <link rel="icon" type="image/x-icon" href="../../Ressources/Icon/logo%20PETAL.svg">
     <meta charset="UTF-8">
     <title>Edition d'un administrateur</title>
@@ -10,7 +10,7 @@
 <?php include("../../ALL/HTML/bandeau.html");?>
 <div id="content">
     <div id="title">
-        <h1 id="createAdmin">Création d'un administrateur</h1>
+        <h1 id="createAdmin">Edition d'un administrateur</h1>
     </div>
     <form>
         <table>
@@ -50,7 +50,7 @@
                     <input type="submit" value="Valider" id="valider">
                 </td>
                 <td>
-                    <input type="button" value="Annuler" id="annuler">
+                    <input type="button" value="Annuler" id="annuler" onClick="window.location.href='gestion_utilisateurs.php'">
                 </td>
             </tr>
         </table>
