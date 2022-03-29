@@ -1,0 +1,117 @@
+/* Include Bandeau.css */
+@import "../../ALL/CSS/bandeau_light.css";
+
+body {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+#title {
+    height: 20%;
+    background-color: #f88c95;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#content {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    margin-top: 4em;
+    display: flex;
+    flex-direction: column;
+}
+
+#toolbar {
+    background-color: #f88c95;
+    width: 100%;
+    height: 4em;
+    border-bottom: #1b1c1d 0.4em solid;
+    border-top: #1b1c1d 0.4em solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.icon {
+    padding-left: 1em;
+    padding-right: 1em;
+    display: block;
+}
+
+/* DISABLE THE POPUP */
+#popup {
+    display: none;
+}
+
+#conteneurBoutonRetour {
+    display: flex;
+    width: 100%;
+}
+
+#boutonRetour {
+    display: block;
+    justify-content: flex-start;
+    font-family: Quicksand, sans-serif;
+    font-size: 1.7em;
+    padding-left: 0.5em;
+}
+
+#liste {
+    padding: 1em;
+    font-family: Quicksand, sans-serif;
+    font-size: 2.2em;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] + *::before {
+    content: "";
+    display: inline-block;
+    vertical-align: center;
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 10%;
+    border-style: solid;
+    border-width: 0.2rem;
+    border-color: black;
+    margin-right: 0.5em;
+}
+
+label > input[type="checkbox"]:checked + *::before {
+    content: "";
+    color: white;
+    text-align: center;
+    background: #FA0000;
+    border-color: #FA0000;
+}
+label > input[type="checkbox"]:checked + * {
+    color: #FA0000;
+}
+
+label > input[type="checkbox"] + *:hover {
+    color: #f88c95;
+    border-color: #f88c95;
+    font-size: 105%;
+}
+
+#plus {
+    color: black;
+    font-size: 6em;
+    padding-right: 0.2em;
+}
+
+
+#crayon {
+    content: url("../../Ressources/Pictures/Crayon_Light.png");
+}
+
+#corbeille {
+    content: url("../../Ressources/Pictures/Corbeille_Light.png");
+}
