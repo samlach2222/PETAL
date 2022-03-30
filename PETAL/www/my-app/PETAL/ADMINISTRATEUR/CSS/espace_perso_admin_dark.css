@@ -1,0 +1,53 @@
+﻿
+@import "../../ALL/CSS/bandeau.css";
+
+body {
+    background-color: #1D0027;
+    color: #EEE0E8;
+    font-family: Quicksand;
+    /*src: url(../../Ressources/Fonts/Quicksand/Quicksand-VaribleFont_wght.ttf);*/
+}
+
+a {
+    color: #EEE0E8;
+}
+
+h1 {
+    font-family: Volkorn;
+    /*src: url(../../Ressources/Fonts/Volkorn/Volkorn-VariableFont_wght.ttf);*/
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+li {
+    list-style: circle;
+    list-style-type: disc;
+}
+
+#tabNote td {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+table {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#info td {
+    padding-left: 15em;
+    padding-right: 15em;
+}
+
+#esp_perso {
+    position: absolute;
+    top: 5em;
+    width: 100%;
+    padding: 0;
+}
+
+#bandeau {
+    width: 100%;
+    padding: 0;
+}

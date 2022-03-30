@@ -1,0 +1,71 @@
+@import "../../ALL/CSS/bandeau.css";
+
+body {
+    background-color: #1D0027;
+    color: #EEE0E8;
+    font-family: Quicksand;
+}
+
+div {
+    margin: 0;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+li{
+    list-style: none;
+}
+
+#valider {
+    background-color: #FF00C9;
+    border-radius: 40%;
+    margin-left: 80%;
+    width: 4.5em;
+    height: 2em;
+}
+
+a {
+    font-size: smaller;
+}
+
+form {
+    position: relative;
+    left: 2em;
+}
+
+output {
+    float: right;
+}
+
+#titre {
+    font-size: larger;
+    border-bottom-style: solid;
+    border-bottom-color: #EEE0E8;
+}
+
+#question {
+    padding-left: 3em;
+    padding-right: 3em;
+    font-size: large;
+}
+
+#intitule {
+    background-color: #A30080;
+    margin-top: 2em;
+    border-style: solid;
+    border-color: #EEE0E8;
+    width: 30em;
+    padding-top: 0.5em;
+}
+
+#qcm {
+    width: 100%;
+    position: absolute;
+    top: 5em;
+    padding: 0;
+}
+
+#bandeau {
+    width: 100%;
+    padding: 0;
+}

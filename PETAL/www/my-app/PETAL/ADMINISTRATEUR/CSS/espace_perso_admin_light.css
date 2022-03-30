@@ -1,0 +1,55 @@
+﻿
+@import "../../ALL/CSS/bandeau_light.css";
+
+body {
+    background-color: #F5F5F5;
+    color: #1F1E1F;
+    font-family: Quicksand;
+    /*src: url(../../Ressources/Fonts/Quicksand/Quicksand-VaribleFont_wght.ttf);*/
+    width: 100%;
+}
+
+a {
+    color: #1F1E1F;
+}
+
+h1 {
+    font-family: Volkorn;
+    /*src: url(../../Ressources/Fonts/Volkorn/Volkorn-VariableFont_wght.ttf);*/
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+li {
+    list-style: circle;
+    list-style-type: disc;
+}
+
+table {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#info td {
+    padding-left: 15em;
+    padding-right: 15em;
+}
+
+
+#perso {
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+#esp_perso {
+    position: absolute;
+    top: 5em;
+    width: 100%;
+    padding: 0;
+}
+
+#bandeau {
+    width: 100%;
+    padding: 0;
+}
