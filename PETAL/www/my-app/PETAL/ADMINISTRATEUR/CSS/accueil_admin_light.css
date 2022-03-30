@@ -1,5 +1,5 @@
 /* Include Bandeau.css */
-@import "../../ALL/CSS/bandeau.css";
+@import "../../ALL/CSS/bandeau_light.css";
 
 body {
     width: 100%;
@@ -11,6 +11,7 @@ body {
 
 #title {
     height: 20%;
+    background-color: #f88c95;
     text-align: center;
     font-size: 1.5em;
 }
@@ -30,24 +31,24 @@ body {
 }
 
 .gestion{
-    border: 3px solid #EEE0E8;
+    border: 3px solid #1f1e1f;
     border-radius: 10%;
-    background-color: #ff00c9;
+    background-color: #cd5162;
 }
 
 .image{
-    border-top: 3px solid #EEE0E8;
+    border-top: 3px solid #1f1e1f;
     height: 32em;
     text-align: center;
-    color: #EEE0E8;
-    background-color: #a30080;
+    color: #1f1e1f;
+    background-color: #f88c95;
     border-bottom-left-radius: 10%;
     border-bottom-right-radius: 10%;
 }
 th{
     height: 2em;
     font-size: 1.5em;
-    color: #EEE0E8;
+    color: #1f1e1f;
 
 }
 
