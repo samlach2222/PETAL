@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="../CSS/gestion_matiere_light.css">
+    <link rel="stylesheet" href="../CSS/gestion_matiere.css">
     <link rel="icon" type="image/x-icon" href="../../Ressources/Icon/logo%20PETAL.svg">
     <meta charset="UTF-8">
     <title>Gestion des matières</title>
@@ -18,7 +18,7 @@
             <div id="conteneurBoutonRetour">
                 <a href="accueil_admin.php" id="boutonRetour">retour</a>
             </div>
-            <a href=""><!--lien vers la page ajout matiere-->
+            <a href="edition_matiere.php">
                 <span id="plus" >+</span>
             </a>
             <a href="">
@@ -27,10 +27,9 @@
         </div>
 
         <div>
-        <table id="centre">
+        <table id="allMatiere">
                 <tr>
-                    <td class="espace">
-
+                    <td>
                         <table class="matiere">
                             <tr>
                                 <th>
@@ -46,7 +45,7 @@
                         </table>
 
                     </td>
-                    <td class="espace">
+                    <td>
 
                         <table class="matiere">
                             <tr>
@@ -62,7 +61,7 @@
                         </table>
 
                     </td>
-                    <td class="espace">
+                    <td>
 
                         <table class="matiere">
                             <tr>
@@ -81,7 +80,7 @@
                 </tr>
 
                 <tr>
-                    <td class="espace">
+                    <td>
 
                         <table class="matiere">
                             <tr>
@@ -97,7 +96,7 @@
                         </table>
 
                     </td>
-                    <td class="espace">
+                    <td>
 
                         <table class="matiere">
                             <tr>
@@ -113,7 +112,7 @@
                         </table>
 
                     </td>
-                    <td class="espace">
+                    <td>
 
                         <table class="matiere">
                             <tr>
