@@ -96,3 +96,7 @@ button {
     position:relative;
     z-index : 2;
 }
+
+#bandeau * {
+    vertical-align: middle;
+}
