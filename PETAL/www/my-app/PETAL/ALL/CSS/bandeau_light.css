@@ -39,7 +39,8 @@ a {
 }
 
 #popup {
-    margin-left: auto;
+    position: absolute;
+    right: 0;
     border-color: #1F1E1F;
     border-style: solid;
     border-top: 0;

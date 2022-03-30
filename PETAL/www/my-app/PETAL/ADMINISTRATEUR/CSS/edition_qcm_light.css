@@ -1,0 +1,43 @@
+/*liste qcm light*/
+#corps{
+	/*position: X; où X est un des paramètres possibles
+	z-index: 1; pour être affiché en dessous*/
+	position: absolute;
+	top: 4.75em;
+	padding: 0;
+	width: 100%;
+	color: #1F1E1F;
+	background-color: #F5F5F5;
+}
+#retour{
+	font-size: 1.5em;
+}
+li{
+	list-style: none;
+}
+#titre{
+	text-align: center;
+	margin-left:30%;
+	margin-right:25%;
+}
+ul{
+	font-size: 1.5em;
+}
+.question{
+	margin-left:1em;
+}
+#boutonBas{
+	margin-left:40%;
+	margin-right:30%;
+}
+#reponses{
+	margin-left: 1em;
+}
+.SecondButton{
+	font-size:1.5em;
+	margin-left: 0.25em;
+}
+
+#popup{
+	display: none;
+}

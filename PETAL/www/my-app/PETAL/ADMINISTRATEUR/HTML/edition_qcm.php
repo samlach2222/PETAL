@@ -2,17 +2,19 @@
 <html lang="fr">
 <head>
     <link rel="stylesheet" href="../../ALL/CSS/bandeau.css">
-    <link rel="stylesheet" href="../CSS/edition_qcm.css">
+    <link rel="stylesheet" href="../CSS/edition_qcm_dark.css">
+    <!--<link rel="stylesheet" href="../../ALL/CSS/bandeau_light.css">
+    <link rel="stylesheet" href="../CSS/edition_qcm_light.css">-->
     <link rel="icon" type="image/x-icon" href="../../Ressources/Icon/logo%20PETAL.svg">
     <meta charset="UTF-8">
     <title>Edition d'un QCM</title>
 </head>
-<body class="dark">
+<body>
     <?php include("../../ALL/HTML/bandeau.html");?>
-    <div>
-    	<a href="acceuil_admin.php" id="retour"><-retour</a>
+    <div id="corps">
+    	<a href="liste_qcm.php" id="retour"><-retour</a>
     	<form>
-    		<table>
+    		<table id="titre">
     			<tr>
     				<td>
     					<label>Nom</label>
@@ -29,20 +31,27 @@
     			</tr>
     		</table>
     		<hr>
-    		<div>
+    		<div class="question">
     			<label>Question </label>
     			<output>1</output>
     			<label> : </label>
-    			<input type="text" name="question"><br>
-    			<input type="radio" name="reponse1Br">
-    				<input type="text" name="reponse1"><br>
-    			<input type="radio" name="reponse1Br">
-    				<input type="text" name="reponse2"><br>
-    			<input type="radio" name="reponse1Br">
-    				<input type="text" name="reponse3"><br>
+    			<input type="text" name="question">
+                <button onclick="chercherImage()" class="SecondButton">Ajout image</button>
+                <br>
+    			<div id="reponses">
+                    <input type="radio" name="reponse1Br">
+                        <input type="text" name="reponse1"><br>
+                    <input type="radio" name="reponse2Br">
+                        <input type="text" name="reponse2"><br>
+                    <input type="radio" name="reponse3Br">
+                        <input type="text" name="reponse3"><br>         
+                </div>
     		</div>
-    		<button onclick="ajoutQuestion()">+</button>
-    		<button onclick="validation()">Valider</button>
+    		<div id="boutonBas">
+                <button onclick="ajoutQuestion()" class="SecondButton">+</button>
+                <button onclick="validation()" class="SecondButton">Valider</button>
+                <button onclick="publication()" class="SecondButton">Publier</button>      
+            </div>
     	</form>
     </div>
 </body>

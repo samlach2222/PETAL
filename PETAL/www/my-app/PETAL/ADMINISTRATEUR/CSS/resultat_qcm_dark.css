@@ -1,0 +1,81 @@
+/*liste qcm light*/
+#corps{
+	/*position: X; où X est un des paramètres possibles
+	z-index: 1; pour être affiché en dessous*/
+	position: absolute;
+	top: 4.75em;
+	padding: 0;
+	width: 100%;
+	color: #EEE0E8;
+	background-color: #1D0027;
+}
+
+#retour{
+	font-size: 1.5em;
+}
+#moyenne .entete{
+	border-top-left-radius:25%;
+	border-top-right-radius:25%;
+}
+.entete{
+	background-color: #FF00C9;
+}
+tr{
+	background-color: #A30080;
+}
+#moyenne{
+	border-style: solid;
+	border-color:#EEE0E8;
+	border-width: 0.25em;
+	
+	border-collapse: separate;
+	border-spacing: 0 0;
+	width:10em;
+	height:10em;
+	border-radius: 25%;
+	overflow:hidden;
+
+	position:absolute;
+	right:10%;
+	top:50%;
+}
+#moyenneTd1{
+	border-top-left-radius:25%;
+	border-top-right-radius:25%;
+	border-bottom-style: solid;
+	border-color:#EEE0E8;
+	border-width: 0.25em;
+}
+#moyenneTd2{
+	border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+}
+#resultats{
+	border-collapse: separate;
+	border-spacing: 0 0.5em;
+	width:40em;
+	height:30em;
+	border-radius: 10%;
+	overflow:hidden;
+	margin-left: 2em;
+}
+h1{
+	text-align: center;
+}
+td{
+	padding-left:0.5em;
+}
+#resultats tr td{
+	border-top:4px solid #EEE0E8;
+	border-bottom:4px solid #EEE0E8;
+}
+#resultats tr > *:first-child{
+	border-left:4px solid #EEE0E8;
+}
+#resultats tr > *:last-child{
+	border-right:4px solid #EEE0E8;
+}
+
+#popup{
+	display: none;
+}

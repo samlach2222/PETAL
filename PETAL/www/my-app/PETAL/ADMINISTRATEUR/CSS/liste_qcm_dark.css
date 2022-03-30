@@ -1,18 +1,15 @@
-.dark{
+/*liste qcm dark*/
+#corps{
+	/*position: X; où X est un des paramètres possibles
+	z-index: 1; pour être affiché en dessous*/
+	position: absolute;
+	top: 4.75em;
+	padding: 0;
+	width: 100%;
 	color: #EEE0E8;
 	background-color: #1D0027;
 }
-.light{
-	color: #1F1F1F;
-	background-color: #F5F5F5;
-}
-.bandeauSecondaireLight{
-	background-color: #F88C95;
-	margin-top:0.1em;
-	margin-bottom:0.1em;
-}
-.bandeauSecondaireDark{
-	background-color: #F88C95;
+.bandeau2{
 	margin-top:0.1em;
 	margin-bottom:0.1em;
 }
@@ -24,7 +21,7 @@
 	width: 3em;
 }
 #retour{
-	font-size: 2em;
+	font-size: 1.5em;
 }
 li{
 	list-style: none;
@@ -38,7 +35,12 @@ li{
 	text-align:right;
     padding-left: 1.2%;
     padding-right: 1.2%;
+    border-color: #EEE0E8;
+    border-style: solid;
+    border-width: 0.25em;
+	border-right:none;
+	border-left:none;
 }
-#corps{
-	z-index: 1;
+#titre{
+	text-align: center;
 }
