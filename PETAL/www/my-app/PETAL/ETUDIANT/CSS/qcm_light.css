@@ -6,22 +6,17 @@ body {
     font-family: Quicksand;
 }
 
-div {
-    margin: 0;
-    padding-left: 1em;
-    padding-right: 1em;
+h1{
+    text-align:center;
 }
 
-#valider {
-    background-color: #CD5162;
-    border-radius: 40%;
-    margin-left: 80%;
-    width: 5em;
-    height: 2em;
+li {
+    list-style: none;
+    font-size: large;
 }
 
-a {
-    font-size: smaller;
+span {
+    font-size: larger;
 }
 
 form {
@@ -31,10 +26,17 @@ form {
 
 output {
     float: right;
+    font-size: larger;
 }
 
-li{
-    list-style:none;
+#qcm div {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+#valider {
+    background-color: #CD5162;
+    margin-left: 80%;
 }
 
 #titre {
@@ -69,6 +71,10 @@ li{
 #bandeau {
     width: 100%;
     padding: 0;
+}
+
+#popup{
+    display:none;
 }
 
 

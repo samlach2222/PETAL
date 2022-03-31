@@ -5,18 +5,17 @@ body {
     color: #EEE0E8;
     font-family: Quicksand;
     /*src: url(../../Ressources/Fonts/Quicksand/Quicksand-VaribleFont_wght.ttf);*/
-    width: 100%;
 }
 
 a {
     color: #EEE0E8;
+    margin-left: 2%;
 }
 
 h1 {
     font-family: Volkorn;
     /*src: url(../../Ressources/Fonts/Volkorn/Volkorn-VariableFont_wght.ttf);*/
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    text-align:center;
 }
 
 li {
@@ -29,20 +28,29 @@ li {
     margin-bottom: 2em;
 }
 
+td {
+    border-left-width: 0;
+    border-right-width: 0;
+}
+
 tr:first-child td:first-child {
     border-top-left-radius: 2em;
+    border-left-width: initial;
 }
 
 tr:first-child td:last-child {
     border-top-right-radius: 2em;
+    border-right-width: initial;
 }
 
 tr:last-child td:first-child {
     border-bottom-left-radius: 2em;
+    border-left-width: initial;
 }
 
 tr:last-child td:last-child {
     border-bottom-right-radius: 2em;
+    border-right-width: initial;
 }
 
 table {
@@ -52,13 +60,15 @@ table {
 }
 
 #info td {
-    padding-left: 15em;
-    padding-right: 15em;
+    width: 30em;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 #tableau td {
     padding-left: 6em;
     padding-right: 6em;
+    border-style: solid;
 }
 
 #tableau{

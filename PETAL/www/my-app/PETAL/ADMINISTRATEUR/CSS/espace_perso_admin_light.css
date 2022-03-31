@@ -9,15 +9,15 @@ body {
     width: 100%;
 }
 
-a {
+#retour {
     color: #1F1E1F;
+    margin-left:2%;
 }
 
 h1 {
     font-family: Volkorn;
     /*src: url(../../Ressources/Fonts/Volkorn/Volkorn-VariableFont_wght.ttf);*/
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    text-align: center;
 }
 
 li {
@@ -32,8 +32,9 @@ table {
 }
 
 #info td {
-    padding-left: 15em;
-    padding-right: 15em;
+    width: 30em;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="../CSS/qcm_light.css">
+    <link rel="stylesheet" href="../CSS/qcm_dark.css">
     <link rel="icon" type="image/x-icon" href="../../Ressources/Icon/logo%20PETAL.svg">
     <meta charset="UTF-8">
     <title>Liste des QCM</title>
@@ -9,15 +9,15 @@
 <body>
     <?php include("../../ALL/HTML/bandeau.html");?>
 
-    <!-- enlever le point des listes des réponses -->
+    <!-- grouper les radio boutons -->
 
     <div id="qcm">
 
         <div>
-            <span> Nom QCM </span>
+            <a id="retour" href="../../ETUDIANT/HTML/accueil_etudiant.php"> Retour </a>
+            <h1> Nom QCM </h1>
             <output> Note </output>
             <br/>
-            <a id="retour" href="../../ETUDIANT/HTML/accueil_etudiant.php"> Retour </a>
 
         </div>
 
@@ -31,9 +31,9 @@
             <br/>
                 <span id="rep"> Reponse 1 :</span>
                 <ul>
-                    <li> <input type="radio"/> Raclette </li>
-                    <li> <input type="radio"/> Nope </li>
-                    <li> <input type="radio"/> D la reponse D </li>
+                    <li> <input type="radio" name="reponse"/> Raclette </li>
+                    <li> <input type="radio" name="reponse"/> Nope </li>
+                    <li> <input type="radio" name="reponse"/> D la reponse D </li>
                 </ul>
             <div >
 

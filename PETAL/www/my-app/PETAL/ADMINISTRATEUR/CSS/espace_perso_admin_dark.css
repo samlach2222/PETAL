@@ -8,25 +8,20 @@ body {
     /*src: url(../../Ressources/Fonts/Quicksand/Quicksand-VaribleFont_wght.ttf);*/
 }
 
-a {
+#retour {
     color: #EEE0E8;
+    margin-left:2%;
 }
 
 h1 {
     font-family: Volkorn;
     /*src: url(../../Ressources/Fonts/Volkorn/Volkorn-VariableFont_wght.ttf);*/
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    text-align: center;
 }
 
 li {
     list-style: circle;
     list-style-type: disc;
-}
-
-#tabNote td {
-    margin-top: 2em;
-    margin-bottom: 2em;
 }
 
 table {
@@ -36,8 +31,9 @@ table {
 }
 
 #info td {
-    padding-left: 15em;
-    padding-right: 15em;
+    width: 30em;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 #esp_perso {
@@ -50,4 +46,8 @@ table {
 #bandeau {
     width: 100%;
     padding: 0;
+}
+
+#popup{
+    display: none;
 }
