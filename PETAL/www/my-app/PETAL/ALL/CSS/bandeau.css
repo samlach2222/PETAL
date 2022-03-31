@@ -36,6 +36,12 @@ a {
     align-items: center;
 }
 
+#imgBandeau {
+    border-style: solid;
+    border-color: #EEE0E8;
+    border-radius: 50%;
+}
+
 #popup {
     position: absolute;
     right: 0;
