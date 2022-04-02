@@ -10,10 +10,11 @@
 <body>
     <?php include("../../ALL/HTML/bandeau.html");?>
     <div id="PageAccueil">
-        <table id="centre">
+        <table id="allTable">
             <tr>
-                <td class="espace">
+                <td>
                     <a href="gestion_matiere.php">
+                        <div id="essaie">
                         <table id="gestionMatiere" class="gestion">
                             <tr>
                                 <th>
@@ -26,9 +27,11 @@
                                 </td>
                             </tr>
                         </table>
+                        </div>
                     </a>
                 </td>
-                <td class="espace">
+                <td class="vide"> </td>
+                <td>
                     <a href="liste_qcm.php">
                         <table id="gestionQCM" class="gestion">
                             <tr>
@@ -44,7 +47,8 @@
                         </table>
                     </a>
                 </td>
-                <td class="espace">
+                <td  class="vide"> </td>
+                <td>
                     <a href="gestion_utilisateurs.php">
                         <table id="gestionUtilisateurs" class="gestion">
                             <tr>

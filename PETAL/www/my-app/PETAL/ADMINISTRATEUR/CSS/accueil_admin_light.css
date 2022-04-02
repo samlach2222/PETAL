@@ -31,6 +31,7 @@ body {
 }
 
 .gestion{
+    width: 25em;
     border: 3px solid #1f1e1f;
     border-radius: 10%;
     background-color: #cd5162;
@@ -46,24 +47,19 @@ body {
     border-bottom-right-radius: 10%;
 }
 th{
+    width: 25em;
     height: 2em;
     font-size: 1.5em;
     color: #1f1e1f;
 
 }
-
-#gestionMatiere{
-    width: 85%;
-    margin-left: 10%;
-    margin-right: 5%;
+#allTable
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80em;
 }
 
-#gestionQCM{
-    width: 100%;
-}
-
-#gestionUtilisateurs{
-    width: 75%;
-    margin-left: 5%;
-    margin-right: 20%;
+.vide{
+   width: 4em;
 }
