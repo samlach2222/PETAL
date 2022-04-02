@@ -5,17 +5,7 @@ body {
     font-family: Quicksand, sans-serif;
     width: 100%;
     height: 100%;
-    position: absolute;
-    top: 0;
     z-index: 1;
-}
-
-#content {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    margin-top: 4em;
-    height: 100%;
 }
 
 /*disable the popup*/
@@ -28,14 +18,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+#content {
+    width: 100%;
+    display: flex;
+}
+
 /* Partie gauche, liste des cours */
 #gauche-cours {
     background-color: #F88C95;
-    height: 75%;
-    padding-top: 5%;
-    padding-bottom: 20%;
-    width: 17%;
-    float: left;
+    min-height: calc(100vh - 4em);
     border-right: 4px solid #1f1e1f;
 }
 
@@ -45,6 +36,7 @@ h1, h2, h3, h4, h5, h6 {
     list-style-type: none;
     justify-content: space-evenly;
     margin: 0;
+    padding-right: 0.5em;
     height: 100%;
     font-size: 2em;
 }
@@ -52,12 +44,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Partie droite, liste des sujets */
 #droite-sujets {
-    margin-left: 17%;
-    width: 79%;
-    height: 96%;
-    padding: 2%;
-    
+    padding: 0 2%;  /* Pas besoin de padding haut/bas, il y a le border-spacing avant le premier <tr> et après le dernier */
     font-size: 1.5em;
+    overflow: hidden;
+    flex-grow: 1;
 }
 
 #droite-sujets table {
