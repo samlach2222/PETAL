@@ -73,10 +73,16 @@ a {
     flex-direction: column;
 }
 
-#imgPopup {
+#logoNomPrenom a {
     margin-left: auto;
     margin-right: auto;
+}
+
+#aImgPopup {
     margin-bottom: 10%;
+}
+
+#imgPopup {
     border-style: solid;
     border-color: #1F1E1F;
     border-radius: 50%;
