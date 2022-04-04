@@ -11,17 +11,19 @@
     <div id="content">
         <div id="gauche-cours">
             <ul>
-                <li>CDAA</li>
-                <li>SR</li>
-                <li>SI</li>
-                <li>Maths</li>
-                <li>BDD</li>
-                <li>Modélisation</li>
+                <li id="retour-cours"><a id="a-retour-cours" href="matiere.php?matiere=CDAA">&lt;- Cours de CDAA</a></li>
+                <li><a href="liste_sujets_forum.php?matiere=CDAA">CDAA</a></li>
+                <li><a href="liste_sujets_forum.php?matiere=SR">SR</a></li>
+                <li><a href="liste_sujets_forum.php?matiere=SI">SI</a></li>
+                <li><a href="liste_sujets_forum.php?matiere=MATHS">Maths</a></li>
+                <li><a href="liste_sujets_forum.php?matiere=BDD">BDD</a></li>
+                <li><a href="liste_sujets_forum.php?matiere=MODELISATION">Modélisation</a></li>
             </ul>
         </div>
         <div id="droite-sujet">
             <div id="bandeau-sujet">
-                <div class="empty-div">
+                <div class="retour-liste">
+                    <a id="a-retour-liste" href="liste_sujets_forum.php?matiere=CDAA">&lt;- Sujets de CDAA</a> <!-- Doit changer en fonction de la matiere du sujet -->
                 </div>
                 <div id="bandeau-sujet-nom-div">
                     <span id="bandeau-sujet-nom-span">Sujet 1</span>
@@ -35,6 +37,9 @@
             </div>
             <div id="messages">
                 a
+            </div>
+            <div id="envoyer-message">
+                b
             </div>
         </div>
     </div>
