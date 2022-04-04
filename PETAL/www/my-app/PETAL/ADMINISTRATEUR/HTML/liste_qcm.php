@@ -14,43 +14,57 @@
     <?php include("../../ALL/HTML/bandeau.html");?>
     <div id="corps">
     	<!-- voir le bandeau -->
-    	<h1 class="bandeau2" id="titre">Liste des QCM</h1>
-    	<div class="bandeau2" id="bandeau3">
-    		<a href="acceuil_admin.php" id="retour"><-retour</a>
-    		<div><!--
+    	<div id="title">
+            <h1>Liste des QCM</h1>
+        </div>
+    	<div id="toolbar">
+    		<div id="conteneurBoutonRetour"><a href="accueil_admin.php" id="retour">retour</a></div>
+                <!--
     			<img src="../../Ressources/Pictures/Plus_Dark.png" class="imageIcon">
     			<img src="../../Ressources/Pictures/Crayon_Dark.png" class="imageIcon">
     			<img src="../../Ressources/Pictures/Corbeille_Dark.png" class="imageIcon">
                 -->
-                    <img src="../../Ressources/Pictures/Plus_Picture_Light.png" class="imageIcon">
-                    <img src="../../Ressources/Pictures/Crayon_Light.png" class="imageIcon">
-                    <img src="../../Ressources/Pictures/Corbeille_Light.png" class="imageIcon">
-                
-    		</div>
+                <a href="edition_qcm.php"><img src="../../Ressources/Pictures/Plus_Picture_Light.png" class="imageIcon"></a>
+                <a href="edition_qcm.php"><img src="../../Ressources/Pictures/Crayon_Light.png" class="imageIcon"></a>
+                <img src="../../Ressources/Pictures/Corbeille_Light.png" class="imageIcon">
     	</div>
     	<ul>
     		<!-- faire les li -->
     		<li>
-    			<input type="checkbox" name="QCM1">
-    			<a href="edition_qcm.php">
-                    <span>qcm1</span>
-                    <span> publié </span>         
-                </a>
-                <!--
-    			<img src="../../Ressources/Pictures/Eye_Dark.png" id="eyeIcon">
-                 -->
-                    <a href="resultat_qcm.php"><img src="../../Ressources/Pictures/Eye_Light.png" id="eyeIcon"></a>
-               
+    			<label>
+                    <input type="checkbox" name="QCM1">
+                    <span>
+                        qcm1 publié       
+                        <!--
+                        <img src="../../Ressources/Pictures/Eye_Dark.png" id="eyeIcon">
+                        -->
+                        <a href="resultat_qcm.php"><img src="../../Ressources/Pictures/Eye_Light.png" id="eyeIcon"></a>
+                    </span>         
+                </label>
     		</li>
             <li>
-                <input type="checkbox" name="QCM1">
-                <span>qcm2</span>
-                <span> non publié </span>
-                <!--
-                <img src="../../Ressources/Pictures/Eye_Dark.png" id="eyeIcon">
-                 -->
-                    <img src="../../Ressources/Pictures/Eye_Light.png" id="eyeIcon">
-               
+                <label>
+                    <input type="checkbox" name="QCM2">
+                    <span>
+                        qcm2 non publié      
+                        <!--
+                        <img src="../../Ressources/Pictures/Eye_Dark.png" id="eyeIcon">
+                        -->
+                        <a href="resultat_qcm.php"><img src="../../Ressources/Pictures/Eye_Light.png" id="eyeIcon"></a>
+                    </span>
+                </label>
+            </li>
+            <li>
+                <label>
+                     <input type="checkbox" name="QCM3">
+                    <span>
+                        qcm3 non publié         
+                        <!--
+                        <img src="../../Ressources/Pictures/Eye_Dark.png" id="eyeIcon">
+                        -->
+                        <a href="resultat_qcm.php"><img src="../../Ressources/Pictures/Eye_Light.png" id="eyeIcon"></a>
+                    </span>
+                </label>
             </li>
     	</ul>
     </div>

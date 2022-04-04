@@ -9,16 +9,30 @@
 	color: #EEE0E8;
 	background-color: #1D0027;
 }
-#retour{
-	font-size: 1.5em;
+#conteneurRetour {
+    display: flex;
+    width: 100%;
+    position:absolute;
+	top:0%;
+}
+
+#retour {
+    display: block;
+    justify-content: flex-start;
+    font-family: Quicksand, sans-serif;
+    font-size: 1.7em;
+    padding-left: 0.5em;
 }
 li{
 	list-style: none;
 }
+#titrePage{
+	text-align: center;
+    font-size: 1.5em;
+    height: 20%;
+}
 #titre{
 	text-align: center;
-	margin-left:30%;
-	margin-right:25%;
 }
 ul{
 	font-size: 1.5em;
@@ -28,7 +42,6 @@ ul{
 }
 #boutonBas{
 	margin-left:40%;
-	margin-right:30%;
 }
 #reponses{
 	margin-left: 1em;
@@ -41,3 +54,8 @@ ul{
 #popup{
 	display: none;
 }
+td{
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+

@@ -10,8 +10,19 @@
 	background-color: #1D0027;
 }
 
-#retour{
-	font-size: 1.5em;
+#conteneurRetour {
+    display: flex;
+    width: 100%;
+    position:absolute;
+	top:0%;
+}
+
+#retour {
+    display: block;
+    justify-content: flex-start;
+    font-family: Quicksand, sans-serif;
+    font-size: 1.7em;
+    padding-left: 0.5em;
 }
 #moyenne .entete{
 	border-top-left-radius:25%;
@@ -35,9 +46,6 @@ tr{
 	border-radius: 25%;
 	overflow:hidden;
 
-	position:absolute;
-	right:10%;
-	top:50%;
 }
 #moyenneTd1{
 	border-top-left-radius:25%;
@@ -55,15 +63,15 @@ tr{
 	border-spacing: 0 0.5em;
 	width:40em;
 	height:30em;
-	border-radius: 10%;
 	overflow:hidden;
-	margin-left: 2em;
 }
 h1{
-	text-align: center;
+	height: 20%;
+    text-align: center;
 }
 td{
 	padding-left:0.5em;
+	text-align: center;
 }
 #resultats tr td{
 	border-top:4px solid #EEE0E8;
@@ -75,7 +83,39 @@ td{
 #resultats tr > *:last-child{
 	border-right:4px solid #EEE0E8;
 }
-
+#resultats tr:last-child > *:first-child{
+	border-radius:0% 0% 0% 20px;
+	border:4px solid #EEE0E8;
+	border-right:none;
+}
+#resultats tr:last-child > *:last-child{
+	border-radius:0% 0% 20px 0%;
+	border:4px solid #EEE0E8;
+	border-left:none;
+}
+#resultats tr:first-child > *:first-child{
+	border-radius:20px 0% 0% 0%;
+	border:4px solid #EEE0E8;
+	border-right:none;
+}
+#resultats tr:first-child > *:last-child{
+	border-radius:0% 20px 0% 0%;
+	border:4px solid #EEE0E8;
+	border-left:none;
+}
 #popup{
 	display: none;
+}
+
+#tableaux{
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#moy{
+	display: block;
+	padding-left:5em;
+}
+#result{
+	padding-left:2em;
 }

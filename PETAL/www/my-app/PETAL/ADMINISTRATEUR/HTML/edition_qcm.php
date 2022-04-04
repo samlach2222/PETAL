@@ -12,7 +12,10 @@
 <body>
     <?php include("../../ALL/HTML/bandeau.html");?>
     <div id="corps">
-    	<a href="liste_qcm.php" id="retour"><-retour</a>
+        <div id="titrePage">
+            <h1>Edition/Modification d'un QCM</h1>
+        </div>
+        <div id="conteneurRetour"><a href="liste_qcm.php" id="retour">retour</a></div>
     	<form>
     		<table id="titre">
     			<tr>
@@ -39,11 +42,11 @@
                 <button onclick="chercherImage()" class="SecondButton">Ajout image</button>
                 <br>
     			<div id="reponses">
-                    <input type="radio" name="reponse1Br">
+                    <input type="radio" name="reponse1">
                         <input type="text" name="reponse1"><br>
-                    <input type="radio" name="reponse2Br">
+                    <input type="radio" name="reponse1">
                         <input type="text" name="reponse2"><br>
-                    <input type="radio" name="reponse3Br">
+                    <input type="radio" name="reponse1">
                         <input type="text" name="reponse3"><br>         
                 </div>
     		</div>

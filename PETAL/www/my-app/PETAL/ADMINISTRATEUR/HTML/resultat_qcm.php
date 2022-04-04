@@ -13,47 +13,51 @@
     <?php include("../../ALL/HTML/bandeau.html");?>
     <div id="corps">
     	<div id="titre">
-    		<a href="liste_qcm.php" id="retour"><-retour</a>
     		<h1>Resultat QCM 1</h1>
     	</div>
-    	<table id="resultats">
-    		<tr class="entete">
-    			<td>Etudiant</td>
-    			<td>Note</td>
-    		</tr>
+        <div id="conteneurRetour"><a href="liste_qcm.php" id="retour">retour</a></div>
+        <div id="tableaux">
+    	   <div id="result">
+                <table id="resultats">
+                    <tr class="entete">
+                        <td>Etudiant</td>
+                        <td>Note</td>
+                    </tr>
 
-    		<tr class="note">
-    			<td>NOM1 Prenom1</td>
-    			<td><span>XX</span>/20</td>
-    		</tr>
+                    <tr class="note">
+                        <td>NOM1 Prenom1</td>
+                        <td><span>XX</span>/20</td>
+                    </tr>
 
-    		<tr class="note">
-    			<td>NOM2 Prenom2</td>
-    			<td><span>XX</span>/20</td>
-    		</tr>
+                    <tr class="note">
+                        <td>NOM2 Prenom2</td>
+                        <td><span>XX</span>/20</td>
+                    </tr>
 
-    		<tr class="note">
-    			<td>NOM3 Prenom3</td>
-    			<td><span>XX</span>/20</td>
-    		</tr>
+                    <tr class="note">
+                        <td>NOM3 Prenom3</td>
+                        <td><span>XX</span>/20</td>
+                    </tr>
 
-    		<tr class="note">
-    			<td>NOM4 Prenom4</td>
-    			<td><span>XX</span>/20</td>
-    		</tr>
-    	</table>
-    	<table id="moyenne">
-    		<tr class="entete">
-    			<td id="moyenneTd1">
-    				Moyenne
-    			</td>
-    		</tr>
-    		<tr>
-    			<td id="moyenneTd2">
-    				<span>XX</span>/20
-    			</td>
-    		</tr>
-    	</table>
+                    <tr class="note">
+                        <td>NOM4 Prenom4</td>
+                        <td><span>XX</span>/20</td>
+                    </tr>
+                </table>   
+           </div>
+            <div id="moy">
+                <table id="moyenne">
+                    <tr class="entete">
+                        <td id="moyenneTd1">Moyenne</td>
+                    </tr>
+                    <tr>
+                        <td id="moyenneTd2">
+                            <span>XX</span>/20
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 </html>
