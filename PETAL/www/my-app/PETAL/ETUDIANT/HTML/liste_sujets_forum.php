@@ -11,12 +11,13 @@
     <div id="content">
         <div id="gauche-cours">
             <ul>
-                <li>CDAA</li>
-                <li>SR</li>
-                <li>SI</li>
-                <li>Maths</li>
-                <li>BDD</li>
-                <li>Modélisation</li>
+                <li id="retour-cours"><a id="a-retour-cours" href="matiere.php?matiere=CDAA">&lt;- Cours de CDAA</a></li> <!-- Doit changer en fonction de la matière actuellement choisie -->
+                <li><a href="?matiere=CDAA">CDAA</a></li>
+                <li><a href="?matiere=SR">SR</a></li>
+                <li><a href="?matiere=SI">SI</a></li>
+                <li><a href="?matiere=MATHS">Maths</a></li>
+                <li><a href="?matiere=BDD">BDD</a></li>
+                <li><a href="?matiere=MODELISATION">Modélisation</a></li>
             </ul>
         </div>
         <div id="droite-sujets">
@@ -28,37 +29,37 @@
                     <th>Résolu</th>
                 </tr>
                 <tr>
-                    <td>Sujet 1</td>
+                    <td><a href="discussion_forum.php?sujet=Sujet 1">Sujet 1</a></td>
                     <td>NOM Prénom</td>
                     <td>3</td>
                     <td><img src="../../Ressources/Pictures/non_résolu.png" width="40px" height="40px"/></td>
                 </tr>
                 <tr>
-                    <td>Sujet 2</td>
+                    <td><a href="discussion_forum.php?sujet=Sujet 2">Sujet 2</a></td>
                     <td>NOM Prénom</td>
                     <td>7</td>
                     <td><img src="../../Ressources/Pictures/résolu.png" width="40px" height="40px"/></td>
                 </tr>
                 <tr>
-                    <td>Sujet 3</td>
+                    <td><a href="discussion_forum.php?sujet=Sujet 3">Sujet 3</a></td>
                     <td>NOM Prénom</td>
                     <td>2</td>
                     <td><img src="../../Ressources/Pictures/non_résolu.png" width="40px" height="40px"/></td>
                 </tr>
                 <tr>
-                    <td>Sujet 4</td>
+                    <td><a href="discussion_forum.php?sujet=Sujet 4">Sujet 4</a></td>
                     <td>NOM Prénom</td>
                     <td>5</td>
                     <td><img src="../../Ressources/Pictures/résolu.png" width="40px" height="40px"/></td>
                 </tr>
                 <tr>
-                    <td>Sujet 5</td>
+                    <td><a href="discussion_forum.php?sujet=Sujet 5">Sujet 5</a></td>
                     <td>NOM Prénom</td>
                     <td>2</td>
                     <td><img src="../../Ressources/Pictures/non_résolu.png" width="40px" height="40px"/></td>
                 </tr>
                 <tr>
-                    <td>Sujet 6</td>
+                    <td><a href="discussion_forum.php?sujet=Sujet 6">Sujet 6</a></td>
                     <td>NOM Prénom</td>
                     <td>0</td>
                     <td><img src="../../Ressources/Pictures/non_résolu.png" width="40px" height="40px"/></td>

@@ -40,6 +40,15 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 2em;
 }
 
+#retour-cours {
+    margin-bottom: 1em;
+}
+
+#a-retour-cours {
+    font-size: 0.75em;
+    text-decoration: underline;
+}
+
 
 /* Partie droite, liste des sujets */
 #droite-sujets {
@@ -72,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.35em;
 } 
 
-#droite-sujets table tr td:first-child{
+#droite-sujets table tr td a {
     text-decoration: underline;
 }
 
