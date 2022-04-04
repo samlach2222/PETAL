@@ -21,14 +21,16 @@
         </div>
         <div id="droite-sujet">
             <div id="bandeau-sujet">
+                <div class="empty-div">
+                </div>
+                <div id="bandeau-sujet-nom-div">
+                    <span id="bandeau-sujet-nom-span">Sujet 1</span>
+                </div>
                 <div id="bandeau-sujet-resolu">
                     <span>Résolu : </span>
                     <img src="../../Ressources/Pictures/résolu.png" width="40px" height="40px"/>
                     <span> / </span>
                     <img src="../../Ressources/Pictures/non_résolu.png" width="40px" height="40px"/>
-                </div>
-                <div id="bandeau-sujet-nom">
-                    Sujet 1
                 </div>
             </div>
             <div id="messages">
