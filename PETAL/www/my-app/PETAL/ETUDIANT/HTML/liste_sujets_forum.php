@@ -11,7 +11,7 @@
     <div id="content">
         <div id="gauche-cours">
             <ul>
-                <li id="retour-cours"><a id="a-retour-cours" href="matiere.php?matiere=CDAA">&lt;- Cours de CDAA</a></li> <!-- Doit changer en fonction de la matière actuellement choisie -->
+                <li id="retour-cours"><a id="a-retour-cours" href="matiere.php?matiere=CDAA">Cours de CDAA</a></li> <!-- Doit changer en fonction de la matière actuellement choisie -->
                 <li><a href="?matiere=CDAA">CDAA</a></li>
                 <li><a href="?matiere=SR">SR</a></li>
                 <li><a href="?matiere=SI">SI</a></li>
