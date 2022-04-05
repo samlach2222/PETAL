@@ -36,10 +36,38 @@
                 </div>
             </div>
             <div id="messages">
-                a
+                <div class="message-recu">
+                    <div class="message-entete">
+                        <span class="message-nom">NOM Prénom</span>
+                        <span class="message-date">Date</span>
+                    </div>
+                    <div class="message-contenu">
+                        message
+                    </div>
+                </div>
+                <div class="message-recu">
+                    <div class="message-entete">
+                        <span class="message-nom">NOM Prénom</span>
+                        <span class="message-date">Date</span>
+                    </div>
+                    <div class="message-contenu">
+                        message
+                    </div>
+                </div>
+                <div class="message-envoye">
+                    <div class="message-entete">
+                        <span class="message-nom">NOM Prénom</span>
+                        <span class="message-date">Date</span>
+                    </div>
+                    <div class="message-contenu">
+                        message
+                    </div>
+                </div>
             </div>
             <div id="envoyer-message">
-                b
+                <span id="envoyer-message-span">Poster un message :</span>
+                <textarea id="envoyer-message-texte"></textarea>
+                <button id="envoyer-message-bouton" onclick="EnvoyerMessage()">Envoyer</button>
             </div>
         </div>
     </div>
