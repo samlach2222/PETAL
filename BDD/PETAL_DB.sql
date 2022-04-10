@@ -33,14 +33,14 @@ CREATE TABLE Administrateur (
     numAdministrateur INT NOT NULL,
     id INT NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (id) REFERENCES Utilisateur(id)
+    FOREIGN KEY (id) REFERENCES Utilisateur(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Etudiant (
     id INT NOT NULL,
     numEtudiant INT NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (id) REFERENCES Utilisateur(id)
+    FOREIGN KEY (id) REFERENCES Utilisateur(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Matiere (
@@ -48,7 +48,7 @@ CREATE TABLE Matiere (
     image LONGBLOB,
     id INT NOT NULL,
     PRIMARY KEY(nomMatiere),
-    FOREIGN KEY(id) REFERENCES Utilisateur(id)
+    FOREIGN KEY(id) REFERENCES Utilisateur(id) ON DELETE CASCADE
 );
 
 CREATE TABLE MoyenneEtuMatiere (
@@ -56,8 +56,8 @@ CREATE TABLE MoyenneEtuMatiere (
     nomMatiere VARCHAR(50) NOT NULL,
     moyenne DECIMAL(4,2),
     PRIMARY KEY(id, nomMatiere),
-    FOREIGN KEY(id) REFERENCES Utilisateur(id),
-    FOREIGN KEY(nomMatiere) REFERENCES Matiere(nomMatiere)
+    FOREIGN KEY(id) REFERENCES Utilisateur(id) ON DELETE CASCADE,
+    FOREIGN KEY(nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE
 );
 
 CREATE TABLE SujetForum (
@@ -65,7 +65,7 @@ CREATE TABLE SujetForum (
     nomMatiere VARCHAR(50) NOT NULL,
     resolu BOOLEAN NOT NULL DEFAULT false,
     PRIMARY KEY (nomSujet),
-    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere)
+    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE
 );
 
 CREATE TABLE MessageForum (
@@ -75,8 +75,8 @@ CREATE TABLE MessageForum (
     nomSujet VARCHAR(50) NOT NULL,
     id INT NOT NULL,
     PRIMARY KEY (idMessage),
-    FOREIGN KEY (nomSujet) REFERENCES SujetForum(nomSujet),
-    FOREIGN KEY (id) REFERENCES Utilisateur(id)
+    FOREIGN KEY (nomSujet) REFERENCES SujetForum(nomSujet) ON DELETE CASCADE,
+    FOREIGN KEY (id) REFERENCES Utilisateur(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Cours (
@@ -85,7 +85,7 @@ CREATE TABLE Cours (
     nomMatiere VARCHAR(50) NOT NULL,
     typeCours ENUM('CM','TD','TP') NOT NULL,
     PRIMARY KEY (nomCours),
-    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere)
+    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE
 );
 
 CREATE TABLE QCM (
@@ -96,8 +96,8 @@ CREATE TABLE QCM (
     moyenne DECIMAL(4,2),
     nomCours VARCHAR(50),
     PRIMARY KEY (nomQCM),
-    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere),
-    FOREIGN KEY (nomCours) REFERENCES Cours(nomCours)
+    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE,
+    FOREIGN KEY (nomCours) REFERENCES Cours(nomCours) ON DELETE CASCADE
 );
 
 CREATE TABLE ResultatEtudiant (
@@ -105,8 +105,8 @@ CREATE TABLE ResultatEtudiant (
     nomQCM VARCHAR(50) NOT NULL,
     noteExam DECIMAL(4,2),
     PRIMARY KEY(id, nomQCM),
-    FOREIGN KEY(id) REFERENCES Utilisateur(id),
-    FOREIGN KEY(nomQCM) REFERENCES QCM(nomQCM)
+    FOREIGN KEY(id) REFERENCES Utilisateur(id) ON DELETE CASCADE,
+    FOREIGN KEY(nomQCM) REFERENCES QCM(nomQCM) ON DELETE CASCADE
 );
 
 CREATE TABLE Question (
@@ -116,7 +116,7 @@ CREATE TABLE Question (
     reponseALaQuestion VARCHAR(90) NOT NULL,
     nomQCM VARCHAR(50) NOT NULL,
     PRIMARY KEY (idQuestion),
-    FOREIGN KEY (nomQCM) REFERENCES QCM(nomQCM)
+    FOREIGN KEY (nomQCM) REFERENCES QCM(nomQCM) ON DELETE CASCADE
 );
 
 CREATE TABLE ReponseDeEtudiant (
@@ -125,6 +125,6 @@ CREATE TABLE ReponseDeEtudiant (
     reponseChoisie VARCHAR(7),
     reponseJuste BOOLEAN,
     PRIMARY KEY (id, idQuestion),
-    FOREIGN KEY (id) REFERENCES Etudiant(id),
-    FOREIGN KEY (idQuestion) REFERENCES Question(idQuestion)
+    FOREIGN KEY (id) REFERENCES Etudiant(id) ON DELETE CASCADE,
+    FOREIGN KEY (idQuestion) REFERENCES Question(idQuestion) ON DELETE CASCADE
 );
