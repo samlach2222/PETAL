@@ -63,6 +63,7 @@ CREATE TABLE MoyenneEtuMatiere (
 CREATE TABLE SujetForum (
     nomSujet VARCHAR(50) NOT NULL,
     nomMatiere VARCHAR(50) NOT NULL,
+    resolu BOOLEAN NOT NULL DEFAULT false,
     PRIMARY KEY (nomSujet),
     FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere)
 );
