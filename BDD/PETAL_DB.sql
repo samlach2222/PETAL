@@ -64,8 +64,10 @@ CREATE TABLE SujetForum (
     nomSujet VARCHAR(50) NOT NULL,
     nomMatiere VARCHAR(50) NOT NULL,
     resolu BOOLEAN NOT NULL DEFAULT false,
+    idEtudiant INT NOT NULL,
     PRIMARY KEY (nomSujet),
-    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE
+    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE,
+    FOREIGN KEY (idEtudiant) REFERENCES Etudiant(idEtudiant) ON DELETE CASCADE
 );
 
 CREATE TABLE MessageForum (
