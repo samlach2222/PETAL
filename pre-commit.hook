@@ -1,5 +1,5 @@
 #!/bin/sh
-version="Version 4.4"
+version="Version 4.5"
 echo "pre-commit: $version"
 
 # Fonction end pour quitter le script
@@ -55,10 +55,17 @@ END {print awk_FichiersBDDSelectionnes}' stagedFiles.tmp)
 
 if [[ $FichiersBDDSelectionnes == 1 ]]; then
 	echo "pre-commit: Au moins 1 fichier BDD dans PETAL à commit, ajoute tous les fichiers BDD dans PETAL"
-	echo "pre-commit: Réaffiche ibdata1 pour pouvoir le commit"
-	git update-index --no-assume-unchanged "PETAL/bin/database/mysql-5.7.11/data/ibdata1"
-	git add "PETAL/bin/database/mysql-5.7.11/data/ibdata1"
-	git add "PETAL/bin/database/mysql-5.7.11/data/petal_db"
+	fichiersCaches=$(git ls-files -v "PETAL/bin/database/mysql-5.7.11/data/ibdata1" | { grep "^h" || true; })
+	if [[ -z "$fichiersCaches" ]]; then
+		git add "PETAL/bin/database/mysql-5.7.11/data/ibdata1"
+	else
+		echo "pre-commit: Réaffiche ibdata1 pour pouvoir le commit"
+		git update-index --no-assume-unchanged "PETAL/bin/database/mysql-5.7.11/data/ibdata1"
+		git add "PETAL/bin/database/mysql-5.7.11/data/ibdata1"
+		git update-index --assume-unchanged "PETAL/bin/database/mysql-5.7.11/data/ibdata1"
+		echo "pre-commit: Recache ibdata1"
+	fi
+	git add "PETAL/bin/database/mysql-5.7.11/data/petal_db/"
 else
 	echo "pre-commit: Pas de fichier BDD dans PETAL à commit"
 fi
