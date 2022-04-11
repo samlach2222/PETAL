@@ -19,44 +19,44 @@ DROP TABLE IF EXISTS ReponseDeEtudiant;
 
 -- Creation des tables
 CREATE TABLE Utilisateur (
-    id INT NOT NULL AUTO_INCREMENT,
+    idUtilisateur INT NOT NULL AUTO_INCREMENT,
     photoProfil LONGBLOB,
     nom VARCHAR(50) NOT NULL,
     prenom VARCHAR(50) NOT NULL,
     adresseMail VARCHAR(75) NOT NULL,
     numeroTelephone VARCHAR(15),
     motDePasse VARCHAR(100) NOT NULL,
-    PRIMARY KEY (id)
+    PRIMARY KEY (idUtilisateur)
 );
 
 CREATE TABLE Administrateur (
+    idAdministrateur INT NOT NULL,
     numAdministrateur INT NOT NULL,
-    id INT NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (id) REFERENCES Utilisateur(id) ON DELETE CASCADE
+    PRIMARY KEY (idAdministrateur),
+    FOREIGN KEY (idAdministrateur) REFERENCES Utilisateur(idUtilisateur) ON DELETE CASCADE
 );
 
 CREATE TABLE Etudiant (
-    id INT NOT NULL,
+    idEtudiant INT NOT NULL,
     numEtudiant INT NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (id) REFERENCES Utilisateur(id) ON DELETE CASCADE
+    PRIMARY KEY (idEtudiant),
+    FOREIGN KEY (idEtudiant) REFERENCES Utilisateur(idUtilisateur) ON DELETE CASCADE
 );
 
 CREATE TABLE Matiere (
     nomMatiere VARCHAR(50) NOT NULL,
     image LONGBLOB,
-    id INT NOT NULL,
+    idAdministrateur INT NOT NULL,
     PRIMARY KEY(nomMatiere),
-    FOREIGN KEY(id) REFERENCES Utilisateur(id) ON DELETE CASCADE
+    FOREIGN KEY(idAdministrateur) REFERENCES Administrateur(idAdministrateur) ON DELETE CASCADE
 );
 
 CREATE TABLE MoyenneEtuMatiere (
-    id INT NOT NULL AUTO_INCREMENT,
+    idEtudiant INT NOT NULL AUTO_INCREMENT,
     nomMatiere VARCHAR(50) NOT NULL,
     moyenne DECIMAL(4,2),
-    PRIMARY KEY(id, nomMatiere),
-    FOREIGN KEY(id) REFERENCES Utilisateur(id) ON DELETE CASCADE,
+    PRIMARY KEY(idEtudiant, nomMatiere),
+    FOREIGN KEY(idEtudiant) REFERENCES Etudiant(idEtudiant) ON DELETE CASCADE,
     FOREIGN KEY(nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE
 );
 
@@ -73,10 +73,10 @@ CREATE TABLE MessageForum (
     contenuMessage VARCHAR(2000) NOT NULL,
     dateHeure DATETIME NOT NULL,
     nomSujet VARCHAR(50) NOT NULL,
-    id INT NOT NULL,
+    idEtudiant INT NOT NULL,
     PRIMARY KEY (idMessage),
     FOREIGN KEY (nomSujet) REFERENCES SujetForum(nomSujet) ON DELETE CASCADE,
-    FOREIGN KEY (id) REFERENCES Utilisateur(id) ON DELETE CASCADE
+    FOREIGN KEY (idEtudiant) REFERENCES Etudiant(idEtudiant) ON DELETE CASCADE
 );
 
 CREATE TABLE Cours (
@@ -101,11 +101,11 @@ CREATE TABLE QCM (
 );
 
 CREATE TABLE ResultatEtudiant (
-    id INT NOT NULL AUTO_INCREMENT,
+    idEtudiant INT NOT NULL AUTO_INCREMENT,
     nomQCM VARCHAR(50) NOT NULL,
     noteExam DECIMAL(4,2),
-    PRIMARY KEY(id, nomQCM),
-    FOREIGN KEY(id) REFERENCES Utilisateur(id) ON DELETE CASCADE,
+    PRIMARY KEY(idEtudiant, nomQCM),
+    FOREIGN KEY(idEtudiant) REFERENCES Etudiant(idEtudiant) ON DELETE CASCADE,
     FOREIGN KEY(nomQCM) REFERENCES QCM(nomQCM) ON DELETE CASCADE
 );
 
@@ -120,11 +120,11 @@ CREATE TABLE Question (
 );
 
 CREATE TABLE ReponseDeEtudiant (
-    id INT NOT NULL,
+    idEtudiant INT NOT NULL,
     idQuestion INT NOT NULL,
     reponseChoisie VARCHAR(7),
     reponseJuste BOOLEAN,
-    PRIMARY KEY (id, idQuestion),
-    FOREIGN KEY (id) REFERENCES Etudiant(id) ON DELETE CASCADE,
+    PRIMARY KEY (idEtudiant, idQuestion),
+    FOREIGN KEY (idEtudiant) REFERENCES Etudiant(idEtudiant) ON DELETE CASCADE,
     FOREIGN KEY (idQuestion) REFERENCES Question(idQuestion) ON DELETE CASCADE
 );
