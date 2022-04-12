@@ -11,22 +11,22 @@
     <div id="first">
         <p> Authentification </p>
         <div id="second">
-            <form>
+            <form method="POST" action="model_connexion.php">
                 <label> Nom d'utilisateur </label>
                 <span class="hovertext" data-hover="adresse mail ou numéro d'étudiant"> ? </span>
                 <br/>
-                <input type="text" />
+                <input type="text" name="nom_user" />
                 <br/>
                 <br/>
                 <label> Mot de passe </label>
                 <br/>
-                <input type="text" />
+                <input type="text" name="mdp"/>
                 <br/>
                 <br/>
                 <input type="checkbox" />
                 <label> Se souvenir de moi </label>
                 <!-- revoir la mise en forme du bouton -->
-                <button> Connexion </button>
+                <button type="submit"> Connexion </button>
             </form>
         </div>
         <br/>
