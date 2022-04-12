@@ -50,11 +50,19 @@ CREATE TABLE Matiere (
     FOREIGN KEY(idAdmin) REFERENCES Administrateur(idAdmin) ON DELETE CASCADE
 );
 
+CREATE TABLE EtuMatiere (
+    idEtu INT NOT NULL,
+    nomMatiere VARCHAR(50) NOT NULL,
+    PRIMARY KEY (idEtu, nomMatiere),
+    FOREIGN KEY (idEtu) REFERENCES Etudiant(idEtu) ON DELETE CASCADE,
+    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE
+);
+
 CREATE TABLE SujetForum (
     idSujetForum INT NOT NULL AUTO_INCREMENT,
     nomSujet VARCHAR(50) NOT NULL,
-    nomMatiere VARCHAR(50) NOT NULL,
     resolu BOOLEAN NOT NULL DEFAULT false,
+    nomMatiere VARCHAR(50) NOT NULL,
     idEtu INT NOT NULL,
     PRIMARY KEY (idSujetForum),
     FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE,
@@ -65,8 +73,8 @@ CREATE TABLE MessageForum (
     idMessage INT NOT NULL AUTO_INCREMENT,
     contenuMessage VARCHAR(2000) NOT NULL,
     dateHeure DATETIME NOT NULL,
-    nomSujet VARCHAR(50) NOT NULL,
     idSujetForum INT NOT NULL,
+    idEtu INT NOT NULL,
     PRIMARY KEY (idMessage),
     FOREIGN KEY (idSujetForum) REFERENCES SujetForum(idSujetForum) ON DELETE CASCADE,
     FOREIGN KEY (idEtu) REFERENCES Etudiant(idEtu) ON DELETE CASCADE
@@ -76,8 +84,8 @@ CREATE TABLE Cours (
     idCours INT NOT NULL AUTO_INCREMENT,
     nomCours VARCHAR(50) NOT NULL,
     fichier VARCHAR(2083) NOT NULL,
-    nomMatiere VARCHAR(50) NOT NULL,
     typeCours ENUM('CM','TD','TP') NOT NULL,
+    nomMatiere VARCHAR(50) NOT NULL,
     PRIMARY KEY (idCours),
     FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE
 );
@@ -85,20 +93,20 @@ CREATE TABLE Cours (
 CREATE TABLE QCM (
     idQCM INT NOT NULL AUTO_INCREMENT,
     nomQCM VARCHAR(50) NOT NULL,
-    nomMatiere VARCHAR(50) NOT NULL,
     dateHeureFin DATETIME,
     evalue BOOLEAN NOT NULL,
     moyenne DECIMAL(4,2),
     publie BOOLEAN NOT NULL DEFAULT false,
+    nomMatiere VARCHAR(50) NOT NULL,
     PRIMARY KEY (idQCM),
-    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE,
+    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE
 );
 
 CREATE TABLE ResultatEtudiant (
-    idEtu INT NOT NULL AUTO_INCREMENT,
-    idQCM VARCHAR(50) NOT NULL,
-    noteExam DECIMAL(4,2),
-    PRIMARY KEY(idEtu, nomQCM),
+    idEtu INT NOT NULL,
+    idQCM INT NOT NULL,
+    noteExamen DECIMAL(4,2),
+    PRIMARY KEY(idEtu, idQCM),
     FOREIGN KEY(idEtu) REFERENCES Etudiant(idEtu) ON DELETE CASCADE,
     FOREIGN KEY(idQCM) REFERENCES QCM(idQCM) ON DELETE CASCADE
 );
@@ -108,7 +116,7 @@ CREATE TABLE Question (
     intitulé VARCHAR(200) NOT NULL,
     image LONGBLOB,
     reponseALaQuestion VARCHAR(90) NOT NULL,
-    idQCM VARCHAR(50) NOT NULL,
+    idQCM INT NOT NULL,
     PRIMARY KEY (idQuestion),
     FOREIGN KEY (idQCM) REFERENCES QCM(idQCM) ON DELETE CASCADE
 );
@@ -123,15 +131,7 @@ CREATE TABLE ReponseDeEtudiant (
     FOREIGN KEY (idQuestion) REFERENCES Question(idQuestion) ON DELETE CASCADE
 );
 
-CREATE TABLE EtuMatiere (
-    idEtu INT NOT NULL,
-    nomMatiere VARCHAR(50) NOT NULL,
-    PRIMARY KEY (idEtu, nomMatiere),
-    FOREIGN KEY (idEtu) REFERENCES Etudiant(idEtu) ON DELETE CASCADE,
-    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE
-);
-
 CREATE VIEW MoyenneEtuMatiere AS
-  SELECT idEtu, SUM(noteExam)/COUNT(noteExam), nomMatiere
+  SELECT idEtu, SUM(noteExamen)/COUNT(noteExamen), nomMatiere
   FROM ResultatEtudiant NATURAL JOIN QCM
   WHERE 1 = 1;
