@@ -132,5 +132,6 @@ CREATE TABLE ReponseDeEtudiant (
 );
 
 CREATE VIEW MoyenneEtuMatiere AS
-    SELECT idEtu, ROUND(SUM(noteExamen)/COUNT(noteExamen), 2) AS moyenne, nomMatiere
-    FROM ResultatEtudiant NATURAL JOIN QCM GROUP BY idEtu;
+    SELECT ResultatEtudiant.idEtu, nom, prenom, ROUND(SUM(noteExamen)/COUNT(noteExamen), 2) AS moyenne, nomMatiere
+	FROM QCM NATURAL JOIN ResultatEtudiant LEFT JOIN Etudiant ON ResultatEtudiant.idEtu = Etudiant.idEtu LEFT JOIN Utilisateur ON Etudiant.idEtu = Utilisateur.id
+	GROUP BY idEtu;
