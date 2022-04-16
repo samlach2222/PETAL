@@ -95,7 +95,6 @@ CREATE TABLE QCM (
     nomQCM VARCHAR(50) NOT NULL,
     dateHeureFin DATETIME,
     evalue BOOLEAN NOT NULL,
-    moyenne DECIMAL(4,2),
     publie BOOLEAN NOT NULL DEFAULT false,
     nomMatiere VARCHAR(50) NOT NULL,
     PRIMARY KEY (idQCM),
@@ -133,5 +132,10 @@ CREATE TABLE ReponseDeEtudiant (
 
 CREATE VIEW MoyenneEtuMatiere AS
     SELECT ResultatEtudiant.idEtu, nom, prenom, ROUND(SUM(noteExamen)/COUNT(noteExamen), 2) AS moyenne, nomMatiere
-	FROM QCM NATURAL JOIN ResultatEtudiant LEFT JOIN Etudiant ON ResultatEtudiant.idEtu = Etudiant.idEtu LEFT JOIN Utilisateur ON Etudiant.idEtu = Utilisateur.id
-	GROUP BY idEtu;
+    FROM QCM NATURAL JOIN ResultatEtudiant LEFT JOIN Etudiant ON ResultatEtudiant.idEtu = Etudiant.idEtu LEFT JOIN Utilisateur ON Etudiant.idEtu = Utilisateur.id
+    GROUP BY idEtu;
+	
+CREATE VIEW MoyenneQCM AS
+    SELECT idQCM, nomQCM, ROUND(SUM(noteExamen)/COUNT(noteExamen), 2) AS moyenne, nomMatiere
+	FROM QCM NATURAL JOIN ResultatEtudiant
+	GROUP BY idQCM;
