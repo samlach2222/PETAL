@@ -19,7 +19,7 @@ body {
 	font-family: Vollkorn, serif;
 	position:sticky;
 	top: 0;
-    z-index : 2;
+    z-index: 1;
 }
 
 #top-bar {
@@ -34,6 +34,7 @@ body {
     padding-right: 1.2%;
     border-bottom: 4px solid #1f1e1f;
     border-spacing: 0em;
+    z-index: 1;
 }
 
 a {
@@ -43,6 +44,7 @@ a {
 
 #top-bar-right {
     align-items: center;
+    cursor: pointer;
 }
 
 #imgBandeau {
@@ -59,13 +61,14 @@ a {
     border-top: 0;
     border-bottom-left-radius: 2em;
     border-bottom-right-radius: 2em;
-    display: flex;
+    display: none;  /* display flex mais le popup est caché par défaut */
     flex-direction: column;
     width: 19em;
     height: 20em;
     align-items: center;
     justify-content: space-around;
     background-color: #F88C95;
+    z-index: -1;
 }
 
 #logoNomPrenom {
