@@ -1,0 +1,8 @@
+<svg width="161mm" height="67mm" version="1.1" viewBox="0 0 161 67" xmlns="http://www.w3.org/2000/svg" id="switch">
+	<g id="switch-theme" onclick="ChangerTheme()" transform="translate(-26.5 -71.5)">
+		<path id="switch-theme-left" class="switch-theme-contour" d="m60 72h57l-20 66h-37c-18.282 0-33-14.718-33-33s14.718-33 33-33z"/>
+		<path id="switch-theme-right" class="switch-theme-contour" d="m154 138h-57l20-66h37c18.282 0 33 14.718 33 33s-14.718 33-33 33z"/>
+		<circle id="switch-theme-sun" cx="62" cy="105" r="20"/>
+		<path id="switch-theme-moon" transform="scale(.26458)" d="m612.28 321.26a75.591 75.591 0 0 0-75.59 75.59 75.591 75.591 0 0 0 75.59 75.592 75.591 75.591 0 0 0 18.898-2.4531 75.591 75.591 0 0 1-56.693-73.139 75.591 75.591 0 0 1 56.783-73.164 75.591 75.591 0 0 0-18.988-2.4258z"/>
+	</g>
+</svg>

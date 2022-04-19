@@ -64,7 +64,7 @@ a {
     display: none;  /* display flex mais le popup est caché par défaut */
     flex-direction: column;
     width: 19em;
-    height: 20em;
+    height: 21em;
     align-items: center;
     justify-content: space-around;
     background-color: #F88C95;
@@ -110,10 +110,49 @@ button {
     border-width: 0.15em;
     width: 70%;
     text-align: center;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    height: 3em;
 }
 
 #bandeau * {
     vertical-align: middle;
+}
+
+/* switch theme */
+#switch-theme {
+    cursor: pointer;
+}
+
+.switch-theme-contour {
+    stroke: #1f1e1f;
+}
+
+#switch-theme-left {
+    fill: deepskyblue;
+}
+
+#switch-theme-right {
+    fill: midnightblue;
+}
+
+#switch-theme-sun {
+    fill: yellow;
+}
+
+#switch-theme-moon {
+    fill: lightyellow;
+}
+
+/* switch theme avec curseur dessus */
+#switch-theme:hover .switch-theme-contour {
+    stroke: #eee0e8;
+}
+
+#switch-theme:hover #switch-theme-left, #switch-theme:hover #switch-theme-moon {
+    fill: #1d0027;
+}
+
+#switch-theme:hover #switch-theme-right, #switch-theme:hover #switch-theme-sun {
+    fill: #eee0e8;
 }

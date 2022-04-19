@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="161mm" height="67mm" version="1.1" viewBox="0 0 161 67" xmlns="http://www.w3.org/2000/svg">
+	<g transform="translate(-26.5 -71.5)">
+		<path class="switch-theme-contour" d="m60 72h57l-20 66h-37c-18.282 0-33-14.718-33-33s14.718-33 33-33z" fill="#1d0027"/>
+		<path d="m154 138h-57l20-66h37c18.282 0 33 14.718 33 33s-14.718 33-33 33z" fill="#eee0e8" stroke="#eee0e8"/>
+		<circle cx="62" cy="105" r="20" fill="#eee0e8"/>
+		<path transform="scale(.26458)" d="m612.28 321.26a75.591 75.591 0 0 0-75.59 75.59 75.591 75.591 0 0 0 75.59 75.592 75.591 75.591 0 0 0 18.898-2.4531 75.591 75.591 0 0 1-56.693-73.139 75.591 75.591 0 0 1 56.783-73.164 75.591 75.591 0 0 0-18.988-2.4258z" fill="#1d0027"/>
+	</g>
+</svg>
