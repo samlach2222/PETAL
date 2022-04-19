@@ -1,7 +1,6 @@
 var popupOuvert = false;
 const popup = document.getElementById('popup');
 const topBarHauteur = document.getElementById('top-bar').getBoundingClientRect().height;
-console.log(topBarHauteur);
 var popupAnimation = null;
 
 // On ne peut pas avoir la hauteur avec display none
@@ -23,8 +22,6 @@ function Popup() {
             popupAnimation = setInterval(afficherPopup);
         }   
     }
-    
-    console.log(popupAnimation);
 }
 
 function cacherPopup() {
