@@ -26,7 +26,7 @@
             <a href="edition_etudiant.php">
                 <img id="crayon" src="../../Ressources/Pictures/Crayon_Dark.png" class="icon">
             </a>
-            <a href="">
+            <a href="javascript:SupprimerUtilisateurs()">
                 <img id="corbeille" src="../../Ressources/Pictures/Corbeille_Dark.png" class="icon">
             </a>
         </div>
@@ -35,7 +35,7 @@
                 <tr>
                     <td>
                         <label>
-                            <input type="checkbox" name="key" value="value" />
+                            <input type="checkbox" class="CB" name="key" value="value" />
                             <span>NOM Prénom</span>
                         </label>
                     </td>
@@ -44,7 +44,7 @@
                 <tr>
                     <td>
                         <label>
-                            <input type="checkbox" name="key" value="value" />
+                            <input type="checkbox" class="CB" name="key" value="value" />
                             <span>NOM Prénom</span>
                         </label>
                     </td>
@@ -52,7 +52,7 @@
                 <tr>
                     <td>
                         <label>
-                            <input type="checkbox" name="key" value="value" />
+                            <input type="checkbox" class="CB" name="key" value="value" />
                             <span>NOM Prénom</span>
                         </label>
                     </td>
@@ -60,7 +60,7 @@
                 <tr>
                     <td>
                         <label>
-                            <input type="checkbox" name="key" value="value" />
+                            <input type="checkbox" class="CB" name="key" value="value" />
                             <span>NOM Prénom</span>
                         </label>
                     </td>
@@ -68,7 +68,7 @@
                 <tr>
                     <td>
                         <label>
-                            <input type="checkbox" name="key" value="value" />
+                            <input type="checkbox" class="CB" name="key" value="value" />
                             <span>NOM Prénom</span>
                         </label>
                     </td>
@@ -76,6 +76,8 @@
             </table>
         </div>
     </div>
-
+    <script src="../../ADMINISTRATEUR/JS/gestion_utilisateurs.js"></script>
 </body>
 </html>
+
+
