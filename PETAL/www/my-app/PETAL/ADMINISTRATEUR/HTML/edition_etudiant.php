@@ -17,7 +17,7 @@
             <table>
                 <tr>
                     <td colspan="2" >
-                        <input type="button" id="ajoutImageProfil" value=""/>
+                        <input type="button" id="ajoutImageProfil" value="" onclick="AjoutImageProfil()"/>
                     </td>
                 </tr>
                 <tr>
@@ -57,5 +57,6 @@
             </table>
         </form>
     </div>
+    <script src="../../ADMINISTRATEUR/JS/edition_etudiant.js"></script>
 </body>
 </html>
