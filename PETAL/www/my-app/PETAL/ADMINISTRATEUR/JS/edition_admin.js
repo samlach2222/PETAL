@@ -14,6 +14,8 @@ function AjoutImageProfil() {
                 const content = readerEvent.target.result;
                 document.querySelector('#ajoutImageProfil').style.backgroundImage = 'url('+ content +')';
                 document.querySelector('#ajoutImageProfil').style.backgroundSize = 'cover';
+                const b64WithPrefix = reader.result;
+                document.querySelector('#b64Image').value = b64WithPrefix.substring(b64WithPrefix.indexOf(',') + 1);
             }
         }
         else {
