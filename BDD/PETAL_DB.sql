@@ -33,7 +33,7 @@ CREATE TABLE Matiere (
     image LONGBLOB,
     id INT NOT NULL,
     PRIMARY KEY(nomMatiere),
-    FOREIGN KEY(id) REFERENCES Utilisateur(id) ON DELETE CASCADE    
+    FOREIGN KEY(id) REFERENCES Utilisateur(id) ON DELETE CASCADE
 );
 
 CREATE TABLE EtuMatiere (
@@ -41,7 +41,7 @@ CREATE TABLE EtuMatiere (
     nomMatiere VARCHAR(50) NOT NULL,
     PRIMARY KEY (id, nomMatiere),
     FOREIGN KEY (id) REFERENCES Utilisateur(id) ON DELETE CASCADE,
-    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE    
+    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE
 );
 
 CREATE TABLE SujetForum (
@@ -52,7 +52,7 @@ CREATE TABLE SujetForum (
     id INT NOT NULL,
     PRIMARY KEY (idSujetForum),
     FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE,
-    FOREIGN KEY (id) REFERENCES Utilisateur(id) ON DELETE CASCADE    
+    FOREIGN KEY (id) REFERENCES Utilisateur(id) ON DELETE CASCADE
 );
 
 CREATE TABLE MessageForum (
@@ -63,7 +63,7 @@ CREATE TABLE MessageForum (
     id INT NOT NULL,
     PRIMARY KEY (idMessage),
     FOREIGN KEY (idSujetForum) REFERENCES SujetForum(idSujetForum) ON DELETE CASCADE,
-    FOREIGN KEY (id) REFERENCES Utilisateur(id) ON DELETE CASCADE    
+    FOREIGN KEY (id) REFERENCES Utilisateur(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Cours (
@@ -93,7 +93,7 @@ CREATE TABLE ResultatEtudiant (
     noteExamen DECIMAL(4,2),
     PRIMARY KEY(id, idQCM),
     FOREIGN KEY(id) REFERENCES Utilisateur(id) ON DELETE CASCADE,
-    FOREIGN KEY(idQCM) REFERENCES QCM(idQCM) ON DELETE CASCADE    
+    FOREIGN KEY(idQCM) REFERENCES QCM(idQCM) ON DELETE CASCADE
 );
 
 CREATE TABLE Question (
@@ -113,7 +113,7 @@ CREATE TABLE ReponseDeEtudiant (
     reponseJuste BOOLEAN NOT NULL,
     PRIMARY KEY (id, idQuestion),
     FOREIGN KEY (id) REFERENCES Utilisateur(id) ON DELETE CASCADE,
-    FOREIGN KEY (idQuestion) REFERENCES Question(idQuestion) ON DELETE CASCADE    
+    FOREIGN KEY (idQuestion) REFERENCES Question(idQuestion) ON DELETE CASCADE
 );
 
 CREATE VIEW MoyenneEtuMatiere AS
@@ -125,8 +125,8 @@ CREATE VIEW MoyenneQCM AS
     SELECT idQCM, nomQCM, ROUND(SUM(noteExamen)/COUNT(noteExamen), 2) AS moyenne, nomMatiere
     FROM QCM NATURAL JOIN ResultatEtudiant
     GROUP BY idQCM;
-    
-    
+
+
 -- Initialisation de la fonction IsAdmin
 DROP FUNCTION IF EXISTS IsAdmin;
 DELIMITER $$
@@ -134,7 +134,7 @@ CREATE FUNCTION IsAdmin(p_id INT) RETURNS tinyint(1)
 BEGIN
     RETURN (SELECT admin FROM Utilisateur WHERE id = p_id);
 END$$
-DELIMITER ;    
+DELIMITER ;
 
 -- Creation des triggers pour vérifier que l'utilisateur est ou n'est pas un admin
 DROP TRIGGER IF EXISTS trigger_matiere_admin_insert;
