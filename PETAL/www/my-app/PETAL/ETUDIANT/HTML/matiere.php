@@ -9,8 +9,8 @@
 </head>
 <body>
     <div id="content">
-        <div class="bandeau">
-            <h1 id="titre">Nom Matière</h1>
+        <div id="titre">
+            <h1>Nom Matière</h1>
             <a class="lien" href="accueil_etudiant.php"><- retour</a>
         </div>
         <h2>CM</h2>
