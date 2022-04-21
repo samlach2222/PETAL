@@ -10,9 +10,6 @@ body {
     background-color: #1D0027;
 }
 
-#popup {
-}
-
 #content {
     position: absolute;
     top: 3em;
@@ -44,8 +41,13 @@ body {
 }
 
 h1 {
-    margin-left: 0.5em;
+    text-align: center;
     font-size: 2.5em;
+}
+
+h2 {
+    margin-left: 0.5em;
+    font-size: 2em;
 }
 
 .liste {
@@ -68,8 +70,7 @@ h1 {
 .lien {
     margin-left: 2em;
     font-size: 1.3em;
-    color: blue;
-    text-decoration: underline;
+    color: #EEE0E8;
     margin-bottom: 0.1em;
     width: max-content;
 }
