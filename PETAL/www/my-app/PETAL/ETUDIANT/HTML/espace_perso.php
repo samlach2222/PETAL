@@ -1,3 +1,20 @@
+<?php
+    session_start();
+    try
+    {
+        $conn = new PDO('mysql:host=localhost;dbname=petal_db','root', 'root');    
+    }
+    catch(Exception $e)
+    {
+            die('Erreur : '.$e->getMessage());
+    }
+
+    $_SESSION['id'];
+
+    $req = $donn->('SELECT id, numEtudiant FROM etudiant')
+
+?>
+
 <!DOCTYPE html>
 <!-- Espace perso --> 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -22,6 +39,9 @@
                     <td>
                         <p> NOM Prenom :</p>
                         <output id="name"> </output>
+                        <?php
+                            echo "<input
+                        ?>
                     </td>
                     <td>
                         <p> Numero Etudiant :</p>

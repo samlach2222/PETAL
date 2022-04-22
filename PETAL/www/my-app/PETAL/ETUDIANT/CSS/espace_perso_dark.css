@@ -4,7 +4,7 @@ body {
     background-color: #1D0027;
     color: #EEE0E8;
     font-family: Quicksand;
-    /*src: url(../../Ressources/Fonts/Quicksand/Quicksand-VaribleFont_wght.ttf);*/
+    src: url(../../Ressources/Fonts/Quicksand/Quicksand-VaribleFont_wght.ttf);
 }
 
 a {
@@ -14,7 +14,7 @@ a {
 
 h1 {
     font-family: Volkorn;
-    /*src: url(../../Ressources/Fonts/Volkorn/Volkorn-VariableFont_wght.ttf);*/
+    src: url(../../Ressources/Fonts/Volkorn/Volkorn-VariableFont_wght.ttf);
     text-align:center;
 }
 

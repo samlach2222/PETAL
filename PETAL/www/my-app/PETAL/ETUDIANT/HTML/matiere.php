@@ -9,33 +9,33 @@
 </head>
 <body>
     <div id="content">
-        <div class="bandeau">
-            <h1 id="titre">Nom Matière</h1>
-            <a id="retour" href="accueil_etudiant.php"><- retour</a>
+        <div id="titre">
+            <h1>Nom Matière</h1>
+            <a class="lien" href="accueil_etudiant.php"><- retour</a>
         </div>
-        <h1>CM</h1>
+        <h2>CM</h2>
             <div class="liste">
-                <div class="cours" onclick="window.location='http://google.com';">CM1</div>
-                <div class="cours" onclick="window.location='http://google.com';">CM2</div>
+                <a href="https://google.com"><div class="cours">CM1</div></a>
+                <a href="https://google.com"><div class="cours">CM2</div></a>
             </div>
-        <h1>TD</h1>
+        <h2>TD</h2>
             <div class="liste">
-                <div class="cours" onclick="window.location='http://google.com';">TD1</div>
-                <div class="cours" onclick="window.location='http://google.com';">TD2</div>
-                <div class="cours" onclick="window.location='http://google.com';">TD3</div>
+                <a href="https://google.com"><a href="https://google.com"><div class="cours">TD1</div></a>
+                <a href="https://google.com"><div class="cours">TD2</div></a>
+                <a href="https://google.com"><div class="cours">TD3</div></a>
             </div>
-        <h1>TP</h1>
+        <h2>TP</h2>
             <div class="liste">
-                <div class="cours" onclick="window.location='http://google.com';">TP1</div>
-                <div class="cours" onclick="window.location='http://google.com';">TP2</div>
-                <div class="cours" onclick="window.location='http://google.com';">TP3</div>
-                <div class="cours" onclick="window.location='http://google.com';">TP4</div>
-                <div class="cours" onclick="window.location='http://google.com';">TP5</div>
+                <a href="https://google.com"><div class="cours">TP1</div></a>
+                <a href="https://youtube.com"><div class="cours">TP2</div></a>
+                <a href="https://google.com"><div class="cours">TP3</div></a>
+                <a href="https://google.com"><div class="cours">TP4</div></a>
+                <a href="https://google.com"><div class="cours">TP5</div></a>
             </div>
-        <h1>QCM</h1>
+        <h2>QCM</h2>
             <a href="https://google.com" target="_blank" class="lien">QCM 1</a>
             <a href="https://google.com" target="_blank" class="lien">QCM 2</a>
-        <h1>Evaluation</h1>
+        <h2>Evaluation</h2>
             <a href="https://google.com" target="_blank" class="lien">Evalutation n°1</a>
     </div>
     

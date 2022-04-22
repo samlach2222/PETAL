@@ -19,7 +19,7 @@ body {
 	font-family: Vollkorn, serif;
 	position:sticky;
 	top: 0;
-    z-index : 2;
+    z-index: 1;
 }
 
 #top-bar {
@@ -34,6 +34,7 @@ body {
     padding-right: 1.2%;
     border-bottom: 4px solid #1f1e1f;
     border-spacing: 0em;
+    z-index: 1;
 }
 
 a {
@@ -43,6 +44,7 @@ a {
 
 #top-bar-right {
     align-items: center;
+    cursor: pointer;
 }
 
 #imgBandeau {
@@ -59,13 +61,14 @@ a {
     border-top: 0;
     border-bottom-left-radius: 2em;
     border-bottom-right-radius: 2em;
-    display: flex;
+    display: none;  /* display flex mais le popup est caché par défaut */
     flex-direction: column;
     width: 19em;
-    height: 20em;
+    height: 21em;
     align-items: center;
     justify-content: space-around;
     background-color: #F88C95;
+    z-index: -1;
 }
 
 #logoNomPrenom {
@@ -107,10 +110,87 @@ button {
     border-width: 0.15em;
     width: 70%;
     text-align: center;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    height: 3em;
 }
 
 #bandeau * {
     vertical-align: middle;
 }
+
+/* switch theme */
+#switch-theme {
+    cursor: pointer;
+}
+
+.switch-theme-contour {
+    stroke: #1f1e1f;
+}
+
+#switch-theme-left {
+    fill: deepskyblue;
+}
+
+#switch-theme-right {
+    fill: midnightblue;
+}
+
+#switch-theme-sun {
+    fill: yellow;
+}
+
+#switch-theme-moon {
+    fill: lightyellow;
+}
+
+/* switch theme avec curseur dessus */
+#switch-theme:hover .switch-theme-contour {
+    stroke: #eee0e8;
+}
+
+#switch-theme:hover #switch-theme-left, #switch-theme:hover #switch-theme-moon {
+    fill: #1d0027;
+}
+
+#switch-theme:hover #switch-theme-right, #switch-theme:hover #switch-theme-sun {
+    fill: #eee0e8;
+}
+
+/* SWALL CSS */
+/******* AlertError *******/
+.swal-modal {
+    background-color: #F5F5F5;
+    border: 1px solid #1F1F1F;
+}
+
+.swal-title {
+    color: #1F1F1F;
+}
+
+.swal-icon--error__line--left, .swal-icon--error__line--right{
+    background-color: #FA0000;
+}
+
+.swal-icon--error {
+    border-color: #FA0000;
+}
+
+.swal-button--confirm {
+    background-color: #f88C95;
+    border-color: #1F1F1F;
+}
+
+.swal-button--confirm:not([disabled]):hover {
+    background-color: #CD5162;
+}
+
+.swal-button:focus {
+    box-shadow: none;
+}
+
+/******* AlertSuccess *******/
+.swal-icon--success:before, .swal-icon--success:after, .swal-icon--success__hide-corners {
+    background-color: #F5F5F5;
+}
+

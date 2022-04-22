@@ -5,7 +5,7 @@
             <a href="../../ETUDIANT/HTML/liste_sujets_forum.php"> Forum </a>
         </div>
 
-        <div id="top-bar-right" onclick="popup()">
+        <div id="top-bar-right" onclick="Popup()">
             <span>Prénom NOM</span>
             <img id="imgBandeau" src="../../Ressources/Icon/logo PETAL profil.svg" width="40px" height="40px"/>
         </div>
@@ -21,8 +21,10 @@
                 <span id="nomprenom">Prénom NOM</span>
             </a>
         </div>
-        <span id="switch">switch thème</span>
-        <button>Déconnexion</button>
+        <?php echo file_get_contents("../../Ressources/Icon/switch_theme.svg"); ?>
+        <button onclick="Deconnexion()">Déconnexion</button>
     </div>
     </div> 
 </div>
+
+<script src="../../ALL/JS/bandeau.js"></script>

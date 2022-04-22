@@ -8,47 +8,56 @@
     <title>Edition d'un etudiant</title>
 </head>
 <body>
-    <?php include("../../ALL/HTML/bandeau.html");?>
+<?php
+    include("../../ALL/HTML/bandeau.html");
+    include("../PHP/script_edition_etudiant.php");
+?>
     <div id="content">
         <div id="title">
             <h1 id="createAdmin">Edition d'un étudiant</h1>
         </div>
-        <form>
+        <form action="../PHP/script_edition_etudiant.php" method="post">
             <table>
                 <tr>
                     <td colspan="2" >
-                        <input type="button" id="ajoutImageProfil" value=""/>
+                        <input type="button" id="ajoutImageProfil" value="" onclick="AjoutImageProfil()"/>
+                        <input type="hidden" id="b64Image" name="b64Image" value="">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="nomAdmin">Nom d'utilisateur</label></br>
-                        <input type="text" id="nomAdmin"/>
+                        <label for="prenomAdmin">Prénom</label></br>
+                        <input type="text" id="prenomAdmin" name="prenomAdmin"/>
                     </td>
+                    <td>
+                        <label for="nomAdmin">Nom</label></br>
+                        <input type="text" id="nomAdmin" name="nomAdmin"/>
+                    </td>
+                </tr>
+                <tr>
                     <td>
                         <label for="passAdmin">Mot de passe</label></br>
-                        <input type="password" id="passAdmin"/>
+                        <input type="password" id="passAdmin" name="passAdmin"/>
                     </td>
-                </tr>
-                <tr>
                     <td>
                         <label for="mailAdmin">Adresse mail</label></br>
-                        <input type="email" id="mailAdmin"/>
+                        <input type="email" id="mailAdmin" name="mailAdmin"/>
                     </td>
+
+                </tr>
+                <tr>
                     <td>
                         <label for="telAdmin">N°Téléphone (facultatif)</label></br>
-                        <input type="tel" id="telAdmin"/>
+                        <input type="tel" id="telAdmin" name="telAdmin"/>
                     </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <label for="numAdmin">N°Etudiant</label></br>
-                        <input type="text" id="numAdmin"/>
+                    <td>
+                        <label for="numEtu">N°Etudiant</label></br>
+                        <input type="text" id="numEtu" name="numEtu"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="submit" value="Valider" id="valider">
+                        <input type="submit" name="valider" value="Valider" id="valider">
                     </td>
                     <td>
                         <input type="button" value="Annuler" id="annuler" onClick="window.location.href='gestion_utilisateurs.php'">
@@ -57,5 +66,6 @@
             </table>
         </form>
     </div>
+    <script src="../../ADMINISTRATEUR/JS/edition_etudiant.js"></script>
 </body>
 </html>
