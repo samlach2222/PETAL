@@ -8,7 +8,10 @@
     // Si l'on reviens sur la même page avec une erreur d'insertion
     if(!empty($_GET['ajout'])) {
         if($_GET['ajout'] == "error") {
-            echo '<script>alert("Identifiants incorrects")</script>';
+            // chargement de la notification
+            echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
+            echo '<script src="../../ALL/JS/notify.js"></script>';
+            echo '<script>AlertError("Identifiants incorrects");</script>';
         }
     }
 
