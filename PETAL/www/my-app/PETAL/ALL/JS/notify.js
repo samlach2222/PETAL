@@ -5,3 +5,10 @@ function AlertError(message){
     })
 }
 
+function AlertSuccess(message){
+    swal({
+        title: message,
+        icon: "success",
+    })
+}
+

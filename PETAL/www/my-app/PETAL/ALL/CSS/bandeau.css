@@ -166,7 +166,7 @@ button {
     color: #EEE0E8;
 }
 
-.swal-modal span {
+.swal-icon--error__line--left, .swal-icon--error__line--right {
     background-color: #FA0000;
 }
 
@@ -185,4 +185,9 @@ button {
 
 .swal-button:focus {
     box-shadow: none;
+}
+
+/******* AlertSuccess *******/
+.swal-icon--success:before, .swal-icon--success:after, .swal-icon--success__hide-corners {
+    background-color: #1D0027;
 }
