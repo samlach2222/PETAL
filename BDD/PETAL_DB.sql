@@ -30,16 +30,16 @@ CREATE TABLE Utilisateur (
 CREATE TABLE Matiere (
     nomMatiere VARCHAR(50) NOT NULL,
     image LONGBLOB,
-    id INT NOT NULL,
+    num INT NOT NULL,
     PRIMARY KEY(nomMatiere),
-    FOREIGN KEY(id) REFERENCES Utilisateur(num) ON DELETE CASCADE
+    FOREIGN KEY(num) REFERENCES Utilisateur(num) ON DELETE CASCADE
 );
 
 CREATE TABLE EtuMatiere (
-    id INT NOT NULL,
+    num INT NOT NULL,
     nomMatiere VARCHAR(50) NOT NULL,
-    PRIMARY KEY (id, nomMatiere),
-    FOREIGN KEY (id) REFERENCES Utilisateur(id) ON DELETE CASCADE,
+    PRIMARY KEY (num, nomMatiere),
+    FOREIGN KEY (num) REFERENCES Utilisateur(num) ON DELETE CASCADE,
     FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE
 );
 
@@ -48,10 +48,10 @@ CREATE TABLE SujetForum (
     nomSujet VARCHAR(50) NOT NULL,
     resolu BOOLEAN NOT NULL DEFAULT false,
     nomMatiere VARCHAR(50) NOT NULL,
-    id INT NOT NULL,
+    num INT NOT NULL,
     PRIMARY KEY (idSujetForum),
     FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE,
-    FOREIGN KEY (id) REFERENCES Utilisateur(num) ON DELETE CASCADE
+    FOREIGN KEY (num) REFERENCES Utilisateur(num) ON DELETE CASCADE
 );
 
 CREATE TABLE MessageForum (
@@ -59,10 +59,10 @@ CREATE TABLE MessageForum (
     contenuMessage VARCHAR(2000) NOT NULL,
     dateHeure DATETIME NOT NULL,
     idSujetForum INT NOT NULL,
-    id INT NOT NULL,
+    num INT NOT NULL,
     PRIMARY KEY (idMessage),
     FOREIGN KEY (idSujetForum) REFERENCES SujetForum(idSujetForum) ON DELETE CASCADE,
-    FOREIGN KEY (id) REFERENCES Utilisateur(num) ON DELETE CASCADE
+    FOREIGN KEY (num) REFERENCES Utilisateur(num) ON DELETE CASCADE
 );
 
 CREATE TABLE Cours (
@@ -87,11 +87,11 @@ CREATE TABLE QCM (
 );
 
 CREATE TABLE ResultatEtudiant (
-    id INT NOT NULL,
+    num INT NOT NULL,
     idQCM INT NOT NULL,
     noteExamen DECIMAL(4,2),
-    PRIMARY KEY(id, idQCM),
-    FOREIGN KEY(id) REFERENCES Utilisateur(num) ON DELETE CASCADE,
+    PRIMARY KEY(num, idQCM),
+    FOREIGN KEY(num) REFERENCES Utilisateur(num) ON DELETE CASCADE,
     FOREIGN KEY(idQCM) REFERENCES QCM(idQCM) ON DELETE CASCADE
 );
 
@@ -106,19 +106,19 @@ CREATE TABLE Question (
 );
 
 CREATE TABLE ReponseDeEtudiant (
-    id INT NOT NULL,
+    num INT NOT NULL,
     idQuestion INT NOT NULL,
     reponseChoisie VARCHAR(7),
     reponseJuste BOOLEAN NOT NULL,
-    PRIMARY KEY (id, idQuestion),
-    FOREIGN KEY (id) REFERENCES Utilisateur(num) ON DELETE CASCADE,
+    PRIMARY KEY (num, idQuestion),
+    FOREIGN KEY (num) REFERENCES Utilisateur(num) ON DELETE CASCADE,
     FOREIGN KEY (idQuestion) REFERENCES Question(idQuestion) ON DELETE CASCADE
 );
 
 CREATE VIEW MoyenneEtuMatiere AS
-    SELECT ResultatEtudiant.id, nom, prenom, ROUND(SUM(noteExamen)/COUNT(noteExamen), 2) AS moyenne, nomMatiere
-    FROM QCM NATURAL JOIN ResultatEtudiant LEFT JOIN Utilisateur ON ResultatEtudiant.id = Utilisateur.num
-    GROUP BY id;
+    SELECT ResultatEtudiant.num, nom, prenom, ROUND(SUM(noteExamen)/COUNT(noteExamen), 2) AS moyenne, nomMatiere
+    FROM QCM NATURAL JOIN ResultatEtudiant LEFT JOIN Utilisateur ON ResultatEtudiant.num = Utilisateur.num
+    GROUP BY num;
 
 CREATE VIEW MoyenneQCM AS
     SELECT idQCM, nomQCM, ROUND(SUM(noteExamen)/COUNT(noteExamen), 2) AS moyenne, nomMatiere
@@ -129,9 +129,9 @@ CREATE VIEW MoyenneQCM AS
 -- Initialisation de la fonction IsAdmin
 DROP FUNCTION IF EXISTS IsAdmin;
 DELIMITER $$
-CREATE FUNCTION IsAdmin(p_id INT) RETURNS tinyint(1)
+CREATE FUNCTION IsAdmin(p_num INT) RETURNS tinyint(1)
 BEGIN
-    RETURN (SELECT admin FROM Utilisateur WHERE num = p_id);
+    RETURN (SELECT admin FROM Utilisateur WHERE num = p_num);
 END$$
 DELIMITER ;
 
@@ -141,7 +141,7 @@ delimiter $$
 CREATE TRIGGER trigger_matiere_admin_insert BEFORE INSERT
 ON matiere
 FOR EACH ROW
-IF IsAdmin(NEW.id) != 1 THEN
+IF IsAdmin(NEW.num) != 1 THEN
     SIGNAL SQLSTATE '50001' SET MESSAGE_TEXT = 'Un étudiant ne peut pas gérer une matière';
 END IF; $$
 delimiter ;
@@ -151,7 +151,7 @@ delimiter $$
 CREATE TRIGGER trigger_matiere_admin_insert BEFORE UPDATE
 ON matiere
 FOR EACH ROW
-IF IsAdmin(NEW.id) != 1 THEN
+IF IsAdmin(NEW.num) != 1 THEN
     SIGNAL SQLSTATE '50001' SET MESSAGE_TEXT = 'Un étudiant ne peut pas gérer une matière';
 END IF; $$
 delimiter ;
