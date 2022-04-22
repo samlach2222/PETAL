@@ -50,8 +50,8 @@ CREATE TABLE SujetForum (
     nomMatiere VARCHAR(50) NOT NULL,
     num INT NOT NULL,
     PRIMARY KEY (idSujetForum),
-    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE,
-    FOREIGN KEY (num) REFERENCES Utilisateur(num) ON DELETE CASCADE
+    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere),
+    FOREIGN KEY (num) REFERENCES Utilisateur(num)
 );
 
 CREATE TABLE MessageForum (
@@ -72,7 +72,7 @@ CREATE TABLE Cours (
     typeCours ENUM('CM','TD','TP') NOT NULL,
     nomMatiere VARCHAR(50) NOT NULL,
     PRIMARY KEY (idCours),
-    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE
+    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere)
 );
 
 CREATE TABLE QCM (
@@ -83,7 +83,7 @@ CREATE TABLE QCM (
     publie BOOLEAN NOT NULL DEFAULT false,
     nomMatiere VARCHAR(50) NOT NULL,
     PRIMARY KEY (idQCM),
-    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE
+    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere)
 );
 
 CREATE TABLE ResultatEtudiant (
