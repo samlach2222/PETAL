@@ -146,9 +146,9 @@ IF IsAdmin(NEW.num) != 1 THEN
 END IF; $$
 delimiter ;
 
-DROP TRIGGER IF EXISTS trigger_matiere_admin_insert;
+DROP TRIGGER IF EXISTS trigger_matiere_admin_update;
 delimiter $$
-CREATE TRIGGER trigger_matiere_admin_insert BEFORE UPDATE
+CREATE TRIGGER trigger_matiere_admin_update BEFORE UPDATE
 ON matiere
 FOR EACH ROW
 IF IsAdmin(NEW.num) != 1 THEN
