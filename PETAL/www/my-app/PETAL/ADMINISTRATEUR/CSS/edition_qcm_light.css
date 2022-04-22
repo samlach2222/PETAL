@@ -33,7 +33,7 @@ ul{
 }
 #boutonBas{
 	margin-left:40%;
-	margin-right:30%;
+	padding-bottom: 10%;
 }
 #reponses{
 	margin-left: 1em;
@@ -42,7 +42,10 @@ ul{
 	font-size:1.5em;
 	margin-left: 0.25em;
 }
-
+.BtAjoutImage{
+	font-size:1.5em;
+	margin-left: 0.25em;
+}
 #popup{
 	display: none;
 }

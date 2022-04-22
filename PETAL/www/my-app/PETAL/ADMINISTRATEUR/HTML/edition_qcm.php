@@ -16,7 +16,8 @@
             <h1>Edition/Modification d'un QCM</h1>
         </div>
         <div id="conteneurRetour"><a href="liste_qcm.php" id="retour">retour</a></div>
-    	<form>
+    	<!--<form action="../PHP/script_edition_qcm.php" method="post" id="formQCM">-->
+        <form  method="post" id="formQCM">
     		<table id="titre">
     			<tr>
     				<td>
@@ -39,7 +40,8 @@
     			<output>1</output>
     			<label> : </label>
     			<input type="text" name="question">
-                <button onclick="chercherImage()" class="SecondButton">Ajout image</button>
+                <button onclick="AjoutImageQCM()" class="BtAjoutImage">Ajout image</button>
+                <input type="hidden" id="b64Image" name="b64Image" value="">
                 <br>
     			<div id="reponses">
                     <input type="radio" name="reponse1">
@@ -57,5 +59,6 @@
             </div>
     	</form>
     </div>
+    <script src="../../ADMINISTRATEUR/JS/edition_qcm.js"></script>
 </body>
 </html>
