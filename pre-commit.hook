@@ -1,5 +1,5 @@
 #!/bin/sh
-version="Version 4.5"
+version="Version 4.6"
 echo "pre-commit: $version"
 
 # Fonction end pour quitter le script
@@ -46,15 +46,17 @@ fi
 echo "pre-commit: Enlève les fichiers dans PETAL des fichiers à commit"
 git reset -q HEAD -- PETAL
 
-# Si au moins 1 fichier dans petal_db est à commit, il faut
-# commit tous les fichiers BDD dans PETAL
-echo "pre-commit: Check s'il y a des fichiers BDD dans PETAL parmi les fichiers à commit"
+# Si au moins 1 fichier BDD est à commit, il faut
+# commit tous les fichiers BDD
+echo "pre-commit: Check s'il y a des fichiers BDD parmi les fichiers à commit"
 FichiersBDDSelectionnes=$(awk 'BEGIN {awk_FichiersBDDSelectionnes=0}
 /PETAL\/bin\/database\/mysql-5.7.11\/data\/petal_db\// {awk_FichiersBDDSelectionnes=1; exit}
+/PETAL\/bin\/database\/mysql-5.7.11\/data\/mysql\/proc.MYD/ {awk_FichiersBDDSelectionnes=1; exit}
+/PETAL\/bin\/database\/mysql-5.7.11\/data\/mysql\/proc.MYI/ {awk_FichiersBDDSelectionnes=1; exit}
 END {print awk_FichiersBDDSelectionnes}' stagedFiles.tmp)
 
 if [[ $FichiersBDDSelectionnes == 1 ]]; then
-	echo "pre-commit: Au moins 1 fichier BDD dans PETAL à commit, ajoute tous les fichiers BDD dans PETAL"
+	echo "pre-commit: Au moins 1 fichier BDD à commit, ajoute tous les fichiers BDD"
 	fichiersCaches=$(git ls-files -v "PETAL/bin/database/mysql-5.7.11/data/ibdata1" | { grep "^h" || true; })
 	if [[ -z "$fichiersCaches" ]]; then
 		git add "PETAL/bin/database/mysql-5.7.11/data/ibdata1"
@@ -62,12 +64,14 @@ if [[ $FichiersBDDSelectionnes == 1 ]]; then
 		echo "pre-commit: Réaffiche ibdata1 pour pouvoir le commit"
 		git update-index --no-assume-unchanged "PETAL/bin/database/mysql-5.7.11/data/ibdata1"
 		git add "PETAL/bin/database/mysql-5.7.11/data/ibdata1"
-		git update-index --assume-unchanged "PETAL/bin/database/mysql-5.7.11/data/ibdata1"
 		echo "pre-commit: Recache ibdata1"
+		git update-index --assume-unchanged "PETAL/bin/database/mysql-5.7.11/data/ibdata1"
 	fi
 	git add "PETAL/bin/database/mysql-5.7.11/data/petal_db/"
+	git add "PETAL/bin/database/mysql-5.7.11/data/mysql/proc.MYD"
+	git add "PETAL/bin/database/mysql-5.7.11/data/mysql/proc.MYI"
 else
-	echo "pre-commit: Pas de fichier BDD dans PETAL à commit"
+	echo "pre-commit: Pas de fichier BDD à commit"
 fi
 
 echo "pre-commit: Ajoute les fichiers Web dans PETAL étant à la fois à commit et pouvant être commit"
