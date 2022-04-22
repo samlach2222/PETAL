@@ -99,7 +99,7 @@ CREATE TABLE Question (
     idQuestion INT NOT NULL AUTO_INCREMENT,
     intitulé VARCHAR(200) NOT NULL,
     image LONGBLOB,
-    reponseALaQuestion VARCHAR(90) NOT NULL,
+    reponseALaQuestion VARCHAR(7) NOT NULL,
     idQCM INT NOT NULL,
     PRIMARY KEY (idQuestion),
     FOREIGN KEY (idQCM) REFERENCES QCM(idQCM) ON DELETE CASCADE
