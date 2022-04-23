@@ -27,7 +27,7 @@ function EnvoiAjoutEtudiant()
     $numEtu = $_POST['numAdmin'];
 
     // vérification des données
-    if($nom == null || $adresseMail == null || $motDePasse == null){
+    if($prenom == null || $nom == null || $adresseMail == null || $motDePasse == null || $numEtu == null){
         header("Location: ../HTML/edition_etudiant.php?ajout=error");
     }
     else {
@@ -40,8 +40,9 @@ function EnvoiAjoutEtudiant()
         }
 
         // Requete d'insertion
-        $statement = $pdo->prepare('INSERT INTO utilisateur (photoProfil, nom, prenom, adresseMail, numeroTelephone, motDePasse) VALUES (:photoProfil, :nom, :prenom, :adresseMail, :numeroTelephone, :motDePasse)');
+        $statement = $pdo->prepare('INSERT INTO utilisateur (num, photoProfil, nom, prenom, adresseMail, numeroTelephone, motDePasse) VALUES (:numEtudiant, :photoProfil, :nom, :prenom, :adresseMail, :numeroTelephone, :motDePasse)');
         $statement->execute([
+            'numEtudiant' => $numEtu,
             'photoProfil' => $photoProfil,
             'prenom' => $prenom,
             'nom' => $nom,

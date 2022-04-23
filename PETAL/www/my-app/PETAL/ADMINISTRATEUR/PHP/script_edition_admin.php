@@ -27,7 +27,7 @@
         $numAdmin = $_POST['numAdmin'];
 
         // vérification des données
-        if($nom == null || $adresseMail == null || $motDePasse == null){
+        if($prenom == null || $nom == null || $adresseMail == null || $motDePasse == null || $numAdmin == null){
             header("Location: ../HTML/edition_admin.php?ajout=error");
         }
         else {
@@ -40,8 +40,10 @@
             }
 
             // Requete d'insertion
-            $statement = $pdo->prepare('INSERT INTO utilisateur (photoProfil, nom, prenom, adresseMail, numeroTelephone, motDePasse) VALUES (:photoProfil, :nom, :prenom, :adresseMail, :numeroTelephone, :motDePasse)');
+            $statement = $pdo->prepare('INSERT INTO utilisateur (num, admin, photoProfil, nom, prenom, adresseMail, numeroTelephone, motDePasse) VALUES (:numAdmin, :admin, :photoProfil, :nom, :prenom, :adresseMail, :numeroTelephone, :motDePasse)');
             $statement->execute([
+                'numAdmin' => $numAdmin,
+                'admin' => 1,
                 'photoProfil' => $photoProfil,
                 'prenom' => $prenom,
                 'nom' => $nom,
