@@ -73,3 +73,5 @@
     </div>
 </body>
 </html>
+
+<script src="../JS/discussion_forum.js"></script>
