@@ -24,7 +24,7 @@ function EnvoiAjoutEtudiant()
     $adresseMail = $_POST['mailAdmin'];
     $numeroTelephone = $_POST['telAdmin'];
     $motDePasse = $_POST['passAdmin'];
-    $numEtu = $_POST['numAdmin'];
+    $numEtu = $_POST['numEtu'];
 
     // vérification des données
     if($prenom == null || $nom == null || $adresseMail == null || $motDePasse == null || $numEtu == null){

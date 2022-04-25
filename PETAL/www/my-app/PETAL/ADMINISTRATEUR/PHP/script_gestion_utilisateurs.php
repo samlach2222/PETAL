@@ -29,10 +29,7 @@
                     $query .= $id.", ";
                 }
             }
-
-            print_r($query);
-
-                // Requete d'insertion
+            // Requete d'insertion
             $pdo->exec($query);
         }
     }
