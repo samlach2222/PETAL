@@ -32,7 +32,7 @@ function cacherPopup() {
         popupOuvert = false;
     } else {
         popup.style.top = i+"px";
-        i--;
+        i-=3;
     }
 }
 
@@ -43,6 +43,6 @@ function afficherPopup() {
         popupOuvert = true;
     } else {
         popup.style.top = i+"px";
-        i++;
+        i+=3;
     }
 }
