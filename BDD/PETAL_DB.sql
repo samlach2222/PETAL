@@ -99,7 +99,10 @@ CREATE TABLE Question (
     idQuestion INT NOT NULL AUTO_INCREMENT,
     intitulé VARCHAR(200) NOT NULL,
     image LONGBLOB,
-    reponseALaQuestion VARCHAR(7) NOT NULL,
+    reponseALaQuestion TINYINT NOT NULL,
+    choix1 VARCHAR(90) NOT NULL,
+    choix2 VARCHAR(90) NOT NULL,
+    choix3 VARCHAR(90) NOT NULL,
     idQCM INT NOT NULL,
     PRIMARY KEY (idQuestion),
     FOREIGN KEY (idQCM) REFERENCES QCM(idQCM) ON DELETE CASCADE
@@ -108,8 +111,7 @@ CREATE TABLE Question (
 CREATE TABLE ReponseDeEtudiant (
     num INT NOT NULL,
     idQuestion INT NOT NULL,
-    reponseChoisie VARCHAR(7),
-    reponseJuste BOOLEAN NOT NULL,
+    reponseChoisie TINYINT,
     PRIMARY KEY (num, idQuestion),
     FOREIGN KEY (num) REFERENCES Utilisateur(num) ON DELETE CASCADE,
     FOREIGN KEY (idQuestion) REFERENCES Question(idQuestion) ON DELETE CASCADE
