@@ -17,7 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     color: #EEE0E8;
-    font-size:5em;
+    font-size:8vh;
 }
 
 #titre {
@@ -28,7 +28,7 @@ body {
     border-left: none;
     background-color: #1D0027;
     height: 20%;
-    margin-top: 5%;
+    margin-top: 4%;
 }
 
 h1 {

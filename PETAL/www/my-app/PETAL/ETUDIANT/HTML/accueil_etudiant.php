@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../CSS/accueil_etudiant.css">
+        <link rel="stylesheet" href="../CSS/accueil_etudiant_light.css">
         <title>Page d'Accueil</title>
     </head>
     <body>
