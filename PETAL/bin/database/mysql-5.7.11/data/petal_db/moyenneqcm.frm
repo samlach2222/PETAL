@@ -1,15 +1,15 @@
 TYPE=VIEW
-query=select `petal_db`.`qcm`.`idQCM` AS `idQCM`,`petal_db`.`qcm`.`nomQCM` AS `nomQCM`,round((sum(`petal_db`.`resultatetudiant`.`noteExamen`) / count(`petal_db`.`resultatetudiant`.`noteExamen`)),2) AS `moyenne`,`petal_db`.`qcm`.`nomMatiere` AS `nomMatiere` from (`petal_db`.`qcm` join `petal_db`.`resultatetudiant` on((`petal_db`.`qcm`.`idQCM` = `petal_db`.`resultatetudiant`.`idQCM`))) group by `petal_db`.`qcm`.`idQCM`
-md5=4e29f63b176e1b737e7d24fbff95fafa
+query=select `resultatetudiant`.`idQCM` AS `idQCM`,`resultatetudiant`.`nomQCM` AS `nomQCM`,`resultatetudiant`.`nomMatiere` AS `nomMatiere`,round((sum(`resultatetudiant`.`moyenne`) / count(`resultatetudiant`.`moyenne`)),2) AS `moyenne` from `petal_db`.`resultatetudiant` group by `resultatetudiant`.`idQCM`
+md5=add259fb9a67f522097246f0271b7acd
 updatable=0
 algorithm=0
 definer_user=root
 definer_host=localhost
 suid=2
 with_check_option=0
-timestamp=2022-04-22 14:07:37
+timestamp=2022-04-25 14:21:31
 create-version=1
-source=SELECT idQCM, nomQCM, ROUND(SUM(noteExamen)/COUNT(noteExamen), 2) AS moyenne, nomMatiere\n    FROM QCM NATURAL JOIN ResultatEtudiant\n    GROUP BY idQCM
+source=SELECT idQCM, nomQCM, nomMatiere, ROUND(SUM(moyenne)/COUNT(moyenne),2) AS moyenne\n    FROM resultatetudiant\n    GROUP BY idQCM
 client_cs_name=utf8mb4
 connection_cl_name=utf8mb4_unicode_ci
-view_body_utf8=select `petal_db`.`qcm`.`idQCM` AS `idQCM`,`petal_db`.`qcm`.`nomQCM` AS `nomQCM`,round((sum(`petal_db`.`resultatetudiant`.`noteExamen`) / count(`petal_db`.`resultatetudiant`.`noteExamen`)),2) AS `moyenne`,`petal_db`.`qcm`.`nomMatiere` AS `nomMatiere` from (`petal_db`.`qcm` join `petal_db`.`resultatetudiant` on((`petal_db`.`qcm`.`idQCM` = `petal_db`.`resultatetudiant`.`idQCM`))) group by `petal_db`.`qcm`.`idQCM`
+view_body_utf8=select `resultatetudiant`.`idQCM` AS `idQCM`,`resultatetudiant`.`nomQCM` AS `nomQCM`,`resultatetudiant`.`nomMatiere` AS `nomMatiere`,round((sum(`resultatetudiant`.`moyenne`) / count(`resultatetudiant`.`moyenne`)),2) AS `moyenne` from `petal_db`.`resultatetudiant` group by `resultatetudiant`.`idQCM`
