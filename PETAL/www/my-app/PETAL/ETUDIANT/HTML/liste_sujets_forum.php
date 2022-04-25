@@ -10,7 +10,7 @@
     <?php include("../../ALL/HTML/bandeau.html");?>
     <div id="content">
         <div id="gauche-cours">
-            <ul>
+            <ul id="liste-cours">
                 <li id="retour-cours"><a id="a-retour-cours" href="matiere.php?matiere=CDAA">Cours de CDAA</a></li> <!-- Doit changer en fonction de la matière actuellement choisie -->
                 <li><a href="?matiere=CDAA">CDAA</a></li>
                 <li><a href="?matiere=SR">SR</a></li>
@@ -21,7 +21,7 @@
             </ul>
         </div>
         <div id="droite-sujets">
-            <table>
+            <table id="tableau-sujets">
                 <tr>
                     <th>Sujet</th>
                     <th>Lancé par</th>
@@ -69,3 +69,5 @@
     </div>
 </body>
 </html>
+
+<script src="../JS/liste_sujets_forum.js"></script>
