@@ -6,11 +6,11 @@ USE PETAL_DB;
 -- Destruction des tables si existantes
 DROP TABLE IF EXISTS Utilisateur;
 DROP TABLE IF EXISTS Matiere;
+DROP TABLE IF EXISTS EtuMatiere;
 DROP TABLE IF EXISTS SujetForum;
 DROP TABLE IF EXISTS MessageForum;
 DROP TABLE IF EXISTS Cours;
 DROP TABLE IF EXISTS QCM;
-DROP TABLE IF EXISTS ResultatEtudiant;
 DROP TABLE IF EXISTS Question;
 DROP TABLE IF EXISTS ReponseDeEtudiant;
 
@@ -86,15 +86,6 @@ CREATE TABLE QCM (
     FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere)
 );
 
-CREATE TABLE ResultatEtudiant (
-    num INT NOT NULL,
-    idQCM INT NOT NULL,
-    noteExamen DECIMAL(4,2),
-    PRIMARY KEY(num, idQCM),
-    FOREIGN KEY(num) REFERENCES Utilisateur(num) ON DELETE CASCADE,
-    FOREIGN KEY(idQCM) REFERENCES QCM(idQCM) ON DELETE CASCADE
-);
-
 CREATE TABLE Question (
     idQuestion INT NOT NULL AUTO_INCREMENT,
     intitulé VARCHAR(200) NOT NULL,
@@ -117,14 +108,24 @@ CREATE TABLE ReponseDeEtudiant (
     FOREIGN KEY (idQuestion) REFERENCES Question(idQuestion) ON DELETE CASCADE
 );
 
+CREATE VIEW ResultatEtudiant AS
+    SELECT idQCM, num, nomQCM, nomMatiere, ROUND((nombreReponsesCorrectes/COUNT(*))*20,2) AS moyenne
+    FROM qcm NATURAL JOIN question NATURAL JOIN reponsedeetudiant NATURAL JOIN (
+        SELECT idQCM, num, COUNT(*) AS nombreReponsesCorrectes
+        FROM qcm NATURAL JOIN question NATURAL JOIN reponsedeetudiant
+        WHERE reponseALaQuestion = reponseChoisie
+        GROUP BY idQCM, num
+    ) AS TableNombreReponsesCorrectes
+    GROUP BY idQCM, num;
+
 CREATE VIEW MoyenneEtuMatiere AS
-    SELECT ResultatEtudiant.num, nom, prenom, ROUND(SUM(noteExamen)/COUNT(noteExamen), 2) AS moyenne, nomMatiere
-    FROM QCM NATURAL JOIN ResultatEtudiant LEFT JOIN Utilisateur ON ResultatEtudiant.num = Utilisateur.num
+    SELECT num, nom, prenom, nomMatiere, ROUND(SUM(moyenne)/COUNT(moyenne),2) AS moyenne
+    FROM resultatetudiant NATURAL JOIN utilisateur
     GROUP BY num;
 
 CREATE VIEW MoyenneQCM AS
-    SELECT idQCM, nomQCM, ROUND(SUM(noteExamen)/COUNT(noteExamen), 2) AS moyenne, nomMatiere
-    FROM QCM NATURAL JOIN ResultatEtudiant
+    SELECT idQCM, nomQCM, nomMatiere, ROUND(SUM(moyenne)/COUNT(moyenne),2) AS moyenne
+    FROM resultatetudiant
     GROUP BY idQCM;
 
 
