@@ -26,7 +26,7 @@
             <a href="edition_etudiant.php">
                 <img id="plusEtudiant" src="../../Ressources/Pictures/Plus_Utilisateur_Dark.png" class="icon">
             </a>
-            <a href="edition_etudiant.php">
+            <a href="javascript:EditerUtilisateur()">
                 <img id="crayon" src="../../Ressources/Pictures/Crayon_Dark.png" class="icon">
             </a>
             <a href="javascript:SupprimerUtilisateurs()">
