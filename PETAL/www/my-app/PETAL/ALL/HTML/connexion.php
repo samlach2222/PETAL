@@ -11,21 +11,21 @@
         <p>Authentification</p>
         <div id="second">
             <form method="POST">
-                <label>Nom d'utilisateur</label>
+                <label for="nom_user">Nom d'utilisateur</label>
                 <span class="hovertext" data-hover="adresse mail ou numéro d'étudiant">?</span>
                 <br/>
-                <input type="text" name="nom_user"/>
+                <input type="text" id="nom_user" name="nom_user"/>
                 <br/>
                 <br/>
-                <label>Mot de passe</label>
+                <label for="mdp">Mot de passe</label>
                 <br/>
-                <input type="password" name="mdp"/>
+                <input type="password" id="mdp" name="mdp"/>
                 <br/>
                 <br/>
                 <div id="second-bottom">
                     <div>
-                        <input type="checkbox" name="souvenir"/>
-                        <label>Se souvenir de moi</label>
+                        <input type="checkbox" id="souvenir" name="souvenir"/>
+                        <label for="souvenir">Se souvenir de moi</label>
                     </div>
                     <!-- revoir la mise en forme du bouton -->
                     <button type="submit">Connexion</button>
@@ -54,7 +54,7 @@
         //Récupère tous les utilisateurs
         $rows = $pdo->query("SELECT num, admin, photoProfil, nom, prenom, motDePasse FROM Utilisateur");
         
-        //Vérifie pour chaque num dans la table Utilisateur si il y a un num qui correspond au num hashé du cookie
+        //Vérifie pour chaque motDePasse dans la table Utilisateur si il y a un motDePasse qui correspond au motDePasse hashé du cookie
         foreach ($rows as $row) {
             if (password_verify($row[5], $_COOKIE['user_souvenir'])) {
                 $_SESSION['num'] = $row[0];
