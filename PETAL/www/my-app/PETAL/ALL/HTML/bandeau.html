@@ -1,12 +1,24 @@
 <div id="bandeau">
     <div id="top-bar" class="top-bar">
+        <?php
+            //Reprend la session
+            session_start();
 
-        <div id="boutonForum">
-            <a href="../../ETUDIANT/HTML/liste_sujets_forum.php"> Forum </a>
-        </div>
-
+            //Si l'utilisateur n'est pas connecté, redirection sur la page login
+            if (empty($_SESSION['num'])) {
+                header("location: ../../ALL/HTML/connexion.html");
+                exit;
+            }
+            
+            //Affiche le bouton forum seulement si l'utilisateur connecté est un étudiant
+            if (!$_SESSION['admin']) {
+                echo '<div id="boutonForum">
+                    <a href="../../ETUDIANT/HTML/liste_sujets_forum.php">Forum</a>
+                </div>';
+            }
+        ?>
         <div id="top-bar-right" onclick="Popup()">
-            <span>Prénom NOM</span>
+            <span><?php echo $_SESSION['nom']; ?></span>
             <img id="imgBandeau" src="../../Ressources/Icon/logo PETAL profil.svg" width="40px" height="40px"/>
         </div>
     </div>
@@ -14,15 +26,27 @@
     <div id="box">
     <div id="popup">
         <div id="logoNomPrenom">
-            <a id="aImgPopup" href="../../ETUDIANT/HTML/espace_perso.php">
+            <?php
+                if ($_SESSION['admin']) {
+                    echo '<a id="aImgPopup" href="../../ADMINISTRATEUR/HTML/espace_perso_admin.php">';
+                } else {
+                    echo '<a id="aImgPopup" href="../../ETUDIANT/HTML/espace_perso.php">'; 
+                }
+            ?>
                 <img id="imgPopup" src="../../Ressources/Icon/logo PETAL profil.svg" width="100px" height="100px"/>
             </a>
-            <a href="../../ETUDIANT/HTML/espace_perso.php">
-                <span id="nomprenom">Prénom NOM</span>
+            <?php
+                if ($_SESSION['admin']) {
+                    echo '<a href="../../ADMINISTRATEUR/HTML/espace_perso_admin.php">';
+                } else {
+                    echo '<a href="../../ETUDIANT/HTML/espace_perso.php">';
+                }
+            ?>
+                <span id="nomprenom"><?php echo $_SESSION['nom']; ?></span>
             </a>
         </div>
         <?php echo file_get_contents("../../Ressources/Icon/switch_theme.svg"); ?>
-        <button onclick="Deconnexion()">Déconnexion</button>
+        <button onclick="Deconnexion()" id="boutonDeconnexion">Déconnexion</button>
     </div>
     </div> 
 </div>

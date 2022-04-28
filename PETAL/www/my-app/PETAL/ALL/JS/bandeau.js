@@ -46,3 +46,7 @@ function afficherPopup() {
         i+=3;
     }
 }
+
+function Deconnexion() {
+    location.replace('../../ALL/PHP/deconnexion.php');
+}

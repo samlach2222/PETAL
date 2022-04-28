@@ -43,6 +43,7 @@ a {
 #top-bar-right {
     align-items: center;
     cursor: pointer;
+    margin-left: auto;
 }
 
 #imgBandeau {
