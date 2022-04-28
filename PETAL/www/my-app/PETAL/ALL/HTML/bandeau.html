@@ -19,7 +19,14 @@
         ?>
         <div id="top-bar-right" onclick="Popup()">
             <span><?php echo $_SESSION['nom']; ?></span>
-            <img id="imgBandeau" src="../../Ressources/Icon/logo PETAL profil.svg" width="40px" height="40px"/>
+            <?php
+                //Si l'utilisateur a une image de profil, l'afficher
+                if (!empty($_SESSION['photoProfil'])) {
+                    echo '<img id="imgBandeau" src="data:image;base64,'.$_SESSION['photoProfil'].'" width="40px" height="40px"/>';
+                } else {
+                    echo '<img id="imgBandeau" src="../../Ressources/Icon/logo PETAL profil.svg" width="40px" height="40px"/>';
+                }
+            ?>
         </div>
     </div>
 
@@ -32,8 +39,14 @@
                 } else {
                     echo '<a id="aImgPopup" href="../../ETUDIANT/HTML/espace_perso.php">'; 
                 }
+
+                //Si l'utilisateur a une image de profil, l'afficher
+                if (!empty($_SESSION['photoProfil'])) {
+                    echo '<img id="imgPopup" src="data:image;base64,'.$_SESSION['photoProfil'].'" width="100px" height="100px"/>';
+                } else {
+                    echo '<img id="imgPopup" src="../../Ressources/Icon/logo PETAL profil.svg" width="100px" height="100px"/>';
+                }
             ?>
-                <img id="imgPopup" src="../../Ressources/Icon/logo PETAL profil.svg" width="100px" height="100px"/>
             </a>
             <?php
                 if ($_SESSION['admin']) {

@@ -59,7 +59,7 @@
             if (password_verify($row[5], $_COOKIE['user_souvenir'])) {
                 $_SESSION['num'] = $row[0];
                 $_SESSION['admin'] = $row[1];
-                $_SESSION['photoProfil'] = $row[2];  //convertir depuis base64
+                $_SESSION['photoProfil'] = base64_encode($row[2]);
                 $_SESSION['nom'] = $row[4].' '.mb_strtoupper($row[3], 'UTF-8');
                 
                 if ($_SESSION['admin']){
@@ -96,7 +96,7 @@
         if (count($rows) == 1) {
             $_SESSION['num'] = $rows[0][0];  //Récupère le num depuis la requête car on ne sait pas si $_POST['nom_user'] est le num ou l'adresse mail
             $_SESSION['admin'] = $rows[0][1];
-            $_SESSION['photoProfil'] = $rows[0][2];  //convertir depuis base64
+            $_SESSION['photoProfil'] = base64_encode($rows[0][2]);
             $_SESSION['nom'] = $rows[0][4].' '.mb_strtoupper($rows[0][3], 'UTF-8');
             
             //Si l'utilisateur a coché "Se souvenir de moi", alors se souvenir de lui
