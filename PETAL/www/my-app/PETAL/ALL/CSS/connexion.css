@@ -1,6 +1,10 @@
 body{
     text-align:center;
     color: #1F1E1F;
+    background-image: url(../../Ressources/Pictures/landscape2.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 div {
@@ -8,13 +12,13 @@ div {
     border-color: #1F1E1F;
 }
 
-a{
-    margin-left: 60%;
-    font-size:1.2em;
+a {
+    display: block;
+    text-align: right;
+    font-size: 1.2em;
 }
 
 button {
-    margin-left: 3em;
     font-size: 1.1em;
     padding: 0.25em;
     border-radius: 0.3em;
@@ -73,6 +77,7 @@ label{
     top: 50%;
     left: 50%; /* à 50%/50% du parent référent */
     transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
+    
 }
 
 #second {
@@ -84,4 +89,18 @@ label{
     width: 22em;
     height: 10em;
     background-color: #F88C95;
+}
+
+#second-bottom {
+    border-style: unset;
+    border-color: unset;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-around;
+}
+
+#second-bottom div {
+    border-style: inherit;
+    border-color: inherit;
 }
