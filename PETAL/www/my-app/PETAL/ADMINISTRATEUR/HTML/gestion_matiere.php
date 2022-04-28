@@ -27,111 +27,121 @@
         </div>
 
         <div>
-        <table id="allMatiere">
+            <table id="allMatiere">
                 <tr>
                     <td>
-                        <table class="matiere">
-                            <tr>
-                                <th>
-                                    <span class="police">NOM MATIERE</span>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td class="image">
-                                   <span class="police">Image</span> 
-                                </td>
-                            </tr>
-                            
-                        </table>
-
+                        <input class="input_matiere" type="checkbox" name="key" value="value" />
+                        <a href="gestion_cours.php" style="display:block;" class="lien_matiere">
+                            <table class="matiere">
+                                <tr>
+                                    <th>
+                                        <span class="police">NOM MATIERE</span>                               
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="image">
+                                        <span class="police">Image</span> 
+                                    </td>
+                                </tr>                       
+                            </table>
+                        </a>  
                     </td>
+                    
                     <td>
-
-                        <table class="matiere">
-                            <tr>
-                                <th>
-                                    <span class="police">NOM MATIERE</span>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td class="image">
-                                <span class="police">Image</span> 
-                                </td>
-                            </tr>
-                        </table>
-
+                        <input class="input_matiere" type="checkbox" name="key" value="value" />
+                        <a href="gestion_cours.php" style="display:block;" class="lien_matiere">
+                            <table class="matiere">
+                                <tr>
+                                    <th>
+                                        <span class="police">NOM MATIERE</span>                               
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="image">
+                                        <span class="police">Image</span> 
+                                    </td>
+                                </tr>                       
+                            </table>
+                        </a>  
                     </td>
+
                     <td>
-
-                        <table class="matiere">
-                            <tr>
-                                <th>
-                                    <span class="police">NOM MATIERE</span>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td class="image">
-                                <span class="police">Image</span> 
-                                </td>
-                            </tr>
-                        </table>
-
+                        <input class="input_matiere" type="checkbox" name="key" value="value" />
+                        <a href="gestion_cours.php" style="display:block;" class="lien_matiere">
+                            <table class="matiere">
+                                <tr>
+                                    <th>
+                                        <span class="police">NOM MATIERE</span>                               
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="image">
+                                        <span class="police">Image</span> 
+                                    </td>
+                                </tr>                       
+                            </table>
+                        </a>  
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-
-                        <table class="matiere">
-                            <tr>
-                                <th>
-                                    <span class="police">NOM MATIERE</span>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td class="image">
-                                <span class="police">Image</span> 
-                                </td>
-                            </tr>
-                        </table>
-
+                        <input class="input_matiere" type="checkbox" name="key" value="value" />
+                        <a href="gestion_cours.php" style="display:block;" class="lien_matiere">
+                            <table class="matiere">
+                                <tr>
+                                    <th>
+                                        <span class="police">NOM MATIERE</span>                               
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="image">
+                                        <span class="police">Image</span> 
+                                    </td>
+                                </tr>                       
+                            </table>
+                        </a>  
                     </td>
+
                     <td>
-
-                        <table class="matiere">
-                            <tr>
-                                <th>
-                                    <span class="police">NOM MATIERE</span>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td class="image">
-                                <span class="police">Image</span> 
-                                </td>
-                            </tr>
-                        </table>
-
+                        <input class="input_matiere" type="checkbox" name="key" value="value" />
+                        <a href="gestion_cours.php" style="display:block;" class="lien_matiere">
+                            <table class="matiere">
+                                <tr>
+                                    <th>
+                                        <span class="police">NOM MATIERE</span>                               
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="image">
+                                        <span class="police">Image</span> 
+                                    </td>
+                                </tr>                       
+                            </table>
+                        </a>  
                     </td>
+                    
                     <td>
-
-                        <table class="matiere">
-                            <tr>
-                                <th>
-                                    <span class="police">NOM MATIERE</span>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td  class="image">
-                                <span class="police">Image</span> 
-                                </td>
-                            </tr>
-                        </table>
-
+                        <input class="input_matiere" type="checkbox" name="key" value="value" />
+                        <a href="gestion_cours.php" style="display:block;" class="lien_matiere">
+                            <table class="matiere">
+                                <tr>
+                                    <th>
+                                        <span class="police">NOM MATIERE</span>                               
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="image">
+                                        <span class="police">Image</span> 
+                                    </td>
+                                </tr>                       
+                            </table>
+                        </a>  
                     </td>
                 </tr>
-
             </table>
         </div>
     </div>
+    <script src="../../ADMINISTRATEUR/JS/gestion_matiere.js"></script>
 </body>
 </html>

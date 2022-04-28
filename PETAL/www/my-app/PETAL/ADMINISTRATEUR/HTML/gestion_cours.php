@@ -15,7 +15,7 @@
         </div>
         <div id="toolbar">
             <div id="conteneurBoutonRetour">
-                <a href="accueil_admin.php" id="boutonRetour">retour</a>
+                <a href="gestion_matiere.php" id="boutonRetour">retour</a>
             </div>
             
             <a href="edition_cours.php">
@@ -25,7 +25,7 @@
                 <img id="crayon" src="../../Ressources/Pictures/Crayon_Dark.png" class="icon">
             </a>
             <a href="">
-                <img id="corbeille" src="../../Ressources/Pictures/Corbeille_Dark.png" class="icon">
+                <img id="corbeille" src="../../Ressources/Pictures/Corbeille_Dark.png" class="icon" onclick="myFunction()">
             </a>
         </div>
         <div id="liste">
@@ -33,7 +33,7 @@
                 <tr>
                     <td>
                         <label>
-                            <input type="checkbox" name="key" value="value" />
+                            <input class="cours" type="checkbox" name="key" value="value" />
                             <span>Cours1.pdf</span>
                         </label>
                     </td>
@@ -42,7 +42,7 @@
                 <tr>
                     <td>
                         <label>
-                            <input type="checkbox" name="key" value="value" />
+                            <input class="cours" type="checkbox" name="key" value="value" />
                             <span>Cours2.zip</span>
                         </label>
                     </td>
@@ -50,7 +50,7 @@
                 <tr>
                     <td>
                         <label>
-                            <input type="checkbox" name="key" value="value" />
+                            <input class="cours" type="checkbox" name="key" value="value" />
                             <span>CM3.pptx</span>
                         </label>
                     </td>
@@ -58,7 +58,7 @@
                 <tr>
                     <td>
                         <label>
-                            <input type="checkbox" name="key" value="value" />
+                            <input class="cours" type="checkbox" name="key" value="value" />
                             <span>CM6.xlsx</span>
                         </label>
                     </td>
@@ -66,14 +66,14 @@
                 <tr>
                     <td>
                         <label>
-                            <input type="checkbox" name="key" value="value" />
-                            <span>...</span>
+                            <input class="cours" type="checkbox" name="key" value="value" />
+                            <span >...</span>
                         </label>
                     </td>
                 </tr>
             </table>
         </div>
     </div>
-
+    <script src="../../ADMINISTRATEUR/JS/gestion_cours.js"></script>
 </body>
 </html>

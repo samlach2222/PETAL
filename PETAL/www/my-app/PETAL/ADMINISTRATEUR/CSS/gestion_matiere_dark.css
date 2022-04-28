@@ -61,7 +61,7 @@ body {
 
 #plus {
     color: #EEE0E8;
-    font-size: 6em;
+    font-size: 4em;
     padding-right: 0.2em;
 }
 #allMatiere{
@@ -69,23 +69,41 @@ body {
 }
 
 .matiere {
-    border: 3px solid #EEE0E8;
+    border:  0.1vh solid #EEE0E8;
     border-radius: 10%;
     background-color: #ff00c9;
-    width: 75%;
-    margin-top: 10%;
-    margin-left: 10%;
-    margin-right: 10%;
+    justify-content: center;
+    width: 45vh;
+    height: 45vh;
 }
+
+.input_matiere{
+    width: 4vh;
+    height: 4vh;
+    border-color: #EEE0E8;
+    position: absolute;
+    margin-left: 6vh;
+    margin-top: 5vh;
+}
+
+.lien_matiere{
+    width: 45vh;
+    height: 45vh;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
 th{
-    height: 2em;
-    font-size: 1.5em;
+    height: 7vh;
+    font-size: 2vh;
     color: #EEE0E8;
 
 }
 .image{
-    border-top: 3px solid #EEE0E8;
-    height: 18em;
+    border-top: 0.1vh solid #EEE0E8;
+    font-size: 1.5vh;
     text-align: center;
     color: #EEE0E8;
     background-color: #a30080;

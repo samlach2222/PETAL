@@ -30,34 +30,33 @@ body {
 }
 
 .gestion{
-    width: 25em;
-    border: 3px solid #EEE0E8;
+    width: 60vh;
+    height: 80vh;
+    border: 0.1vh solid #EEE0E8;
     border-radius: 10%;
     background-color: #ff00c9;
 }
 
+.lien_matiere{
+    width: 60vh;
+    height: 80vh;
+    margin-left: 3.5vh;
+    margin-right: 3.5vh;
+}
+
 .image{
-    border-top: 3px solid #EEE0E8;
-    height: 32em;
+    border-top: 0.1vh solid #EEE0E8;
+    font-size: 2.5vh;
     text-align: center;
     color: #EEE0E8;
     background-color: #a30080;
     border-bottom-left-radius: 10%;
     border-bottom-right-radius: 10%;
 }
+
 th{
-    height: 2em;
-    font-size: 1.5em;
+    height: 7vh;
+    font-size: 4vh;
     color: #EEE0E8;
 
-}
-#allTable
-{
-    margin-left: auto;
-    margin-right: auto;
-    width: 80em;
-}
-
-.vide{
-   width: 4em;
 }

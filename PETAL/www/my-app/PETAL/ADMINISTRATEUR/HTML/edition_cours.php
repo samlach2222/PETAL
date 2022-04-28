@@ -21,7 +21,8 @@
                 </td>
                 <td rowspan="3">
                     <label>Fichier</label></br>
-                    <input type="button" id="ajoutFichier" value=""/>
+                    <input type="button" id="ajoutFichier" value="" onclick="AjoutImage()"/>
+                    <input type="hidden" id="b64Image" name="b64Image" value="">
                 </td>
             </tr>
             <tr>
@@ -53,6 +54,6 @@
         </table>
     </form>
 </div>
-
+<script src="../../ADMINISTRATEUR/JS/edition_cours.js"></script>
 </body>
 </html>

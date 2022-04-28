@@ -31,15 +31,23 @@ body {
 }
 
 .gestion{
-    width: 25em;
-    border: 3px solid #1f1e1f;
+    width: 60vh;
+    height: 80vh;
+    border: 0.1vh solid #1f1e1f;
     border-radius: 10%;
     background-color: #cd5162;
 }
 
+.lien_matiere{
+    width: 60vh;
+    height: 80vh;
+    margin-left: 3.5vh;
+    margin-right: 3.5vh;
+}
+
 .image{
-    border-top: 3px solid #1f1e1f;
-    height: 32em;
+    border-top: 0.1vh solid #1f1e1f;
+    font-size: 2.5vh;
     text-align: center;
     color: #1f1e1f;
     background-color: #f88c95;
@@ -47,19 +55,9 @@ body {
     border-bottom-right-radius: 10%;
 }
 th{
-    width: 25em;
-    height: 2em;
-    font-size: 1.5em;
+
+    height: 7vh;
+    font-size: 4vh;
     color: #1f1e1f;
 
-}
-#allTable
-{
-    margin-left: auto;
-    margin-right: auto;
-    width: 80em;
-}
-
-.vide{
-   width: 4em;
 }

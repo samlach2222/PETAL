@@ -23,7 +23,8 @@
             <tr>
                 <td colspan="2">
                     <label>Image</label></br>
-                    <input type="button" id="ajoutFichier" value=""/>
+                    <input type="button" id="ajoutFichier" value="" onclick="AjoutImageFichier()"/>
+                    <input type="hidden" id="b64Image" name="b64Image" value="">
                 </td>
             </tr>
             <tr>
@@ -37,6 +38,6 @@
         </table>
     </form>
 </div>
-
+<script src="../../ADMINISTRATEUR/JS/edition_matiere.js"></script>
 </body>
 </html>

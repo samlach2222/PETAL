@@ -13,9 +13,9 @@
         <table id="allTable">
             <tr>
                 <td>
-                    <a href="gestion_matiere.php">
+                    <a href="gestion_matiere.php" style="display:block;" class="lien_matiere">
                         <div id="essaie">
-                        <table id="gestionMatiere" class="gestion">
+                        <table class="gestion">
                             <tr>
                                 <th>
                                     <span class="titre">Gestion des matières</span>
@@ -30,10 +30,9 @@
                         </div>
                     </a>
                 </td>
-                <td class="vide"> </td>
                 <td>
-                    <a href="liste_qcm.php">
-                        <table id="gestionQCM" class="gestion">
+                    <a href="liste_qcm.php" style="display:block;" class="lien_matiere">
+                        <table class="gestion">
                             <tr>
                                 <th>
                                     <span class="titre">Gestion des QCM</span>
@@ -47,10 +46,9 @@
                         </table>
                     </a>
                 </td>
-                <td  class="vide"> </td>
                 <td>
-                    <a href="gestion_utilisateurs.php">
-                        <table id="gestionUtilisateurs" class="gestion">
+                    <a href="gestion_utilisateurs.php" style="display:block;" class="lien_matiere">
+                        <table class="gestion">
                             <tr>
                                 <th>
                                     <span class="titre">Gestion des utilisateurs</span>
