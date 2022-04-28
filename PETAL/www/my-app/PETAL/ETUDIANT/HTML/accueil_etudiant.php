@@ -12,7 +12,7 @@
             <h1>Recommandation de Cours :</h1>
 
             <table id="centre">
-                <tr>
+                <!--<tr>
                     <td class="espace">
 
                         <a href="matiere.php">
@@ -124,7 +124,10 @@
                         </a>
 
                     </td>
-                </tr>
+                </tr>-->
+                <?php
+                include("../php/script_accueil_etudiant.php");
+                ?>
             </table>
         </div>
     </body>
