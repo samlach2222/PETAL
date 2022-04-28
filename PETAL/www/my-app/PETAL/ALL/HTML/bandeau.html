@@ -24,7 +24,7 @@
                 if (!empty($_SESSION['photoProfil'])) {
                     echo '<img id="imgBandeau" src="data:image;base64,'.$_SESSION['photoProfil'].'" width="40px" height="40px"/>';
                 } else {
-                    echo '<img id="imgBandeau" src="../../Ressources/Icon/logo PETAL profil.svg" width="40px" height="40px"/>';
+                    echo '<img id="imgBandeau" src="../../Ressources/Icon/logo PETAL profil.svg" width="40px" height="40px" style="background-image: '.$_SESSION['couleurProfil'].'"/>';
                 }
             ?>
         </div>
@@ -44,7 +44,7 @@
                 if (!empty($_SESSION['photoProfil'])) {
                     echo '<img id="imgPopup" src="data:image;base64,'.$_SESSION['photoProfil'].'" width="100px" height="100px"/>';
                 } else {
-                    echo '<img id="imgPopup" src="../../Ressources/Icon/logo PETAL profil.svg" width="100px" height="100px"/>';
+                    echo '<img id="imgPopup" src="../../Ressources/Icon/logo PETAL profil.svg" width="100px" height="100px" style="background-image: '.$_SESSION['couleurProfil'].'"/>';
                 }
             ?>
             </a>

@@ -99,6 +99,21 @@
             $_SESSION['photoProfil'] = base64_encode($rows[0][2]);
             $_SESSION['nom'] = $rows[0][4].' '.mb_strtoupper($rows[0][3], 'UTF-8');
             
+            //Si l'utilisateur n'a pas de photo de profil, créer un gradient aléatoire à partir de son num
+            if (empty($_SESSION['photoProfil'])) {
+                $R1 = 50 + $_SESSION['num']*3 % 151;
+                $G1 = 50 + $_SESSION['num']*4 % 151;
+                $B1 = 50 + $_SESSION['num']*5 % 151;
+                $hex1 = '#'.sprintf('%02X', $R1).sprintf('%02X', $G1).sprintf('%02X', $B1);  //dechex n'ajoute pas de 0 de tête
+                
+                $R2 = 50 + $_SESSION['num']*8 % 151;
+                $G2 = 50 + $_SESSION['num']*7 % 151;
+                $B2 = 50 + $_SESSION['num']*6 % 151;
+                $hex2 = '#'.sprintf('%02X', $R2).sprintf('%02X', $G2).sprintf('%02X', $B2);
+                
+                $_SESSION['couleurProfil'] = 'linear-gradient(to bottom right, '.$hex1.', '.$hex2.')';
+            }
+            
             //Si l'utilisateur a coché "Se souvenir de moi", alors se souvenir de lui
             if (isset($_POST['souvenir'])) {
                 setcookie(
