@@ -1,7 +1,7 @@
 <?php
 
-    //
-    $numEtudiant = 2;
+    //Variables
+    $numEtudiant = $_SESSION['num'];
 
     //connexion à la BDD
     $dsn = "mysql:host=localhost;dbname=petal_db;charset=UTF8";
@@ -25,7 +25,7 @@
         echo "
         <td class=\"espace\">
 
-            <a href=\"matiere.php\">
+            <a href=\"matiere.php?matiere=".strval($nb)."\">
                 <table class=\"matiere\">
                     <tr>
                         <th>

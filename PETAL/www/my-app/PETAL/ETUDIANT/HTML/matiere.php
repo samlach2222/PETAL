@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="../../ALL/CSS/bandeau_light.css">
-    <link rel="stylesheet" href="../CSS/matiere_light.css">
+    <link rel="stylesheet" href="../CSS/matiere.css">
     <link rel="icon" type="image/x-icon" href="../../Ressources/Icon/logo%20PETAL.svg">
     <meta charset="UTF-8">
     <title>Liste des matieres</title>
 </head>
 <body>
-    <div id="content">
+    <?php include("../../ALL/HTML/bandeau.html");?>
+    <!--<div id="content">
         <div id="titre">
             <h1>Nom Matière</h1>
             <a class="retour" href="accueil_etudiant.php"><- retour</a>
@@ -36,9 +36,11 @@
             <a href="https://google.com" target="_blank" class="lien">QCM 1</a>
             <a href="https://google.com" target="_blank" class="lien">QCM 2</a>
         <h2>Evaluation</h2>
-            <a href="https://google.com" target="_blank" class="lien">Evalutation n°1</a>
+            <a href="https://google.com" target="_blank" class="lien">Evalutation n°1</a>-->
+        
+        <?php include("../PHP/script_matiere.php"); ?>
     </div>
     
-    <?php include("../../ALL/HTML/bandeau.html");?>
+    
 </body>
 </html>
