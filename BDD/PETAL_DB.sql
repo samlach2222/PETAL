@@ -128,6 +128,13 @@ CREATE VIEW MoyenneQCM AS
     FROM resultatetudiant
     GROUP BY idQCM;
 
+CREATE VIEW ListeSujets AS
+    SELECT idSujetForum, nomSujet, nom, prenom, nbMessages, resolu, nomMatiere
+    FROM sujetforum NATURAL JOIN (
+        SELECT idSujetForum, COUNT(*) AS nbMessages
+        FROM messageforum
+        GROUP BY idSujetForum
+    ) AS tableNbMessages NATURAL JOIN utilisateur;
 
 -- Initialisation de la fonction IsAdmin
 DROP FUNCTION IF EXISTS IsAdmin;
