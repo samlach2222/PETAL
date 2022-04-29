@@ -42,14 +42,7 @@
     if (!empty($_COOKIE['user_souvenir'])) {
         
         //Connexion à la BDD
-        try
-        {
-            $pdo = new PDO('mysql:host=localhost;dbname=petal_db;charset=utf8','root', 'root');    
-        }
-        catch(Exception $e)
-        {
-            die('Erreur : '.$e->getMessage());
-        }
+        include_once('../PHP/BDD.php');
         
         //Récupère tous les utilisateurs
         $rows = $pdo->query("SELECT num, admin, photoProfil, nom, prenom, motDePasse FROM Utilisateur");
@@ -80,14 +73,7 @@
     if(isset($_POST['nom_user']) && isset($_POST['mdp'])) {
         
         //Connexion à la BDD
-        try
-        {
-            $pdo = new PDO('mysql:host=localhost;dbname=petal_db;charset=utf8','root', 'root');    
-        }
-        catch(Exception $e)
-        {
-            die('Erreur : '.$e->getMessage());
-        }
+        include_once('../PHP/BDD.php');
         
         //Tentative de connexion
         $prepared = $pdo->prepare("SELECT num, admin, photoProfil, nom, prenom, motDePasse FROM Utilisateur WHERE (num = :identifiant OR adresseMail = :identifiant) AND motDePasse = :mdp", array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
