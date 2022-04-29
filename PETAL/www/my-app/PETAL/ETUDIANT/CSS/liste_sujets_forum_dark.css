@@ -47,10 +47,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Partie droite, liste des sujets */
 #droite-sujets {
-    padding: 0 2%;  /* Pas de padding haut/bas car il y a le border-spacing avant le premier <tr> et après le dernier */
     font-size: 1.5em;
     overflow: hidden;
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #message-selection-sujet-div {
@@ -65,11 +67,14 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     font-size: 1.3em;
+    flex-grow: 1;
 }
 
 #droite-sujets table {
+    padding: 0 2%;  /* Pas de padding haut/bas car il y a le border-spacing avant le premier <tr> et après le dernier */
     width: 100%;
     border-spacing: 0 1.2em;
+    flex-grow: 1;
 }
 
 #droite-sujets table tr {
@@ -112,4 +117,42 @@ table tr:last-child *:first-child {
 
 table tr:last-child *:last-child {
     border-bottom-right-radius: 1em;
+}
+
+#creer-sujet {
+    padding: 0.5% 2% 1% 2%;
+    background-color: #A30080;
+}
+
+#creer-sujet-span {
+    font-size: 1.1em;
+}
+
+#creer-sujet-titre, #creer-sujet-message {
+    background-color: black;
+    color: #EEE0E8;
+    width: 100%;
+    border: 4px solid #EEE0E8;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-family: Quicksand, sans-serif;
+    font-size: 0.8em;
+}
+
+#creer-sujet-message {
+    margin-top: 0;
+    resize: none;
+    height: 4em;
+}
+
+/* Pas supporté partout (Dans le sens où si l'utilisateur a un navigateur pas mis à jour depuis 10 ans...) */
+#creer-sujet *::placeholder {
+    color: #EEE0E8;
+    opacity: 0.7;
+}
+
+#creer-sujet-bouton {
+    background-color: #FF00C9;
+    font-size: 1.1em;
+    float: right;
 }
