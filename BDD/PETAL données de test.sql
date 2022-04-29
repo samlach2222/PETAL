@@ -26,6 +26,7 @@ INSERT INTO etumatiere VALUES ('3000', 'Joute verbale avancée');
 
 ALTER TABLE sujetforum AUTO_INCREMENT = 1;  -- Réinitialise la valeur initiale de l'AUTO_INCREMENT
 INSERT INTO sujetforum VALUES (NULL, 'Quelle est la meilleure position pour dormir ?', '0', 'Sieste quantique', '987654321');
+INSERT INTO sujetforum VALUES (NULL, 'TP07 Question 6 problème avec Python', '1', 'Sieste quantique', '3000');
 
 ALTER TABLE messageforum AUTO_INCREMENT = 1;
 INSERT INTO messageforum VALUES (NULL, 'J\'ai essayé la position du salamandre ascendant et de la truite écarlate, mais au final je suis revenu sur la méduse combative assisté par ronronnement qui me procure les meilleurs résultats.
@@ -33,7 +34,12 @@ Est-ce normal, et avec quelle position dormez-vous ?', '2022-01-01 01:23:45', '1
 INSERT INTO messageforum VALUES (NULL, 'Bonjour
 Avez-vous essayé de ne pas dormir ?
 Cordialement', '2022-01-01 02:34:56', '1', '713705');
-INSERT INTO messageforum VALUES (NULL, 'Désolé pour la réponse tardive, je révisais l\'examen. Je te recommande de mettre un fond sonore calme au moment de dormir, comme "lofi CM noises"', '2022-04-11 12:30:21', '1', '3000');
+INSERT INTO messageforum VALUES (NULL, 'Désolé pour la réponse tardive, je révisais l\'examen. Je te recommande de mettre un fond sonore calme au moment de dormir, comme "lo-fi CM noises"', '2022-04-11 12:30:21', '1', '3000');
+INSERT INTO messageforum VALUES (NULL, 'Bonjour
+J\'ai un problème à la question 6, quand j\'essaye l\'exemple Python fourni j\'obtiens "Python was not found".
+Qu\'est-ce que je dois faire ?
+Cordialement', '2022-04-09 10:34:47', '2', '3000');
+INSERT INTO messageforum VALUES (NULL, 'Faut que tu retrouves Python, il s\'est perdu', '2022-04-09 10:34:47', '2', '713705');
 
 ALTER TABLE cours AUTO_INCREMENT = 1;
 INSERT INTO cours VALUES (NULL, 'Examen blanc de 2021', '/Cours/Sieste quantique/examen2021.pdf', 'TD', 'Sieste quantique');
