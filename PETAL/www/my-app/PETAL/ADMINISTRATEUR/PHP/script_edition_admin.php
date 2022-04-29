@@ -1,9 +1,10 @@
 <?php
+    // Quand on appuie sur le bouton valider
+    if(isset($_POST['valider'])) {
+        EnvoiAjoutAdminitrateur();
+    }
+
     if(isset($_POST)) {
-        // Quand on appuie sur le bouton valider
-        if(isset($_POST['valider'])) {
-            EnvoiAjoutAdminitrateur();
-        }
         // Reception de l'ID de modification
         if (isset($_POST['data'])) {
             $idUtilisateur = json_decode($_POST['data']);
@@ -50,7 +51,6 @@
 
     function EnvoiAjoutAdminitrateur()
     {
-
         // Récupération des données
         $photoProfil = $_POST["b64Image"];
         $prenom = $_POST['prenomAdmin'];

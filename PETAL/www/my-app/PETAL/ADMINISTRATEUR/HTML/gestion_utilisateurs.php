@@ -39,8 +39,11 @@
             </table>
         </div>
     </div>
+    <input type="hidden" id="session" value="<?php echo $_SESSION['num'];?>" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../../ADMINISTRATEUR/JS/gestion_utilisateurs.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../../ALL/JS/notify.js"></script>
 </body>
 </html>
 

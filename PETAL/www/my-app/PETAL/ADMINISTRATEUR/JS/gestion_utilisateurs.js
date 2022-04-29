@@ -1,11 +1,17 @@
 function SupprimerUtilisateurs() {
     let idList = [];
+    const curId = document.querySelector('#session').value;
     document.querySelectorAll('.CB').forEach(function(elem) {
         // Pour chacune des checkboxs
         if(elem.checked){ // si elle est cochée
             let id = elem.parentElement.querySelector('#identifiant').value;
-            idList.push(id);
-            elem.parentElement.remove();
+            if(id === curId){
+                AlertError("Vous ne pouvez pas supprimer l'utilisateur actuel");
+            }
+            else {
+                idList.push(id);
+                elem.parentElement.remove();
+            }
         }
     });
     let jsonArray = JSON.stringify(idList);
@@ -34,6 +40,7 @@ function EditerUtilisateur() {
 
         if(typeUtilisateur == 1){ // si l'utilisateur est admin
             // Requete POST via AJAX
+            console.log("admin");
             $.post('../PHP/script_edition_admin.php', {
                 data: id
             });
@@ -46,6 +53,6 @@ function EditerUtilisateur() {
         }
     }
     else {
-        AlertError("Vous ne pouvez modifier plus d'un utilisateur");
+        AlertError("Vous ne pouvez pas modifier plus d'un utilisateur");
     }
 }
