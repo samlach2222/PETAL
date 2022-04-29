@@ -63,9 +63,9 @@
                 $_SESSION['nom'] = $row[4].' '.mb_strtoupper($row[3], 'UTF-8');
                 
                 if ($_SESSION['admin']){
-                    header("location: ../../ADMINISTRATEUR/HTML/espace_perso_admin.php");
+                    header("location: ../../ADMINISTRATEUR/HTML/accueil_admin.php");
                 } else {
-                    header("location: ../../ETUDIANT/HTML/espace_perso.php");
+                    header("location: ../../ETUDIANT/HTML/accueil_etudiant.php");
                 }
 
                 exit;
@@ -128,9 +128,9 @@
             }
             
             if ($_SESSION['admin']){
-                header("location: ../../ADMINISTRATEUR/HTML/espace_perso_admin.php");
+                header("location: ../../ADMINISTRATEUR/HTML/accueil_admin.php");
             } else {
-                header("location: ../../ETUDIANT/HTML/espace_perso.php");
+                header("location: ../../ETUDIANT/HTML/accueil_etudiant.php");
             }
             
             exit;
