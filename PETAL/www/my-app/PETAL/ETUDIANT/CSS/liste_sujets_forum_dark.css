@@ -47,10 +47,24 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Partie droite, liste des sujets */
 #droite-sujets {
-    padding: 0 2%;  /* Pas besoin de padding haut/bas, il y a le border-spacing avant le premier <tr> et après le dernier */
+    padding: 0 2%;  /* Pas de padding haut/bas car il y a le border-spacing avant le premier <tr> et après le dernier */
     font-size: 1.5em;
     overflow: hidden;
     flex-grow: 1;
+}
+
+#message-selection-sujet-div {
+    text-align: center;
+    height: 100%;
+}
+
+#message-selection-sujet {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
 }
 
 #droite-sujets table {
