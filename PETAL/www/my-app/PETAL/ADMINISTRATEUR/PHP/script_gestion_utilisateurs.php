@@ -54,7 +54,7 @@
                             <input type=\"hidden\" name=\"identifiant\" value=" . $row[2] . " id=\"identifiant\"/>
                             <input type=\"hidden\" name=\"administrateur\" value=" . $row[3] . " id=\"administrateur\"/>
                             <input type=\"checkbox\" class=\"CB\" name=\"key\" value=\"value\"/>
-                            <span>" . strtoupper($row[0]) . " " . ucfirst(strtolower($row[1])) . "</span>
+                            <span>" . mb_strtoupper($row[0], 'UTF-8') . " " . ucfirst(mb_strtolower($row[1], 'UTF-8')) . "</span>
                         </label>
                     </td>
                   </tr>";
