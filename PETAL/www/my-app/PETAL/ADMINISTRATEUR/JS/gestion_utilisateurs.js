@@ -38,18 +38,11 @@ function EditerUtilisateur() {
         let id = idList[0];
         let typeUtilisateur = adminList[0];
 
-        if(typeUtilisateur == 1){ // si l'utilisateur est admin
-            // Requete POST via AJAX
-            console.log("admin");
-            $.post('../PHP/script_edition_admin.php', {
-                data: id
-            });
+        if(typeUtilisateur == 1){ // si l'utilisateur est admin (/!\ == et non pas ===)
+            window.location.replace("../HTML/edition_admin.php?id=" + id);
         }
         else {
-            console.log("user");
-            $.post('../PHP/script_edition_etudiant.php', {
-                data: id
-            });
+            window.location.replace("../HTML/edition_etudiant.php?id=" + id);
         }
     }
     else if(idList.length > 1 && adminList.length > 1) {

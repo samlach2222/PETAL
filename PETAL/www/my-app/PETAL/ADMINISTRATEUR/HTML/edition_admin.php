@@ -20,37 +20,37 @@
             <tr>
                 <td colspan="2" >
                     <input type="button" id="ajoutImageProfil" value="" onclick="AjoutImageProfil()"/>
-                    <input type="hidden" id="b64Image" name="b64Image" value="">
+                    <input type="hidden" id="b64Image" name="b64Image" value="<?php if(isset($photoProfilB64)) {echo $photoProfilB64;} ?>">
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="prenomAdmin">Prénom</label></br>
-                    <input type="text" id="prenomAdmin" name="prenomAdmin"/>
+                    <input type="text" id="prenomAdmin" name="prenomAdmin" value="<?php if(isset($prenomAdmin)) {echo $prenomAdmin;} ?>"/>
                 </td>
                 <td>
                     <label for="nomAdmin">Nom</label></br>
-                    <input type="text" id="nomAdmin" name="nomAdmin"/>
+                    <input type="text" id="nomAdmin" name="nomAdmin" value="<?php if(isset($nomAdmin)) {echo $nomAdmin;} ?>"/>
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="passAdmin">Mot de passe</label></br>
-                    <input type="password" id="passAdmin" name="passAdmin"/>
+                    <input type="password" id="passAdmin" name="passAdmin" value="<?php if(isset($passAdmin)) {echo $passAdmin;} ?>"/>
                 </td>
                 <td>
                     <label for="mailAdmin">Adresse mail</label></br>
-                    <input type="email" id="mailAdmin" name="mailAdmin"/>
+                    <input type="email" id="mailAdmin" name="mailAdmin" value="<?php if(isset($mailAdmin)) {echo $mailAdmin;} ?>"/>
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="telAdmin">N°Téléphone (facultatif)</label></br>
-                    <input type="tel" id="telAdmin" name="telAdmin"/>
+                    <input type="tel" id="telAdmin" name="telAdmin" value="<?php if(isset($telAdmin)) {echo $telAdmin;} ?>"/>
                 </td>
                 <td>
                     <label for="numAdmin">N°Administrateur</label></br>
-                    <input type="text" id="numAdmin" name="numAdmin"/>
+                    <input type="text" id="numAdmin" name="numAdmin" value="<?php if(isset($numAdmin)) {echo $numAdmin;} ?>"/>
                 </td>
             </tr>
             <tr>

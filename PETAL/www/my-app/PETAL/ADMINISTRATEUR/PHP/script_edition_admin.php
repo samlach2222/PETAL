@@ -4,40 +4,39 @@
         EnvoiAjoutAdminitrateur();
     }
 
-    if(isset($_POST)) {
-        // Reception de l'ID de modification
-        if (isset($_POST['data'])) {
-            $idUtilisateur = json_decode($_POST['data']);
-
-            // Initialisation connexion BDD
-            $dsn = "mysql:host=localhost;dbname=petal_db;charset=UTF8";
-            try {
-                $pdo = new PDO($dsn, "root", "root");
-            }
-            catch (PDOException $e) {
-                echo $e->getMessage();
-            }
-
-            // Requete de récupération de tout les utilisateurs
-            $query = "SELECT photoProfil, prenom, nom, motDePasse, adresseMail, numeroTelephone, num FROM utilisateur WHERE num = " . $idUtilisateur;
-
-            $dom = new DOMDocument;
-            $dom->loadHTML("../HTML/edition_admin.php");
-            foreach ($pdo->query($query) as $row) { // modification des champs
-                $img = imagecreatefromstring(base64_decode($row[0]));
-                $dom->getElementById("b64Image")->value = $row[0];
-                $dom->getElementById("b64Image")->background_image = $img;
-                $dom->getElementById("prenomAdmin")->value = $row[1];
-                $dom->getElementById("nomAdmin")->value = $row[2];
-                $dom->getElementById("passAdmin")->value = $row[3];
-                $dom->getElementById("mailAdmin")->value = $row[4];
-                $dom->getElementById("telAdmin")->value = $row[5];
-                $dom->getElementById("numAdmin")->value = $row[6];
-            }
+    // Si l'on reviens sur la même page avec une erreur d'insertion
+    if(!empty($_GET['ajout'])) {
+        if($_GET['ajout'] == "error") {
+            // chargement de la notification
+            echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
+            echo '<script src="../../ALL/JS/notify.js"></script>';
+            echo '<script>AlertError("Identifiants incorrects");</script>';
         }
     }
 
+    if(!empty($_GET['id'])) {
+        $dsn = "mysql:host=localhost;dbname=petal_db;charset=UTF8";
+        try {
+            $pdo = new PDO($dsn, "root", "root");
+        }
+        catch (PDOException $e) {
+            echo $e->getMessage();
+        }
 
+        // Requete de récupération de tout les utilisateurs
+        $query = "SELECT photoProfil, prenom, nom, motDePasse, adresseMail, numeroTelephone, num FROM utilisateur WHERE num = " . $_GET['id'];
+
+        foreach ($pdo->query($query) as $row) { // modification des champs
+            $photoProfilB64 = $row[0];
+            $img = imagecreatefromstring(base64_decode($row[0]));
+            $prenomAdmin = $row[1];
+            $nomAdmin = $row[2];
+            $passAdmin = $row[3];
+            $mailAdmin = $row[4];
+            $telAdmin = $row[5];
+            $numAdmin = $row[6];
+        }
+    }
 
     // Si l'on reviens sur la même page avec une erreur d'insertion
     if(!empty($_GET['ajout'])) {

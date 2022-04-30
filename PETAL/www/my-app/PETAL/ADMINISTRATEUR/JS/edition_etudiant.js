@@ -1,3 +1,13 @@
+
+// Affiche la photo de profil dans le cas d'une modification
+let content = document.querySelector('#b64Image').value;
+if(content !== "") {
+    console.log(content);
+    document.querySelector('#ajoutImageProfil').style.backgroundImage = 'url(data:image;base64,' + content + ')';
+    document.querySelector('#ajoutImageProfil').style.backgroundSize = 'cover';
+}
+
+
 function AjoutImageProfil() {
     var input = document.createElement('input');
     input.type = 'file';

@@ -1,7 +1,7 @@
 <?php
     // Si l'on reviens sur la page de gestion après avoir ajouté un utilisateur
     if(!empty($_GET['ajout'])) {
-        if($_GET['ajout'] == "success") {
+        if ($_GET['ajout'] == "success") {
             echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
             echo '<script src="../../ALL/JS/notify.js"></script>';
             echo '<script>AlertSuccess("Utilisateur ajouté avec succès");</script>';

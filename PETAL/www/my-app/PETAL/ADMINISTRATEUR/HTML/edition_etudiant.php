@@ -21,38 +21,37 @@
                 <tr>
                     <td colspan="2" >
                         <input type="button" id="ajoutImageProfil" value="" onclick="AjoutImageProfil()"/>
-                        <input type="hidden" id="b64Image" name="b64Image" value="">
+                        <input type="hidden" id="b64Image" name="b64Image" value="<?php if(isset($photoProfilB64)) {echo $photoProfilB64;} ?>">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="prenomAdmin">Prénom</label></br>
-                        <input type="text" id="prenomAdmin" name="prenomAdmin"/>
+                        <label for="prenomEtu">Prénom</label></br>
+                        <input type="text" id="prenomEtu" name="prenomEtu" value="<?php if(isset($prenomEtu)) {echo $prenomEtu;} ?>"/>
                     </td>
                     <td>
-                        <label for="nomAdmin">Nom</label></br>
-                        <input type="text" id="nomAdmin" name="nomAdmin"/>
+                        <label for="nomEtu">Nom</label></br>
+                        <input type="text" id="nomEtu" name="nomEtu" value="<?php if(isset($nomEtu)) {echo $nomEtu;} ?>"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="passAdmin">Mot de passe</label></br>
-                        <input type="password" id="passAdmin" name="passAdmin"/>
+                        <label for="passEtu">Mot de passe</label></br>
+                        <input type="password" id="passEtu" name="passEtu" value="<?php if(isset($passEtu)) {echo $passEtu;} ?>"/>
                     </td>
                     <td>
-                        <label for="mailAdmin">Adresse mail</label></br>
-                        <input type="email" id="mailAdmin" name="mailAdmin"/>
+                        <label for="mailEtu">Adresse mail</label></br>
+                        <input type="email" id="mailEtu" name="mailEtu" value="<?php if(isset($mailEtu)) {echo $mailEtu;} ?>"/>
                     </td>
-
                 </tr>
                 <tr>
                     <td>
-                        <label for="telAdmin">N°Téléphone (facultatif)</label></br>
-                        <input type="tel" id="telAdmin" name="telAdmin"/>
+                        <label for="telEtu">N°Téléphone (facultatif)</label></br>
+                        <input type="tel" id="telEtu" name="telEtu" value="<?php if(isset($telEtu)) {echo $telEtu;} ?>"/>
                     </td>
                     <td>
                         <label for="numEtu">N°Etudiant</label></br>
-                        <input type="text" id="numEtu" name="numEtu"/>
+                        <input type="text" id="numEtu" name="numEtu" value="<?php if(isset($numEtu)) {echo $numEtu;} ?>"/>
                     </td>
                 </tr>
                 <tr>

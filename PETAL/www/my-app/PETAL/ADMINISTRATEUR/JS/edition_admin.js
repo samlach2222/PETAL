@@ -1,3 +1,13 @@
+
+// Affiche la photo de profil dans le cas d'une modification
+let content = document.querySelector('#b64Image').value;
+if(content !== null) {
+    console.log(content);
+    document.querySelector('#ajoutImageProfil').style.backgroundImage = 'url(data:image;base64,' + content + ')';
+    document.querySelector('#ajoutImageProfil').style.backgroundSize = 'cover';
+}
+
+
 function AjoutImageProfil() {
     var input = document.createElement('input');
     input.type = 'file';
@@ -7,7 +17,7 @@ function AjoutImageProfil() {
 
         // Check size
         const fsize = file.size;
-        if (fsize > 8 * 1000000) { // 8 Mb max size
+        if (fsize > 8 * 1000000) { // 8 Mo max size
             window.alert('Veuillez utiliser des images de moins de 8Mo');
         } else {
             if(file && file['type'].split('/')[0] === 'image'){ // si le fichier est une image
