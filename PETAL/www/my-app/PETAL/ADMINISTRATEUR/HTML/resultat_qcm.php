@@ -23,26 +23,7 @@
                         <td>Etudiant</td>
                         <td>Note</td>
                     </tr>
-
-                    <tr class="note">
-                        <td>NOM1 Prenom1</td>
-                        <td><span>XX</span>/20</td>
-                    </tr>
-
-                    <tr class="note">
-                        <td>NOM2 Prenom2</td>
-                        <td><span>XX</span>/20</td>
-                    </tr>
-
-                    <tr class="note">
-                        <td>NOM3 Prenom3</td>
-                        <td><span>XX</span>/20</td>
-                    </tr>
-
-                    <tr class="note">
-                        <td>NOM4 Prenom4</td>
-                        <td><span>XX</span>/20</td>
-                    </tr>
+                    <?php AfficheListeResultatQCM(); ?>
                 </table>   
            </div>
             <div id="moy">
@@ -52,7 +33,7 @@
                     </tr>
                     <tr>
                         <td id="moyenneTd2">
-                            <span>XX</span>/20
+                            <?php AfficheMoyenneQCM(); ?>
                         </td>
                     </tr>
                 </table>
