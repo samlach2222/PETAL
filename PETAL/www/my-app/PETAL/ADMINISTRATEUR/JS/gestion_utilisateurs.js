@@ -52,7 +52,7 @@ function EditerUtilisateur() {
             });
         }
     }
-    else {
+    else if(idList.length > 1 && adminList.length > 1) {
         AlertError("Vous ne pouvez pas modifier plus d'un utilisateur");
     }
 }
