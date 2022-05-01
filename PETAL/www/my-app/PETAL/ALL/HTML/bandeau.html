@@ -2,7 +2,9 @@
     <div id="top-bar" class="top-bar">
         <?php
             //Reprend la session
-            session_start();
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
 
             //Si l'utilisateur n'est pas connecté, redirection sur la page login
             if (empty($_SESSION['num'])) {
@@ -22,7 +24,7 @@
             <?php
                 //Si l'utilisateur a une image de profil, l'afficher
                 if (!empty($_SESSION['photoProfil'])) {
-                    echo '<img id="imgBandeau" src="data:image;base64,'.$_SESSION['photoProfil'].'" width="40px" height="40px"/>';
+                    echo '<img id="imgBandeau" src="data:image;base64,'.base64_decode($_SESSION['photoProfil']).'" width="40px" height="40px"/>';
                 } else {
                     echo '<img id="imgBandeau" src="../../Ressources/Icon/logo PETAL profil.svg" width="40px" height="40px" style="background-image: '.$_SESSION['couleurProfil'].'"/>';
                 }
@@ -42,7 +44,7 @@
 
                 //Si l'utilisateur a une image de profil, l'afficher
                 if (!empty($_SESSION['photoProfil'])) {
-                    echo '<img id="imgPopup" src="data:image;base64,'.$_SESSION['photoProfil'].'" width="100px" height="100px"/>';
+                    echo '<img id="imgPopup" src="data:image;base64,'.base64_decode($_SESSION['photoProfil']).'" width="100px" height="100px"/>';
                 } else {
                     echo '<img id="imgPopup" src="../../Ressources/Icon/logo PETAL profil.svg" width="100px" height="100px" style="background-image: '.$_SESSION['couleurProfil'].'"/>';
                 }

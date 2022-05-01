@@ -37,7 +37,9 @@
     </div>
     
 <?php
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     
     if (!empty($_COOKIE['user_souvenir'])) {
         
