@@ -48,10 +48,14 @@
                     <label for="telAdmin">N°Téléphone (facultatif)</label></br>
                     <input type="tel" id="telAdmin" name="telAdmin" value="<?php if(isset($telAdmin)) {echo $telAdmin;} ?>"/>
                 </td>
-                <td>
-                    <label for="numAdmin">N°Administrateur</label></br>
-                    <input type="text" id="numAdmin" name="numAdmin" value="<?php if(isset($numAdmin)) {echo $numAdmin;} ?>"/>
-                </td>
+                <?php
+                if(empty($_GET['id'])) {
+                    echo '<td>
+                            <label for="numAdmin">N°Administrateur</label></br>
+                            <input type="text" id="numAdmin" name="numAdmin"/>
+                        </td>';
+                }
+                ?>
             </tr>
             <tr>
                 <td>

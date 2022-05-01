@@ -24,6 +24,7 @@ function SupprimerUtilisateurs() {
 function EditerUtilisateur() {
     let idList = [];
     let adminList = [];
+    const curId = document.querySelector('#session').value;
     document.querySelectorAll('.CB').forEach(function(elem) {
         // Pour chacune des checkboxs
         if(elem.checked){ // si elle est cochée
@@ -38,11 +39,16 @@ function EditerUtilisateur() {
         let id = idList[0];
         let typeUtilisateur = adminList[0];
 
-        if(typeUtilisateur == 1){ // si l'utilisateur est admin (/!\ == et non pas ===)
-            window.location.replace("../HTML/edition_admin.php?id=" + id);
+        if(id === curId){
+            AlertError("Vous ne pouvez pas modifier l'utilisateur actuel");
         }
         else {
-            window.location.replace("../HTML/edition_etudiant.php?id=" + id);
+            if(typeUtilisateur == 1){ // si l'utilisateur est admin (/!\ == et non pas ===)
+                window.location.replace("../HTML/edition_admin.php?id=" + id);
+            }
+            else {
+                window.location.replace("../HTML/edition_etudiant.php?id=" + id);
+            }
         }
     }
     else if(idList.length > 1 && adminList.length > 1) {

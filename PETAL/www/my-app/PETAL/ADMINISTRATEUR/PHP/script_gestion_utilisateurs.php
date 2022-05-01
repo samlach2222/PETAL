@@ -7,6 +7,20 @@
             echo '<script>AlertSuccess("Utilisateur ajouté avec succès");</script>';
         }
     }
+    else if(!empty($_GET['modification'])) {
+        if($_GET['modification'] == "error") {
+            // chargement de la notification
+            echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
+            echo '<script src="../../ALL/JS/notify.js"></script>';
+            echo '<script>AlertError("Identifiants incorrects : Modification non effectuée");</script>';
+        }
+        else if($_GET['modification'] == "success") {
+            // chargement de la notification
+            echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
+            echo '<script src="../../ALL/JS/notify.js"></script>';
+            echo '<script>AlertSuccess("Modification effectée avec succès");</script>';
+        }
+    }
 
     // Permet de supprimer par ID les utilisateurs
     if(isset($_POST)){

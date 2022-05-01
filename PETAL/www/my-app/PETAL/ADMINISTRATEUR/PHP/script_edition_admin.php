@@ -28,7 +28,12 @@
 
         foreach ($pdo->query($query) as $row) { // modification des champs
             $photoProfilB64 = $row[0];
-            $img = imagecreatefromstring(base64_decode($row[0]));
+            if($row[0] == ""){
+                $img = "";
+            }
+            else {
+                $img = imagecreatefromstring(base64_decode($row[0]));
+            }
             $prenomAdmin = $row[1];
             $nomAdmin = $row[2];
             $passAdmin = $row[3];
@@ -57,36 +62,73 @@
         $adresseMail = $_POST['mailAdmin'];
         $numeroTelephone = $_POST['telAdmin'];
         $motDePasse = $_POST['passAdmin'];
-        $numAdmin = $_POST['numAdmin'];
 
-        // vérification des données
-        if($prenom == null || $nom == null || $adresseMail == null || $motDePasse == null || $numAdmin == null){
-            header("Location: ../HTML/edition_admin.php?ajout=error");
-        }
-        else {
-            // Initialisation connexion BDD
-            $dsn = "mysql:host=localhost;dbname=petal_db;charset=UTF8";
-            try {
-                $pdo = new PDO($dsn, "root", "root");
-            } catch (PDOException $e) {
-                echo $e->getMessage();
+        if (isset($_POST['numAdmin'])) { // mode ajout
+            $numAdmin = $_POST['numAdmin'];
+
+            // vérification des données
+            if ($prenom == null || $nom == null || $adresseMail == null || $motDePasse == null || $numAdmin == null) {
+                header("Location: ../HTML/edition_admin.php?ajout=error");
+            } else {
+                // Initialisation connexion BDD
+                $dsn = "mysql:host=localhost;dbname=petal_db;charset=UTF8";
+                try {
+                    $pdo = new PDO($dsn, "root", "root");
+                } catch (PDOException $e) {
+                    echo $e->getMessage();
+                }
+
+                // Requete d'insertion
+                $statement = $pdo->prepare('INSERT INTO utilisateur (num, admin, photoProfil, nom, prenom, adresseMail, numeroTelephone, motDePasse) VALUES (:numAdmin, :admin, :photoProfil, :nom, :prenom, :adresseMail, :numeroTelephone, :motDePasse)');
+                $statement->execute([
+                    'numAdmin' => $numAdmin,
+                    'photoProfil' => $photoProfil,
+                    'prenom' => $prenom,
+                    'admin' => 1,
+                    'nom' => $nom,
+                    'adresseMail' => $adresseMail,
+                    'numeroTelephone' => $numeroTelephone,
+                    'motDePasse' => $motDePasse
+                ]);
+
+                // Redirection en fin de requête
+                header("Location: ../HTML/gestion_utilisateurs.php?ajout=success");
             }
+        } else { // mode modification
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
+            $numAdmin = $_SESSION["idModif"];
+            // supression de la variable de session
+            unset($_SESSION["idModif"]);
 
-            // Requete d'insertion
-            $statement = $pdo->prepare('INSERT INTO utilisateur (num, admin, photoProfil, nom, prenom, adresseMail, numeroTelephone, motDePasse) VALUES (:numAdmin, :admin, :photoProfil, :nom, :prenom, :adresseMail, :numeroTelephone, :motDePasse)');
-            $statement->execute([
-                'numAdmin' => $numAdmin,
-                'admin' => 1,
-                'photoProfil' => $photoProfil,
-                'prenom' => $prenom,
-                'nom' => $nom,
-                'adresseMail' => $adresseMail,
-                'numeroTelephone' => $numeroTelephone,
-                'motDePasse' => $motDePasse
-            ]);
+            // vérification des données
+            if ($prenom == null || $nom == null || $adresseMail == null || $motDePasse == null || $numAdmin == null) {
+                header("Location: ../HTML/gestion_utilisateurs.php?modification=error");
+            } else {
+                // Initialisation connexion BDD
+                $dsn = "mysql:host=localhost;dbname=petal_db;charset=UTF8";
+                try {
+                    $pdo = new PDO($dsn, "root", "root");
+                } catch (PDOException $e) {
+                    echo $e->getMessage();
+                }
 
-            // Redirection en fin de requête
-            header("Location: ../HTML/gestion_utilisateurs.php?ajout=success");
+                // Requete d'insertion
+                $statement = $pdo->prepare('UPDATE utilisateur SET photoProfil = :photoProfil, nom = :nom, prenom = :prenom, adresseMail = :adresseMail, numeroTelephone = :numeroTelephone, motDePasse = :motDePasse WHERE num = :numAdmin');
+                $statement->execute([
+                    'numAdmin' => $numAdmin,
+                    'photoProfil' => $photoProfil,
+                    'prenom' => $prenom,
+                    'nom' => $nom,
+                    'adresseMail' => $adresseMail,
+                    'numeroTelephone' => $numeroTelephone,
+                    'motDePasse' => $motDePasse
+                ]);
+
+                // Redirection en fin de requête
+                header("Location: ../HTML/gestion_utilisateurs.php?modification=success");
+            }
         }
     }
 ?>

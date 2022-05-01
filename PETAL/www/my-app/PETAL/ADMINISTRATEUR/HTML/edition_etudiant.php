@@ -49,10 +49,14 @@
                         <label for="telEtu">N°Téléphone (facultatif)</label></br>
                         <input type="tel" id="telEtu" name="telEtu" value="<?php if(isset($telEtu)) {echo $telEtu;} ?>"/>
                     </td>
-                    <td>
-                        <label for="numEtu">N°Etudiant</label></br>
-                        <input type="text" id="numEtu" name="numEtu" value="<?php if(isset($numEtu)) {echo $numEtu;} ?>"/>
-                    </td>
+                    <?php
+                        if(empty($_GET['id'])) {
+                            echo '<td>
+                                    <label for="numEtu">N°Etudiant</label></br>
+                                    <input type="text" id="numEtu" name="numEtu"/>
+                                </td>';
+                        }
+                    ?>
                 </tr>
                 <tr>
                     <td>
