@@ -12,22 +12,27 @@ popup.style.display = 'none';
 var i = Math.round(topBarHauteur - popupHauteur) - 1;
 popup.style.top = i+"px";
 
+// Const pour le cookie du theme
+const cookieYear = 365 * 24 * 60 * 60;  //max-age est en secondes
+const cookieLight = "theme=0;max-age="+cookieYear+";path=/my-app/PETAL";
+const cookieDark = "theme=1;max-age="+cookieYear+";path=/my-app/PETAL";
+
 function Popup() {
     if (popupAnimation == null){
         if (popupOuvert) {
             popupAnimation = setInterval(cacherPopup);
         } else {
             popup.style.display = 'flex';  // Le popup doit être visible avant l'animation
-            
+
             popupAnimation = setInterval(afficherPopup);
-        }   
+        }
     }
 }
 
 function cacherPopup() {
     if (popup.getBoundingClientRect().bottom <= topBarHauteur) {
         popupAnimation = clearInterval(popupAnimation);
-        
+
         popup.style.display = 'none';  // Le popup doit être caché après l'animation
         popupOuvert = false;
     } else {
@@ -39,7 +44,7 @@ function cacherPopup() {
 function afficherPopup() {
     if (popup.getBoundingClientRect().top >= topBarHauteur) {
         popupAnimation = clearInterval(popupAnimation);
-        
+
         popupOuvert = true;
     } else {
         popup.style.top = i+"px";
@@ -54,17 +59,17 @@ function Deconnexion() {
 function ChangerTheme() {
     let cookieValue = getCookie("theme");
     if(cookieValue === ""){ // le cookie n'existe pas
-        document.cookie = "theme=0"; // light theme
+        document.cookie = cookieLight; // light theme
     }
     else { // le cookie existe
         if(cookieValue == 1){
-            document.cookie = "theme=0"; // light theme
+            document.cookie = cookieLight; // light theme
             let css = document.querySelector("link[rel='stylesheet']").getAttribute("href");
             let newcss = css.replace("dark", "light");
             document.querySelector("link[rel='stylesheet']").setAttribute("href", newcss)
         }
         else if(cookieValue == 0){
-            document.cookie = "theme=1"; // dark theme
+            document.cookie = cookieDark; // dark theme
             let css = document.querySelector("link[rel='stylesheet']").getAttribute("href");
             let newcss = css.replace("light", "dark");
             document.querySelector("link[rel='stylesheet']").setAttribute("href", newcss)
@@ -75,7 +80,7 @@ function ChangerTheme() {
 document.addEventListener("DOMContentLoaded", function(){
     let cookieValue = getCookie("theme");
     if(cookieValue === ""){ // le cookie n'existe pas
-        document.cookie = "theme=0"; // light theme
+        document.cookie = cookieLight; // light theme
     }
     else { // le cookie existe
         if(cookieValue == 1){
