@@ -7,7 +7,7 @@ definer_user=root
 definer_host=localhost
 suid=2
 with_check_option=0
-timestamp=2022-04-25 14:21:31
+timestamp=2022-05-02 16:15:07
 create-version=1
 source=SELECT idQCM, num, nomQCM, nomMatiere, ROUND((nombreReponsesCorrectes/COUNT(*))*20,2) AS moyenne\n    FROM qcm NATURAL JOIN question NATURAL JOIN reponsedeetudiant NATURAL JOIN (\n        SELECT idQCM, num, COUNT(*) AS nombreReponsesCorrectes\n        FROM qcm NATURAL JOIN question NATURAL JOIN reponsedeetudiant\n        WHERE reponseALaQuestion = reponseChoisie\n        GROUP BY idQCM, num\n    ) AS TableNombreReponsesCorrectes\n    GROUP BY idQCM, num
 client_cs_name=utf8mb4
