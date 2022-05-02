@@ -14,7 +14,7 @@
     <title>Edition d'un QCM</title>
 </head>
 <body>
-    <?php include("../../ALL/HTML/bandeau.html");
+    <?php include("../../ALL/HTML/bandeau.php");
         include("../PHP/script_edition_qcm.php");
     ?>
     <div id="corps">

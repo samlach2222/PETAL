@@ -14,7 +14,7 @@
     <title>Page d'accueil</title>
 </head>
 <body>
-    <?php include("../../ALL/HTML/bandeau.html");?>
+    <?php include("../../ALL/HTML/bandeau.php");?>
     <div id="PageAccueil">
         <table id="allTable">
             <tr>

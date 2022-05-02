@@ -15,7 +15,7 @@
 </head>
 <body>
 <?php
-    include("../../ALL/HTML/bandeau.html");
+    include("../../ALL/HTML/bandeau.php");
     include("../PHP/script_edition_admin.php");
 ?>
 <div id="content">

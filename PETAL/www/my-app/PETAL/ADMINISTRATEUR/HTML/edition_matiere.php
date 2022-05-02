@@ -14,7 +14,7 @@
     <title>Edition d'une matiere</title>
 </head>
 <body>
-<?php include("../../ALL/HTML/bandeau.html");?>
+<?php include("../../ALL/HTML/bandeau.php");?>
 <div id="content">
     <div id="title">
         <h1>Ajout de matières</h1>

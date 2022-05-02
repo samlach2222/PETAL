@@ -14,7 +14,7 @@
     <title>Edition d'un cours</title>
 </head>
 <body>
-<?php include("../../ALL/HTML/bandeau.html");?>
+<?php include("../../ALL/HTML/bandeau.php");?>
 <div id="content">
     <div id="title">
         <h1 id="createAdmin">Ajout de cours</h1>

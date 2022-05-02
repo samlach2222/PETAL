@@ -14,7 +14,7 @@
         <title>Page d'Accueil</title>
     </head>
     <body>
-        <?php include("../../ALL/HTML/bandeau.html");?>
+        <?php include("../../ALL/HTML/bandeau.php");?>
 
         <div id="content">
             <h1>Recommandation de Cours :</h1>

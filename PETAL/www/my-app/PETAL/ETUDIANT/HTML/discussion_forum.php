@@ -14,7 +14,7 @@
     <title>Discussions du forum</title>
 </head>
 <body>
-    <?php include("../../ALL/HTML/bandeau.html");?>
+    <?php include("../../ALL/HTML/bandeau.php");?>
     <div id="content">
         <div id="gauche-cours">
             <ul>

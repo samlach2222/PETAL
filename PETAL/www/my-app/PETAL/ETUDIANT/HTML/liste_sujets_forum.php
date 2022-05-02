@@ -17,7 +17,7 @@
     <?php 
         include("../PHP/script_liste_sujets_forum.php");
         CreateSujet();
-        include("../../ALL/HTML/bandeau.html");
+        include("../../ALL/HTML/bandeau.php");
     ?>
     <div id="content">
         <div id="gauche-cours">

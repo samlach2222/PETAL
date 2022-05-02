@@ -14,7 +14,7 @@
     <title>Liste des matieres</title>
 </head>
 <body>
-    <?php include("../../ALL/HTML/bandeau.html");?>
+    <?php include("../../ALL/HTML/bandeau.php");?>
     <!--<div id="content">
         <div id="titre">
             <h1>Nom Matière</h1>

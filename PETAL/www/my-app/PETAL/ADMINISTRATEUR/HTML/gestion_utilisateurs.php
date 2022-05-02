@@ -16,7 +16,7 @@
 
 <body>
 <?php
-    include("../../ALL/HTML/bandeau.html");
+    include("../../ALL/HTML/bandeau.php");
     include("../PHP/script_gestion_utilisateurs.php");
 ?>
     <div id="content">

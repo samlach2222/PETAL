@@ -14,7 +14,7 @@
     <title>Liste des QCM</title>
 </head>
 <body>
-    <?php include("../../ALL/HTML/bandeau.html");?>
+    <?php include("../../ALL/HTML/bandeau.php");?>
 
     <!-- grouper les radio boutons -->
 

@@ -32,7 +32,7 @@
     <title> Espace Personnel </title>
 </head>
 <body>    
-    <?php include("../../ALL/HTML/bandeau.html");?>
+    <?php include("../../ALL/HTML/bandeau.php");?>
     
     <div id="esp_perso">
         <a id="retour" href="../../ETUDIANT/HTML/accueil_etudiant.php"> Retour </a>
