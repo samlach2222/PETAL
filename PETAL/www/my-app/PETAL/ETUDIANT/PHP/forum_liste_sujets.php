@@ -48,8 +48,8 @@
         echo '<div id="creer-sujet">
             <form method="POST">
                 <span id="creer-sujet-span">Créer un nouveau sujet :</span>
-                <input id="creer-sujet-titre" name="titre" placeholder="Titre"></input>
-                <textarea id="creer-sujet-message" name="message" placeholder="Message"></textarea>
+                <input id="creer-sujet-titre" name="titre" placeholder="Titre" maxlength="50" required></input>
+                <textarea id="creer-sujet-message" name="message" placeholder="Message" maxlength="2000" required></textarea>
                 <button id="creer-sujet-bouton" type="submit">Créer sujet</button>
             </form>
         </div>';
