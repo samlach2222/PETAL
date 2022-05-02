@@ -1,62 +1,26 @@
+<?php
+    include_once('../../ALL/PHP/script_bandeau.php');
+
+    ResumeSession();
+    RedirectLogin();
+?>
+
 <div id="bandeau">
     <div id="top-bar" class="top-bar">
-        <?php
-            //Reprend la session
-            if (session_status() == PHP_SESSION_NONE) {
-                session_start();
-            }
-
-            //Si l'utilisateur n'est pas connecté, redirection sur la page login
-            if (empty($_SESSION['num'])) {
-                header("location: ../../ALL/HTML/connexion.php");
-                exit;
-            }
-            
-            //Affiche le bouton forum seulement si l'utilisateur connecté est un étudiant
-            if (!$_SESSION['admin']) {
-                echo '<div id="boutonForum">
-                    <a href="../../ETUDIANT/HTML/liste_sujets_forum.php">Forum</a>
-                </div>';
-            }
-        ?>
+        <?php ShowForumButton(); ?>
         <div id="top-bar-right" onclick="Popup()">
             <span><?php echo $_SESSION['nom']; ?></span>
-            <?php
-                //Si l'utilisateur a une image de profil, l'afficher
-                if (!empty($_SESSION['photoProfil'])) {
-                    echo '<img id="imgBandeau" src="data:image;base64,'.$_SESSION['photoProfil'].'" width="40px" height="40px"/>';
-                } else {
-                    echo '<img id="imgBandeau" src="../../Ressources/Icon/logo PETAL profil.svg" width="40px" height="40px" style="background-image: '.$_SESSION['couleurProfil'].'"/>';
-                }
-            ?>
+            <?php ShowPhotoProfil('imgBandeau', 40); ?>
         </div>
     </div>
 
     <div id="box">
     <div id="popup">
         <div id="logoNomPrenom">
-            <?php
-                if ($_SESSION['admin']) {
-                    echo '<a id="aImgPopup" href="../../ADMINISTRATEUR/HTML/espace_perso_admin.php">';
-                } else {
-                    echo '<a id="aImgPopup" href="../../ETUDIANT/HTML/espace_perso.php">'; 
-                }
-
-                //Si l'utilisateur a une image de profil, l'afficher
-                if (!empty($_SESSION['photoProfil'])) {
-                    echo '<img id="imgPopup" src="data:image;base64,'.$_SESSION['photoProfil'].'" width="100px" height="100px"/>';
-                } else {
-                    echo '<img id="imgPopup" src="../../Ressources/Icon/logo PETAL profil.svg" width="100px" height="100px" style="background-image: '.$_SESSION['couleurProfil'].'"/>';
-                }
-            ?>
+            <a id="aImgPopup" href="<?php UrlEspacePerso(); ?>">
+                <?php ShowPhotoProfil('imgPopup', 100); ?>
             </a>
-            <?php
-                if ($_SESSION['admin']) {
-                    echo '<a href="../../ADMINISTRATEUR/HTML/espace_perso_admin.php">';
-                } else {
-                    echo '<a href="../../ETUDIANT/HTML/espace_perso.php">';
-                }
-            ?>
+            <a href="<?php UrlEspacePerso(); ?>">
                 <span id="nomprenom"><?php echo $_SESSION['nom']; ?></span>
             </a>
         </div>
