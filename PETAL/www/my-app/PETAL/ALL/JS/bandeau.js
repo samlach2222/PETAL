@@ -50,3 +50,59 @@ function afficherPopup() {
 function Deconnexion() {
     location.replace('../../ALL/PHP/deconnexion.php');
 }
+
+function ChangerTheme() {
+    let cookieValue = getCookie("theme");
+    if(cookieValue === ""){ // le cookie n'existe pas
+        document.cookie = "theme=0"; // light theme
+    }
+    else { // le cookie existe
+        if(cookieValue == 1){
+            document.cookie = "theme=0"; // light theme
+            let css = document.querySelector("link[rel='stylesheet']").getAttribute("href");
+            let newcss = css.replace("dark", "light");
+            document.querySelector("link[rel='stylesheet']").setAttribute("href", newcss)
+        }
+        else if(cookieValue == 0){
+            document.cookie = "theme=1"; // dark theme
+            let css = document.querySelector("link[rel='stylesheet']").getAttribute("href");
+            let newcss = css.replace("light", "dark");
+            document.querySelector("link[rel='stylesheet']").setAttribute("href", newcss)
+        }
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+    let cookieValue = getCookie("theme");
+    if(cookieValue === ""){ // le cookie n'existe pas
+        document.cookie = "theme=0"; // light theme
+    }
+    else { // le cookie existe
+        if(cookieValue == 1){
+            let css = document.querySelector("link[rel='stylesheet']").getAttribute("href");
+            let newcss = css.replace("light", "dark");
+            document.querySelector("link[rel='stylesheet']").setAttribute("href", newcss)
+        }
+        else if(cookieValue == 0){
+            let css = document.querySelector("link[rel='stylesheet']").getAttribute("href");
+            let newcss = css.replace("dark", "light");
+            document.querySelector("link[rel='stylesheet']").setAttribute("href", newcss)
+        }
+    }
+});
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}

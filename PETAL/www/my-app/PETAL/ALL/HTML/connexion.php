@@ -132,5 +132,7 @@
     }
 ?>
 
+<script>CreerCookieSiExistePas()</script>
+
 </body>
 </html>
