@@ -6,7 +6,7 @@ function SupprimerUtilisateurs() {
         if(elem.checked){ // si elle est cochée
             let id = elem.parentElement.querySelector('#identifiant').value;
             if(id === curId){
-                AlertError("Vous ne pouvez pas supprimer l'utilisateur actuel");
+                AlertWarning("Vous ne pouvez pas supprimer l'utilisateur actuel");
             }
             else {
                 idList.push(id);
@@ -40,7 +40,7 @@ function EditerUtilisateur() {
         let typeUtilisateur = adminList[0];
 
         if(id === curId){
-            AlertError("Vous ne pouvez pas modifier l'utilisateur actuel");
+            AlertWarning("Vous ne pouvez pas modifier l'utilisateur actuel");
         }
         else {
             if(typeUtilisateur == 1){ // si l'utilisateur est admin (/!\ == et non pas ===)
@@ -52,6 +52,6 @@ function EditerUtilisateur() {
         }
     }
     else if(idList.length > 1 && adminList.length > 1) {
-        AlertError("Vous ne pouvez pas modifier plus d'un utilisateur");
+        AlertWarning("Vous ne pouvez pas modifier plus d'un utilisateur");
     }
 }

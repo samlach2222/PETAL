@@ -79,7 +79,7 @@
 
                 // Requete d'insertion
                 $statement = $pdo->prepare('INSERT INTO utilisateur (num, photoProfil, nom, prenom, adresseMail, numeroTelephone, motDePasse) VALUES (:numEtudiant, :photoProfil, :nom, :prenom, :adresseMail, :numeroTelephone, :motDePasse)');
-                $statement->execute([
+                $executed = $statement->execute([
                     'numEtudiant' => $numEtu,
                     'photoProfil' => $photoProfil,
                     'prenom' => $prenom,
@@ -88,9 +88,14 @@
                     'numeroTelephone' => $numeroTelephone,
                     'motDePasse' => $motDePasse
                 ]);
-
-                // Redirection en fin de requête
-                header("Location: ../HTML/gestion_utilisateurs.php?ajout=success");
+                if($executed){ // si la requête n'a pas pu être passée
+                    // Redirection en fin de requête
+                    header("Location: ../HTML/gestion_utilisateurs.php?ajout=success");
+                }
+                else {
+                    // Redirection en fin de requête
+                    header("Location: ../HTML/gestion_utilisateurs.php?ajout=error");
+                }
             }
         }
         else { // mode modification

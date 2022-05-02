@@ -6,6 +6,11 @@
             echo '<script src="../../ALL/JS/notify.js"></script>';
             echo '<script>AlertSuccess("Utilisateur ajouté avec succès");</script>';
         }
+        else if ($_GET['ajout'] == "error") {
+            echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
+            echo '<script src="../../ALL/JS/notify.js"></script>';
+            echo '<script>AlertError("Identifiants incorrects : Création non effectuée");</script>';
+        }
     }
     else if(!empty($_GET['modification'])) {
         if($_GET['modification'] == "error") {

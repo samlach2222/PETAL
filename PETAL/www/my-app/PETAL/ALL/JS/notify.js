@@ -12,3 +12,10 @@ function AlertSuccess(message){
     })
 }
 
+function AlertWarning(message){
+    swal({
+        title: message,
+        icon: "warning",
+    })
+}
+
