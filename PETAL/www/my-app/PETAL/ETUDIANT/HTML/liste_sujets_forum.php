@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="../CSS/liste_sujets_forum_dark.css">
+    <?php
+        if($_COOKIE['theme'] == 0) { //light
+            echo '<link rel="stylesheet" href="../CSS/liste_sujets_forumt_light.css">';
+        }
+        else { //dark
+            echo '<link rel="stylesheet" href="../CSS/liste_sujets_forum_dark.css">';
+        }
+    ?>
     <link rel="icon" type="image/x-icon" href="../../Ressources/Icon/logo PETAL.svg">
     <meta charset="UTF-8">
     <title>Liste des sujet du forum</title>
