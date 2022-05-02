@@ -68,7 +68,7 @@ CREATE TABLE MessageForum (
 CREATE TABLE Cours (
     idCours INT NOT NULL AUTO_INCREMENT,
     nomCours VARCHAR(50) NOT NULL,
-    fichier VARCHAR(2083) NOT NULL,
+    fichier LONGBLOB NOT NULL,
     typeCours ENUM('CM','TD','TP') NOT NULL,
     nomMatiere VARCHAR(50) NOT NULL,
     PRIMARY KEY (idCours),
@@ -88,12 +88,12 @@ CREATE TABLE QCM (
 
 CREATE TABLE Question (
     idQuestion INT NOT NULL AUTO_INCREMENT,
-    intitulé VARCHAR(200) NOT NULL,
+    intitulé VARCHAR(300) NOT NULL,
     image LONGBLOB,
     reponseALaQuestion TINYINT NOT NULL,
-    choix1 VARCHAR(90) NOT NULL,
-    choix2 VARCHAR(90) NOT NULL,
-    choix3 VARCHAR(90) NOT NULL,
+    choix1 VARCHAR(150) NOT NULL,
+    choix2 VARCHAR(150) NOT NULL,
+    choix3 VARCHAR(150) NOT NULL,
     idQCM INT NOT NULL,
     PRIMARY KEY (idQuestion),
     FOREIGN KEY (idQCM) REFERENCES QCM(idQCM) ON DELETE CASCADE
