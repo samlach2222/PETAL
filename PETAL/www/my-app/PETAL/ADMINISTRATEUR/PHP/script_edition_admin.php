@@ -22,18 +22,12 @@
         catch (PDOException $e) {
             echo $e->getMessage();
         }
-
+        $_SESSION["idModif"] = $_GET['id'];
         // Requete de récupération de tout les utilisateurs
         $query = "SELECT photoProfil, prenom, nom, motDePasse, adresseMail, numeroTelephone, num FROM utilisateur WHERE num = " . $_GET['id'];
 
         foreach ($pdo->query($query) as $row) { // modification des champs
-            $photoProfilB64 = $row[0];
-            if($row[0] == ""){
-                $img = "";
-            }
-            else {
-                $img = imagecreatefromstring(base64_decode($row[0]));
-            }
+            $photoProfilB64 = base64_encode($row[0]);
             $prenomAdmin = $row[1];
             $nomAdmin = $row[2];
             $passAdmin = $row[3];
@@ -82,7 +76,7 @@
                 $statement = $pdo->prepare('INSERT INTO utilisateur (num, admin, photoProfil, nom, prenom, adresseMail, numeroTelephone, motDePasse) VALUES (:numAdmin, :admin, :photoProfil, :nom, :prenom, :adresseMail, :numeroTelephone, :motDePasse)');
                 $executed = $statement->execute([
                     'numAdmin' => $numAdmin,
-                    'photoProfil' => $photoProfil,
+                    'photoProfil' => base64_decode($photoProfil),
                     'prenom' => $prenom,
                     'admin' => 1,
                     'nom' => $nom,
@@ -122,9 +116,9 @@
 
                 // Requete d'insertion
                 $statement = $pdo->prepare('UPDATE utilisateur SET photoProfil = :photoProfil, nom = :nom, prenom = :prenom, adresseMail = :adresseMail, numeroTelephone = :numeroTelephone, motDePasse = :motDePasse WHERE num = :numAdmin');
-                $statement->execute([
+                $test = $statement->execute([
                     'numAdmin' => $numAdmin,
-                    'photoProfil' => $photoProfil,
+                    'photoProfil' => base64_decode($photoProfil),
                     'prenom' => $prenom,
                     'nom' => $nom,
                     'adresseMail' => $adresseMail,

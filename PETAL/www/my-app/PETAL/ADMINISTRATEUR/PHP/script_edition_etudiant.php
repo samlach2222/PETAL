@@ -35,13 +35,7 @@
         $query = "SELECT photoProfil, prenom, nom, motDePasse, adresseMail, numeroTelephone, num FROM utilisateur WHERE num = " . $_GET['id'];
 
         foreach ($pdo->query($query) as $row) { // modification des champs
-            $photoProfilB64 = $row[0];
-            if($row[0] == ""){
-                $img = "";
-            }
-            else {
-                $img = imagecreatefromstring(base64_decode($row[0]));
-            }
+            $photoProfilB64 = base64_encode($row[0]);
             $prenomEtu = $row[1];
             $nomEtu = $row[2];
             $passEtu = $row[3];
@@ -81,7 +75,7 @@
                 $statement = $pdo->prepare('INSERT INTO utilisateur (num, photoProfil, nom, prenom, adresseMail, numeroTelephone, motDePasse) VALUES (:numEtudiant, :photoProfil, :nom, :prenom, :adresseMail, :numeroTelephone, :motDePasse)');
                 $executed = $statement->execute([
                     'numEtudiant' => $numEtu,
-                    'photoProfil' => $photoProfil,
+                    'photoProfil' => base64_decode($photoProfil),
                     'prenom' => $prenom,
                     'nom' => $nom,
                     'adresseMail' => $adresseMail,
@@ -123,7 +117,7 @@
                 $statement = $pdo->prepare('UPDATE utilisateur SET photoProfil = :photoProfil, nom = :nom, prenom = :prenom, adresseMail = :adresseMail, numeroTelephone = :numeroTelephone, motDePasse = :motDePasse WHERE num = :numEtudiant');
                 $statement->execute([
                     'numEtudiant' => $numEtu,
-                    'photoProfil' => $photoProfil,
+                    'photoProfil' => base64_decode($photoProfil),
                     'prenom' => $prenom,
                     'nom' => $nom,
                     'adresseMail' => $adresseMail,

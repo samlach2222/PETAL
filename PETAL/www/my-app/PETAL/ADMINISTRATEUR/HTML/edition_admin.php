@@ -26,21 +26,21 @@
             <tr>
                 <td>
                     <label for="prenomAdmin">Prénom</label></br>
-                    <input type="text" id="prenomAdmin" name="prenomAdmin" value="<?php if(isset($prenomAdmin)) {echo $prenomAdmin;} ?>"/>
+                    <input type="text" required id="prenomAdmin" name="prenomAdmin" value="<?php if(isset($prenomAdmin)) {echo $prenomAdmin;} ?>"/>
                 </td>
                 <td>
                     <label for="nomAdmin">Nom</label></br>
-                    <input type="text" id="nomAdmin" name="nomAdmin" value="<?php if(isset($nomAdmin)) {echo $nomAdmin;} ?>"/>
+                    <input type="text" required id="nomAdmin" name="nomAdmin" value="<?php if(isset($nomAdmin)) {echo $nomAdmin;} ?>"/>
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="passAdmin">Mot de passe</label></br>
-                    <input type="password" id="passAdmin" name="passAdmin" value="<?php if(isset($passAdmin)) {echo $passAdmin;} ?>"/>
+                    <input type="password" required id="passAdmin" name="passAdmin" value="<?php if(isset($passAdmin)) {echo $passAdmin;} ?>"/>
                 </td>
                 <td>
                     <label for="mailAdmin">Adresse mail</label></br>
-                    <input type="email" id="mailAdmin" name="mailAdmin" value="<?php if(isset($mailAdmin)) {echo $mailAdmin;} ?>"/>
+                    <input type="email" required id="mailAdmin" name="mailAdmin" value="<?php if(isset($mailAdmin)) {echo $mailAdmin;} ?>"/>
                 </td>
             </tr>
             <tr>
@@ -52,7 +52,7 @@
                 if(empty($_GET['id'])) {
                     echo '<td>
                             <label for="numAdmin">N°Administrateur</label></br>
-                            <input type="text" id="numAdmin" name="numAdmin"/>
+                            <input type="text" required id="numAdmin" name="numAdmin"/>
                         </td>';
                 }
                 ?>
