@@ -12,8 +12,7 @@
             echo $e->getMessage();
         }
         // Requete de récupération 
-        $queryM = "SELECT moyenne, idQCM FROM moyenneqcm WHERE idQCM = " . $idQCM;
-        $queryR = "SELECT num, moyenne, idQCM FROM resultatetudiant WHERE idQCM = " . $idQCM;
+        $idQCM=$_GET['id'];
     }
 
     function AfficheListeResultatQCM() {
@@ -24,11 +23,14 @@
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
-
+        $idQCM=$_GET['id'];
+        $queryR = "SELECT num, moyenne, idQCM FROM resultatetudiant WHERE idQCM = " . $idQCM;
         foreach ($pdo->query($queryR) as $row) {
             $query = "SELECT prenom, nom, num FROM utilisateur WHERE num = " . $row[0];
-            $pdo->query($query) as $row2;
-            echo "<tr class=\"note\"><td>".strtoupper($row2[0])." ".ucfirst(strtolower($row2[1]))."</td><td><span>".strtoupper($row[1])."/20</span></td></tr>";
+            foreach ($pdo->query($query) as $row2) {
+                echo "<tr class=\"note\"><td>".strtoupper($row2[1])." ".ucfirst(strtolower($row2[0]))."</td>";
+            }
+            echo "<td><span>".strtoupper($row[1])."/20</span></td></tr>";
         }
     }
     function AfficheMoyenneQCM() {
@@ -39,7 +41,8 @@
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
-
+        $idQCM=$_GET['id'];
+        $queryM = "SELECT moyenne, idQCM FROM moyenneqcm WHERE idQCM = " . $idQCM;
         foreach ($pdo->query($queryM) as $row) {
             echo "<span>".strtoupper($row[0])." /20 </span>";
         }

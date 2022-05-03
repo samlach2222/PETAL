@@ -5,13 +5,9 @@ function SupprimerQCM() {
         // Pour chacune des checkboxs
         if(elem.checked){ // si elle est cochée
             let id = elem.parentElement.querySelector('#idQCM').value;
-            if(id === curId){
-                AlertError("Vous ne pouvez pas supprimer le qcm actuel");
-            }
-            else {
-                idList.push(id);
-                elem.parentElement.remove();
-            }
+            idList.push(id);
+            elem.parentElement.remove();
+
         }
     });
     let jsonArray = JSON.stringify(idList);

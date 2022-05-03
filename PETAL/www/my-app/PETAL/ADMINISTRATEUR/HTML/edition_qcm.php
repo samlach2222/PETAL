@@ -57,7 +57,12 @@
                 <input type="submit" class="SecondButton" name="valider" value="Valider" id="valider">
                 <input type="submit" class="SecondButton" name="publier" value="Publier" id="publier">    
             </div>
-            <input type="hidden" name="nbQuestion" id="nbQuestion">
+            <input type="hidden" name="nbQuestion" id="nbQuestion" <?php if(!empty($_GET['id'])) {
+                        updateNbQuestion();
+                    }
+                    else{
+                        echo "value=\"0\"";
+                    } ?>>
     	</form>
     </div>
     <script src="../JS/edition_qcm.js"></script>

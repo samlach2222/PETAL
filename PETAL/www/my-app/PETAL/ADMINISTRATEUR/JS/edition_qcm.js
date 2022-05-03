@@ -33,7 +33,7 @@ function AjoutImageQCM(num) {
     }
     input.click();
 }
-var comp=1;
+var comp=parseInt(document.getElementById('nbQuestion').value)+1;
 function ajoutQuestion() {
     var question=document.createElement('div');
     question.setAttribute('class','question');
@@ -126,5 +126,5 @@ function ajoutQuestion() {
     comp++;
 }
 function reponse(numR,idQ) {
-    document.getElementById('reponseQ').setAttribute('value',num);
+    document.getElementById('reponseQ'+idQ).setAttribute('value',numR);
 }

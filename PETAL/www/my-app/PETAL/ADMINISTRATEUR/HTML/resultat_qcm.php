@@ -14,7 +14,8 @@
     <title>Resultat du QCM</title>
 </head>
 <body>
-    <?php include("../../ALL/HTML/bandeau.php");?>
+    <?php include("../../ALL/HTML/bandeau.php");
+    include("../PHP/script_resultat_qcm.php");?>
     <div id="corps">
     	<div id="titre">
     		<h1>Resultat QCM 1</h1>

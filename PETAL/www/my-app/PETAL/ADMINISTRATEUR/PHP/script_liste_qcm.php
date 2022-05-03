@@ -66,21 +66,29 @@
         foreach ($pdo->query($query) as $row) {
             if ($row[1]) {
                 $publication="Publié";
+                echo "
+                <li id=\"qcm".$row[2]."\">
+                    <label>
+                        <input type=\"hidden\" name=\"idQCM\" value=\"" . $row[2] . "\" id=\"idQCM\"/>
+                        <input type=\"checkbox\" class=\"CB\" name=\"qcm\" value=\"value\"/>
+                        <span>" .ucfirst(strtolower($row[0]))." ".$publication. "</span>
+                        <a href=\"javascript:VoirResultatQCM(" . $row[2] . ")\">
+                            <img src=\"../../Ressources/Pictures/Eye_Light.png\" id=\"eyeIcon\">
+                        </a>
+                    </label>
+                </li>";
             }
             else{
                 $publication="Non publié";
+                echo "
+                <li id=\"qcm".$row[2]."\">
+                    <label>
+                        <input type=\"hidden\" name=\"idQCM\" value=\"" . $row[2] . "\" id=\"idQCM\"/>
+                        <input type=\"checkbox\" class=\"CB\" name=\"qcm\" value=\"value\"/>
+                        <span>" .ucfirst(strtolower($row[0]))." ".$publication. "</span>
+                    </label>
+                </li>";
             }
-            echo "
-            <li id=\"qcm".$row[2]."\">
-                <label>
-                    <input type=\"hidden\" name=\"idQCM\" value=\"" . $row[2] . "\" id=\"idQCM\"/>
-                    <input type=\"checkbox\" class=\"CB\" name=\"qcm\" value=\"value\"/>
-                    <span>" .ucfirst(strtolower($row[0]))." ".$publication. "</span>
-                    <a href=\"javascript:VoirResultatQCM(" . $row[2] . ")\">
-                        <img src=\"../../Ressources/Pictures/Eye_Light.png\" id=\"eyeIcon\">
-                    </a>
-                </label>
-            </li>";
         }
     }
 ?>
