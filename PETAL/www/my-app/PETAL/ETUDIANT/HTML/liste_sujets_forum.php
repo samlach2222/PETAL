@@ -3,7 +3,7 @@
 <head>
     <?php
         if($_COOKIE['theme'] == 0) { //light
-            echo '<link rel="stylesheet" href="../CSS/liste_sujets_forumt_light.css">';
+            echo '<link rel="stylesheet" href="../CSS/liste_sujets_forum_light.css">';
         }
         else { //dark
             echo '<link rel="stylesheet" href="../CSS/liste_sujets_forum_dark.css">';
