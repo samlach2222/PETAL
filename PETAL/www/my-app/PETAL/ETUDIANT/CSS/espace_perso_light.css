@@ -25,8 +25,8 @@ li {
 }
 
 td {
-    border-left-width: 0;
-    border-right-width: 0;
+    border-left-width: initial;
+    border-right-width: initial;
 }
 
 tr:first-child td:first-child {
@@ -56,20 +56,21 @@ table {
 }
 
 #info td {
-    width: 30em;
-    padding-left: 10%;
-    padding-right: 10%;
+    width: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 #tableau td {
-    padding-left: 6em;
-    padding-right: 6em;
+    padding-left: 10%;
+    padding-right: 10%
     border-style: solid;
 }
 
 #tableau{
     border-collapse: separate;
-    border-spacing: 0 1.25em;
+    border-spacing: 0 100%;
+    width: 50%;
 }
 
 #tableau tr:nth-last-child(1){

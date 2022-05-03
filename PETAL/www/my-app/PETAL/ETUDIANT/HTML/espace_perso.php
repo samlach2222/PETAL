@@ -1,20 +1,3 @@
-<?php
-    session_start();
-    try
-    {
-        $conn = new PDO('mysql:host=localhost;dbname=petal_db','root', 'root');    
-    }
-    catch(Exception $e)
-    {
-            die('Erreur : '.$e->getMessage());
-    }
-
-    $_SESSION['id'];
-
-    $req = $donn->('SELECT id, numEtudiant FROM etudiant')
-
-?>
-
 <!DOCTYPE html>
 <!-- Espace perso --> 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -33,6 +16,7 @@
 </head>
 <body>    
     <?php include("../../ALL/HTML/bandeau.php");?>
+    <?php include("../PHP/script_espace_perso.php");?>
     
     <div id="esp_perso">
         <a id="retour" href="../../ETUDIANT/HTML/accueil_etudiant.php"> Retour </a>
@@ -45,24 +29,22 @@
                 <tr>
                     <td>
                         <p> NOM Prenom :</p>
-                        <output id="name"> </output>
-                        <?php
-                            echo "<input
-                        ?>
+                        <output id="name"> <?php echo $_SESSION['nom'] ?> </output>
+                        
                     </td>
                     <td>
                         <p> Numero Etudiant :</p>
-                        <output id="numEtu"> </output>
+                        <output id="numEtu"> <?php echo $_SESSION['num'] ?> </output>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p> Identifiant :</p>
-                        <output id="idEtu"> </output>
+                        <output id="idEtu"> <?php echo $_SESSION['num'] ?> </output>
                     </td>
                     <td>
                         <p> Mail :</p>
-                        <output id="mailEtu"> </output>
+                        <output id="mailEtu"> <?php echo $_SESSION['adresseMail'] ?> </output>
                     </td>
                 </tr>
             </table>
@@ -70,35 +52,7 @@
         </div>
         </br>
 
-        <div id="tabNote">
-            <ul> <li>Detail des Cours :</li></ul>
-            <table id="tableau">
-                <tr id="en-tete">
-                    <td>
-                        <p> Cours </p>
-                    </td>
-                    <td>
-                        <p>  Note </p>
-                    </td>
-                    <td>
-                        <p>  Mention </p>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <output id="nameCours"> </output>
-                    </td>
-                    <td>
-                        <output id="note"> </output>
-                    </td>
-                    <td>
-                        <output id="mention"> </output>
-                    </td>
-                </tr>
-            </table>
-
-        </div>
+        <?php include("../PHP/script_tableau_perso.php");?>
 
     </div>
 
