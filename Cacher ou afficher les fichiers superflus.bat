@@ -33,6 +33,8 @@ IF %ERRORLEVEL% EQU 0 (
 	git ls-files "PETAL/bin/database/mysql-5.7.11/data/petal_db/" | git update-index --no-assume-unchanged --stdin
 	git update-index --no-assume-unchanged "PETAL/bin/database/mysql-5.7.11/data/mysql/proc.MYD"
 	git update-index --no-assume-unchanged "PETAL/bin/database/mysql-5.7.11/data/mysql/proc.MYI"
+	git update-index --no-assume-unchanged "PETAL/bin/apache/conf/httpd_uwamp.conf"
+	git update-index --no-assume-unchanged "PETAL/bin/php/php-7.0.3/php_uwamp.ini"
 	echo Fichiers cachés !
 )
 GOTO END
@@ -53,6 +55,8 @@ IF %ERRORLEVEL% EQU 0 (
 	%gitDesktopPath% ls-files "PETAL/bin/database/mysql-5.7.11/data/petal_db/" | %gitDesktopPath% update-index --no-assume-unchanged --stdin
 	%gitDesktopPath% update-index --no-assume-unchanged "PETAL/bin/database/mysql-5.7.11/data/mysql/proc.MYD"
 	%gitDesktopPath% update-index --no-assume-unchanged "PETAL/bin/database/mysql-5.7.11/data/mysql/proc.MYI"
+	%gitDesktopPath% update-index --no-assume-unchanged "PETAL/bin/apache/conf/httpd_uwamp.conf"
+	%gitDesktopPath% update-index --no-assume-unchanged "PETAL/bin/php/php-7.0.3/php_uwamp.ini"
 	echo Fichiers cachés !
 )
 GOTO END

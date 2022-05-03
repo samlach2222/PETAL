@@ -1,5 +1,5 @@
 #!/bin/sh
-version="Version 4.6"
+version="Version 4.7"
 echo "pre-commit: $version"
 
 # Fonction end pour quitter le script
@@ -74,8 +74,12 @@ else
 	echo "pre-commit: Pas de fichier BDD à commit"
 fi
 
-echo "pre-commit: Ajoute les fichiers Web dans PETAL étant à la fois à commit et pouvant être commit"
-awk '/PETAL\/www\// {system("git add " "\"" $0 "\"")}' stagedFiles.tmp
+echo "pre-commit: Ajoute les fichiers Web et tous les autres fichiers utiles dans PETAL étant à la fois à commit et pouvant être commit"
+awk '
+/PETAL\/www\// {system("git add " "\"" $0 "\"")}
+/PETAL\/bin\/apache\/conf\/httpd_uwamp.conf/ {system("git add " "\"" $0 "\"")}
+/PETAL\/bin\/php\/php-7.0.3\/php_uwamp.ini/ {system("git add " "\"" $0 "\"")}
+' stagedFiles.tmp
 
 if [[ `git diff --cached --numstat | wc -l` == 0 ]]; then
 	echo -e "\npre-commit: ERREUR, IL NE RESTE AUCUN FICHIER À COMMIT\n"
