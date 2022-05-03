@@ -64,3 +64,5 @@ INSERT INTO reponsedeetudiant VALUES ('713705', '4', '1');
 INSERT INTO reponsedeetudiant VALUES ('713705', '5', '2');
 INSERT INTO reponsedeetudiant VALUES ('3000', '4', '3');
 INSERT INTO reponsedeetudiant VALUES ('3000', '5', '2');
+INSERT INTO reponsedeetudiant VALUES ('987654321', '4', '2');
+INSERT INTO reponsedeetudiant VALUES ('987654321', '5', '1');
