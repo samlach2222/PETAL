@@ -21,8 +21,8 @@ CREATE TABLE Utilisateur (
     photoProfil MEDIUMBLOB,
     nom VARCHAR(50) NOT NULL,
     prenom VARCHAR(50) NOT NULL,
-    adresseMail VARCHAR(75) NOT NULL,
-    numeroTelephone VARCHAR(15),
+    adresseMail VARCHAR(75) NOT NULL UNIQUE,
+    numeroTelephone VARCHAR(15) UNIQUE,
     motDePasse VARCHAR(100) NOT NULL,
     PRIMARY KEY (num)
 );
@@ -109,14 +109,23 @@ CREATE TABLE ReponseDeEtudiant (
 );
 
 CREATE VIEW ResultatEtudiant AS
-    SELECT idQCM, num, nomQCM, nomMatiere, ROUND((nombreReponsesCorrectes/COUNT(*))*20,2) AS moyenne
-    FROM qcm NATURAL JOIN question NATURAL JOIN reponsedeetudiant NATURAL JOIN (
-        SELECT idQCM, num, COUNT(*) AS nombreReponsesCorrectes
+    SELECT idQCM, num, nomQCM, nomMatiere, ROUND((nombreReponsesCorrectes/nombreQuestions)*20,2) AS moyenne
+    FROM (
+        SELECT TableTousLesReponses.idQCM, TableTousLesReponses.num, COALESCE(reponsesCorrectes, 0) AS nombreReponsesCorrectes
+        FROM (
+            SELECT * FROM reponsedeetudiant NATURAL JOIN question
+        ) AS TableTousLesReponses LEFT JOIN (
+            SELECT idQCM, num, COUNT(*) AS reponsesCorrectes
+            FROM reponsedeetudiant NATURAL JOIN question
+            WHERE reponseALaQuestion = reponseChoisie
+            GROUP BY idQCM, num
+        ) AS TableNombreReponsesCorrectes ON (TableTousLesReponses.idQCM = TableNombreReponsesCorrectes.idQCM && TableTousLesReponses.num = TableNombreReponsesCorrectes.num)
+        GROUP BY TableTousLesReponses.idQCM, TableTousLesReponses.num
+    ) AS TableNombreReponsesCorrectes NATURAL JOIN (
+        SELECT idQCM, num, nomQCM, nomMatiere, COUNT(*) AS nombreQuestions
         FROM qcm NATURAL JOIN question NATURAL JOIN reponsedeetudiant
-        WHERE reponseALaQuestion = reponseChoisie
         GROUP BY idQCM, num
-    ) AS TableNombreReponsesCorrectes
-    GROUP BY idQCM, num;
+    ) AS TableNombreQuestions;
 
 CREATE VIEW MoyenneEtuMatiere AS
     SELECT num, nom, prenom, nomMatiere, ROUND(SUM(moyenne)/COUNT(moyenne),2) AS moyenne
