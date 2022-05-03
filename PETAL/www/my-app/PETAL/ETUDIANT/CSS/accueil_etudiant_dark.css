@@ -68,3 +68,11 @@ td.espace {
     background-color: #A30080;
     text-align: center;
 }
+
+.container {
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}

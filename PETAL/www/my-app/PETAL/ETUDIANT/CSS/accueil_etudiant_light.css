@@ -53,7 +53,7 @@ th {
 }
 
 td.espace {
-    padding: 5% 5vh;
+    padding: 3% 5vh;
 }
 
 #centre {
@@ -67,4 +67,12 @@ td.espace {
 .image {
     background-color: #F88C95;
     text-align: center;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }

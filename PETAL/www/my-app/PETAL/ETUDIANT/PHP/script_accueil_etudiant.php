@@ -33,9 +33,18 @@
                         </th>
                     </tr>
                     <tr>
-                        <td class=\"image\">
-                            Image ".$nb."
-                        </td>
+                        <td class=\"image\">";
+                            $sql2 = "SELECT image FROM matiere WHERE nomMatiere=\"".$tmp[0]."\"";
+                            $donnees2 = $pdo->query($sql2);
+                            while ($tmp2 = $donnees2->fetch()){
+                                if(!is_null($tmp2[0])){
+                                    echo "<div class=\"container\" style=\"background-image:url('".$tmp2[0]."');\"></div>";
+                                    //<img class=\"im\" src=\"".$tmp2[0]."\"/>
+                                }   
+                            }
+                            
+                            echo
+                        "</td>
                     </tr>
                 </table>
             </a>
@@ -48,4 +57,8 @@
         }
         $nb++;
     }
+
+    
+
+    //echo "<img src=\"/my-app/PETAL/Cours/Matiere 1/bdd.png\"/>";
 ?>
