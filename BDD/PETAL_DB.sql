@@ -18,7 +18,7 @@ DROP TABLE IF EXISTS ReponseDeEtudiant;
 CREATE TABLE Utilisateur (
     num INT NOT NULL,
     admin BOOLEAN NOT NULL DEFAULT false,
-    photoProfil LONGBLOB,
+    photoProfil MEDIUMBLOB,
     nom VARCHAR(50) NOT NULL,
     prenom VARCHAR(50) NOT NULL,
     adresseMail VARCHAR(75) NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE Utilisateur (
 
 CREATE TABLE Matiere (
     nomMatiere VARCHAR(50) NOT NULL,
-    image LONGBLOB,
+    image MEDIUMBLOB,
     num INT NOT NULL,
     PRIMARY KEY(nomMatiere),
     FOREIGN KEY(num) REFERENCES Utilisateur(num) ON DELETE CASCADE
@@ -89,7 +89,7 @@ CREATE TABLE QCM (
 CREATE TABLE Question (
     idQuestion INT NOT NULL AUTO_INCREMENT,
     intitulé VARCHAR(300) NOT NULL,
-    image LONGBLOB,
+    image MEDIUMBLOB,
     reponseALaQuestion TINYINT NOT NULL,
     choix1 VARCHAR(150) NOT NULL,
     choix2 VARCHAR(150) NOT NULL,
