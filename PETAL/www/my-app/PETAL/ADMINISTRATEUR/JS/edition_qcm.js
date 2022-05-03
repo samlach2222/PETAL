@@ -1,6 +1,8 @@
-function AjoutImageQCM() {
-    var num=this.id;
-    num.replace("bt","");
+function AjoutImageQCM(num) {
+    var idQ="";
+    for (var i = 2; i < num.length; i++) {
+        idQ=idQ+num[i];
+    }
     var input = document.createElement('input');
     input.type = 'file';
     input.onchange = e => {
@@ -35,6 +37,7 @@ var comp=2;
 function ajoutQuestion() {
     var question=document.createElement('div');
     question.setAttribute('class','question');
+    question.setAttribute('id','q'+comp);
 
     var label1=document.createElement('label');
     label1.innerHTML="Question";
@@ -56,7 +59,7 @@ function ajoutQuestion() {
     question.appendChild(inputQ);
 
     var button=document.createElement('button');
-    button.setAttribute('onclick','AjoutImageQCM()');
+    button.setAttribute('onclick','AjoutImageQCM(this.id)');
     button.setAttribute('class','BtAjoutImage');
     button.setAttribute('id','bt'+comp);
     button.innerHTML="Ajout image";
@@ -75,11 +78,12 @@ function ajoutQuestion() {
 
     var iRbRepon1=document.createElement('input');
     iRbRepon1.setAttribute('type','radio');
-    iRbRepon1.setAttribute('name','reponse');
+    iRbRepon1.setAttribute('name','reponse'+comp);
+    iRbRepon1.setAttribute('checked','false');
     iRbRepon1.setAttribute('id','reponseRB'+comp+'a');
     var iRepon1=document.createElement('input');
     iRepon1.setAttribute('type','text');
-    iRepon1.setAttribute('name','reponse');
+    iRepon1.setAttribute('name','reponse'+comp);
     iRepon1.setAttribute('id','reponse'+comp+'a');
     reponse.appendChild(iRbRepon1);
     reponse.appendChild(iRepon1);
@@ -87,11 +91,12 @@ function ajoutQuestion() {
 
     var iRbRepon2=document.createElement('input');
     iRbRepon2.setAttribute('type','radio');
-    iRbRepon2.setAttribute('name','reponse');
+    iRbRepon2.setAttribute('name','reponse'+comp);
+    iRbRepon2.setAttribute('checked','false');
     iRbRepon2.setAttribute('id','reponseRB'+comp+'b');
     var iRepon2=document.createElement('input');
     iRepon2.setAttribute('type','text');
-    iRepon2.setAttribute('name','reponse');
+    iRepon2.setAttribute('name','reponse'+comp);
     iRepon2.setAttribute('id','reponse'+comp+'b');
     reponse.appendChild(iRbRepon2);
     reponse.appendChild(iRepon2);
@@ -99,11 +104,12 @@ function ajoutQuestion() {
 
     var iRbRepon3=document.createElement('input');
     iRbRepon3.setAttribute('type','radio');
-    iRbRepon3.setAttribute('name','reponse');
+    iRbRepon3.setAttribute('name','reponse'+comp);
+    iRbRepon3.setAttribute('checked','false');
     iRbRepon3.setAttribute('id','reponseRB'+comp+'c');
     var iRepon3=document.createElement('input');
     iRepon3.setAttribute('type','text');
-    iRepon3.setAttribute('name','reponse');
+    iRepon3.setAttribute('name','reponse'+comp);
     iRepon3.setAttribute('id','reponse'+comp+'c');
     reponse.appendChild(iRbRepon3);
     reponse.appendChild(iRepon3);

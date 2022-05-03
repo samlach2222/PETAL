@@ -1,13 +1,19 @@
 /*liste qcm light*/
+@import "../../ALL/CSS/bandeau_light.css";
 #corps{
-	/*position: X; où X est un des paramètres possibles
-	z-index: 1; pour être affiché en dessous*/
 	position: absolute;
-	top: 4.75em;
-	padding: 0;
-	width: 100%;
-	color: #1F1E1F;
-	background-color: #F5F5F5;
+    top: 0;
+    width: 100%;
+    margin-top: 4em;
+    display: flex;
+    flex-direction: column;
+}
+body {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
 }
 #retour{
 	font-size: 1.5em;
@@ -38,12 +44,23 @@ ul{
 	margin-left: 1em;
 }
 .SecondButton{
-	font-size:1.5em;
-	margin-left: 0.25em;
+	/*font-size:1.5em;
+	margin-left: 0.25em;*/
+	font-size: 2em;
+    padding: 0.25em;
+    border-radius: 0.3em;
+    background-color: #CD5162;
+    color: #1F1E1F;
 }
 .BtAjoutImage{
-	font-size:1.5em;
-	margin-left: 0.25em;
+	/*font-size:1.5em;
+	margin-left: 0.25em;*/
+
+	font-size: 1.5em;
+    padding: 0.25em;
+    border-radius: 0.3em;
+    background-color: #CD5162;
+    color: #1F1E1F;
 }
 #popup{
 	display: none;

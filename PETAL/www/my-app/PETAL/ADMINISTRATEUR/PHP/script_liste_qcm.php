@@ -45,7 +45,6 @@
         $query = "SELECT nomQCM, publie, idQCM from QCM";
 
         foreach ($pdo->query($query) as $row) {
-            $publication;
             if ($row[1]) {
                 $publication="Publié";
             }
@@ -55,7 +54,7 @@
             echo "
             <li id=\"qcm".$row[2]."\">
                 <label>
-                    <input type=\"hidden\" name=\"identifiant\" value=" . $row[2] . " id=\"identifiant\"/>
+                    <input type=\"hidden\" name=\"idQCM\" value=\"" . $row[2] . "\" id=\"idQCM\"/>
                     <input type=\"checkbox\" class=\"CB\" name=\"qcm\" value=\"value\"/>
                     <span>" .ucfirst(strtolower($row[0]))." ".$publication. "</span>
                     <a href=\"resultat_qcm.php\">

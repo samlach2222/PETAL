@@ -27,40 +27,40 @@
     			<tr>
     				<td>
     					<label>Nom</label>
-    					<input type="text" id="nom" name="nom">
+    					<input type="text" required id="nom" name="nom" value="<?php if(isset($nom)) {echo $nom;} ?>">
     				</td>
     				<td>
     					<label>Matière</label>
-    					<input type="text" name="matiere" id="matiere">
+    					<input type="text" required name="matiere" id="matiere" value="<?php if(isset($matiere)) {echo $matiere;} ?>">
     				</td>
     				<td>
     					<label>Date/heure de fin</label>
-    					<input type="date" name="dateHeureFin" id="dateHeureFin">
+    					<input type="date" required name="dateHeureFin" id="dateHeureFin" value="<?php if(isset($dateHeureFin)) {echo $dateHeureFin;} ?>">
     				</td>
     			</tr>
     		</table>
     		<hr>
     		<div id="questions">
-                <div class="question">
+                <div class="question" id="q1">
                     <label>Question </label>
                     <output id="out1">1</output>
                     <label> : </label>
                     <input type="text" name="question" id="intitule1">
-                    <button onclick="AjoutImageQCM()" class="BtAjoutImage" id="bt1">Ajout image</button>
+                    <input type="button" onclick="AjoutImageQCM(this.id)" class="BtAjoutImage" id="bt1" value="Ajout image" name="ajoutImage">
                     <input type="hidden" id="b64Image1" name="b64Image" value="">
                     <br>
                     <div id="reponses1">
-                        <input type="radio" name="reponse" id="reponseRB1a">
-                            <input type="text" name="reponse" id="reponse1a"><br>
-                        <input type="radio" name="reponse" id="reponseRB1b">
-                            <input type="text" name="reponse" id="reponse1b"><br>
-                        <input type="radio" name="reponse" id="reponseRB1c">
-                            <input type="text" name="reponse" id="reponse1c"><br>         
+                        <input type="radio" name="reponse1" id="reponseRB1a" checked="false">
+                            <input type="text" name="reponse1" id="reponse1a"><br>
+                        <input type="radio" name="reponse1" id="reponseRB1b" checked="false">
+                            <input type="text" name="reponse1" id="reponse1b"><br>
+                        <input type="radio" name="reponse1" id="reponseRB1c" checked="false">
+                            <input type="text" name="reponse1" id="reponse1c"><br>         
                     </div>
                 </div>      
             </div>
     		<div id="boutonBas">
-                <button onclick="ajoutQuestion()" class="SecondButton">+</button>
+                <input type="button" name="add" value="+" id="add" onclick="ajoutQuestion()" class="SecondButton">
                 <input type="submit" class="SecondButton" name="valider" value="Valider" id="valider">
                 <input type="submit" class="SecondButton" name="publier" value="Publier" id="publier">    
             </div>

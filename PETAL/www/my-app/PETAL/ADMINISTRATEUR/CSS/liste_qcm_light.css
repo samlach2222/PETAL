@@ -60,7 +60,7 @@ body {
     font-size: 1.7em;
     padding-left: 0.5em;
 }
-.imageIcon{
+#plus{
     padding-left: 1em;
     padding-right: 1em;
     display: block;
@@ -112,12 +112,8 @@ label > input[type="checkbox"] + *:hover {
     font-size: 105%;
 }
 
-#plusAdmin {
-    content: url("../../Ressources/Pictures/Plus_Administrateur_Light.png");
-}
-
-#plusEtudiant {
-    content: url("../../Ressources/Pictures/Plus_Utilisateur_Light.png");
+#plus {
+    content: url("../../Ressources/Pictures/Plus_Picture_Light.png");
 }
 
 #crayon {
