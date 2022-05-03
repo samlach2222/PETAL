@@ -6,6 +6,25 @@
             echo '<script src="../../ALL/JS/notify.js"></script>';
             echo '<script>AlertSuccess("QCM ajouté avec succès");</script>';
         }
+        else if ($_GET['ajout'] == "error") {
+            echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
+            echo '<script src="../../ALL/JS/notify.js"></script>';
+            echo '<script>AlertError("Erreur : Création non effectuée");</script>';
+        }
+    }
+    else if(!empty($_GET['modification'])) {
+        if($_GET['modification'] == "error") {
+            // chargement de la notification
+            echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
+            echo '<script src="../../ALL/JS/notify.js"></script>';
+            echo '<script>AlertError("Erreur : Modification non effectuée");</script>';
+        }
+        else if($_GET['modification'] == "success") {
+            // chargement de la notification
+            echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
+            echo '<script src="../../ALL/JS/notify.js"></script>';
+            echo '<script>AlertSuccess("Modification effectée avec succès");</script>';
+        }
     }
     // Permet de supprimer par ID les utilisateurs
     if(isset($_POST)){
@@ -57,8 +76,8 @@
                     <input type=\"hidden\" name=\"idQCM\" value=\"" . $row[2] . "\" id=\"idQCM\"/>
                     <input type=\"checkbox\" class=\"CB\" name=\"qcm\" value=\"value\"/>
                     <span>" .ucfirst(strtolower($row[0]))." ".$publication. "</span>
-                    <a href=\"resultat_qcm.php\">
-                        <img src=\"../../Ressources/Pictures/Eye_Dark.png\" id=\"eyeIcon\">
+                    <a href=\"javascript:VoirResultatQCM(" . $row[2] . ")\">
+                        <img src=\"../../Ressources/Pictures/Eye_Light.png\" id=\"eyeIcon\">
                     </a>
                 </label>
             </li>";

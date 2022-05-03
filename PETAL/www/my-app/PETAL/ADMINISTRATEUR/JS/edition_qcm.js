@@ -33,7 +33,7 @@ function AjoutImageQCM(num) {
     }
     input.click();
 }
-var comp=2;
+var comp=1;
 function ajoutQuestion() {
     var question=document.createElement('div');
     question.setAttribute('class','question');
@@ -54,7 +54,7 @@ function ajoutQuestion() {
 
     var inputQ=document.createElement('input');
     inputQ.setAttribute('type','text');
-    inputQ.setAttribute('name','question');
+    inputQ.setAttribute('name','intitule'+comp);
     inputQ.setAttribute('id','intitule'+comp);
     question.appendChild(inputQ);
 
@@ -67,7 +67,7 @@ function ajoutQuestion() {
 
     var inputH=document.createElement('input');
     inputH.setAttribute('type','hidden');
-    inputH.setAttribute('name','b64Image');
+    inputH.setAttribute('name','b64Image'+comp);
     inputH.setAttribute('id','b64Image'+comp);
     inputH.setAttribute('value','');
     question.appendChild(inputH);
@@ -79,11 +79,11 @@ function ajoutQuestion() {
     var iRbRepon1=document.createElement('input');
     iRbRepon1.setAttribute('type','radio');
     iRbRepon1.setAttribute('name','reponse'+comp);
-    iRbRepon1.setAttribute('checked','false');
     iRbRepon1.setAttribute('id','reponseRB'+comp+'a');
+    iRbRepon1.setAttribute('onclick','reponse(1,'+comp+')');
     var iRepon1=document.createElement('input');
     iRepon1.setAttribute('type','text');
-    iRepon1.setAttribute('name','reponse'+comp);
+    iRepon1.setAttribute('name','reponse'+comp+'a');
     iRepon1.setAttribute('id','reponse'+comp+'a');
     reponse.appendChild(iRbRepon1);
     reponse.appendChild(iRepon1);
@@ -92,11 +92,11 @@ function ajoutQuestion() {
     var iRbRepon2=document.createElement('input');
     iRbRepon2.setAttribute('type','radio');
     iRbRepon2.setAttribute('name','reponse'+comp);
-    iRbRepon2.setAttribute('checked','false');
     iRbRepon2.setAttribute('id','reponseRB'+comp+'b');
+    iRbRepon2.setAttribute('onclick','reponse(2,'+comp+')');
     var iRepon2=document.createElement('input');
     iRepon2.setAttribute('type','text');
-    iRepon2.setAttribute('name','reponse'+comp);
+    iRepon2.setAttribute('name','reponse'+comp+'b');
     iRepon2.setAttribute('id','reponse'+comp+'b');
     reponse.appendChild(iRbRepon2);
     reponse.appendChild(iRepon2);
@@ -105,17 +105,26 @@ function ajoutQuestion() {
     var iRbRepon3=document.createElement('input');
     iRbRepon3.setAttribute('type','radio');
     iRbRepon3.setAttribute('name','reponse'+comp);
-    iRbRepon3.setAttribute('checked','false');
     iRbRepon3.setAttribute('id','reponseRB'+comp+'c');
+    iRbRepon3.setAttribute('onclick','reponse(3,'+comp+')');
     var iRepon3=document.createElement('input');
     iRepon3.setAttribute('type','text');
-    iRepon3.setAttribute('name','reponse'+comp);
+    iRepon3.setAttribute('name','reponse'+comp+'c');
     iRepon3.setAttribute('id','reponse'+comp+'c');
     reponse.appendChild(iRbRepon3);
     reponse.appendChild(iRepon3);
     reponse.appendChild(document.createElement('br'));
 
     question.appendChild(reponse);
+    var reponseQ=document.createElement('input');
+    reponseQ.setAttribute('type','hidden');
+    reponseQ.setAttribute('name','reponseQ'+comp);
+    reponseQ.setAttribute('id','reponseQ'+comp);
+    question.appendChild(reponseQ);
     document.getElementById('questions').appendChild(question);
+    document.getElementById('nbQuestion').setAttribute('value',comp);
     comp++;
+}
+function reponse(numR,idQ) {
+    document.getElementById('reponseQ').setAttribute('value',num);
 }

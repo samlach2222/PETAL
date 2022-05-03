@@ -123,3 +123,6 @@ label > input[type="checkbox"] + *:hover {
 #corbeille {
     content: url("../../Ressources/Pictures/Corbeille_Light.png");
 }
+#eyeIcon {
+    content: url("../../Ressources/Pictures/Eye_Light.png");
+}

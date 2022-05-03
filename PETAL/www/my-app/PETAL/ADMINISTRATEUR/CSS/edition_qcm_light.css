@@ -15,8 +15,16 @@ body {
     top: 0;
     z-index: 1;
 }
-#retour{
-	font-size: 1.5em;
+#conteneurRetour {
+    display: flex;
+    width: 100%;
+}
+#retour {
+    display: block;
+    justify-content: flex-start;
+    font-family: Quicksand, sans-serif;
+    font-size: 1.7em;
+    padding-left: 0.5em;
 }
 #titrePage{
 	text-align: center;
@@ -64,4 +72,9 @@ ul{
 }
 #popup{
 	display: none;
+}
+td{
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    text-align:center;
 }

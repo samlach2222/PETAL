@@ -1,21 +1,24 @@
-/*liste qcm light*/
+/*liste qcm dark*/
+@import "../../ALL/CSS/bandeau_dark.css";
 #corps{
-	/*position: X; où X est un des paramètres possibles
-	z-index: 1; pour être affiché en dessous*/
 	position: absolute;
-	top: 4.75em;
-	padding: 0;
-	width: 100%;
-	color: #EEE0E8;
-	background-color: #1D0027;
+    top: 0;
+    width: 100%;
+    margin-top: 4em;
+    display: flex;
+    flex-direction: column;
+}
+body {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
 }
 #conteneurRetour {
     display: flex;
     width: 100%;
-    position:absolute;
-	top:0%;
 }
-
 #retour {
     display: block;
     justify-content: flex-start;
@@ -23,16 +26,18 @@
     font-size: 1.7em;
     padding-left: 0.5em;
 }
-li{
-	list-style: none;
-}
 #titrePage{
 	text-align: center;
     font-size: 1.5em;
     height: 20%;
 }
+li{
+	list-style: none;
+}
 #titre{
 	text-align: center;
+	margin-left:30%;
+	margin-right:25%;
 }
 ul{
 	font-size: 1.5em;
@@ -47,19 +52,29 @@ ul{
 	margin-left: 1em;
 }
 .SecondButton{
-	font-size:1.5em;
-	margin-left: 0.25em;
+	/*font-size:1.5em;
+	margin-left: 0.25em;*/
+	font-size: 2em;
+    padding: 0.25em;
+    border-radius: 0.3em;
+    background-color: #CD5162;
+    color: #1F1E1F;
 }
 .BtAjoutImage{
-	font-size:1.5em;
-	margin-left: 0.25em;
-}
+	/*font-size:1.5em;
+	margin-left: 0.25em;*/
 
+	font-size: 1.5em;
+    padding: 0.25em;
+    border-radius: 0.3em;
+    background-color: #CD5162;
+    color: #1F1E1F;
+}
 #popup{
 	display: none;
 }
 td{
-	padding-left: 0.5em;
-	padding-right: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    text-align:center;
 }
-

@@ -4,7 +4,7 @@ function SupprimerQCM() {
     document.querySelectorAll('.CB').forEach(function(elem) {
         // Pour chacune des checkboxs
         if(elem.checked){ // si elle est cochée
-            let id = elem.parentElement.querySelector('#identifiant').value;
+            let id = elem.parentElement.querySelector('#idQCM').value;
             if(id === curId){
                 AlertError("Vous ne pouvez pas supprimer le qcm actuel");
             }
@@ -26,7 +26,7 @@ function EditerQCM() {
     document.querySelectorAll('.CB').forEach(function(elem) {
         // Pour chacune des checkboxs
         if(elem.checked){ // si elle est cochée
-            let id = elem.parentElement.querySelector('#identifiant').value;
+            let id = elem.parentElement.querySelector('#idQCM').value;
             idList.push(id);
         }
     });
@@ -35,11 +35,14 @@ function EditerQCM() {
         let id = idList[0];
         // Requete POST via AJAX
         console.log("qcm");
-        $.post('../PHP/script_edition_qcm.php', {
-            data: id
-        });
+        window.location.replace("../HTML/edition_qcm.php?id="+id);
     }
     else {
         AlertError("Vous ne pouvez pas modifier plus d'un qcm");
     }
+}
+function VoirResultatQCM(id_QCM) {
+    var idQ=id_QCM;
+    console.log("resultat qcm");
+    window.location.replace("../HTML/resultat_qcm.php?id="+idQ);
 }

@@ -25,45 +25,39 @@
     	<form action="../PHP/script_edition_qcm.php" method="post" id="formQCM">
     		<table id="titre">
     			<tr>
-    				<td>
-    					<label>Nom</label>
-    					<input type="text" required id="nom" name="nom" value="<?php if(isset($nom)) {echo $nom;} ?>">
-    				</td>
-    				<td>
-    					<label>Matière</label>
-    					<input type="text" required name="matiere" id="matiere" value="<?php if(isset($matiere)) {echo $matiere;} ?>">
-    				</td>
-    				<td>
-    					<label>Date/heure de fin</label>
-    					<input type="date" required name="dateHeureFin" id="dateHeureFin" value="<?php if(isset($dateHeureFin)) {echo $dateHeureFin;} ?>">
-    				</td>
+                    <?php 
+                    if(!empty($_GET['id'])) {
+                        AfficheTitreQCM();
+                    }
+                    else{
+                        echo "<td>
+                                <label>Nom</label>
+                                <input type=\"text\" required id=\"nom\" name=\"nom\">
+                            </td>
+                            <td>
+                                <label>Matière</label>
+                                <input type=\"text\" required name=\"matiere\" id=\"matiere\">
+                            </td>
+                            <td>
+                                <label>Date/heure de fin</label>
+                                <input type=\"date\" name=\"dateHeureFin\" id=\"dateHeureFin\">
+                        </td>";
+                    }
+                ?> 
     			</tr>
     		</table>
     		<hr>
     		<div id="questions">
-                <div class="question" id="q1">
-                    <label>Question </label>
-                    <output id="out1">1</output>
-                    <label> : </label>
-                    <input type="text" name="question" id="intitule1">
-                    <input type="button" onclick="AjoutImageQCM(this.id)" class="BtAjoutImage" id="bt1" value="Ajout image" name="ajoutImage">
-                    <input type="hidden" id="b64Image1" name="b64Image" value="">
-                    <br>
-                    <div id="reponses1">
-                        <input type="radio" name="reponse1" id="reponseRB1a" checked="false">
-                            <input type="text" name="reponse1" id="reponse1a"><br>
-                        <input type="radio" name="reponse1" id="reponseRB1b" checked="false">
-                            <input type="text" name="reponse1" id="reponse1b"><br>
-                        <input type="radio" name="reponse1" id="reponseRB1c" checked="false">
-                            <input type="text" name="reponse1" id="reponse1c"><br>         
-                    </div>
-                </div>      
+                <?php 
+                    AfficheQCM();
+                ?>     
             </div>
     		<div id="boutonBas">
                 <input type="button" name="add" value="+" id="add" onclick="ajoutQuestion()" class="SecondButton">
                 <input type="submit" class="SecondButton" name="valider" value="Valider" id="valider">
                 <input type="submit" class="SecondButton" name="publier" value="Publier" id="publier">    
             </div>
+            <input type="hidden" name="nbQuestion" id="nbQuestion">
     	</form>
     </div>
     <script src="../JS/edition_qcm.js"></script>

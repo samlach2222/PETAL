@@ -99,3 +99,17 @@ label > input[type="checkbox"] + *:hover {
 #popup {
     display: none;
 }
+#plus {
+    content: url("../../Ressources/Pictures/Plus_Dark.png");
+}
+
+#crayon {
+    content: url("../../Ressources/Pictures/Crayon_Dark.png");
+}
+
+#corbeille {
+    content: url("../../Ressources/Pictures/Corbeille_Dark.png");
+}
+#eyeIcon {
+    content: url("../../Ressources/Pictures/Eye_Dark.png");
+}
