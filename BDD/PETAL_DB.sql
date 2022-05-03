@@ -68,7 +68,7 @@ CREATE TABLE MessageForum (
 CREATE TABLE Cours (
     idCours INT NOT NULL AUTO_INCREMENT,
     nomCours VARCHAR(50) NOT NULL,
-    fichier LONGBLOB NOT NULL,
+    fichier VARCHAR(512) NOT NULL,
     typeCours ENUM('CM','TD','TP') NOT NULL,
     nomMatiere VARCHAR(50) NOT NULL,
     PRIMARY KEY (idCours),
