@@ -39,7 +39,6 @@
                             while ($tmp2 = $donnees2->fetch()){
                                 if(!is_null($tmp2[0])){
                                     echo "<div class=\"container\" style=\"background-image:url('".$tmp2[0]."');\"></div>";
-                                    //<img class=\"im\" src=\"".$tmp2[0]."\"/>
                                 }   
                             }
                             

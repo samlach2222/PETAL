@@ -30,3 +30,11 @@ INSERT INTO etumatiere VALUES (2, "Matiere 5");
 INSERT INTO etumatiere VALUES (2, "Matiere 6");
 INSERT INTO etumatiere VALUES (2, "Matiere 7");
 INSERT INTO etumatiere VALUES (2, "Matiere 8");
+
+-- Création CM/TD/TP/QCM/Eval
+INSERT INTO cours VALUES (NULL, "CM 1", '/my-app/PETAL/Cours/Matiere 1/CM 1.pdf', 'CM', "Matiere 1");
+INSERT INTO cours VALUES (NULL, "CM 2", '/my-app/PETAL/Cours/Matiere 1/CM 2.pdf', 'CM', "Matiere 1");
+INSERT INTO cours VALUES (NULL, "CM 3", '/my-app/PETAL/Cours/Matiere 1/CM 3.pdf', 'CM', "Matiere 1");
+INSERT INTO cours VALUES (NULL, "TD 1", '/my-app/PETAL/Cours/Matiere 1/TD 1.pdf', 'TD', "Matiere 1");
+INSERT INTO cours VALUES (NULL, "TD 2", '/my-app/PETAL/Cours/Matiere 1/TD 2.pdf', 'TD', "Matiere 1");
+INSERT INTO cours VALUES (NULL, "TP 1", '/my-app/PETAL/Cours/Matiere 1/TP 1.pdf', 'TP', "Matiere 1");

@@ -33,23 +33,41 @@
             <a class=\"retour\" href=\"accueil_etudiant.php\"><- retour</a>
         </div>
         <h2>CM</h2>
-            <div class=\"liste\">
-                <a href=\"https://google.com\"><div class=\"cours\">CM1</div></a>
-                <a href=\"https://google.com\"><div class=\"cours\">CM2</div></a>
+        <div class=\"liste\">
+        ";
+
+    $sql2 = "SELECT nomCours,fichier FROM cours WHERE typeCours='CM' AND nomMatiere='".$nomMatiere."'";
+    $donnees2 = $pdo->query($sql2);
+    while ($tmp2 = $donnees2->fetch())
+    {
+        echo "<a href=\"".$tmp2[1]."\" download><div class=\"cours\">".$tmp2[0]."</div></a>";
+    }
+
+    echo "
             </div>
         <h2>TD</h2>
-            <div class=\"liste\">
-                <a href=\"https://google.com\"><a href=\"https://google.com\"><div class=\"cours\">TD1</div></a>
-                <a href=\"https://google.com\"><div class=\"cours\">TD2</div></a>
-                <a href=\"https://google.com\"><div class=\"cours\">TD3</div></a>
+            <div class=\"liste\">";
+
+    $sql3 = "SELECT nomCours,fichier FROM cours WHERE typeCours='TD' AND nomMatiere='".$nomMatiere."'";
+    $donnees3 = $pdo->query($sql3);
+    while ($tmp3 = $donnees3->fetch())
+    {
+        echo "<a href=\"".$tmp3[1]."\" download><div class=\"cours\">".$tmp3[0]."</div></a>";
+    }
+                
+    echo "     
             </div>
         <h2>TP</h2>
-            <div class=\"liste\">
-                <a href=\"https://google.com\"><div class=\"cours\">TP1</div></a>
-                <a href=\"https://youtube.com\"><div class=\"cours\">TP2</div></a>
-                <a href=\"https://google.com\"><div class=\"cours\">TP3</div></a>
-                <a href=\"https://google.com\"><div class=\"cours\">TP4</div></a>
-                <a href=\"https://google.com\"><div class=\"cours\">TP5</div></a>
+            <div class=\"liste\">";
+
+    $sql4 = "SELECT nomCours,fichier FROM cours WHERE typeCours='TP' AND nomMatiere='".$nomMatiere."'";
+    $donnees4 = $pdo->query($sql4);
+    while ($tmp4 = $donnees4->fetch())
+    {
+        echo "<a href=\"".$tmp4[1]."\" download><div class=\"cours\">".$tmp4[0]."</div></a>";
+    }
+    
+    echo "
             </div>
         <h2>QCM</h2>
             <a href=\"https://google.com\" target=\"_blank\" class=\"lien\">QCM 1</a>
