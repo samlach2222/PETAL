@@ -7,6 +7,8 @@
     <title>Connexion à PETAL</title>
 </head>
 <body>
+    <div id="petalFrame">
+    <img id="petalText" src="../../Ressources/Icon/texte%20PETAL.svg"/>
     <div id="first">
         <p>Authentification</p>
         <div id="second">
@@ -34,6 +36,7 @@
         </div>
         <!-- envoie un mail à l'utilisateur -->
         <a href="https://www.google.com">Mot de passe oublié</a>
+    </div>
     </div>
 
 <?php

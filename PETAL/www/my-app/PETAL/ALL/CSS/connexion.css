@@ -16,6 +16,7 @@ a {
     display: block;
     text-align: right;
     font-size: 1.2em;
+    margin-top: 0.5em;
 }
 
 button {
@@ -70,14 +71,11 @@ label{
 }
 
 #first {
+    background-image: ;
+    border-radius: 1em;
     padding: 0.5em;
     width: 26em;
     height: 22em;
-    position: absolute; /* postulat de départ */
-    top: 50%;
-    left: 50%; /* à 50%/50% du parent référent */
-    transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
-    
 }
 
 #second {
@@ -103,4 +101,32 @@ label{
 #second-bottom div {
     border-style: inherit;
     border-color: inherit;
+}
+
+#petalFrame {
+    background-image: url("../../Ressources/Icon/logo%20PETAL%20profil.svg");
+    background-repeat: no-repeat;
+    border: none;
+    background-attachment: fixed;
+    background-position: calc(50% + 6em);
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#petalText {
+    box-shadow: 0px 0px 20px 20px #00000088;
+    background-color: #00000088;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    height: 3em;
+    padding: 1em;
 }
