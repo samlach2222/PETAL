@@ -2,8 +2,8 @@ USE PETAL_DB;  -- Utilise la base de données du projet
 
 -- Supprime d'abord les tables n'ayant pas ON DELETE CASCADE
 DELETE FROM sujetforum;
-DELETE FROM matiere;
 DELETE FROM qcm;
+DELETE FROM matiere;
 
 DELETE FROM utilisateur;  -- Enlève toutes les tables restantes car elles sont "reliées" à utilisateur
 
