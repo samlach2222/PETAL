@@ -1,6 +1,8 @@
+var comp=parseInt(document.getElementById('nbQuestion').value)+1;
+/*
 function AjoutImageQCM(num) {
     var idQ="";
-    for (var i = 2; i < num.length; i++) {
+    for (var i = 8; i < num.length; i++) {
         idQ=idQ+num[i];
     }
     var input = document.createElement('input');
@@ -20,10 +22,11 @@ function AjoutImageQCM(num) {
                 reader.readAsDataURL(file);
                 reader.onload = readerEvent => {
                     const content = readerEvent.target.result;
-                    document.querySelector('#BtAjoutImage'+num).style.backgroundImage = 'url('+ content +')';
-                    document.querySelector('#BtAjoutImage'+num).style.backgroundSize = 'cover';
+                    document.querySelector('#bt'+num).style.backgroundImage = 'url('+ content +')';
+                    document.querySelector('#bt'+num).style.backgroundSize = 'cover';
                     const b64WithPrefix = reader.result;
                     document.querySelector('#b64Image'+num).value = b64WithPrefix.substring(b64WithPrefix.indexOf(',') + 1);
+                    document.querySelector('#b64Image'+num).type="";
                 }
             }
             else {
@@ -32,8 +35,8 @@ function AjoutImageQCM(num) {
         }
     }
     input.click();
-}
-var comp=parseInt(document.getElementById('nbQuestion').value)+1;
+}*/
+
 function ajoutQuestion() {
     var question=document.createElement('div');
     question.setAttribute('class','question');
@@ -58,7 +61,7 @@ function ajoutQuestion() {
     inputQ.setAttribute('id','intitule'+comp);
     question.appendChild(inputQ);
 
-    var button=document.createElement('button');
+    /*var button=document.createElement('button');
     button.setAttribute('onclick','AjoutImageQCM(this.id)');
     button.setAttribute('class','BtAjoutImage');
     button.setAttribute('id','bt'+comp);
@@ -70,7 +73,7 @@ function ajoutQuestion() {
     inputH.setAttribute('name','b64Image'+comp);
     inputH.setAttribute('id','b64Image'+comp);
     inputH.setAttribute('value','');
-    question.appendChild(inputH);
+    question.appendChild(inputH);*/
     question.appendChild(document.createElement('br'));
 
     var reponse=document.createElement('div');

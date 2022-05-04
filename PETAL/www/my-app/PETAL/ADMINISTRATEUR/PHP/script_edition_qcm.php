@@ -45,9 +45,7 @@ function updateNbQuestion()
     } else {
         echo "value=\"0\"";
     }
-    
 }
-
 function AfficheQCM()
 {
     if(!empty($_GET['id'])) {
@@ -90,15 +88,15 @@ function AfficheQCM()
                         <label>Question </label>
                         <output id=\"out".$idQ."\">".$i."</output>
                         <label> : </label>
-                        <input type=\"text\" name=\"intitule".$idQ."\" id=\"intitule".$idQ."\" value=\"".$row[1]."\">
-                        <input type=\"button\" onclick=\"AjoutImageQCM(this.id)\" class=\"BtAjoutImage\" id=\"bt".$idQ."\" value=\"Ajout image\" name=\"ajoutImage\">
+                        <input type=\"text\" name=\"intitule".$idQ."\" id=\"intitule".$idQ."\" value=\"".$row[1]."\">   
                 ";
+                /*<input type=\"button\" onclick=\"AjoutImageQCM(this.id)\" class=\"BtAjoutImage\" id=\"bt".$idQ."\" value=\"Ajout image\" name=\"ajoutImage\">
                 if ($row[2]==NULL) {
                     echo "<input type=\"hidden\" id=\"b64Image".$idQ."\" name=\"b64Image".$idQ."\" value=\"\"><br>";}
                 else{
                     echo "<input id=\"b64Image".$idQ."\" name=\"b64Image".$idQ."\" value=\"".$row[2]."\"><br>";
-                }
-                echo "<div id=\"reponses".$idQ."\">";
+                }*/
+                echo "<br><div id=\"reponses".$idQ."\">";
                 if ($row[3]==1) {
                     echo "<input type=\"radio\" name=\"reponse".$idQ."\" id=\"reponseRB".$idQ."a\" checked=\"true\" onclick=\"reponse(1,".$idQ.")\">
                         <input type=\"text\" name=\"reponse".$idQ."a\" id=\"reponse".$idQ."a\" value=\"".$row[4]."\"><br>
@@ -183,23 +181,16 @@ function AfficheTitreQCM()
         $dateHeureFin = $_POST['dateHeureFin'];
         $nomMatiere = $_POST['matiere'];
         $nbQuestion=$_POST['nbQuestion'];
-
+        $idQCM=$_POST['idQCM'];
         $intitule=array();
-        $image=array();
         $reponseALaQuestion=array();
         $choix1=array();
         $choix2=array();
         $choix3=array();
         if (isset($_POST['idQCM'])) { // mode ajout
+            echo "<script>console.log(\"ajout\")</script>";
             for ($i=1; $i <= $nbQuestion; $i++) { 
                 array_push($intitule, $_POST['intitule'.$i]);
-                if ($_POST['b64Image'.$i]=="") {
-                    array_push($image, NULL);
-                }
-                else
-                {
-                    array_push($image, $_POST['b64Image'.$i]);
-                }
                 array_push($choix1, $_POST['reponse'.$i.'a']);
                 array_push($choix2, $_POST['reponse'.$i.'b']);
                 array_push($choix3, $_POST['reponse'.$i.'c']);
@@ -237,7 +228,7 @@ function AfficheTitreQCM()
                         $statement = $pdo->prepare('INSERT INTO question (intitulé, image, reponseALaQuestion, choix1,choix2,choix3, idQCM) VALUES (:intitulé, :image, :reponseALaQuestion, :choix1, :choix2, :choix3, :idQCM)');
                         $executed = $statement->execute([
                             'intitulé' => current($intitule),
-                            'image' => base64_decode(current($image)),
+                            'image' => NULL,
                             'reponseALaQuestion' => current($reponseALaQuestion),
                             'choix1' => current($choix1),
                             'choix2' => current($choix2),
@@ -245,7 +236,6 @@ function AfficheTitreQCM()
                             'idQCM' => $idQCM
                         ]);
                         next($intitule);
-                        next($image);
                         next($reponseALaQuestion);
                         next($choix1);
                         next($choix2);
@@ -259,11 +249,7 @@ function AfficheTitreQCM()
                 }
             }
         } else { // mode modification
-            if (session_status()==PHP_SESSION_NONE) {
-                session_start();
-            }
-            $idQCM=$_SESSION["idModif"];
-            unset($_SESSION["idModif"]);
+            
             // vérification des données
             if ($nomQCM == null|| $nomMatiere==NULL) {
                 header("Location: ../HTML/edition_qcm.php?modification=error");
@@ -288,48 +274,47 @@ function AfficheTitreQCM()
                     $idQ=current($list);
                     next($list);
                     array_push($intitule, $_POST['intitule'.$idQ]);
-                    if ($_POST['b64Image'.$idQ]=="") {
-                        array_push($image, NULL);
-                    }
-                    else
-                    {
-                        array_push($image, $_POST['b64Image'.$idQ]);
-                    }
                     array_push($choix1, $_POST['reponse'.$idQ.'a']);
                     array_push($choix2, $_POST['reponse'.$idQ.'b']);
                     array_push($choix3, $_POST['reponse'.$idQ.'c']);
                     $reponseQuestion=$_POST['reponseQ'.$idQ];
                     array_push($reponseALaQuestion, $reponseQuestion);
                 }
-                // Requete d'insertion
-                $statement = $pdo->prepare('UPDATE QCM SET nomQCM=:nomQCM, dateHeureFin=:dateHeureFin,evalue=:evalue, publie=:publie, nomMatiere=:nomMatiere WHERE idQCM=:idQCM');
-                $executed = $statement->execute([
-                    'nomQCM' => $nomQCM,
-                    'dateHeureFin' => $dateHeureFin,
-                    'evalue'=>1,
-                    'publie' => $isPublier,
-                    'nomMatiere' => $nomMatiere,
-                    'idQCM' => $idQCM
-                ]);
-                for ($i=1; $i <= $nbQuestion; $i++) { 
-                    $statement = $pdo->prepare('UPDATE question SET intitulé=:intitulé, image=:image, reponseALaQuestion=:reponseALaQuestion, choix1=:choix1,choix2=:choix2,choix3=:choix3 WHERE idQCM=:idQCM');
+                
+                if ($nbQuestion<=0 && $isPublier==1) {
+                    header("Location: ../HTML/liste_qcm.php?modification=erreur");
+                }
+                else
+                {
+                    // Requete d'insertion
+                    $statement = $pdo->prepare('UPDATE QCM SET nomQCM=:nomQCM, dateHeureFin=:dateHeureFin,evalue=:evalue, publie=:publie, nomMatiere=:nomMatiere WHERE idQCM=:idQCM');
                     $executed = $statement->execute([
-                        'intitulé' => current($intitule),
-                        'image' => base64_decode(current($image)),
-                        'reponseALaQuestion' => current($reponseALaQuestion),
-                        'choix1' => current($choix1),
-                        'choix2' => current($choix2),
-                        'choix3' => current($choix3),
+                        'nomQCM' => $nomQCM,
+                        'dateHeureFin' => $dateHeureFin,
+                        'evalue'=>1,
+                        'publie' => $isPublier,
+                        'nomMatiere' => $nomMatiere,
                         'idQCM' => $idQCM
                     ]);
-                    next($intitule);
-                    next($image);
-                    next($reponseALaQuestion);
-                    next($choix1);
-                    next($choix2);
-                    next($choix3);
+                    for ($i=1; $i <= $nbQuestion; $i++) { 
+                        $statement = $pdo->prepare('UPDATE question SET intitulé=:intitulé, image=:image, reponseALaQuestion=:reponseALaQuestion, choix1=:choix1,choix2=:choix2,choix3=:choix3 WHERE idQCM=:idQCM');
+                        $executed = $statement->execute([
+                            'intitulé' => current($intitule),
+                            'image' => NULL,
+                            'reponseALaQuestion' => current($reponseALaQuestion),
+                            'choix1' => current($choix1),
+                            'choix2' => current($choix2),
+                            'choix3' => current($choix3),
+                            'idQCM' => $idQCM
+                        ]);
+                        next($intitule);
+                        next($reponseALaQuestion);
+                        next($choix1);
+                        next($choix2);
+                        next($choix3);
+                    }
+                    header("Location: ../HTML/liste_qcm.php?modification=success");
                 }
-                header("Location: ../HTML/liste_qcm.php?modification=success");
             }
             
         }

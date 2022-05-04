@@ -63,6 +63,12 @@
                     else{
                         echo "value=\"0\"";
                     } ?>>
+            <input type="hidden" name="idQCM" id="idQCM" <?php if(!empty($_GET['id'])) {
+                echo "value=\"".$_GET['id']."\"";
+            }
+            else{
+                echo "value=\"-1\"";
+            } ?>>
     	</form>
     </div>
     <script src="../JS/edition_qcm.js"></script>
