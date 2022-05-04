@@ -48,7 +48,7 @@ CREATE TABLE SujetForum (
     nomSujet VARCHAR(50) NOT NULL,
     resolu BOOLEAN NOT NULL DEFAULT false,
     nomMatiere VARCHAR(50) NOT NULL,
-    num INT NOT NULL,
+    num INT,
     PRIMARY KEY (idSujetForum),
     FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere),
     FOREIGN KEY (num) REFERENCES Utilisateur(num)
@@ -72,7 +72,7 @@ CREATE TABLE Cours (
     typeCours ENUM('CM','TD','TP') NOT NULL,
     nomMatiere VARCHAR(50) NOT NULL,
     PRIMARY KEY (idCours),
-    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere)
+    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE
 );
 
 CREATE TABLE QCM (
@@ -81,7 +81,7 @@ CREATE TABLE QCM (
     dateHeureFin DATETIME,
     evalue BOOLEAN NOT NULL,
     publie BOOLEAN NOT NULL DEFAULT false,
-    nomMatiere VARCHAR(50) NOT NULL,
+    nomMatiere VARCHAR(50),
     PRIMARY KEY (idQCM),
     FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere)
 );
