@@ -85,7 +85,7 @@
                 echo '<img src="../../Ressources/Pictures/résolu.png" width="40px" height="40px"/>';
             } else {
                 if ($possedeSujet) {
-                    echo '<img src="../../Ressources/Pictures/non_résolu.png" width="40px" height="40px"/>';
+                    echo '<img id="img-resolu-interactible" src="../../Ressources/Pictures/non_résolu.png" width="40px" height="40px" onclick="AppliquerResolu()" onmouseover="ChangerImgResolu(true)" onmouseout="ChangerImgResolu(false)"/>';
                 } else {
                     echo '<img src="../../Ressources/Pictures/non_résolu.png" width="40px" height="40px"/>';
                 }

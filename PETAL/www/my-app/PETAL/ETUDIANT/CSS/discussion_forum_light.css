@@ -69,6 +69,10 @@ h1, h2, h3, h4, h5, h6 {
     vertical-align: middle;
 }
 
+#img-resolu-interactible {
+    cursor: pointer;
+}
+
 #a-retour-liste {
     text-decoration: underline;
     color: #3532B5;

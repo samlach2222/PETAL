@@ -54,20 +54,21 @@ function EnvoyerMessage() {
         //Formate la date actuelle
         let date = formatDate(new Date());
 
-        //Ajoute le message au DOM (partie client)
-        AjouterMessage(nom, date, contenu, true);
-
-        //Efface le contenu du textarea
-        textareaMessage.value = null;
-
-        //Scroll tout en bas de la page
-        document.scrollingElement.scrollTop = document.scrollingElement.scrollHeight;
-
         //Ajoute le message à la BDD (partie serveur)
         $.post('../PHP/script_discussion_forum_envoyer.php', {
             num: window.numeroEtudiant,
             contenuMessage: contenu,
             idSujetForum: window.idSujet
+        },
+        () => {
+            //Ajoute le message au DOM (partie client)
+            AjouterMessage(nom, date, contenu, true);
+
+            //Efface le contenu du textarea
+            textareaMessage.value = null;
+
+            //Scroll tout en bas de la page
+            document.scrollingElement.scrollTop = document.scrollingElement.scrollHeight;
         });
     }
 }
@@ -99,11 +100,29 @@ function DemanderMessages() {
     },
     function RecupererMessages(htmlMessages) {
         document.getElementById('messages').outerHTML = htmlMessages;
-        
+
         if (document.getElementById('messages').getAttribute("resolu") == "true") {
             location.reload();
         }
     });
+}
+
+function ChangerImgResolu(resolu) {
+    const imgResolu = document.getElementById('img-resolu-interactible');
+
+    if (resolu) {
+        imgResolu.setAttribute('src', '../../Ressources/Pictures/résolu.png');
+    } else {
+        imgResolu.setAttribute('src', '../../Ressources/Pictures/non_résolu.png');
+    }
+}
+
+function AppliquerResolu() {
+    //Applique l'état résolu à la BDD
+    $.post('../PHP/script_discussion_forum_envoyer.php', {
+        resolu: '1',
+        idSujetForum: window.idSujet
+    }, location.reload());
 }
 
 document.addEventListener("DOMContentLoaded", function(){

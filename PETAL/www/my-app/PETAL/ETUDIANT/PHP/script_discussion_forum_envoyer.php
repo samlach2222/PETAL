@@ -1,5 +1,13 @@
 <?php
-    if (!empty($_POST['num']) && !empty($_POST['contenuMessage']) && (!empty($_POST['idSujetForum']))) {
+    if (!empty($_POST['resolu']) && !empty($_POST['idSujetForum'])) {
+        //Connexion à la BDD
+        include_once('../../ALL/PHP/BDD.php');
+
+        //Met à jour l'état résolu du sujet
+        $prepared = $pdo->prepare("UPDATE sujetforum SET resolu = :resolu WHERE idSujetForum = :idSujetForum", array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+        $prepared->execute(array('resolu' => $_POST['resolu'], 'idSujetForum' => $_POST['idSujetForum']));
+
+    } else if (!empty($_POST['num']) && !empty($_POST['contenuMessage']) && (!empty($_POST['idSujetForum']))) {
         //Connexion à la BDD
         include_once('../../ALL/PHP/BDD.php');
 
@@ -8,7 +16,7 @@
         $prepared->execute(array('idSujetForum' => $_POST['idSujetForum']));
         $rows = $prepared->fetchAll();
         $resolu = $rows[0][0];
-        
+
         //Envoie le message seulement si le sujet n'est pas résolu
         if (!$resolu) {
             $prepared = $pdo->prepare("INSERT INTO messageforum VALUES (NULL, :contenuMessage, now(), :idSujetForum, :num)", array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
