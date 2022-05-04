@@ -1,11 +1,14 @@
 <?php 
-	$req = $pdo->prepare('SELECT nomMatiere FROM EtuMatiere WHERE num = :num', array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+	$num = $_SESSION['num'];
+
+	$req = $pdo->prepare('SELECT nomMatiere FROM EtuMatiere WHERE num = :num');
     $req->execute(array('num' => $num));
     $matiere = $req->fetchAll();
+    
+    $req2 = $pdo->prepare('SELECT nomMatiere, moyenne FROM moyenneEtuMatiere WHERE num = :num');
+    $req2->execute(array('num' => $num));
+    $notes = $req2->fetchAll();
 
-    $req = $pdo->prepare('SELECT moyenne, nomMatiere FROM moyenneEtuMatiere WHERE num = :num', array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-    $req->execute(array('num' => $num));
-    $notes = $req->fetchAll();
 
     //fonction permettant de dire si la matière a été validé selon la moyenne
     function mention($note){
@@ -15,10 +18,9 @@
             return "validé";
     }
 
-
     echo"
 	    <div id='tabNote'>
-	            <ul> <li>Detail des Cours :</li></ul>
+	        <ul> <li>Detail des Cours :</li></ul>
 	            <table id='tableau'>
 	                <tr id='en-tete'>
 	                    <td>
@@ -42,22 +44,21 @@
 			else{
 				$moyenne[$i] = "/";
 				$mention[$i] = "/";
-
 			}
 		
 		}
 		echo"
 			<tr>
-	                    <td>
-	                        <output id='nameCours'> ".$matiere[$i][0]." </output>
-	                    </td>
-	                    <td>
-	                        <output id='note'> ".$moyenne[$i]."</output>
-	                    </td>
-	                    <td>
-	                        <output id='mention'> ".$mention[$i]." </output>
-	                    </td>
-	                </tr>
+                <td>
+                    <output id='nameCours'> ".$matiere[$i][0]." </output>
+                </td>
+                <td>
+                    <output id='note'> ".$moyenne[$i]."</output>
+                </td>
+                <td>
+                    <output id='mention'> ".$mention[$i]." </output>
+                </td>
+            </tr>
 		";
 	}
 
