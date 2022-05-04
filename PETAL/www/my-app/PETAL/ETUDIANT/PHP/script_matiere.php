@@ -69,10 +69,22 @@
     
     echo "
             </div>
-        <h2>QCM</h2>
-            <a href=\"https://google.com\" target=\"_blank\" class=\"lien\">QCM 1</a>
-            <a href=\"https://google.com\" target=\"_blank\" class=\"lien\">QCM 2</a>
-        <h2>Evaluation</h2>
-            <a href=\"https://google.com\" target=\"_blank\" class=\"lien\">Evalutation n°1</a>
-    ";
+        <h2>QCM</h2>";
+
+    $sql5 = "SELECT nomQCM,idQCM FROM qcm WHERE nomMatiere='".$nomMatiere."' AND evalue=0 AND publie=1 AND (dateHeureFin>CURRENT_DATE OR dateHeureFin IS NULL)";
+    $donnees5 = $pdo->query($sql5);
+    while ($tmp5 = $donnees5->fetch())
+    {
+        echo "<a href=\"qcm.php?id=".$tmp5[1]."\" target=\"_blank\" class=\"lien\"><div>".$tmp5[0]."</div></a>";
+    }
+
+    echo "
+        <h2>Evaluation</h2>";
+
+    $sql6 = "SELECT nomQCM,idQCM FROM qcm WHERE nomMatiere='".$nomMatiere."' AND evalue=1 AND publie=1 AND (dateHeureFin>CURRENT_DATE OR dateHeureFin IS NULL)";
+    $donnees6 = $pdo->query($sql6);
+    while ($tmp6 = $donnees6->fetch())
+    {
+        echo "<a href=\"qcm.php?id=".$tmp6[1]."\" target=\"_blank\" class=\"lien\"><div>".$tmp6[0]."</div></a>";
+    }
 ?>

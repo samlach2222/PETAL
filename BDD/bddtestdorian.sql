@@ -32,9 +32,14 @@ INSERT INTO etumatiere VALUES (2, "Matiere 7");
 INSERT INTO etumatiere VALUES (2, "Matiere 8");
 
 -- Création CM/TD/TP/QCM/Eval
-INSERT INTO cours VALUES (NULL, "En fait c'est assez marrant parce qu'on peut mettre un texte hyper long oui oui oui", '/my-app/PETAL/Cours/Matiere 1/CM 1.pdf', 'CM', "Matiere 1");
+INSERT INTO cours VALUES (NULL, "Cours Magistral 1", '/my-app/PETAL/Cours/Matiere 1/CM 1.pdf', 'CM', "Matiere 1");
 INSERT INTO cours VALUES (NULL, "CM 2", '/my-app/PETAL/Cours/Matiere 1/CM 2.pdf', 'CM', "Matiere 1");
 INSERT INTO cours VALUES (NULL, "CM 3", '/my-app/PETAL/Cours/Matiere 1/CM 3.pdf', 'CM', "Matiere 1");
 INSERT INTO cours VALUES (NULL, "TD 1", '/my-app/PETAL/Cours/Matiere 1/TD 1.pdf', 'TD', "Matiere 1");
 INSERT INTO cours VALUES (NULL, "TD 2", '/my-app/PETAL/Cours/Matiere 1/TD 2.pdf', 'TD', "Matiere 1");
 INSERT INTO cours VALUES (NULL, "TP 1", '/my-app/PETAL/Cours/Matiere 1/TP 1.pdf', 'TP', "Matiere 1");
+INSERT INTO qcm VALUES (NULL, "QCM numéro 1", NULL, 0, 1, "Matiere 1");
+INSERT INTO qcm VALUES (NULL, "QCM n°2", '2022-03-21 23:59:59', 0, 1, "Matiere 1");
+INSERT INTO qcm VALUES (NULL, "QCM 3", NULL, 0, 1, "Matiere 1");
+INSERT INTO qcm VALUES (NULL, "Evaluation n°1", '2012-06-12 10:30:00.000', 1, 1, "Matiere 1");
+INSERT INTO qcm VALUES (NULL, "Evaluation n°2", NULL, 1, 1, "Matiere 1");
