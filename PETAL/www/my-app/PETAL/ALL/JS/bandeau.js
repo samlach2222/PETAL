@@ -9,7 +9,7 @@ const popupHauteur = popup.getBoundingClientRect().height;
 popup.style.display = 'none';
 
 // Initialise la position du popup
-var i = Math.round(topBarHauteur - popupHauteur) - 1;
+var i = Math.round(topBarHauteur - popupHauteur) - 3;
 popup.style.top = i+"px";
 
 // Const pour le cookie du theme
