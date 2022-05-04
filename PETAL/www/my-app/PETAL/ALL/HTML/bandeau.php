@@ -2,7 +2,7 @@
     include_once('../../ALL/PHP/script_bandeau.php');
 
     ResumeSession();
-    RedirectLogin();
+    Redirect();
 ?>
 
 <div id="bandeau">
