@@ -21,7 +21,7 @@
     ?>
     <div id="content">
         <div id="gauche-cours">
-            <ul id="liste-cours">
+            <ul>
                 <?php ListeCours(); ?>
             </ul>
         </div>

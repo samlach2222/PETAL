@@ -91,14 +91,7 @@
 
                     //Icône résolu
                     if ($row[5]) {
-                        //TODO: Récupèrer le thème actuellement selectionné (faudra aussi mettre les résolus à jour quand on change de thème)
-                        $dark = true;
-
-                        if ($dark) {
-                            echo '<td><img src="../../Ressources/Pictures/résolu.png" width="40px" height="40px"/></td>';
-                        } else {
-                            echo '<td><img src="../../Ressources/Pictures/résolu_light.png" width="40px" height="40px"/></td>';
-                        }
+                        echo '<td><img src="../../Ressources/Pictures/résolu.png" width="40px" height="40px"/></td>';
                     } else {
                         echo '<td><img src="../../Ressources/Pictures/non_résolu.png" width="40px" height="40px"/></td>';
                     }
