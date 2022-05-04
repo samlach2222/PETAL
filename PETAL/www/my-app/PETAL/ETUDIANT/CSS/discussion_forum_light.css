@@ -127,6 +127,8 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #CD5162;
     width: 100%;
     padding: 0.2em 0.5em;
+    display: flex;
+    justify-content: space-between;
 }
 
 .message-recu .message-entete {
@@ -138,7 +140,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .message-date {
-    float: right;
+    text-align: right;
 }
 
 .message-contenu {
@@ -148,6 +150,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     padding: 0.2em 0.5em;
     background-color: #F88C95;
+    white-space: pre-wrap;
 }
 
 .message-recu .message-contenu {
