@@ -45,6 +45,9 @@ function afficherPopup() {
     if (popup.getBoundingClientRect().top >= topBarHauteur) {
         popupAnimation = clearInterval(popupAnimation);
 
+        popup.style.top = topBarHauteur+"px";
+        i = topBarHauteur;
+
         popupOuvert = true;
     } else {
         popup.style.top = i+"px";
