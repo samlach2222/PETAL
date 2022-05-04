@@ -37,7 +37,11 @@ function AjouterMessage(nomPrenom, date, contenu, envoyeur) {
     messages.appendChild(message);
 }
 
-function EnvoyerMessage(numeroEtudiant) {
+function SetNumeroEtudiant(numeroEtudiant) {
+    window.numeroEtudiant = numeroEtudiant;
+}
+
+function EnvoyerMessage() {
     //Récupère le contenu du textarea
     const textareaMessage = document.getElementById('envoyer-message-texte');
     let contenu = textareaMessage.value;
@@ -58,31 +62,12 @@ function EnvoyerMessage(numeroEtudiant) {
 
         //Scroll tout en bas de la page
         document.scrollingElement.scrollTop = document.scrollingElement.scrollHeight;
-        
-        //Récupère l'id du sujet
-        let fullGetString = window.location.search;
-        let indexSujet = fullGetString.lastIndexOf("&sujet=");
-        if (indexSujet == -1) {  //Si il n'y a pas "&sujet="
-            indexSujet = fullGetString.indexOf("?sujet=");
-        }
-        indexSujet += 7;
-        let maybeNumber = fullGetString.substr(indexSujet);
-        let numberString = "";
-        for (let i = 0; i < maybeNumber.length; i++) {
-            let char = maybeNumber[i];
-            if (!Number.isNaN(Number(char))) {
-                numberString += char;
-            } else {
-                break;
-            }
-        }
-        let idSujet = Number(numberString);
 
         //Ajoute le message à la BDD (partie serveur)
         $.post('../PHP/script_discussion_forum_envoyer.php', {
-            num: numeroEtudiant,
+            num: window.numeroEtudiant,
             contenuMessage: contenu,
-            idSujetForum: idSujet
+            idSujetForum: window.idSujet
         });        
     }
 }
@@ -106,3 +91,36 @@ function formatDate(date) {
     ].join(':')
     );
 }
+
+function DemanderMessages() {
+    $.post('../PHP/script_discussion_forum_recevoir.php', {
+        num: window.numeroEtudiant,
+        idSujetForum: window.idSujet
+    },
+    function RecupererMessages(htmlMessages) {
+        document.getElementById('messages').innerHTML = htmlMessages;
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+    //Récupère l'id du sujet
+    let fullGetString = window.location.search;
+    let indexSujet = fullGetString.lastIndexOf("&sujet=");
+    if (indexSujet == -1) {  //Si il n'y a pas "&sujet="
+        indexSujet = fullGetString.indexOf("?sujet=");
+    }
+    indexSujet += 7;
+    let maybeNumber = fullGetString.substr(indexSujet);
+    let numberString = "";
+    for (let i = 0; i < maybeNumber.length; i++) {
+        let char = maybeNumber[i];
+        if (!Number.isNaN(Number(char))) {
+            numberString += char;
+        } else {
+            break;
+        }
+    }
+    window.idSujet = Number(numberString);  //Variable globale
+    
+    setInterval(DemanderMessages, 1000);  //Délai de 5 secondes pour ne pas surcharger la BDD
+});

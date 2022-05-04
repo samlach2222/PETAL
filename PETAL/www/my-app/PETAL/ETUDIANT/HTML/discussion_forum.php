@@ -35,7 +35,7 @@
             <div id="envoyer-message">
                 <span id="envoyer-message-span">Poster un message :</span>
                 <textarea id="envoyer-message-texte" maxlength="2000"></textarea>
-                <button id="envoyer-message-bouton" onclick="EnvoyerMessage(<?php echo $_SESSION['num']; ?>)">Envoyer</button>
+                <button id="envoyer-message-bouton" onclick="EnvoyerMessage()">Envoyer</button>
             </div>
         </div>
     </div>
@@ -44,3 +44,4 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="../JS/discussion_forum.js"></script>
+<script>SetNumeroEtudiant(<?php echo $_SESSION['num']; ?>);</script>

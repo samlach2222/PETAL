@@ -16,7 +16,7 @@
             exit;
         }
         
-        //Si l'étudiant n'a pas accès à la matière du sujet
+        //Si l'étudiant n'a pas accès à la matière du sujet, redirection à la liste des sujets
         $prepared = $pdo->prepare("SELECT utilisateur.num, utilisateur.nom, utilisateur.prenom, dateHeure, contenuMessage, nomSujet, nomMatiere FROM utilisateur NATURAL JOIN messageforum JOIN listesujets ON messageforum.idSujetForum = listesujets.idSujetForum WHERE nomMatiere IN (SELECT nomMatiere FROM etumatiere WHERE num = :num) && listesujets.idSujetForum = :idSujetForum ORDER BY dateHeure;", array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
         $prepared->execute(array('num' => $_SESSION['num'], 'idSujetForum' => $_GET['sujet']));
         
