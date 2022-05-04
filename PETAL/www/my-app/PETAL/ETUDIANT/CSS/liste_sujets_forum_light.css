@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #droite-sujets table tr {
     text-align: center;
-    background-color: #F88C95;    
+    background-color: #F88C95;
 }
 
 #droite-sujets table tr th, #droite-sujets table tr td {
@@ -99,11 +99,11 @@ h1, h2, h3, h4, h5, h6 {
 
 #droite-sujets table tr th {
     padding: 0.7em;
-} 
+}
 
 #droite-sujets table tr td {
     padding: 0.35em;
-} 
+}
 
 #droite-sujets table tr td a {
     text-decoration: underline;

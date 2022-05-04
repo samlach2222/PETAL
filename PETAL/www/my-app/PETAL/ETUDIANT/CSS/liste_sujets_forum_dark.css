@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Partie gauche, liste des cours */
 #gauche-cours {
-    background-color: #8F0039;   
+    background-color: #8F0039;
     min-height: calc(100vh - 4em);
 }
 
@@ -84,16 +84,16 @@ h1, h2, h3, h4, h5, h6 {
 
 #droite-sujets table tr:first-child {
     background-color: #FF00C9;
-    
+
 }
 
 #droite-sujets table tr th {
     padding: 0.7em;
-} 
+}
 
 #droite-sujets table tr td {
     padding: 0.35em;
-} 
+}
 
 #droite-sujets table tr td a {
     text-decoration: underline;

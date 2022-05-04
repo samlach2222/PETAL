@@ -9,28 +9,28 @@ function AjouterMessage(nomPrenom, date, contenu, envoyeur) {
     } else {
         message.classList.add('message-recu');
     }
-    
+
     //Crée la div de l'en-tête
     let messageEntete = document.createElement('div');
     messageEntete.classList.add('message-entete');
-    
+
     //Ajoute le nom à l'en-tête
     let spanNomPrenom = document.createElement('span');
     spanNomPrenom.classList.add('message-nom');
     spanNomPrenom.textContent = nomPrenom;
     messageEntete.appendChild(spanNomPrenom);
-    
+
     //Ajoute la date à l'en-tête
     spanNomPrenom = document.createElement('span');
     spanNomPrenom.classList.add('message-date');
     spanNomPrenom.textContent = date;
     messageEntete.appendChild(spanNomPrenom);
-    
+
     //Crée la div du contenu et ajoute le contenu
     let messageContenu = document.createElement('div');
     messageContenu.classList.add('message-contenu');
     messageContenu.textContent = contenu;
-    
+
     //Combine les divs et ajoute le message
     message.appendChild(messageEntete);
     message.appendChild(messageContenu);
@@ -45,7 +45,7 @@ function EnvoyerMessage() {
     //Récupère le contenu du textarea
     const textareaMessage = document.getElementById('envoyer-message-texte');
     let contenu = textareaMessage.value;
-    
+
     //Envoie le message seulement si le contenu n'est pas vide
     if (contenu) {
         //Récupère le nom depuis le bandeau
@@ -68,7 +68,7 @@ function EnvoyerMessage() {
             num: window.numeroEtudiant,
             contenuMessage: contenu,
             idSujetForum: window.idSujet
-        });        
+        });
     }
 }
 
@@ -121,6 +121,6 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     }
     window.idSujet = Number(numberString);  //Variable globale
-    
-    setInterval(DemanderMessages, 1000);  //Délai de 5 secondes pour ne pas surcharger la BDD
+
+    setInterval(DemanderMessages, 2000);  //Délai de 2 secondes pour ne pas surcharger la BDD
 });

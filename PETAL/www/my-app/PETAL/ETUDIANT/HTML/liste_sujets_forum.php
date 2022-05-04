@@ -14,7 +14,7 @@
     <title>Liste des sujet du forum</title>
 </head>
 <body>
-    <?php 
+    <?php
         include("../PHP/script_liste_sujets_forum.php");
         CreateSujet();
         include("../../ALL/HTML/bandeau.php");
@@ -31,5 +31,3 @@
     </div>
 </body>
 </html>
-
-<script src="../JS/liste_sujets_forum.js"></script>
