@@ -30,9 +30,9 @@ CREATE TABLE Utilisateur (
 CREATE TABLE Matiere (
     nomMatiere VARCHAR(50) NOT NULL,
     image MEDIUMBLOB,
-    num INT NOT NULL,
+    num INT,
     PRIMARY KEY(nomMatiere),
-    FOREIGN KEY(num) REFERENCES Utilisateur(num) ON DELETE CASCADE
+    FOREIGN KEY(num) REFERENCES Utilisateur(num)
 );
 
 CREATE TABLE EtuMatiere (
