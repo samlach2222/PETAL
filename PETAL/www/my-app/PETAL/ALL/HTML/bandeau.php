@@ -17,7 +17,7 @@
     <div id="box">
     <div id="popup">
         <div id="logoNomPrenom">
-            <a id="aImgPopup" href="<?php UrlEspacePerso(); ?>">
+            <a href="<?php UrlEspacePerso(); ?>">
                 <?php ShowPhotoProfil('imgPopup', 100); ?>
             </a>
             <a href="<?php UrlEspacePerso(); ?>">
