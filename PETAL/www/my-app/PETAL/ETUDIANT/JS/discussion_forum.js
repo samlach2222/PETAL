@@ -98,7 +98,11 @@ function DemanderMessages() {
         idSujetForum: window.idSujet
     },
     function RecupererMessages(htmlMessages) {
-        document.getElementById('messages').innerHTML = htmlMessages;
+        document.getElementById('messages').outerHTML = htmlMessages;
+        
+        if (document.getElementById('messages').getAttribute("resolu") == "true") {
+            location.reload();
+        }
     });
 }
 

@@ -2,10 +2,20 @@
     //Connexion à la BDD
     include_once('../../ALL/PHP/BDD.php');
 
-    //Si l'étudiant n'a pas accès à la matière du sujet, redirection à la liste des sujets
+    //Récupère l'état résolu du sujet
+    $prepared = $pdo->prepare("SELECT resolu FROM sujetforum WHERE idSujetForum = :idSujetForum", array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+    $prepared->execute(array('idSujetForum' => $_POST['idSujetForum']));
+    $rows = $prepared->fetchAll();
+    $resolu = $rows[0][0];
+
+    if ($resolu) {
+        echo '<div id="messages" resolu="true">';
+    } else {
+        echo '<div id="messages">';   
+    }
+
     $prepared = $pdo->prepare("SELECT num, nom, prenom, dateHeure, contenuMessage FROM utilisateur NATURAL JOIN messageforum WHERE idSujetForum = :idSujetForum ORDER BY dateHeure;", array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
     $prepared->execute(array('idSujetForum' => $_POST['idSujetForum']));
-
     $rows = $prepared->fetchAll();
 
     foreach ($rows as $row) {
@@ -23,4 +33,6 @@
 
         echo '</div>';
     }
+
+    echo '</div>';
 ?>
