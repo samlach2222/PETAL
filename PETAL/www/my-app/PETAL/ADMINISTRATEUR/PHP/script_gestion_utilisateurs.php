@@ -39,6 +39,31 @@
                 echo $e->getMessage();
             }
 
+            // UPDATE MATIERE
+            $query = "UPDATE matiere SET num = null WHERE num IN (";
+            foreach($idList as $id){
+                if($id == end($idList)) {
+                    $query .= $id.")";
+                }
+                else {
+                    $query .= $id.", ";
+                }
+            }
+            $pdo->exec($query);
+
+            // UPDATE SUJETFORUM
+            $query = "UPDATE sujetforum SET num = null WHERE num IN (";
+            foreach($idList as $id){
+                if($id == end($idList)) {
+                    $query .= $id.")";
+                }
+                else {
+                    $query .= $id.", ";
+                }
+            }
+            $pdo->exec($query);
+
+            // DELETE
             $query = "DELETE FROM utilisateur WHERE num IN ( ";
             foreach($idList as $id){
                 if($id == end($idList)) {
@@ -48,7 +73,6 @@
                     $query .= $id.", ";
                 }
             }
-            // Requete d'insertion
             $pdo->exec($query);
         }
     }
