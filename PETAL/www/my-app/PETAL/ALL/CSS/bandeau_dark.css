@@ -50,6 +50,7 @@ a {
     border-style: solid;
     border-color: #EEE0E8;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 #popup {
@@ -88,6 +89,7 @@ a {
     border-style: solid;
     border-color: #EEE0E8;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 #nomprenom {
