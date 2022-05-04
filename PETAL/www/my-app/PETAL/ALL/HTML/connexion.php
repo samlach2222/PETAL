@@ -68,7 +68,7 @@
                 $_SESSION['num'] = $row[0];
                 $_SESSION['admin'] = $row[1];
                 $_SESSION['photoProfil'] = base64_encode($row[2]);
-                $_SESSION['nom'] = $row[4].' '.mb_strtoupper($row[3], 'UTF-8');
+                $_SESSION['nom'] = ucfirst(mb_strtolower($row[4], 'UTF-8').' '.mb_strtoupper($row[3], 'UTF-8');
 
                 if ($_SESSION['admin']){
                     header("location: ../../ADMINISTRATEUR/HTML/accueil_admin.php");
@@ -98,7 +98,7 @@
             $_SESSION['num'] = $rows[0][0];  //Récupère le num depuis la requête car on ne sait pas si $_POST['nom_user'] est le num ou l'adresse mail
             $_SESSION['admin'] = $rows[0][1];
             $_SESSION['photoProfil'] = base64_encode($rows[0][2]);
-            $_SESSION['nom'] = $rows[0][4].' '.mb_strtoupper($rows[0][3], 'UTF-8');
+            $_SESSION['nom'] = ucfirst(mb_strtolower($rows[0][4], 'UTF-8').' '.mb_strtoupper($rows[0][3], 'UTF-8');
 
             //Si l'utilisateur n'a pas de photo de profil, créer un gradient aléatoire à partir de son num
             if (empty($_SESSION['photoProfil'])) {
