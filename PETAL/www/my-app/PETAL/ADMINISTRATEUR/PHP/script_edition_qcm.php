@@ -2,7 +2,7 @@
     // Quand on appuie sur le bouton valider
     if(isset($_POST['valider'])) {
         EnvoiAjoutQCM(0);
-    }//pas fini
+    }
     if(isset($_POST['publier'])) {
         EnvoiAjoutQCM(1);
     }
