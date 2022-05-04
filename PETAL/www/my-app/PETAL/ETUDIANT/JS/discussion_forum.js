@@ -37,14 +37,72 @@ function AjouterMessage(nomPrenom, date, contenu, envoyeur) {
     messages.appendChild(message);
 }
 
-function AjouterMatiere(nomMatiere){
-    //Crée la nouvelle entrée dans la liste de cours
-    let liCours = document.createElement('li');
-    let aCours = document.createElement('a');
-    aCours.textContent = nomMatiere;
-    aCours.href = '?matiere='+nomMatiere;
-    liCours.appendChild(aCours);
+function EnvoyerMessage(numeroEtudiant) {
+    //Récupère le contenu du textarea
+    const textareaMessage = document.getElementById('envoyer-message-texte');
+    let contenu = textareaMessage.value;
     
-    //Ajoute l'entrée à la liste de cours
-    listeCours.appendChild(liCours);
+    //Envoie le message seulement si le contenu n'est pas vide
+    if (contenu) {
+        //Récupère le nom depuis le bandeau
+        let nom = document.getElementById('top-bar-right').children[0].textContent;
+
+        //Formate la date actuelle
+        let date = formatDate(new Date());
+
+        //Ajoute le message au DOM (partie client)
+        AjouterMessage(nom, date, contenu, true);
+
+        //Efface le contenu du textarea
+        textareaMessage.value = null;
+
+        //Scroll tout en bas de la page
+        document.scrollingElement.scrollTop = document.scrollingElement.scrollHeight;
+        
+        //Récupère l'id du sujet
+        let fullGetString = window.location.search;
+        let indexSujet = fullGetString.lastIndexOf("&sujet=");
+        if (indexSujet == -1) {  //Si il n'y a pas "&sujet="
+            indexSujet = fullGetString.indexOf("?sujet=");
+        }
+        indexSujet += 7;
+        let maybeNumber = fullGetString.substr(indexSujet);
+        let numberString = "";
+        for (let i = 0; i < maybeNumber.length; i++) {
+            let char = maybeNumber[i];
+            if (!Number.isNaN(Number(char))) {
+                numberString += char;
+            } else {
+                break;
+            }
+        }
+        let idSujet = Number(numberString);
+
+        //Ajoute le message à la BDD (partie serveur)
+        $.post('../PHP/script_discussion_forum_envoyer.php', {
+            num: numeroEtudiant,
+            contenuMessage: contenu,
+            idSujetForum: idSujet
+        });        
+    }
+}
+
+function padTo2Digits(num) {
+    return num.toString().padStart(2, '0');
+}
+
+function formatDate(date) {
+    return (
+    [
+        date.getFullYear(),
+        padTo2Digits(date.getMonth() + 1),
+        padTo2Digits(date.getDate()),
+    ].join('-') +
+    ' ' +
+    [
+        padTo2Digits(date.getHours()),
+        padTo2Digits(date.getMinutes()),
+        padTo2Digits(date.getSeconds()),
+    ].join(':')
+    );
 }
