@@ -138,7 +138,7 @@ CREATE VIEW MoyenneQCM AS
     GROUP BY idQCM;
 
 CREATE VIEW ListeSujets AS
-    SELECT idSujetForum, nomSujet, nom, prenom, nbMessages, resolu, nomMatiere
+    SELECT idSujetForum, nomSujet, nom, prenom, nbMessages, resolu, nomMatiere, num
     FROM sujetforum NATURAL JOIN (
         SELECT idSujetForum, COUNT(*) AS nbMessages
         FROM messageforum
