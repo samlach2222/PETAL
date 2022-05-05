@@ -59,7 +59,7 @@
                 if(empty($_GET['id'])) {
                     echo '<td>
                             <label for="numAdmin">N°Administrateur</label></br>
-                            <input type="text" required id="numAdmin" name="numAdmin"/>
+                            <input type="text" required id="numAdmin" name="numAdmin" maxlength="9"/>
                         </td>';
                 }
                 ?>
