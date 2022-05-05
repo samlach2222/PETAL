@@ -15,7 +15,10 @@
 </head>
 
 <body>
-    <?php include("../../ALL/HTML/bandeau.php");?>
+<?php
+    include("../../ALL/HTML/bandeau.php");
+    include("../PHP/script_gestion_matiere.php");
+?>
     <div id="content">
         <div id="title">
             <h1>Gestion des matières</h1>
@@ -35,117 +38,7 @@
 
         <div>
             <table id="allMatiere">
-                <tr>
-                    <td>
-                        <input class="input_matiere" type="checkbox" name="key" value="value" />
-                        <a href="gestion_cours.php" style="display:block;" class="lien_matiere">
-                            <table class="matiere">
-                                <tr>
-                                    <th>
-                                        <span class="police">NOM MATIERE</span>                               
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <td class="image">
-                                        <span class="police">Image</span> 
-                                    </td>
-                                </tr>                       
-                            </table>
-                        </a>  
-                    </td>
-                    
-                    <td>
-                        <input class="input_matiere" type="checkbox" name="key" value="value" />
-                        <a href="gestion_cours.php" style="display:block;" class="lien_matiere">
-                            <table class="matiere">
-                                <tr>
-                                    <th>
-                                        <span class="police">NOM MATIERE</span>                               
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <td class="image">
-                                        <span class="police">Image</span> 
-                                    </td>
-                                </tr>                       
-                            </table>
-                        </a>  
-                    </td>
-
-                    <td>
-                        <input class="input_matiere" type="checkbox" name="key" value="value" />
-                        <a href="gestion_cours.php" style="display:block;" class="lien_matiere">
-                            <table class="matiere">
-                                <tr>
-                                    <th>
-                                        <span class="police">NOM MATIERE</span>                               
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <td class="image">
-                                        <span class="police">Image</span> 
-                                    </td>
-                                </tr>                       
-                            </table>
-                        </a>  
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <input class="input_matiere" type="checkbox" name="key" value="value" />
-                        <a href="gestion_cours.php" style="display:block;" class="lien_matiere">
-                            <table class="matiere">
-                                <tr>
-                                    <th>
-                                        <span class="police">NOM MATIERE</span>                               
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <td class="image">
-                                        <span class="police">Image</span> 
-                                    </td>
-                                </tr>                       
-                            </table>
-                        </a>  
-                    </td>
-
-                    <td>
-                        <input class="input_matiere" type="checkbox" name="key" value="value" />
-                        <a href="gestion_cours.php" style="display:block;" class="lien_matiere">
-                            <table class="matiere">
-                                <tr>
-                                    <th>
-                                        <span class="police">NOM MATIERE</span>                               
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <td class="image">
-                                        <span class="police">Image</span> 
-                                    </td>
-                                </tr>                       
-                            </table>
-                        </a>  
-                    </td>
-                    
-                    <td>
-                        <input class="input_matiere" type="checkbox" name="key" value="value" />
-                        <a href="gestion_cours.php" style="display:block;" class="lien_matiere">
-                            <table class="matiere">
-                                <tr>
-                                    <th>
-                                        <span class="police">NOM MATIERE</span>                               
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <td class="image">
-                                        <span class="police">Image</span> 
-                                    </td>
-                                </tr>                       
-                            </table>
-                        </a>  
-                    </td>
-                </tr>
+                <?php AfficheListeMatieres(); ?>
             </table>
         </div>
     </div>
