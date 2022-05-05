@@ -31,7 +31,7 @@
             <a href="edition_matiere.php">
                 <span id="plus" >+</span>
             </a>
-            <a href="">
+            <a href="javascript:SupprimerMatieres()">
                 <img id="corbeille" src="../../Ressources/Pictures/Corbeille_Dark.png" class="icon">
             </a>
         </div>
@@ -42,6 +42,7 @@
             </table>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../../ADMINISTRATEUR/JS/gestion_matiere.js"></script>
 </body>
 </html>

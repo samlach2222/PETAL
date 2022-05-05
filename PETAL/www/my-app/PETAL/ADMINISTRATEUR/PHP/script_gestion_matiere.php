@@ -1,4 +1,43 @@
 <?php
+// Permet de supprimer par ID les utilisateurs
+if(isset($_POST)){
+    if(isset($_POST['data'])){
+        $nameList = json_decode($_POST['data']);
+        // Initialisation connexion BDD
+        $dsn = "mysql:host=localhost;dbname=petal_db;charset=UTF8";
+        try {
+            $pdo = new PDO($dsn, "root", "root");
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+
+        // UPDATE QCM
+        $query = "UPDATE qcm SET nomMatiere = null WHERE nomMatiere IN (";
+
+        foreach($nameList as $name){
+            if($name == end($nameList)) {
+                $query .= "'".$name."')";
+            }
+            else {
+                $query .= "'".$name."', ";
+            }
+        }
+        $pdo->exec($query);
+
+        // DELETE
+        $query = "DELETE FROM matiere WHERE nomMatiere IN ( ";
+        foreach($nameList as $name){
+            if($name == end($nameList)) {
+                $query .= "'".$name."')";
+            }
+            else {
+                $query .= "'".$name."', ";
+            }
+        }
+        $pdo->exec($query);
+    }
+}
+
     // Permet d'afficher la liste des utilisateurs dans la page HTML
     function AfficheListeMatieres() {
         // Initialisation connexion BDD
