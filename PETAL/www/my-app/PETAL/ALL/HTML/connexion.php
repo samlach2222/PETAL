@@ -7,8 +7,8 @@
     <title>Connexion à PETAL</title>
 </head>
 <body>
-    <div id="petalFrame">
     <img id="petalText" src="../../Ressources/Icon/texte%20PETAL.svg"/>
+    <div id="petalFrame">
     <div id="first">
         <p>Authentification</p>
         <div id="second">
