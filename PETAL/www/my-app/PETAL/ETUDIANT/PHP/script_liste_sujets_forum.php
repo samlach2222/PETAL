@@ -71,7 +71,7 @@
             
             global $pdo;
             
-            $prepared = $pdo->prepare("SELECT idSujetForum, nomSujet, nom, prenom, nbMessages, resolu FROM listesujets WHERE nomMatiere = :nomMatiere;", array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+            $prepared = $pdo->prepare("SELECT idSujetForum, nomSujet, nom, prenom, nbMessages, resolu, num FROM listesujets WHERE nomMatiere = :nomMatiere;", array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
             $prepared->execute(array('nomMatiere' => $_GET['matiere']));
             $rows = $prepared->fetchAll();
 
@@ -86,7 +86,16 @@
                 foreach ($rows as $row){
                     echo '<tr>';
                     echo '<td><a href="discussion_forum.php?sujet='.$row[0].'">'.$row[1].'</a></td>';
-                    echo '<td>'.$row[3].' '.mb_strtoupper($row[2], 'UTF-8').'</td>';
+                    
+                    //Affiche le nom en gras si c'est celui de l'étudiant connecté
+                    $nom = ucfirst(mb_strtolower($row[3], 'UTF-8')).' '.mb_strtoupper($row[2], 'UTF-8');
+                    if ($row[6] == $_SESSION['num']) {
+                        echo '<td><b>'.$nom.'</b></td>';
+                    } else {
+                        echo '<td>'.$nom.'</td>';
+                    }
+                    
+                    
                     echo '<td>'.$row[4].'</td>';
 
                     //Icône résolu
