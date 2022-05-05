@@ -21,7 +21,6 @@ span{
 
 form {
     position: relative;
-    left: 2em;
 }
 
 output {
@@ -29,10 +28,11 @@ output {
     font-size:larger;
 }
 
-#qcm div {
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+label > input[type="radio"]:checked + * {
+    color: #FF00C9;
+    font-size:larger;
 }
+
 
 #valider {
     background-color: #FF00C9;

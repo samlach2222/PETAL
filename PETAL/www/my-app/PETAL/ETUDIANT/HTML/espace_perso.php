@@ -33,8 +33,8 @@
                         
                     </td>
                     <td>
-                        <p> Numero Etudiant :</p>
-                        <output id="numEtu"> <?php echo $_SESSION['num'] ?> </output>
+                        <p> Numero Telephone :</p>
+                        <output id="numTel"> <?php echo $_SESSION['numTel'] ?> </output>
                     </td>
                 </tr>
                 <tr>

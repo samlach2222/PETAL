@@ -29,6 +29,11 @@ output {
     font-size: larger;
 }
 
+input[type="radio"]: checked + *{
+    color: #CD5162;
+    font-size: large;
+}
+
 #qcm div {
     padding-left: 1.5em;
     padding-right: 1.5em;
