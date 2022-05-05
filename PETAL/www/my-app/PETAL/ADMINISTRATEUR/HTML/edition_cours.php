@@ -24,9 +24,9 @@
             <tr>
                 <td>
                     <label for="titreCours">Titre du cours</label></br>
-                    <input type="text" id="titreCours"/>
+                    <input type="text" id="titreCours" maxlength="50"/>
                 </td>
-                <td rowspan="3">
+                <td rowspan="2">
                     <label>Fichier</label></br>
                     <input type="button" id="ajoutFichier" value="" onclick="AjoutImage()"/>
                     <input type="hidden" id="b64Image" name="b64Image" value="">
@@ -41,14 +41,6 @@
                         <option value="TP">TP</option>
                     </select>
                 </td>
-                
-            </tr>
-            <tr>
-                <td>
-                    <label for="nomProf">Nom du professeur</label></br>
-                    <input type="text" id="nomProf"/>
-                </td>
-                
             </tr>
             <tr>
                 <td>
