@@ -65,7 +65,7 @@
 
         foreach ($pdo->query($query) as $row) {
             if ($row[1]) {
-                $publication="Publié";
+                $publication="[Publié]";
                 echo "
                 <li id=\"qcm".$row[2]."\">
                     <label>
@@ -79,7 +79,7 @@
                 </li>";
             }
             else{
-                $publication="Non publié";
+                $publication="[Non publié]";
                 echo "
                 <li id=\"qcm".$row[2]."\">
                     <label>

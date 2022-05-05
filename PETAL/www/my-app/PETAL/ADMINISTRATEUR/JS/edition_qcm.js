@@ -23,10 +23,9 @@ function AjoutImageQCM(num) {
                 reader.onload = readerEvent => {
                     const content = readerEvent.target.result;
                     console.log('#bt'+idQ);
-                    document.querySelector('#bt'+idQ).style.backgroundImage = 'url('+ content +')';
-                    document.querySelector('#bt'+idQ).style.backgroundSize = 'cover';
                     const b64WithPrefix = reader.result;
-                    document.querySelector('#Image'+idQ).setAttribute("src", b64WithPrefix.substring(b64WithPrefix.indexOf(',') + 1));
+                    document.querySelector('#Image'+idQ).setAttribute("src", b64WithPrefix);
+                    document.querySelector('#Image'+idQ).setAttribute("height", "200px");
                 }
             }
             else {

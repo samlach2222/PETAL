@@ -85,11 +85,11 @@ function AfficheQCM()
                     echo "<input type='hidden' id='b64Image".$idQ."' name='b64Image".$idQ."' value=''><br>";
                 }
                 else{
-                    echo "<img id='Image".$idQ."' src=''".$row[2]."'><br>";
+                    echo "</br><img id='Image".$idQ."' src='data:image;base64,".base64_encode($row[2])."'><br>";
                 }
                 echo "<br><div id='reponses".$idQ."'>";
                 if ($row[3]==1) {
-                    echo "<input type='radio' name='reponse".$idQ."' id='reponseRB".$idQ."a' checked='true' onclick='reponse(1,".$idQ.")'>
+                    echo "<input type='radio' required name='reponse".$idQ."' id='reponseRB".$idQ."a' checked='true' onclick='reponse(1,".$idQ.")'>
                         <input type='text' name='reponse".$idQ."a' id='reponse".$idQ."a' value=''".$row[4]."'><br>
                         <input type='radio' name='reponse".$idQ."' id='reponseRB".$idQ."b' onclick='reponse(2,".$idQ.")' >
                         <input type='text' name='reponse".$idQ."b' id='reponse".$idQ."b' value=''".$row[5]."'><br>
@@ -162,8 +162,6 @@ function AfficheTitreQCM()
         }
     }
 }
-
-
 
     function EnvoiAjoutQCM($isPublier)
     {
