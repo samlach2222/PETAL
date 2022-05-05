@@ -209,6 +209,7 @@ function AfficheTitreQCM()
         $choix1=array();
         $choix2=array();
         $choix3=array();
+        $image=array();
         if ($idQCM==-1) { // mode ajout
             for ($i=1; $i <= $nbQuestion; $i++) { 
                 array_push($intitule, $_POST['intitule'.$i]);
@@ -217,6 +218,11 @@ function AfficheTitreQCM()
                 array_push($choix3, $_POST['reponse'.$i.'c']);
                 $reponseQuestion=$_POST['reponseQ'.$i];
                 array_push($reponseALaQuestion, $reponseQuestion);
+                if (empty($_POST['Image'.$i])) {
+                    array_push($image, "-1");
+                } else {
+                    array_push($image, $_POST['Image'.$i]);
+                }
             }
 
             // vérification des données
@@ -246,21 +252,33 @@ function AfficheTitreQCM()
                 if($executed){ // si la requête n'a pas pu être passée
                     $idQCM=$pdo->lastInsertId();
                     for ($i=1; $i <= $nbQuestion; $i++) { 
-                        $statement = $pdo->prepare('INSERT INTO question (intitulé, image, reponseALaQuestion, choix1,choix2,choix3, idQCM) VALUES (:intitulé, :image, :reponseALaQuestion, :choix1, :choix2, :choix3, :idQCM)');
-                        $executed = $statement->execute([
-                            'intitulé' => current($intitule),
-                            'image' => NULL,
-                            'reponseALaQuestion' => current($reponseALaQuestion),
-                            'choix1' => current($choix1),
-                            'choix2' => current($choix2),
-                            'choix3' => current($choix3),
-                            'idQCM' => $idQCM
-                        ]);
+                        if (current($image)=="-1") {
+                                $statement = $pdo->prepare('INSERT INTO question (intitulé, image, reponseALaQuestion, choix1,choix2,choix3, idQCM) VALUES (:intitulé, :image, :reponseALaQuestion, :choix1, :choix2, :choix3, :idQCM)');
+                                $executed = $statement->execute([
+                                    'intitulé' => current($intitule),
+                                    'image' => NULL,
+                                    'reponseALaQuestion' => current($reponseALaQuestion),
+                                    'choix1' => current($choix1),
+                                    'choix2' => current($choix2),
+                                    'choix3' => current($choix3),
+                                ]);
+                            } else {
+                                $statement = $pdo->prepare('INSERT INTO question (intitulé, image, reponseALaQuestion, choix1,choix2,choix3, idQCM) VALUES (:intitulé, :image, :reponseALaQuestion, :choix1, :choix2, :choix3, :idQCM)');
+                                $executed = $statement->execute([
+                                    'intitulé' => current($intitule),
+                                    'image' => base64_decode(current($image)),
+                                    'reponseALaQuestion' => current($reponseALaQuestion),
+                                    'choix1' => current($choix1),
+                                    'choix2' => current($choix2),
+                                    'choix3' => current($choix3),
+                                ]);
+                            }
                         next($intitule);
                         next($reponseALaQuestion);
                         next($choix1);
                         next($choix2);
                         next($choix3);
+                        next($image);
                     }
                     header("Location: ../HTML/liste_qcm.php?ajout=success");
                 }
@@ -292,23 +310,53 @@ function AfficheTitreQCM()
                 foreach ($pdo->query($query) as $row) { 
                     array_push($list, $row[0]);
                 }
-                if ($nbQuestion==0) {
+                if ($nbQuestion!=0) {
+                    $listeQ=array();
                     for ($i=1; $i <= $nbQuestion; $i++) { 
-                        $idQ=current($list);
+                        if (count($list)==0) {
+                            $idQ=$i;
+                            array_push($listeQ, $idQ);
+                            array_push($intitule, $_POST['intitule'.$idQ]);
+                            array_push($image, $_POST['Image'.$idQ]);
+                            array_push($choix1, $_POST['reponse'.$idQ.'a']);
+                            array_push($choix2, $_POST['reponse'.$idQ.'b']);
+                            array_push($choix3, $_POST['reponse'.$idQ.'c']);
+                            $reponseQuestion=$_POST['reponseQ'.$idQ];
+                            array_push($reponseALaQuestion, $reponseQuestion);
+                            if (empty($_POST['Image'.$idQ])) {
+                                array_push($image, "-1");
+                            } else {
+                                array_push($image, $_POST['Image'.$idQ]);
+                            }
+                        } else {
+                            $idQ=current($list);
+                            if (end($list)==$idQ) {
+                                if ($i==$nbQuestion) {
+                                    $i=$nbQuestion+1;
+                                }
+                                else
+                                {
+                                    $idQ=$i;
+                                    array_push($listeQ, $idQ);
+                                }
+                            }
+                            else
+                            {
+                                next($list);
+                            }
+                            array_push($intitule, $_POST['intitule'.$idQ]);
+                            array_push($choix1, $_POST['reponse'.$idQ.'a']);
+                            array_push($choix2, $_POST['reponse'.$idQ.'b']);
+                            array_push($choix3, $_POST['reponse'.$idQ.'c']);
+                            $reponseQuestion=$_POST['reponseQ'.$idQ];
+                            array_push($reponseALaQuestion, $reponseQuestion);
+                            if (empty($_POST['Image'.$idQ])) {
+                                array_push($image, "-1");
+                            } else {
+                                array_push($image, $_POST['Image'.$idQ]);
+                            }
+                        }
                         
-                        if (end($list)==$idQ) {
-                            $i=$nbQuestion+1;
-                        }
-                        else
-                        {
-                            next($list);
-                        }
-                        array_push($intitule, $_POST['intitule'.$idQ]);
-                        array_push($choix1, $_POST['reponse'.$idQ.'a']);
-                        array_push($choix2, $_POST['reponse'.$idQ.'b']);
-                        array_push($choix3, $_POST['reponse'.$idQ.'c']);
-                        $reponseQuestion=$_POST['reponseQ'.$idQ];
-                        array_push($reponseALaQuestion, $reponseQuestion);
                     }
                 }
                 
@@ -328,22 +376,74 @@ function AfficheTitreQCM()
                         'idQCM' => $idQCM
                     ]);
                     for ($i=1; $i <= $nbQuestion; $i++) { 
-                        $statement = $pdo->prepare('UPDATE question SET intitulé=:intitulé, image=:image, reponseALaQuestion=:reponseALaQuestion, choix1=:choix1,choix2=:choix2,choix3=:choix3 WHERE idQCM=:idQCM');
-                        $executed = $statement->execute([
-                            'intitulé' => current($intitule),
-                            'image' => NULL,
-                            'reponseALaQuestion' => current($reponseALaQuestion),
-                            'choix1' => current($choix1),
-                            'choix2' => current($choix2),
-                            'choix3' => current($choix3),
-                            'idQCM' => $idQCM
-                        ]);
-                        if ($i!=$nbQuestion) {
-                            next($intitule);
-                            next($reponseALaQuestion);
-                            next($choix1);
-                            next($choix2);
-                            next($choix3);
+                        if ($i==current($listeQ)) {
+                            $idQ=current($listeQ);
+                            if (current($image)=="-1") {
+                                $statement = $pdo->prepare('INSERT INTO question (intitulé, image, reponseALaQuestion, choix1,choix2,choix3, idQCM) VALUES (:intitulé, :image, :reponseALaQuestion, :choix1, :choix2, :choix3, :idQCM)');
+                                $executed = $statement->execute([
+                                    'intitulé' => current($intitule),
+                                    'image' => NULL,
+                                    'reponseALaQuestion' => current($reponseALaQuestion),
+                                    'choix1' => current($choix1),
+                                    'choix2' => current($choix2),
+                                    'choix3' => current($choix3),
+                                ]);
+                            } else {
+                                $statement = $pdo->prepare('INSERT INTO question (intitulé, image, reponseALaQuestion, choix1,choix2,choix3, idQCM) VALUES (:intitulé, :image, :reponseALaQuestion, :choix1, :choix2, :choix3, :idQCM)');
+                                $executed = $statement->execute([
+                                    'intitulé' => current($intitule),
+                                    'image' => base64_decode(current($image)),
+                                    'reponseALaQuestion' => current($reponseALaQuestion),
+                                    'choix1' => current($choix1),
+                                    'choix2' => current($choix2),
+                                    'choix3' => current($choix3),
+                                ]);
+                            }
+                            
+                            if ($i!=$nbQuestion) {
+                                next($intitule);
+                                next($reponseALaQuestion);
+                                next($choix1);
+                                next($choix2);
+                                next($choix3);
+                                next($image);
+                            }
+                            if (end($list)!=$i) {
+                                next($listeQ);
+                            } 
+                            
+                        } else {
+                            if (current($image)=="-1") {
+                                $statement = $pdo->prepare('UPDATE question SET intitulé=:intitulé, image=:image, reponseALaQuestion=:reponseALaQuestion, choix1=:choix1,choix2=:choix2,choix3=:choix3 WHERE idQCM=:idQCM');
+                                $executed = $statement->execute([
+                                    'intitulé' => current($intitule),
+                                    'image' => NULL,
+                                    'reponseALaQuestion' => current($reponseALaQuestion),
+                                    'choix1' => current($choix1),
+                                    'choix2' => current($choix2),
+                                    'choix3' => current($choix3),
+                                    'idQCM' => $idQCM
+                                ]);
+                            } else {
+                                $statement = $pdo->prepare('UPDATE question SET intitulé=:intitulé, image=:image, reponseALaQuestion=:reponseALaQuestion, choix1=:choix1,choix2=:choix2,choix3=:choix3 WHERE idQCM=:idQCM');
+                                $executed = $statement->execute([
+                                    'intitulé' => current($intitule),
+                                    'image' => base64_decode(current($image)),
+                                    'reponseALaQuestion' => current($reponseALaQuestion),
+                                    'choix1' => current($choix1),
+                                    'choix2' => current($choix2),
+                                    'choix3' => current($choix3),
+                                    'idQCM' => $idQCM
+                                ]);
+                            }
+                            if ($i!=$nbQuestion) {
+                                next($intitule);
+                                next($reponseALaQuestion);
+                                next($choix1);
+                                next($choix2);
+                                next($choix3);
+                                next($image);
+                            }
                         }
                     }
                     header("Location: ../HTML/liste_qcm.php?modification=success");
