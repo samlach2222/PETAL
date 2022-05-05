@@ -15,6 +15,7 @@
 </head>
 <body>
     <?php include("../../ALL/HTML/bandeau.php");?>
+    <?php include("../PHP/script_espace_perso_admin.php");?>
     
     <div id="esp_perso">
         <a href="../../ADMINISTRATEUR/HTML/accueil_admin.php" id="retour"> Retour </a>
@@ -27,21 +28,21 @@
                 <tr>
                     <td>
                         <p> NOM Prenom :</p>
-                        <output id="name"> </output>
+                        <output id="name"> <?php echo $_SESSION['nom'] ?> </output>
                     </td>
                     <td>
                         <p> Numero Administrateur :</p>
-                        <output id="numEtu"> </output>
+                        <output id="numTel"> <?php echo $_SESSION['numTel'] ?> </output>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p> Identifiant :</p>
-                        <output id="idEtu"> </output>
+                        <output id="idAdmin"> <?php echo $_SESSION['num'] ?> </output>
                     </td>
                     <td>
                         <p> Mail :</p>
-                        <output id="mailEtu"> </output>
+                        <output id="mailAdmin"> <?php echo $_SESSION['adresseMail'] ?> </output>
                     </td>
                 </tr>
             </table>
