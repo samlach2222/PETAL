@@ -26,6 +26,8 @@ function AjoutImageQCM(num) {
                     const b64WithPrefix = reader.result;
                     document.querySelector('#Image'+idQ).setAttribute("src", b64WithPrefix);
                     document.querySelector('#Image'+idQ).setAttribute("height", "200px");
+                    document.querySelector('#Image'+idQ).setAttribute("class", "");
+                    document.querySelector('#Himage'+idQ).setAttribute("value", b64WithPrefix);
                 }
             }
             else {
@@ -70,17 +72,17 @@ function ajoutQuestion() {
     button.innerHTML="Ajout image";
     question.appendChild(button);
 
-    var inputH=document.createElement('input');
-    inputH.setAttribute('type','hidden');
-    inputH.setAttribute('name','b64Image'+comp);
-    inputH.setAttribute('id','b64Image'+comp);
-    inputH.setAttribute('value','');
-    question.appendChild(inputH);
     question.appendChild(document.createElement('br'));
 
-    var inputH=document.createElement('img');
-    inputH.setAttribute('src','');
-    inputH.setAttribute('id','Image'+comp);
+    var img=document.createElement('img');
+    img.setAttribute('src','');
+    img.setAttribute('id','Image'+comp);
+    img.setAttribute('class','imageHidden');
+    question.appendChild(img); question.appendChild(document.createElement('br'));
+    var inputH=document.createElement('input');
+    inputH.setAttribute('value','');
+    inputH.setAttribute('id','Himage'+comp);
+    inputH.setAttribute('type','hidden');
     question.appendChild(inputH);
 
     var reponse=document.createElement('div');

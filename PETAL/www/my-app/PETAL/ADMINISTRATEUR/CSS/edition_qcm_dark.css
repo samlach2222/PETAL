@@ -78,3 +78,6 @@ td{
     padding-right: 0.5em;
     text-align:center;
 }
+.imageHidden{
+    display: none;
+}
