@@ -16,12 +16,12 @@
                 <label for="nom_user">Nom d'utilisateur</label>
                 <span class="hovertext" data-hover="adresse mail ou numéro d'étudiant">?</span>
                 <br/>
-                <input type="text" id="nom_user" name="nom_user"/>
+                <input type="text" id="nom_user" name="nom_user" maxlength="75"/>
                 <br/>
                 <br/>
                 <label for="mdp">Mot de passe</label>
                 <br/>
-                <input type="password" id="mdp" name="mdp"/>
+                <input type="password" id="mdp" name="mdp" maxlength="72"/>
                 <br/>
                 <br/>
                 <div id="second-bottom">

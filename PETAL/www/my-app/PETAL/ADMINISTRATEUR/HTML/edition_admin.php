@@ -33,27 +33,27 @@
             <tr>
                 <td>
                     <label for="prenomAdmin">Prénom</label></br>
-                    <input type="text" required id="prenomAdmin" name="prenomAdmin" value="<?php if(isset($prenomAdmin)) {echo $prenomAdmin;} ?>"/>
+                    <input type="text" required id="prenomAdmin" name="prenomAdmin" value="<?php if(isset($prenomAdmin)) {echo $prenomAdmin;} ?>" maxlength="50"/>
                 </td>
                 <td>
                     <label for="nomAdmin">Nom</label></br>
-                    <input type="text" required id="nomAdmin" name="nomAdmin" value="<?php if(isset($nomAdmin)) {echo $nomAdmin;} ?>"/>
+                    <input type="text" required id="nomAdmin" name="nomAdmin" value="<?php if(isset($nomAdmin)) {echo $nomAdmin;} ?>" maxlength="50"/>
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="passAdmin">Mot de passe</label></br>
-                    <input type="password" required id="passAdmin" name="passAdmin" value="<?php if(isset($passAdmin)) {echo $passAdmin;} ?>"/>
+                    <input type="password" required id="passAdmin" name="passAdmin" value="<?php if(isset($passAdmin)) {echo $passAdmin;} ?>" maxlength="72"/>
                 </td>
                 <td>
                     <label for="mailAdmin">Adresse mail</label></br>
-                    <input type="email" required id="mailAdmin" name="mailAdmin" value="<?php if(isset($mailAdmin)) {echo $mailAdmin;} ?>"/>
+                    <input type="email" required id="mailAdmin" name="mailAdmin" value="<?php if(isset($mailAdmin)) {echo $mailAdmin;} ?>" maxlength="75"/>
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="telAdmin">N°Téléphone (facultatif)</label></br>
-                    <input type="tel" id="telAdmin" name="telAdmin" value="<?php if(isset($telAdmin)) {echo $telAdmin;} ?>"/>
+                    <input type="tel" id="telAdmin" name="telAdmin" value="<?php if(isset($telAdmin)) {echo $telAdmin;} ?>" maxlength="15"/>
                 </td>
                 <?php
                 if(empty($_GET['id'])) {

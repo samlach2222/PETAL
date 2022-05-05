@@ -33,33 +33,33 @@
                 <tr>
                     <td>
                         <label for="prenomEtu">Prénom</label></br>
-                        <input type="text" required id="prenomEtu" name="prenomEtu" value="<?php if(isset($prenomEtu)) {echo $prenomEtu;} ?>"/>
+                        <input type="text" required id="prenomEtu" name="prenomEtu" value="<?php if(isset($prenomEtu)) {echo $prenomEtu;} ?>" maxlength="50"/>
                     </td>
                     <td>
                         <label for="nomEtu">Nom</label></br>
-                        <input type="text" required id="nomEtu" name="nomEtu" value="<?php if(isset($nomEtu)) {echo $nomEtu;} ?>"/>
+                        <input type="text" required id="nomEtu" name="nomEtu" value="<?php if(isset($nomEtu)) {echo $nomEtu;} ?>" maxlength="50"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <label for="passEtu">Mot de passe</label></br>
-                        <input type="password" required id="passEtu" name="passEtu" value="<?php if(isset($passEtu)) {echo $passEtu;} ?>"/>
+                        <input type="password" required id="passEtu" name="passEtu" value="<?php if(isset($passEtu)) {echo $passEtu;} ?>" maxlength="72"/>
                     </td>
                     <td>
                         <label for="mailEtu">Adresse mail</label></br>
-                        <input type="email" required id="mailEtu" name="mailEtu" value="<?php if(isset($mailEtu)) {echo $mailEtu;} ?>"/>
+                        <input type="email" required id="mailEtu" name="mailEtu" value="<?php if(isset($mailEtu)) {echo $mailEtu;} ?>" maxlength="75"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <label for="telEtu">N°Téléphone (facultatif)</label></br>
-                        <input type="tel" id="telEtu" name="telEtu" value="<?php if(isset($telEtu)) {echo $telEtu;} ?>"/>
+                        <input type="tel" id="telEtu" name="telEtu" value="<?php if(isset($telEtu)) {echo $telEtu;} ?>" maxlength="15"/>
                     </td>
                     <?php
                         if(empty($_GET['id'])) {
                             echo '<td>
                                     <label for="numEtu">N°Etudiant</label></br>
-                                    <input type="text" required id="numEtu" name="numEtu"/>
+                                    <input type="text" required id="numEtu" name="numEtu" maxlength="10"/>
                                 </td>';
                         }
                     ?>

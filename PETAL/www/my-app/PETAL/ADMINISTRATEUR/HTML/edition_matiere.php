@@ -26,7 +26,7 @@
             <tr>
                 <td colspan="2">
                     <label for="titreMatiere">Nom de la matière</label></br>
-                    <input type="text" name="titreMatiere" id="titreMatiere"/>
+                    <input type="text" name="titreMatiere" id="titreMatiere" maxlength="50"/>
                 </td>
             </tr>
             <tr>
