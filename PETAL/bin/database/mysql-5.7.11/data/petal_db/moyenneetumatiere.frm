@@ -7,7 +7,7 @@ definer_user=root
 definer_host=localhost
 suid=2
 with_check_option=0
-timestamp=2022-05-04 23:58:09
+timestamp=2022-05-05 09:35:52
 create-version=1
 source=SELECT num, nom, prenom, nomMatiere, ROUND(SUM(moyenne)/COUNT(moyenne),2) AS moyenne\n    FROM resultatetudiant NATURAL JOIN utilisateur\n    GROUP BY num
 client_cs_name=utf8mb4
