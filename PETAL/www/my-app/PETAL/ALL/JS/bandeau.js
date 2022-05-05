@@ -78,6 +78,13 @@ function ChangerTheme() {
             document.querySelector("link[rel='stylesheet']").setAttribute("href", newcss)
         }
     }
+
+    if(popup){
+        afficherPopup();
+    }
+    else {
+        cacherPopup();
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function(){

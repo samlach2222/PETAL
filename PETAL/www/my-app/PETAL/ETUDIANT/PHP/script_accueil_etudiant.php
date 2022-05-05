@@ -38,7 +38,7 @@
                             $donnees2 = $pdo->query($sql2);
                             while ($tmp2 = $donnees2->fetch()){
                                 if(!is_null($tmp2[0])){
-                                    echo "<div class=\"container\" style=\"background-image:url('".$tmp2[0]."');\"></div>";
+                                    echo "<div class=\"container\" style=\"background-image:url('data:image;base64,".base64_encode($tmp2[0])."');\"></div>";
                                 }   
                             }
                             
@@ -56,8 +56,4 @@
         }
         $nb++;
     }
-
-    
-
-    //echo "<img src=\"/my-app/PETAL/Cours/Matiere 1/bdd.png\"/>";
 ?>
