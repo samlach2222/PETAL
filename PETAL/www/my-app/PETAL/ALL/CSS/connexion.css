@@ -114,6 +114,7 @@ label{
 
 #petalText {
     box-shadow: 0px 0px 20px 20px #00000088;
+    mix-blend-mode: overlay;
     background-color: #00000088;
     position: absolute;
     bottom: 0%;
