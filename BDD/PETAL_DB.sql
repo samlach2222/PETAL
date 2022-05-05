@@ -23,7 +23,7 @@ CREATE TABLE Utilisateur (
     prenom VARCHAR(50) NOT NULL,
     adresseMail VARCHAR(75) NOT NULL UNIQUE,
     numeroTelephone VARCHAR(15) UNIQUE,
-    motDePasse VARCHAR(100) NOT NULL,
+    motDePasse VARCHAR(255) NOT NULL, /*Recommandé par PHP pour être hachage futur-proof*/
     PRIMARY KEY (num)
 );
 
