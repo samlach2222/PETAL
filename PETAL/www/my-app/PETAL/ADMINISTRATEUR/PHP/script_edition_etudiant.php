@@ -38,7 +38,6 @@
             $photoProfilB64 = base64_encode($row[0]);
             $prenomEtu = $row[1];
             $nomEtu = $row[2];
-            $passEtu = $row[3];
             $mailEtu = $row[4];
             $telEtu = $row[5];
             $numEtu = $row[6];
@@ -80,7 +79,7 @@
                     'nom' => $nom,
                     'adresseMail' => $adresseMail,
                     'numeroTelephone' => $numeroTelephone,
-                    'motDePasse' => $motDePasse
+                    'motDePasse' => password_hash($motDePasse, PASSWORD_DEFAULT)
                 ]);
                 if($executed){ // si la requête n'a pas pu être passée
                     // Redirection en fin de requête
@@ -122,7 +121,7 @@
                     'nom' => $nom,
                     'adresseMail' => $adresseMail,
                     'numeroTelephone' => $numeroTelephone,
-                    'motDePasse' => $motDePasse
+                    'motDePasse' => password_hash($motDePasse, PASSWORD_DEFAULT)
                 ]);
 
                 // Redirection en fin de requête

@@ -30,7 +30,6 @@
             $photoProfilB64 = base64_encode($row[0]);
             $prenomAdmin = $row[1];
             $nomAdmin = $row[2];
-            $passAdmin = $row[3];
             $mailAdmin = $row[4];
             $telAdmin = $row[5];
             $numAdmin = $row[6];
@@ -82,7 +81,7 @@
                     'nom' => $nom,
                     'adresseMail' => $adresseMail,
                     'numeroTelephone' => $numeroTelephone,
-                    'motDePasse' => $motDePasse
+                    'motDePasse' => password_hash($motDePasse, PASSWORD_DEFAULT)
                 ]);
                 if($executed){ // si la requête n'a pas pu être passée
                     // Redirection en fin de requête
@@ -123,7 +122,7 @@
                     'nom' => $nom,
                     'adresseMail' => $adresseMail,
                     'numeroTelephone' => $numeroTelephone,
-                    'motDePasse' => $motDePasse
+                    'motDePasse' => password_hash($motDePasse, PASSWORD_DEFAULT)
                 ]);
 
                 // Redirection en fin de requête

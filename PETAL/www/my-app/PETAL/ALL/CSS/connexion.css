@@ -92,15 +92,6 @@ label{
 #second-bottom {
     border-style: unset;
     border-color: unset;
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-around;
-}
-
-#second-bottom div {
-    border-style: inherit;
-    border-color: inherit;
 }
 
 #petalFrame {
