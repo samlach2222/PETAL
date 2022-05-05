@@ -58,5 +58,9 @@ th{
     height: 7vh;
     font-size: 4vh;
     color: #EEE0E8;
+}
 
+.imageSection {
+    width: 50%;
+    /*height: 50%;*/
 }

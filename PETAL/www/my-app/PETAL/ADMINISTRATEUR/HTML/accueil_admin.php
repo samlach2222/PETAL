@@ -29,7 +29,7 @@
                             </tr>
                             <tr>
                                 <td class="image">
-                                    Image
+                                    <img class="imageSection" src="../../Ressources/Pictures/matiere.png">
                                 </td>
                             </tr>
                         </table>
@@ -46,7 +46,7 @@
                             </tr>
                             <tr>
                                 <td class="image">
-                                    Image
+                                    <img class="imageSection" src="../../Ressources/Pictures/qcm.png">
                                 </td>
                             </tr>
                         </table>
@@ -62,7 +62,7 @@
                             </tr>
                             <tr>
                                 <td class="image">
-                                    Image
+                                    <img class="imageSection" src="../../Ressources/Pictures/utilisateur.png">
                                 </td>
                             </tr>
                         </table>
