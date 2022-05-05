@@ -57,6 +57,7 @@ input[type="text"]{
     background-color: #1D0027;
     border: 3px solid #a30080;
     height: 2em;
+    color: #EEE0E8;
 }
 
 #valider, #annuler {

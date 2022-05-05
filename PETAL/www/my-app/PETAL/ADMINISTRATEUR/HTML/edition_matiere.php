@@ -14,17 +14,19 @@
     <title>Edition d'une matiere</title>
 </head>
 <body>
-<?php include("../../ALL/HTML/bandeau.php");?>
+<?php include("../../ALL/HTML/bandeau.php");
+    include("../PHP/script_edition_matiere.php");
+?>
 <div id="content">
     <div id="title">
         <h1>Ajout de matières</h1>
     </div>
-    <form>
+    <form action="../PHP/script_edition_matiere.php" method="post">
         <table>
             <tr>
                 <td colspan="2">
                     <label for="titreMatiere">Nom de la matière</label></br>
-                    <input type="text" id="titreMatiere"/>
+                    <input type="text" name="titreMatiere" id="titreMatiere"/>
                 </td>
             </tr>
             <tr>
@@ -36,7 +38,7 @@
             </tr>
             <tr>
                 <td>
-                    <input type="submit" value="Valider" id="valider">
+                    <input type="submit" name="valider" value="Valider" id="valider">
                 </td>
                 <td>
                     <input type="button" value="Annuler" id="annuler" onClick="window.location.href='gestion_matiere.php'">
