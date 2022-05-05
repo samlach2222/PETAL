@@ -176,11 +176,10 @@ function AfficheTitreQCM()
         catch (PDOException $e) {
             echo $e->getMessage();
         }
-        $_SESSION["idModif"] = $_GET['id'];
         // Requete de récupération de tout les utilisateurs
         echo "<td>
                 <label>Nom</label>
-                <input type=\"text\" required id=\"nom\" name=\"nom\" value=\"".$row[0]."\">
+                <input type=\"text\" required id=\"nom\" name=\"nom\" value=\"\">
             </td>
             <td><label>Matière</label><select name=\"matiere\" id=\"matiere\">";  
         $query=$pdo->prepare("SELECT nomMatiere FROM matiere");
@@ -192,7 +191,7 @@ function AfficheTitreQCM()
         echo"</select></td>
             <td>
                 <label>Date/heure de fin</label>
-                <input type=\"date\" name=\"dateHeureFin\" id=\"dateHeureFin\" value=\"".$row[0]."\">
+                <input type=\"date\" name=\"dateHeureFin\" id=\"dateHeureFin\" value=\"\">
         </td>";
     }
 }
@@ -210,8 +209,7 @@ function AfficheTitreQCM()
         $choix1=array();
         $choix2=array();
         $choix3=array();
-        if (isset($_POST['idQCM'])) { // mode ajout
-            echo "<script>console.log('ajout')</script>";
+        if ($idQCM==-1) { // mode ajout
             for ($i=1; $i <= $nbQuestion; $i++) { 
                 array_push($intitule, $_POST['intitule'.$i]);
                 array_push($choix1, $_POST['reponse'.$i.'a']);
@@ -268,7 +266,7 @@ function AfficheTitreQCM()
                 }
                 else
                 {
-                    header("Location: ../HTML/liste_qcm.php?ajout=erroR");
+                    header("Location: ../HTML/liste_qcm.php?ajout=error");
                 }
             }
         }
@@ -294,19 +292,28 @@ function AfficheTitreQCM()
                 foreach ($pdo->query($query) as $row) { 
                     array_push($list, $row[0]);
                 }
-                for ($i=1; $i <= $nbQuestion; $i++) { 
-                    $idQ=current($list);
-                    next($list);
-                    array_push($intitule, $_POST['intitule'.$idQ]);
-                    array_push($choix1, $_POST['reponse'.$idQ.'a']);
-                    array_push($choix2, $_POST['reponse'.$idQ.'b']);
-                    array_push($choix3, $_POST['reponse'.$idQ.'c']);
-                    $reponseQuestion=$_POST['reponseQ'.$idQ];
-                    array_push($reponseALaQuestion, $reponseQuestion);
+                if ($nbQuestion==0) {
+                    for ($i=1; $i <= $nbQuestion; $i++) { 
+                        $idQ=current($list);
+                        
+                        if (end($list)==$idQ) {
+                            $i=$nbQuestion+1;
+                        }
+                        else
+                        {
+                            next($list);
+                        }
+                        array_push($intitule, $_POST['intitule'.$idQ]);
+                        array_push($choix1, $_POST['reponse'.$idQ.'a']);
+                        array_push($choix2, $_POST['reponse'.$idQ.'b']);
+                        array_push($choix3, $_POST['reponse'.$idQ.'c']);
+                        $reponseQuestion=$_POST['reponseQ'.$idQ];
+                        array_push($reponseALaQuestion, $reponseQuestion);
+                    }
                 }
                 
                 if ($nbQuestion<=0 && $isPublier==1) {
-                    header("Location: ../HTML/liste_qcm.php?modification=erreur");
+                    header("Location: ../HTML/edition_qcm.php?modification=error");
                 }
                 else
                 {
@@ -331,11 +338,13 @@ function AfficheTitreQCM()
                             'choix3' => current($choix3),
                             'idQCM' => $idQCM
                         ]);
-                        next($intitule);
-                        next($reponseALaQuestion);
-                        next($choix1);
-                        next($choix2);
-                        next($choix3);
+                        if ($i!=$nbQuestion) {
+                            next($intitule);
+                            next($reponseALaQuestion);
+                            next($choix1);
+                            next($choix2);
+                            next($choix3);
+                        }
                     }
                     header("Location: ../HTML/liste_qcm.php?modification=success");
                 }

@@ -1,4 +1,4 @@
-var comp=parseInt(document.getElementById('nbQuestion').value)+1;
+var comp=parseInt(document.getElementById('nbQuestion').value);
 
 function AjoutImageQCM(num) {
     var idQ="";
@@ -37,6 +37,7 @@ function AjoutImageQCM(num) {
 }
 
 function ajoutQuestion() {
+    comp++;
     var question=document.createElement('div');
     question.setAttribute('class','question');
     question.setAttribute('id','q'+comp);
@@ -132,7 +133,6 @@ function ajoutQuestion() {
     question.appendChild(reponseQ);
     document.getElementById('questions').appendChild(question);
     document.getElementById('nbQuestion').setAttribute('value',comp);
-    comp++;
 }
 function reponse(numR,idQ) {
     document.getElementById('reponseQ'+idQ).setAttribute('value',numR);
