@@ -50,7 +50,7 @@ CREATE TABLE SujetForum (
     nomMatiere VARCHAR(50) NOT NULL,
     num INT,
     PRIMARY KEY (idSujetForum),
-    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere),
+    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE,
     FOREIGN KEY (num) REFERENCES Utilisateur(num)
 );
 
