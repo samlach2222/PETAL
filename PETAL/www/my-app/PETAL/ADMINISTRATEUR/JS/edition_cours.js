@@ -19,3 +19,5 @@ function AjoutImage() {
     }
     input.click();
 }
+
+const box
