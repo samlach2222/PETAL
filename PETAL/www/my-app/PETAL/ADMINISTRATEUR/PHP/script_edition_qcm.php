@@ -140,26 +140,60 @@ function AfficheTitreQCM()
         }
         $_SESSION["idModif"] = $_GET['id'];
         // Requete de récupération de tout les utilisateurs
-        $query=$pdo->prepare("SELECT nomQCM, dateHeureFin, nomMatiere, idQCM FROM QCM WHERE idQCM = :idQCM");
+        $query=$pdo->prepare("SELECT nomQCM, idQCM FROM QCM WHERE idQCM = :idQCM");
         $query->execute(array('idQCM' => $_GET['id']));
         $rows=$query->fetchAll();
         foreach ($rows as $row) { // modification des champs
-            $nomQCM = $row[0];
-            $dateHeureFin = $row[1];
-            $nomMatiere = $row[2];
             echo "<td>
                     <label>Nom</label>
-                    <input type='text' required id='nom' name='nom' value=''".$row[0]."'>
+                    <input type=\"text\" required id=\"nom\" name=\"nom\" value=\"".$row[0]."\">
                 </td>
-                <td>
-                    <label>Matière</label>
-                    <input type='text' required name='matiere' id='matiere' value=''".$row[2]."'>
-                </td>
+                <td><label>Matière</label><select name=\"matiere\" id=\"matiere\">";    
+        }
+        $query=$pdo->prepare("SELECT nomMatiere FROM matiere");
+        $query->execute();
+        $rows=$query->fetchAll();
+        foreach ($rows as $row) {
+            echo "<option value=\"".$row[0]."\">".$row[0]."</option>";
+        }
+        $query=$pdo->prepare("SELECT dateHeureFin, idQCM FROM QCM WHERE idQCM = :idQCM");
+        $query->execute(array('idQCM' => $_GET['id']));
+        $rows=$query->fetchAll();
+        foreach ($rows as $row) {
+            echo"</select></td>
                 <td>
                     <label>Date/heure de fin</label>
-                    <input type='date' name='dateHeureFin' id='dateHeureFin' value=''".$row[1]."'>
+                    <input type=\"date\" name=\"dateHeureFin\" id=\"dateHeureFin\" value=\"".$row[0]."\">
             </td>";
         }
+    }
+    else
+    {
+        $dsn = "mysql:host=localhost;dbname=petal_db;charset=UTF8";
+        try {
+            $pdo = new PDO($dsn, "root", "root");
+        }
+        catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        $_SESSION["idModif"] = $_GET['id'];
+        // Requete de récupération de tout les utilisateurs
+        echo "<td>
+                <label>Nom</label>
+                <input type=\"text\" required id=\"nom\" name=\"nom\" value=\"".$row[0]."\">
+            </td>
+            <td><label>Matière</label><select name=\"matiere\" id=\"matiere\">";  
+        $query=$pdo->prepare("SELECT nomMatiere FROM matiere");
+        $query->execute();
+        $rows=$query->fetchAll();
+        foreach ($rows as $row) {
+            echo "<option value=\"".$row[0]."\">".$row[0]."</option>";
+        }
+        echo"</select></td>
+            <td>
+                <label>Date/heure de fin</label>
+                <input type=\"date\" name=\"dateHeureFin\" id=\"dateHeureFin\" value=\"".$row[0]."\">
+        </td>";
     }
 }
 

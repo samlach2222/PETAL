@@ -26,23 +26,7 @@
     		<table id="titre">
     			<tr>
                     <?php 
-                    if(!empty($_GET['id'])) {
-                        AfficheTitreQCM();
-                    }
-                    else{
-                        echo "<td>
-                                <label>Nom</label>
-                                <input type=\"text\" required id=\"nom\" name=\"nom\">
-                            </td>
-                            <td>
-                                <label>Matière</label>
-                                <input type=\"text\" required name=\"matiere\" id=\"matiere\">
-                            </td>
-                            <td>
-                                <label>Date/heure de fin</label>
-                                <input type=\"date\" name=\"dateHeureFin\" id=\"dateHeureFin\">
-                        </td>";
-                    }
+                    AfficheTitreQCM();
                 ?> 
     			</tr>
     		</table>
