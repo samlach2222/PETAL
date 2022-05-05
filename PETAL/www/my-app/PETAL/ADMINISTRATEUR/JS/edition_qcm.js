@@ -1,8 +1,8 @@
 var comp=parseInt(document.getElementById('nbQuestion').value)+1;
-/*
+
 function AjoutImageQCM(num) {
     var idQ="";
-    for (var i = 8; i < num.length; i++) {
+    for (var i = 2; i < num.length; i++) {
         idQ=idQ+num[i];
     }
     var input = document.createElement('input');
@@ -22,11 +22,11 @@ function AjoutImageQCM(num) {
                 reader.readAsDataURL(file);
                 reader.onload = readerEvent => {
                     const content = readerEvent.target.result;
-                    document.querySelector('#bt'+num).style.backgroundImage = 'url('+ content +')';
-                    document.querySelector('#bt'+num).style.backgroundSize = 'cover';
+                    console.log('#bt'+idQ);
+                    document.querySelector('#bt'+idQ).style.backgroundImage = 'url('+ content +')';
+                    document.querySelector('#bt'+idQ).style.backgroundSize = 'cover';
                     const b64WithPrefix = reader.result;
-                    document.querySelector('#b64Image'+num).value = b64WithPrefix.substring(b64WithPrefix.indexOf(',') + 1);
-                    document.querySelector('#b64Image'+num).type="";
+                    document.querySelector('#Image'+idQ).setAttribute("src", b64WithPrefix.substring(b64WithPrefix.indexOf(',') + 1));
                 }
             }
             else {
@@ -35,7 +35,7 @@ function AjoutImageQCM(num) {
         }
     }
     input.click();
-}*/
+}
 
 function ajoutQuestion() {
     var question=document.createElement('div');
@@ -61,7 +61,9 @@ function ajoutQuestion() {
     inputQ.setAttribute('id','intitule'+comp);
     question.appendChild(inputQ);
 
-    /*var button=document.createElement('button');
+    var button=document.createElement('input');
+    button.setAttribute('type','button');
+    button.setAttribute('value','Ajout Image');
     button.setAttribute('onclick','AjoutImageQCM(this.id)');
     button.setAttribute('class','BtAjoutImage');
     button.setAttribute('id','bt'+comp);
@@ -73,8 +75,13 @@ function ajoutQuestion() {
     inputH.setAttribute('name','b64Image'+comp);
     inputH.setAttribute('id','b64Image'+comp);
     inputH.setAttribute('value','');
-    question.appendChild(inputH);*/
+    question.appendChild(inputH);
     question.appendChild(document.createElement('br'));
+
+    var inputH=document.createElement('img');
+    inputH.setAttribute('src','');
+    inputH.setAttribute('id','Image'+comp);
+    question.appendChild(inputH);
 
     var reponse=document.createElement('div');
     reponse.setAttribute('id','reponses'+comp);

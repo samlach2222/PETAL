@@ -17,16 +17,6 @@
         }
     }
 
-    // Si l'on reviens sur la même page avec une erreur d'insertion
-    if(!empty($_GET['ajout'])) {
-        if($_GET['ajout'] == "error") {
-            // chargement de la notification
-            echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
-            echo '<script src="../../ALL/JS/notify.js"></script>';
-            echo '<script>AlertError("Erreur insertion");</script>';
-        }
-    }
-
 function updateNbQuestion()
 {
     if (!empty($_GET['id'])) {
@@ -41,9 +31,9 @@ function updateNbQuestion()
         foreach ($pdo->query($query) as $row) { 
             $nb = $row[0];
         }
-        echo "value=\"".$nb."\"";
+        echo "value='".$nb."'";
     } else {
-        echo "value=\"0\"";
+        echo "value='0'";
     }
 }
 function AfficheQCM()
@@ -84,54 +74,55 @@ function AfficheQCM()
             $rows=$query->fetchAll();
             foreach ($rows as $row) {
                 echo "
-                    <div class=\"question\" id=\"q".$idQ."\">
+                    <div class='question' id='q".$idQ."'>
                         <label>Question </label>
-                        <output id=\"out".$idQ."\">".$i."</output>
+                        <output id='out".$idQ."'>".$i."</output>
                         <label> : </label>
-                        <input type=\"text\" name=\"intitule".$idQ."\" id=\"intitule".$idQ."\" value=\"".$row[1]."\">   
+                        <input type='text' name='intitule".$idQ."' id='intitule".$idQ."' value=''".$row[1]."'>
+                        <input type='button' onclick='AjoutImageQCM(this.id)' class='BtAjoutImage' id='bt".$idQ."' value='Ajout image' name='ajoutImage'>   
                 ";
-                /*<input type=\"button\" onclick=\"AjoutImageQCM(this.id)\" class=\"BtAjoutImage\" id=\"bt".$idQ."\" value=\"Ajout image\" name=\"ajoutImage\">
                 if ($row[2]==NULL) {
-                    echo "<input type=\"hidden\" id=\"b64Image".$idQ."\" name=\"b64Image".$idQ."\" value=\"\"><br>";}
+                    echo "<input type='hidden' id='b64Image".$idQ."' name='b64Image".$idQ."' value=''><br>";
+                }
                 else{
-                    echo "<input id=\"b64Image".$idQ."\" name=\"b64Image".$idQ."\" value=\"".$row[2]."\"><br>";
-                }*/
-                echo "<br><div id=\"reponses".$idQ."\">";
+                    echo "<img id='Image".$idQ."' src=''".$row[2]."'><br>";
+                }
+                echo "<br><div id='reponses".$idQ."'>";
                 if ($row[3]==1) {
-                    echo "<input type=\"radio\" name=\"reponse".$idQ."\" id=\"reponseRB".$idQ."a\" checked=\"true\" onclick=\"reponse(1,".$idQ.")\">
-                        <input type=\"text\" name=\"reponse".$idQ."a\" id=\"reponse".$idQ."a\" value=\"".$row[4]."\"><br>
-                        <input type=\"radio\" name=\"reponse".$idQ."\" id=\"reponseRB".$idQ."b\" onclick=\"reponse(2,".$idQ.")\" >
-                        <input type=\"text\" name=\"reponse".$idQ."b\" id=\"reponse".$idQ."b\" value=\"".$row[5]."\"><br>
-                        <input type=\"radio\" name=\"reponse".$idQ."\" id=\"reponseRB".$idQ."c\" onclick=\"reponse(3,".$idQ.")\" >
-                        <input type=\"text\" name=\"reponse".$idQ."c\" id=\"reponse".$idQ."c\" value=\"".$row[6]."\"><br>";
+                    echo "<input type='radio' name='reponse".$idQ."' id='reponseRB".$idQ."a' checked='true' onclick='reponse(1,".$idQ.")'>
+                        <input type='text' name='reponse".$idQ."a' id='reponse".$idQ."a' value=''".$row[4]."'><br>
+                        <input type='radio' name='reponse".$idQ."' id='reponseRB".$idQ."b' onclick='reponse(2,".$idQ.")' >
+                        <input type='text' name='reponse".$idQ."b' id='reponse".$idQ."b' value=''".$row[5]."'><br>
+                        <input type='radio' name='reponse".$idQ."' id='reponseRB".$idQ."c' onclick='reponse(3,".$idQ.")' >
+                        <input type='text' name='reponse".$idQ."c' id='reponse".$idQ."c' value=''".$row[6]."'><br>";
                 }
                 elseif ($row[3]==2) {
-                    echo "<input type=\"radio\" name=\"reponse".$idQ."\" id=\"reponseRB".$idQ."a\" onclick=\"reponse(1,".$idQ.")\" >
-                        <input type=\"text\" name=\"reponse".$idQ."a\" id=\"reponse".$idQ."a\" value=\"".$row[4]."\"><br>
-                        <input type=\"radio\" name=\"reponse".$idQ."\" id=\"reponseRB".$idQ."b\" checked=\"true\" onclick=\"reponse(2,".$idQ.")\">
-                        <input type=\"text\" name=\"reponse".$idQ."b\" id=\"reponse".$idQ."b\" value=\"".$row[5]."\"><br>
-                        <input type=\"radio\" name=\"reponse".$idQ."\" id=\"reponseRB".$idQ."c\" onclick=\"reponse(3,".$idQ.")\" >
-                        <input type=\"text\" name=\"reponse".$idQ."c\" id=\"reponse".$idQ."c\" value=\"".$row[6]."\"><br>";
+                    echo "<input type='radio' name='reponse".$idQ."' id='reponseRB".$idQ."a' onclick='reponse(1,".$idQ.")' >
+                        <input type='text' name='reponse".$idQ."a' id='reponse".$idQ."a' value=''".$row[4]."'><br>
+                        <input type='radio' name='reponse".$idQ."' id='reponseRB".$idQ."b' checked='true' onclick='reponse(2,".$idQ.")'>
+                        <input type='text' name='reponse".$idQ."b' id='reponse".$idQ."b' value=''".$row[5]."'><br>
+                        <input type='radio' name='reponse".$idQ."' id='reponseRB".$idQ."c' onclick='reponse(3,".$idQ.")' >
+                        <input type='text' name='reponse".$idQ."c' id='reponse".$idQ."c' value=''".$row[6]."'><br>";
                 }
                 elseif ($row[3]==3) {
-                    echo "<input type=\"radio\" name=\"reponse".$idQ."\" id=\"reponseRB".$idQ."a\" onclick=\"reponse(1,".$idQ.")\" >
-                        <input type=\"text\" name=\"reponse".$idQ."a\" id=\"reponse".$idQ."a\" value=\"".$row[4]."\"><br>
-                        <input type=\"radio\" name=\"reponse".$idQ."\" id=\"reponseRB".$idQ."b\" onclick=\"reponse(2,".$idQ.")\" >
-                        <input type=\"text\" name=\"reponse".$idQ."b\" id=\"reponse".$idQ."b\" value=\"".$row[5]."\"><br>
-                        <input type=\"radio\" name=\"reponse".$idQ."\" id=\"reponseRB".$idQ."c\" checked=\"true\" onclick=\"reponse(3,".$idQ.")\">
-                        <input type=\"text\" name=\"reponse".$idQ."c\" id=\"reponse".$idQ."c\" value=\"".$row[6]."\"><br>";
+                    echo "<input type='radio' name='reponse".$idQ."' id='reponseRB".$idQ."a' onclick='reponse(1,".$idQ.")' >
+                        <input type='text' name='reponse".$idQ."a' id='reponse".$idQ."a' value=''".$row[4]."'><br>
+                        <input type='radio' name='reponse".$idQ."' id='reponseRB".$idQ."b' onclick='reponse(2,".$idQ.")' >
+                        <input type='text' name='reponse".$idQ."b' id='reponse".$idQ."b' value=''".$row[5]."'><br>
+                        <input type='radio' name='reponse".$idQ."' id='reponseRB".$idQ."c' checked='true' onclick='reponse(3,".$idQ.")'>
+                        <input type='text' name='reponse".$idQ."c' id='reponse".$idQ."c' value=''".$row[6]."'><br>";
                 }
                 else{
-                    echo "<input type=\"radio\" name=\"reponse".$idQ."\" id=\"reponseRB".$idQ."a\" onclick=\"reponse(1,".$idQ.")\" >
-                        <input type=\"text\" name=\"reponse".$idQ."a\" id=\"reponse".$idQ."a\" value=\"".$row[4]."\"><br>
-                        <input type=\"radio\" name=\"reponse".$idQ."\" id=\"reponseRB".$idQ."b\" onclick=\"reponse(2,".$idQ.")\" >
-                        <input type=\"text\" name=\"reponse".$idQ."b\" id=\"reponse".$idQ."b\" value=\"".$row[5]."\"><br>
-                        <input type=\"radio\" name=\"reponse".$idQ."\" id=\"reponseRB".$idQ."c\" onclick=\"reponse(3,".$idQ.")\" >
-                        <input type=\"text\" name=\"reponse".$idQ."c\" id=\"reponse".$idQ."c\" value=\"".$row[6]."\"><br>";
+                    echo "<input type='radio' name='reponse".$idQ."' id='reponseRB".$idQ."a' onclick='reponse(1,".$idQ.")' >
+                        <input type='text' name='reponse".$idQ."a' id='reponse".$idQ."a' value=''".$row[4]."'><br>
+                        <input type='radio' name='reponse".$idQ."' id='reponseRB".$idQ."b' onclick='reponse(2,".$idQ.")' >
+                        <input type='text' name='reponse".$idQ."b' id='reponse".$idQ."b' value=''".$row[5]."'><br>
+                        <input type='radio' name='reponse".$idQ."' id='reponseRB".$idQ."c' onclick='reponse(3,".$idQ.")' >
+                        <input type='text' name='reponse".$idQ."c' id='reponse".$idQ."c' value=''".$row[6]."'><br>";
                 }
                 echo "</div>
-                    <input type=\"hidden\" id=\"reponseQ".$idQ."\" name=\"reponseQ".$idQ."\">
-                    <input type=\"hidden\" id=\"idQ".$idQ."\" name=\"idQ".$idQ."\" value=\"".$idQ."\">
+                    <input type='hidden' id='reponseQ".$idQ."' name='reponseQ".$idQ."'>
+                    <input type='hidden' id='idQ".$idQ."' name='idQ".$idQ."' value=''".$idQ."'>
                 </div>";
             }
         }
@@ -158,15 +149,15 @@ function AfficheTitreQCM()
             $nomMatiere = $row[2];
             echo "<td>
                     <label>Nom</label>
-                    <input type=\"text\" required id=\"nom\" name=\"nom\" value=\"".$row[0]."\">
+                    <input type='text' required id='nom' name='nom' value=''".$row[0]."'>
                 </td>
                 <td>
                     <label>Matière</label>
-                    <input type=\"text\" required name=\"matiere\" id=\"matiere\" value=\"".$row[2]."\">
+                    <input type='text' required name='matiere' id='matiere' value=''".$row[2]."'>
                 </td>
                 <td>
                     <label>Date/heure de fin</label>
-                    <input type=\"date\" name=\"dateHeureFin\" id=\"dateHeureFin\" value=\"".$row[1]."\">
+                    <input type='date' name='dateHeureFin' id='dateHeureFin' value=''".$row[1]."'>
             </td>";
         }
     }
@@ -188,7 +179,7 @@ function AfficheTitreQCM()
         $choix2=array();
         $choix3=array();
         if (isset($_POST['idQCM'])) { // mode ajout
-            echo "<script>console.log(\"ajout\")</script>";
+            echo "<script>console.log('ajout')</script>";
             for ($i=1; $i <= $nbQuestion; $i++) { 
                 array_push($intitule, $_POST['intitule'.$i]);
                 array_push($choix1, $_POST['reponse'.$i.'a']);
@@ -248,7 +239,8 @@ function AfficheTitreQCM()
                     header("Location: ../HTML/liste_qcm.php?ajout=erroR");
                 }
             }
-        } else { // mode modification
+        }
+        else { // mode modification
             
             // vérification des données
             if ($nomQCM == null|| $nomMatiere==NULL) {
