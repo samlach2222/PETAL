@@ -1,6 +1,7 @@
 var popupOuvert = false;
 const popup = document.getElementById('popup');
 const topBarHauteur = document.getElementById('top-bar').getBoundingClientRect().height;
+const lightTopBarBottomBorder = 4; //getComputedStyle(document.getElementById('top-bar'),null).getPropertyValue('border-bottom').substr(0, getComputedStyle(document.getElementById('top-bar'),null).getPropertyValue('border-bottom').indexOf('px'));
 var popupAnimation = null;
 
 // On ne peut pas avoir la hauteur avec display none
@@ -69,22 +70,21 @@ function ChangerTheme() {
             document.cookie = cookieLight; // light theme
             let css = document.querySelector("link[rel='stylesheet']").getAttribute("href");
             let newcss = css.replace("dark", "light");
-            document.querySelector("link[rel='stylesheet']").setAttribute("href", newcss)
+            document.querySelector("link[rel='stylesheet']").setAttribute("href", newcss);
+            
+            i += lightTopBarBottomBorder;
         }
         else if(cookieValue == 0){
             document.cookie = cookieDark; // dark theme
             let css = document.querySelector("link[rel='stylesheet']").getAttribute("href");
             let newcss = css.replace("light", "dark");
-            document.querySelector("link[rel='stylesheet']").setAttribute("href", newcss)
+            document.querySelector("link[rel='stylesheet']").setAttribute("href", newcss);
+            
+            i -= lightTopBarBottomBorder;
         }
     }
 
-    if(popup){
-        afficherPopup();
-    }
-    else {
-        cacherPopup();
-    }
+    popup.style.top = i+"px";
 }
 
 document.addEventListener("DOMContentLoaded", function(){
