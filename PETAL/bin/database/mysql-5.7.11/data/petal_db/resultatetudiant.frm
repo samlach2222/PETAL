@@ -7,7 +7,7 @@ definer_user=root
 definer_host=localhost
 suid=2
 with_check_option=0
-timestamp=2022-05-06 07:39:20
+timestamp=2022-05-06 07:49:37
 create-version=1
 source=SELECT idQCM, num, nomQCM, nomMatiere, ROUND((nombreReponsesCorrectes/nombreQuestions)*20,2) AS moyenne\n    FROM (\n        SELECT TableTousLesReponses.idQCM, TableTousLesReponses.num, COALESCE(reponsesCorrectes, 0) AS nombreReponsesCorrectes\n        FROM (\n            SELECT * FROM reponsedeetudiant NATURAL JOIN question\n        ) AS TableTousLesReponses LEFT JOIN (\n            SELECT idQCM, num, COUNT(*) AS reponsesCorrectes\n            FROM reponsedeetudiant NATURAL JOIN question\n            WHERE reponseALaQuestion = reponseChoisie\n            GROUP BY idQCM, num\n        ) AS TableNombreReponsesCorrectes ON (TableTousLesReponses.idQCM = TableNombreReponsesCorrectes.idQCM && TableTousLesReponses.num = TableNombreReponsesCorrectes.num)\n        GROUP BY TableTousLesReponses.idQCM, TableTousLesReponses.num\n    ) AS TableNombreReponsesCorrectes NATURAL JOIN (\n        SELECT idQCM, num, nomQCM, nomMatiere, COUNT(*) AS nombreQuestions\n        FROM qcm NATURAL JOIN question NATURAL JOIN reponsedeetudiant\n        GROUP BY idQCM, num\n    ) AS TableNombreQuestions
 client_cs_name=utf8mb4
