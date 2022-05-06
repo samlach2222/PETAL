@@ -36,10 +36,8 @@
             </a>
         </div>
 
-        <div>
-            <table id="allMatiere">
-                <?php AfficheListeMatieres(); ?>
-            </table>
+        <div id="matieres">
+            <?php AfficheListeMatieres(); ?>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

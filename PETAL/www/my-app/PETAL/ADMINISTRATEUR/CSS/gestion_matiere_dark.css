@@ -87,10 +87,6 @@ body {
 .lien_matiere {
     width: 45vh;
     height: 45vh;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-top: 5%;
-    margin-bottom: 5%;
 }
 
 th {
@@ -131,4 +127,12 @@ th {
 
 .police {
     font-family: Quicksand, sans-serif;
+}
+
+#matieres {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2em 1em;
+    row-gap: 1.5em;
 }

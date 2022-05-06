@@ -41,33 +41,22 @@ if(isset($_POST)){
         $prepared->execute(array('num' => $_SESSION['num']));
         $rows = $prepared->fetchAll();
         
-        $count = 0;
         foreach ($rows as $row) {
-            if($count == 0){
-                echo "<tr>";
-            }
-            echo "<td>
-                        <a href=\"gestion_cours.php?matiere=".$row[0]."\" style=\"display:block;\" class=\"lien_matiere\">
-                            <table class=\"matiere\">
-                                <tr>
-                                    <th>
-                                        <input class=\"input_matiere\" type=\"checkbox\" name=\"key\" value=\"value\" />
-                                        <span class=\"police\">".$row[0]."</span>
-                                        <a href=\"ajout_etudiant_matiere.php?matiere=".$row[0]."\"><img class=\"img-ajout-etudiant-matiere\" src=\"../../Ressources/Pictures/utilisateur.png\"></a>
-                                    </th>
-                                </tr>
-                                <tr class=\"tr-image\">
-                                    <td class=\"td-image\" style=\"background-image: url('data:image;base64,".base64_encode($row[1])."'); background-repeat: no-repeat; background-size: cover \">
-                                    </td>
-                                </tr>                       
-                            </table>
-                        </a>  
-                    </td>";
-            if($count == 2){
-                $count = 0;
-                echo "</tr>";
-            }
-            $count++;
+            echo "<a href=\"gestion_cours.php?matiere=".$row[0]."\" style=\"display:block;\" class=\"lien_matiere\">
+            <table class=\"matiere\">
+                <tr>
+                    <th>
+                        <input class=\"input_matiere\" type=\"checkbox\" name=\"key\" value=\"value\" />
+                        <span class=\"police\">".$row[0]."</span>
+                        <a href=\"ajout_etudiant_matiere.php?matiere=".$row[0]."\"><img class=\"img-ajout-etudiant-matiere\" src=\"../../Ressources/Pictures/utilisateur.png\"></a>
+                    </th>
+                </tr>
+                <tr class=\"tr-image\">
+                    <td class=\"td-image\" style=\"background-image: url('data:image;base64,".base64_encode($row[1])."'); background-repeat: no-repeat; background-size: cover \">
+                    </td>
+                </tr>                       
+            </table>
+            </a>";
         }
     }
 ?>
