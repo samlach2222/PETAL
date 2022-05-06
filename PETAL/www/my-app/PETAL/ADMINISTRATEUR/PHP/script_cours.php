@@ -27,20 +27,20 @@
                     <a href=\"gestion_matiere.php\" id=\"boutonRetour\">retour</a>
                 </div>
                 
-                <a href=\"edition_cours.php\">
-                    <div id=\"plus\" class=\"icon\">+</div>
+                <a href=\"javascript:AjoutCours()\">
+                    <img id=\"plus\" src=\"../../Ressources/Pictures/Plus_Dark.png\" class=\"icon\">
                 </a>
-                <a href=\"edition_cours.php\">
+                <a href=\"javascript:EditerCours()\">
                     <img id=\"crayon\" src=\"../../Ressources/Pictures/Crayon_Dark.png\" class=\"icon\">
                 </a>
-                <a href=\"\">
-                    <img id=\"corbeille\" src=\"../../Ressources/Pictures/Corbeille_Dark.png\" class=\"icon\" onclick=\"myFunction()\">
+                <a href=\"javascript:SupprimerCours()\">
+                    <img id=\"corbeille\" src=\"../../Ressources/Pictures/Corbeille_Dark.png\" class=\"icon\">
                 </a>
             </div>
             <div id=\"liste\">
                 <table>";
 
-    $sql = "SELECT nomCours FROM cours WHERE nomMatiere='".$nomMatiere."'";
+    $sql = "SELECT nomCours, idCours, nomMatiere FROM cours WHERE nomMatiere='".$nomMatiere."'";
     $donnees = $pdo->query($sql);
     while ($tmp = $donnees->fetch())
     {
@@ -48,6 +48,7 @@
             <tr>
                 <td>
                     <label>
+                        <input type=\"hidden\" name=\"idCours\" value=\"" . $row[1] . "\" id=\"idCours\"/>
                         <input class=\"cours\" type=\"checkbox\" name=\"key\" value=\"value\" />
                         <span>".$tmp[0]."</span>
                     </label>
@@ -58,6 +59,7 @@
 
     echo "
                 </table>
+                <input type=\"hidden\" name=\"matiere\" id=\"matiere\" value=\"".$nomMatiere."\">
             </div>
         </div>
     ";

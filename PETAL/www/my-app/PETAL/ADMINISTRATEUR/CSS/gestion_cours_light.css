@@ -103,9 +103,7 @@ label > input[type="checkbox"] + *:hover {
 }
 
 #plus {
-    color: black;
-    font-size: 6em;
-    padding-right: 0.2em;
+    content: url("../../Ressources/Pictures/Plus_Picture_Light.png");
 }
 
 
@@ -115,4 +113,10 @@ label > input[type="checkbox"] + *:hover {
 
 #corbeille {
     content: url("../../Ressources/Pictures/Corbeille_Light.png");
+}
+#plus{
+    padding-left: 1em;
+    padding-right: 1em;
+    display: block;
+    width: 3.5em;
 }

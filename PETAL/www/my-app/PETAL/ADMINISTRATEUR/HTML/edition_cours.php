@@ -14,40 +14,21 @@
     <title>Edition d'un cours</title>
 </head>
 <body>
-<?php include("../../ALL/HTML/bandeau.php");?>
+<?php include("../../ALL/HTML/bandeau.php");
+include("../PHP/script_edition_cours.php");?>
 <div id="content">
     <div id="title">
         <h1 id="createAdmin">Ajout de cours</h1>
     </div>
     <form>
         <table>
+            <?php AffichageEdition(); ?>
             <tr>
                 <td>
-                    <label for="titreCours">Titre du cours</label></br>
-                    <input type="text" id="titreCours" maxlength="50"/>
-                </td>
-                <td rowspan="2">
-                    <label>Fichier</label></br>
-                    <input type="button" id="ajoutFichier" value="" onclick="AjoutImage()"/>
-                    <input type="hidden" id="b64Image" name="b64Image" value="">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="typeCours">Type de cours</label></br>
-                    <select name="typeCours" id="typeCours">
-                        <option value="CM">CM</option>
-                        <option value="TD">TD</option>
-                        <option value="TP">TP</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" value="Valider" id="valider">
+                    <input type="submit" name="valider" value="Valider" id="valider">
                 </td>
                 <td>
-                    <input type="button" value="Annuler" id="annuler" onClick="window.location.href='gestion_cours.php'">
+                    <input type="button" name="annuler" value="Annuler" id="annuler" onClick="window.location.href='gestion_cours.php'">
                 </td>
             </tr>
         </table>

@@ -20,4 +20,8 @@ function AjoutImage() {
     input.click();
 }
 
-const box
+function typeSelect() {
+    var listSelect=document.getElementById('typeCours');
+    var selected=listSelect.options[listSelect.selectedIndex].value;
+    document.getElementById('typeCoursSelect').setAttribute('value',selected);
+}

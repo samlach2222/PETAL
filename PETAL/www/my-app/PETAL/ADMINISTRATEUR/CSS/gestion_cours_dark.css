@@ -100,7 +100,19 @@ label > input[type="checkbox"] + *:hover {
     font-size: 105%;
 }
 #plus {
-    color: #EEE0E8;
-    font-size: 6em;
-    padding-right: 0.2em;
+    content: url("../../Ressources/Pictures/Plus_Picture_Light.png");
+}
+
+#crayon {
+    content: url("../../Ressources/Pictures/Crayon_Dark.png");
+}
+
+#corbeille {
+    content: url("../../Ressources/Pictures/Corbeille_Dark.png");
+}
+#plus{
+    padding-left: 1em;
+    padding-right: 1em;
+    display: block;
+    width: 3.5em;
 }
