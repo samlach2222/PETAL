@@ -28,6 +28,7 @@ body {
     padding-left: 0.5em;
 }
 #title {
+    font-family: Volkorn;
     height: 20%;
     text-align: center;
     font-size: 1.5em;
@@ -112,4 +113,7 @@ label > input[type="checkbox"] + *:hover {
 }
 #eyeIcon {
     content: url("../../Ressources/Pictures/Eye_Dark.png");
+}
+h1{
+    font-family: Volkorn;
 }

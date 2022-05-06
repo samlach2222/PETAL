@@ -10,6 +10,7 @@ body {
 }
 
 #title {
+    font-family: Volkorn;
     height: 20%;
     background-color: #f88c95;
     text-align: center;
@@ -125,4 +126,7 @@ label > input[type="checkbox"] + *:hover {
 }
 #eyeIcon {
     content: url("../../Ressources/Pictures/Eye_Light.png");
+}
+h1{
+    font-family: Volkorn;
 }
