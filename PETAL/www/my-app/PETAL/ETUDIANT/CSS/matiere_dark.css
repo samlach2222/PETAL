@@ -31,12 +31,14 @@ body {
 }
 
 h1 {
+    font-family: Volkorn;
     text-align: center;
     font-size: 80%;
     margin: 0%;
 }
 
 h2 {
+    font-family: Volkorn;
     margin-left: 2%;
     font-size: 50%;
 }
