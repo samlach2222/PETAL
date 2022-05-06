@@ -53,6 +53,7 @@
             else{
                 echo "value=\"-1\"";
             } ?>>
+            <input type="hidden" name="nbAjoutQuestion" id="nbAjoutQuestion" value="0">
     	</form>
     </div>
     <script src="../JS/edition_qcm.js"></script>

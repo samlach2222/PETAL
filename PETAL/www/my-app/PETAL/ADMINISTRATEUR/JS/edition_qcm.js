@@ -135,6 +135,8 @@ function ajoutQuestion() {
     question.appendChild(reponseQ);
     document.getElementById('questions').appendChild(question);
     document.getElementById('nbQuestion').setAttribute('value',comp);
+
+    document.getElementById('nbAjoutQuestion').setAttribute('value',parseInt(document.getElementById('nbAjoutQuestion'))+1);
 }
 function reponse(numR,idQ) {
     document.getElementById('reponseQ'+idQ).setAttribute('value',numR);
