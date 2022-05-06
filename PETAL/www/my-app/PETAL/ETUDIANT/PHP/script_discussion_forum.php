@@ -17,7 +17,7 @@
         }
 
         //Si l'étudiant n'a pas accès à la matière du sujet, redirection à la liste des sujets
-        $prepared = $pdo->prepare("SELECT utilisateur.num, utilisateur.nom, utilisateur.prenom, dateHeure, contenuMessage, nomSujet, nomMatiere FROM utilisateur NATURAL JOIN messageforum JOIN listesujets ON messageforum.idSujetForum = listesujets.idSujetForum WHERE nomMatiere IN (SELECT nomMatiere FROM etumatiere WHERE num = :num) && listesujets.idSujetForum = :idSujetForum ORDER BY dateHeure;", array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+        $prepared = $pdo->prepare("SELECT utilisateur.num, utilisateur.nom, utilisateur.prenom, dateHeure, contenuMessage, nomSujet, nomMatiere FROM utilisateur RIGHT JOIN messageforum ON utilisateur.num = messageforum.num JOIN listesujets ON messageforum.idSujetForum = listesujets.idSujetForum WHERE nomMatiere IN (SELECT nomMatiere FROM etumatiere WHERE num = :num) && listesujets.idSujetForum = :idSujetForum ORDER BY dateHeure;", array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
         $prepared->execute(array('num' => $_SESSION['num'], 'idSujetForum' => $_GET['sujet']));
 
         global $rowsMessages;
@@ -102,9 +102,14 @@
                 echo '<div class="message-recu">';
             }
 
-                echo '<div class="message-entete">
-                    <span class="message-nom">'.ucfirst(mb_strtolower($row[2], 'UTF-8')).' '.mb_strtoupper($row[1], 'UTF-8').'</span>
-                    <span class="message-date">'.$row[3].'</span>
+                echo '<div class="message-entete">';
+                    //Affiche étudiant supprimé si c'est le cas
+                    if ($row[0]) {
+                        echo '<span class="message-nom">'.ucfirst(mb_strtolower($row[2], 'UTF-8')).' '.mb_strtoupper($row[1], 'UTF-8').'</span>';
+                    } else {
+                        echo '<span class="message-nom">Utilisateur supprimé</span>';
+                    }
+                    echo '<span class="message-date">'.$row[3].'</span>
                 </div>
                 <div class="message-contenu">'.$row[4].'</div>';
 

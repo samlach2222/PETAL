@@ -87,12 +87,17 @@
                     echo '<tr>';
                     echo '<td><a href="discussion_forum.php?sujet='.$row[0].'">'.$row[1].'</a></td>';
                     
-                    //Affiche le nom en gras si c'est celui de l'étudiant connecté
-                    $nom = ucfirst(mb_strtolower($row[3], 'UTF-8')).' '.mb_strtoupper($row[2], 'UTF-8');
-                    if ($row[6] == $_SESSION['num']) {
-                        echo '<td><b>'.$nom.'</b></td>';
+                    //Affiche étudiant supprimé si c'est le cas
+                    if ($row[6]) {
+                        //Affiche le nom en gras si c'est celui de l'étudiant connecté
+                        $nom = ucfirst(mb_strtolower($row[3], 'UTF-8')).' '.mb_strtoupper($row[2], 'UTF-8');
+                        if ($row[6] == $_SESSION['num']) {
+                            echo '<td><b>'.$nom.'</b></td>';
+                        } else {
+                            echo '<td>'.$nom.'</td>';
+                        }
                     } else {
-                        echo '<td>'.$nom.'</td>';
+                        echo '<td>Utilisateur supprimé</td>';
                     }
                     
                     
