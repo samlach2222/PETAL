@@ -30,9 +30,9 @@ CREATE TABLE Utilisateur (
 CREATE TABLE Matiere (
     nomMatiere VARCHAR(50) NOT NULL,
     image MEDIUMBLOB,
-    num INT,
+    num INT NOT NULL,
     PRIMARY KEY(nomMatiere),
-    FOREIGN KEY(num) REFERENCES Utilisateur(num)
+    FOREIGN KEY(num) REFERENCES Utilisateur(num) ON DELETE CASCADE
 );
 
 CREATE TABLE EtuMatiere (
@@ -59,10 +59,10 @@ CREATE TABLE MessageForum (
     contenuMessage VARCHAR(2000) NOT NULL,
     dateHeure DATETIME NOT NULL,
     idSujetForum INT NOT NULL,
-    num INT NOT NULL,
+    num INT,
     PRIMARY KEY (idMessage),
     FOREIGN KEY (idSujetForum) REFERENCES SujetForum(idSujetForum) ON DELETE CASCADE,
-    FOREIGN KEY (num) REFERENCES Utilisateur(num) ON DELETE CASCADE
+    FOREIGN KEY (num) REFERENCES Utilisateur(num)
 );
 
 CREATE TABLE Cours (
@@ -81,9 +81,9 @@ CREATE TABLE QCM (
     dateHeureFin DATETIME,
     evalue BOOLEAN NOT NULL,
     publie BOOLEAN NOT NULL DEFAULT false,
-    nomMatiere VARCHAR(50),
+    nomMatiere VARCHAR(50) NOT NULL,
     PRIMARY KEY (idQCM),
-    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere)
+    FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE
 );
 
 CREATE TABLE Question (
