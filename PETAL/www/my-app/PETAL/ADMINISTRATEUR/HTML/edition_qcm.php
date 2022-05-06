@@ -54,6 +54,7 @@
                 echo "value=\"-1\"";
             } ?>>
             <input type="hidden" name="nbAjoutQuestionJs" id="nbAjoutQuestionJs" <?php echo "value=\"0\""; ?>>
+            <input type="hidden" name="matiereSelectionner" id="matiereSelectionner" <?php updateMatiere(); ?>>
     	</form>
     </div>
     <script src="../JS/edition_qcm.js"></script>

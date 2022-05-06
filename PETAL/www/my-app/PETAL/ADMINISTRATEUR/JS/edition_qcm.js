@@ -23,12 +23,12 @@ function AjoutImageQCM(num) {
                 reader.readAsDataURL(file);
                 reader.onload = readerEvent => {
                     const content = readerEvent.target.result;
-                    console.log('#bt'+idQ);
                     const b64WithPrefix = reader.result;
-                    document.querySelector('#Image'+idQ).setAttribute("src", b64WithPrefix);
-                    document.querySelector('#Image'+idQ).setAttribute("height", "200px");
-                    document.querySelector('#Image'+idQ).setAttribute("class", "");
-                    document.querySelector('#Himage'+idQ).setAttribute("value", b64WithPrefix);
+                    const b64=b64WithPrefix.substring(b64WithPrefix.indexOf(',') + 1);
+                    document.querySelector('#Image'+idQ).setAttribute("src", "data:image;base64,"+b64);
+                    document.querySelector('#Image'+idQ).setAttribute("height", "100px");
+                    document.querySelector('#Image'+idQ).setAttribute("class", "imageQCM");
+                    document.querySelector('#Himage'+idQ).setAttribute("value", b64);
                 }
             }
             else {
@@ -143,4 +143,9 @@ function ajoutQuestion() {
 }
 function reponse(numR,idQ) {
     document.getElementById('reponseQ'+idQ).setAttribute('value',numR);
+}
+function matiereSelect() {
+    var listSelect=document.getElementById('matiere');
+    var selected=listSelect.options[listSelect.selectedIndex].value;
+    document.getElementById('matiereSelectionner').setAttribute('value',selected);
 }

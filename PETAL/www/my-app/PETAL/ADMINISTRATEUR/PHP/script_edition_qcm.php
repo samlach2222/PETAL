@@ -2,7 +2,7 @@
     // Quand on appuie sur le bouton valider
     if(isset($_POST['valider'])) {
         EnvoiAjoutQCM(0);
-    }//pas fini
+    }
     if(isset($_POST['publier'])) {
         EnvoiAjoutQCM(1);
     }
@@ -37,6 +37,26 @@ function updateNbQuestion()
     }
     
 }
+function updateMatiere()
+{
+    if (!empty($_GET['id'])) {
+        $dsn = "mysql:host=localhost;dbname=petal_db;charset=UTF8";
+        try {
+            $pdo = new PDO($dsn, "root", "root");
+        }
+        catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        $query="SELECT nomMatiere FROM QCM WHERE idQCM=".$_GET['id'];
+        foreach ($pdo->query($query) as $row) { 
+            $nom = $row[0];
+        }
+        echo "value=\"".$nom."\"";
+    } else {
+        echo "value=\"rien\"";
+    }
+    
+}
 
 function AfficheQCM()
 {
@@ -61,13 +81,11 @@ function AfficheQCM()
         $query="SELECT count(idQuestion), idQCM FROM Question WHERE idQCM=".$_GET['id'];
         foreach ($pdo->query($query) as $row) { 
             $nbQ = $row[0];
-            echo "<script>console.log(".$row[0].");</script>";
         }
         $list=array();
         $query="SELECT idQuestion, idQCM FROM Question WHERE idQCM=".$_GET['id'];
         foreach ($pdo->query($query) as $row) { 
             array_push($list, $row[0]);
-            echo "<script>console.log(".$row[0].");</script>";
         }
         for ($i=1; $i <= $nbQ; $i++) { 
             $idQ=current($list);
@@ -88,7 +106,7 @@ function AfficheQCM()
                     echo "<img id='Image".$idQ."' class=\"imageHidden\"><br>";
                     echo "<input type=\"hidden\" id='Himage".$idQ."' name='Himage".$idQ."' value=\"-1\">";}
                 else{
-                    echo "</br><img id='Image".$idQ."' src='data:image;base64,".base64_encode($row[2])."'><br>";
+                    echo "</br><img id=\"Image".$idQ."\" src=\"data:image;base64,".base64_encode($row[2])."\"><br>";
                     echo "<input type=\"hidden\" id='Himage".$idQ."' name='Himage".$idQ."' value=\"".base64_encode($row[2])."\">";
                 }
                 echo "<div id=\"reponses".$idQ."\">";
@@ -152,13 +170,26 @@ function AfficheTitreQCM()
                     <label>Nom</label>
                     <input type=\"text\" required id=\"nom\" name=\"nom\" value=\"".$row[0]."\" maxlength=\"50\">
                 </td>
-                <td><label>Matière</label><select name=\"matiere\" id=\"matiere\">";    
+                <td><label>Matière</label><select name=\"matiere\" id=\"matiere\" onclick=\"matiereSelect()\">
+                "; 
+            $nomMatiere=$row[2];   
         }
+        if ($nomMatiere=="rien") {
+            echo "<option value=\"rien\" select=\"selected\">Sélectionner une matiere</option>";
+        } else {
+            echo "<option value=\"rien\">Sélectionner une matiere</option>";
+        }
+        
         $query=$pdo->prepare("SELECT nomMatiere FROM matiere");
         $query->execute();
         $rows=$query->fetchAll();
         foreach ($rows as $row) {
-            echo "<option value=\"".$row[0]."\">".$row[0]."</option>";
+            if ($row[0]==$nomMatiere) {
+
+                echo "<option value=\"".$row[0]."\" selected=\"selected\">".$row[0]."</option>";
+            } else {
+                echo "<option value=\"".$row[0]."\">".$row[0]."</option>";
+            }
         }
         $query=$pdo->prepare("SELECT dateHeureFin, idQCM FROM QCM WHERE idQCM = :idQCM");
         $query->execute(array('idQCM' => $_GET['id']));
@@ -185,12 +216,13 @@ function AfficheTitreQCM()
                 <label>Nom</label>
                 <input type=\"text\" required id=\"nom\" name=\"nom\" value=\"\" maxlength=\"50\">
             </td>
-            <td><label>Matière</label><select name=\"matiere\" id=\"matiere\">";  
+            <td><label>Matière</label><select name=\"matiere\" id=\"matiere\" onclick=\"matiereSelect()\">
+            <option value=\"rien\" select=\"selected\">Sélectionner une matiere</option>";  
         $query=$pdo->prepare("SELECT nomMatiere FROM matiere");
         $query->execute();
         $rows=$query->fetchAll();
         foreach ($rows as $row) {
-            echo "<option value=\"".$row[0]."\">".$row[0]."</option>";
+            echo "<option name=\"\" value=\"".$row[0]."\">".$row[0]."</option>";
         }
         echo"</select></td>
             <td>
@@ -204,12 +236,18 @@ function EnvoiAjoutQCM($isPublier){
     // Récupération des données
     $nomQCM = $_POST["nom"];
     $dateHeureFin = $_POST['dateHeureFin'];
-    $nomMatiere = $_POST['matiere'];
+    $nomMatiere = $_POST['matiereSelectionner'];
     $nbQuestion=$_POST['nbQuestion'];//nombre de question total
     $nbAjoutQuestion=$_POST['nbAjoutQuestionJs'];//nombre de question ajoute en js
 
     if ($dateHeureFin=="") {
         $dateHeureFin=NULL;
+    }
+    if ($nomMatiere=="rien" && $isPublier==1) {
+        $isPublier=0;
+    }
+    if ($isPublier==1 && $nbQuestion==0) {
+        $isPublier=0;
     }
     // Initialisation connexion BDD
     $dsn = "mysql:host=localhost;dbname=petal_db;charset=UTF8";
@@ -235,6 +273,7 @@ function EnvoiAjoutQCM($isPublier){
                     'publie' => $isPublier,
                     'nomMatiere' => $nomMatiere
                 ]);
+                $etat="ajout";
                 $idQCM=$pdo->lastInsertId();
             } else { //mode modification si aucune question avant dans la BDD
                 $idQCM=$_POST['idQCM'];
@@ -247,6 +286,7 @@ function EnvoiAjoutQCM($isPublier){
                     'nomMatiere' => $nomMatiere,
                     'idQCM' => $idQCM
                 ]);
+                $etat="modification";
             }
 
             if ($executed) {
@@ -301,12 +341,12 @@ function EnvoiAjoutQCM($isPublier){
                     
                 }
                 if ($executed) {
-                    header("Location: ../HTML/liste_qcm.php?ajout=success");
+                    header("Location: ../HTML/liste_qcm.php?".$etat."=success");
                 } else {
-                    header("Location: ../HTML/liste_qcm.php?ajout=error");
+                    header("Location: ../HTML/liste_qcm.php?".$etat."=error");
                 }
             } else {
-                header("Location: ../HTML/liste_qcm.php?ajout=error");
+                header("Location: ../HTML/liste_qcm.php?".$etat."=error");
             }
         }
         
