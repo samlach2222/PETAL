@@ -16,60 +16,48 @@
 <body>
     <?php include("../../ALL/HTML/bandeau.php");?>
     <div id="PageAccueil">
-        <table id="allTable">
-            <tr>
-                <td>
-                    <a href="gestion_matiere.php" style="display:block;" class="lien_matiere">
-                        <div id="essaie">
-                        <table class="gestion">
-                            <tr>
-                                <th>
-                                    <span class="titre">Gestion des matières</span>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td class="image">
-                                    <img class="imageSection" src="../../Ressources/Pictures/matiere.png">
-                                </td>
-                            </tr>
-                        </table>
-                        </div>
-                    </a>
-                </td>
-                <td>
-                    <a href="liste_qcm.php" style="display:block;" class="lien_matiere">
-                        <table class="gestion">
-                            <tr>
-                                <th>
-                                    <span class="titre">Gestion des QCM</span>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td class="image">
-                                    <img class="imageSection" src="../../Ressources/Pictures/qcm.png">
-                                </td>
-                            </tr>
-                        </table>
-                    </a>
-                </td>
-                <td>
-                    <a href="gestion_utilisateurs.php" style="display:block;" class="lien_matiere">
-                        <table class="gestion">
-                            <tr>
-                                <th>
-                                    <span class="titre">Gestion des utilisateurs</span>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td class="image">
-                                    <img class="imageSection" src="../../Ressources/Pictures/utilisateur.png">
-                                </td>
-                            </tr>
-                        </table>
-                    </a>
-                </td>
-            </tr>
-        </table>
+        <a href="gestion_matiere.php" style="display:block;" class="lien_matiere">
+            <table class="gestion">
+                <tr>
+                    <th>
+                        <span class="titre">Gestion des matières</span>
+                    </th>
+                </tr>
+                <tr>
+                    <td class="image">
+                        <img class="imageSection" src="../../Ressources/Pictures/matiere.png">
+                    </td>
+                </tr>
+            </table>
+        </a>
+        <a href="liste_qcm.php" style="display:block;" class="lien_matiere">
+            <table class="gestion">
+                <tr>
+                    <th>
+                        <span class="titre">Gestion des QCM</span>
+                    </th>
+                </tr>
+                <tr>
+                    <td class="image">
+                        <img class="imageSection" src="../../Ressources/Pictures/qcm.png">
+                    </td>
+                </tr>
+            </table>
+        </a>
+        <a href="gestion_utilisateurs.php" style="display:block;" class="lien_matiere">
+            <table class="gestion">
+                <tr>
+                    <th>
+                        <span class="titre">Gestion des utilisateurs</span>
+                    </th>
+                </tr>
+                <tr>
+                    <td class="image">
+                        <img class="imageSection" src="../../Ressources/Pictures/utilisateur.png">
+                    </td>
+                </tr>
+            </table>
+        </a>
     </div>
 </body>
 </html>

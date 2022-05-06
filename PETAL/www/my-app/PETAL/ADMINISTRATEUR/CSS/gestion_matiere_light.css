@@ -71,10 +71,6 @@ body {
     padding-right: 0.2em;
 }
 
-#allMatiere {
-    width: 100%;
-}
-
 .matiere {
     border: 0.1vh solid #1f1e1f;
     border-radius: 10%;

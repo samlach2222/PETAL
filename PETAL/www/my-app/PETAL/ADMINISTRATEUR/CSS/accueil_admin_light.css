@@ -17,12 +17,11 @@ body {
 }
 
 #PageAccueil {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    margin-top: 7em;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2em 1em;
+    row-gap: 1.5em;
 }
 
 /* DISABLE THE POPUP */
@@ -41,8 +40,6 @@ body {
 .lien_matiere{
     width: 60vh;
     height: 80vh;
-    margin-left: 3.5vh;
-    margin-right: 3.5vh;
 }
 
 .image{
