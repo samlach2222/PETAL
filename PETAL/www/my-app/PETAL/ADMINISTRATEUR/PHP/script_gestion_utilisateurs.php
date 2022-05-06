@@ -39,8 +39,8 @@
                 echo $e->getMessage();
             }
 
-            // UPDATE MATIERE
-            $query = "UPDATE matiere SET num = null WHERE num IN (";
+            // UPDATE SUJETFORUM
+            $query = "UPDATE sujetforum SET num = null WHERE num IN (";
             foreach($idList as $id){
                 if($id == end($idList)) {
                     $query .= $id.")";
@@ -51,8 +51,8 @@
             }
             $pdo->exec($query);
 
-            // UPDATE SUJETFORUM
-            $query = "UPDATE sujetforum SET num = null WHERE num IN (";
+            // UPDATE MESSAGEFORUM
+            $query = "UPDATE messageforum SET num = null WHERE num IN (";
             foreach($idList as $id){
                 if($id == end($idList)) {
                     $query .= $id.")";

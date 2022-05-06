@@ -11,19 +11,6 @@ if(isset($_POST)){
             echo $e->getMessage();
         }
 
-        // UPDATE QCM
-        $query = "UPDATE qcm SET nomMatiere = null WHERE nomMatiere IN (";
-
-        foreach($nameList as $name){
-            if($name == end($nameList)) {
-                $query .= "'".$name."')";
-            }
-            else {
-                $query .= "'".$name."', ";
-            }
-        }
-        $pdo->exec($query);
-
         // DELETE
         $query = "DELETE FROM matiere WHERE nomMatiere IN ( ";
         foreach($nameList as $name){
