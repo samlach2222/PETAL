@@ -109,8 +109,8 @@
                     } else {
                         echo '<span class="message-nom">Utilisateur supprimé</span>';
                     }
-                    echo '<span class="message-date">'.$row[3].'</span>
-                </div>
+                    echo '<span class="message-date">'.$row[3].'</span>';
+                echo '</div>
                 <div class="message-contenu">'.$row[4].'</div>';
 
             echo '</div>';

@@ -14,7 +14,7 @@
         echo '<div id="messages">';   
     }
 
-    $prepared = $pdo->prepare("SELECT num, nom, prenom, dateHeure, contenuMessage FROM utilisateur NATURAL JOIN messageforum WHERE idSujetForum = :idSujetForum ORDER BY dateHeure;", array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+    $prepared = $pdo->prepare("SELECT utilisateur.num, nom, prenom, dateHeure, contenuMessage FROM utilisateur RIGHT JOIN messageforum ON utilisateur.num = messageforum.num WHERE idSujetForum = :idSujetForum ORDER BY dateHeure;", array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
     $prepared->execute(array('idSujetForum' => $_POST['idSujetForum']));
     $rows = $prepared->fetchAll();
 
@@ -25,11 +25,16 @@
             echo '<div class="message-recu">';
         }
 
-            echo '<div class="message-entete">
-                <span class="message-nom">'.ucfirst(mb_strtolower($row[2], 'UTF-8')).' '.mb_strtoupper($row[1], 'UTF-8').'</span>
-                <span class="message-date">'.$row[3].'</span>
-            </div>
-            <div class="message-contenu">'.$row[4].'</div>';
+                echo '<div class="message-entete">';
+                    //Affiche étudiant supprimé si c'est le cas
+                    if ($row[0]) {
+                        echo '<span class="message-nom">'.ucfirst(mb_strtolower($row[2], 'UTF-8')).' '.mb_strtoupper($row[1], 'UTF-8').'</span>';
+                    } else {
+                        echo '<span class="message-nom">Utilisateur supprimé</span>';
+                    }
+                    echo '<span class="message-date">'.$row[3].'</span>';
+                echo '</div>
+                <div class="message-contenu">'.$row[4].'</div>';
 
         echo '</div>';
     }
