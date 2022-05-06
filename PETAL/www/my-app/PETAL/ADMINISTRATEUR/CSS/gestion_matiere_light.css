@@ -71,7 +71,7 @@ body {
     padding-right: 0.2em;
 }
 
-#allMatiere{
+#allMatiere {
     width: 100%;
 }
 
@@ -84,16 +84,13 @@ body {
     height: 45vh;
 }
 
-.input_matiere{
+.input_matiere {
     width: 4vh;
     height: 4vh;
     border-color: #1f1e1f;
-    position: absolute;
-    margin-left: 6vh;
-    margin-top: 5vh;
 }
 
-.lien_matiere{
+.lien_matiere {
     width: 45vh;
     height: 45vh;
     margin-left: 15%;
@@ -102,13 +99,32 @@ body {
     margin-bottom: 5%;
 }
 
-th{
+th {
     height: 7vh;
     font-size: 2vh;
     color: #1f1e1f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
-.image{
+.img-ajout-etudiant-matiere {
+    width: 4vh;
+    height: 4vh;
+    vertical-align: middle;
+}
+
+.img-ajout-etudiant-matiere:hover {
+    filter: invert(1);
+}
+
+.tr-image {
+    height: 100%;
+}
+
+.td-image {
     border-top: 0.1vh solid #1f1e1f;
     font-size: 1.5vh;
     text-align: center;

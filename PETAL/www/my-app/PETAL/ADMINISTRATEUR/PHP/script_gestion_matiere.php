@@ -36,25 +36,28 @@ if(isset($_POST)){
         }
 
         // Requete de récupération de tout les utilisateurs
-        $query = "SELECT nomMatiere, image from matiere";
-
+        $query = "SELECT nomMatiere, image from matiere WHERE num = :num";
+        $prepared = $pdo->prepare($query, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+        $prepared->execute(array('num' => $_SESSION['num']));
+        $rows = $prepared->fetchAll();
+        
         $count = 0;
-        foreach ($pdo->query($query) as $row) {
+        foreach ($rows as $row) {
             if($count == 0){
                 echo "<tr>";
             }
             echo "<td>
-                        <input class=\"input_matiere\" type=\"checkbox\" name=\"key\" value=\"value\" />
                         <a href=\"gestion_cours.php?matiere=".$row[0]."\" style=\"display:block;\" class=\"lien_matiere\">
                             <table class=\"matiere\">
                                 <tr>
                                     <th>
-                                        <span class=\"police\">".$row[0]."</span>                               
+                                        <input class=\"input_matiere\" type=\"checkbox\" name=\"key\" value=\"value\" />
+                                        <span class=\"police\">".$row[0]."</span>
+                                        <a href=\"ajout_etudiant_matiere.php?matiere=".$row[0]."\"><img class=\"img-ajout-etudiant-matiere\" src=\"../../Ressources/Pictures/utilisateur.png\"></a>
                                     </th>
                                 </tr>
-                                <tr>
-                                    <td class=\"image\" style=\"background-image: url('data:image;base64,".base64_encode($row[1])."'); background-repeat: no-repeat; background-size: cover \">
-                                        
+                                <tr class=\"tr-image\">
+                                    <td class=\"td-image\" style=\"background-image: url('data:image;base64,".base64_encode($row[1])."'); background-repeat: no-repeat; background-size: cover \">
                                     </td>
                                 </tr>                       
                             </table>
