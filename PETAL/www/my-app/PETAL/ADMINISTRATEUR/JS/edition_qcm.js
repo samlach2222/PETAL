@@ -1,4 +1,5 @@
 var comp=parseInt(document.getElementById('nbQuestion').value);
+var nbA=parseInt(document.getElementById('nbAjoutQuestionJs').value);
 
 function AjoutImageQCM(num) {
     var idQ="";
@@ -40,6 +41,7 @@ function AjoutImageQCM(num) {
 
 function ajoutQuestion() {
     comp++;
+    nbA++;
     var question=document.createElement('div');
     question.setAttribute('class','question');
     question.setAttribute('id','q'+comp);
@@ -80,8 +82,9 @@ function ajoutQuestion() {
     img.setAttribute('class','imageHidden');
     question.appendChild(img); question.appendChild(document.createElement('br'));
     var inputH=document.createElement('input');
-    inputH.setAttribute('value','');
+    inputH.setAttribute('value','-1');
     inputH.setAttribute('id','Himage'+comp);
+    inputH.setAttribute('name','Himage'+comp);
     inputH.setAttribute('type','hidden');
     question.appendChild(inputH);
 
@@ -136,7 +139,7 @@ function ajoutQuestion() {
     document.getElementById('questions').appendChild(question);
     document.getElementById('nbQuestion').setAttribute('value',comp);
 
-    document.getElementById('nbAjoutQuestion').setAttribute('value',parseInt(document.getElementById('nbAjoutQuestion'))+1);
+    document.getElementById('nbAjoutQuestionJs').setAttribute('value',nbA);
 }
 function reponse(numR,idQ) {
     document.getElementById('reponseQ'+idQ).setAttribute('value',numR);
