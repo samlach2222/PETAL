@@ -5,7 +5,6 @@ body {
     background-color: #F5F5F5;
     color: #1F1E1F;
     font-family: Quicksand;
-    /*src: url(../../Ressources/Fonts/Quicksand/Quicksand-VaribleFont_wght.ttf);*/
     width: 100%;
 }
 
@@ -16,7 +15,6 @@ body {
 
 h1 {
     font-family: Volkorn;
-    /*src: url(../../Ressources/Fonts/Volkorn/Volkorn-VariableFont_wght.ttf);*/
     text-align: center;
 }
 

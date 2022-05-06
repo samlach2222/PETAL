@@ -27,6 +27,7 @@ body {
     padding-left: 0.5em;
 }
 #titrePage{
+    font-family: Volkorn;
 	text-align: center;
     font-size: 1.5em;
     height: 20%;
@@ -35,6 +36,7 @@ li{
 	list-style: none;
 }
 #titre{
+    font-family: Volkorn;
 	text-align: center;
 	margin-left:30%;
 	margin-right:25%;
