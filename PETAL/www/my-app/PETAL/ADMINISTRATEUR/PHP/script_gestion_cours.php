@@ -4,7 +4,7 @@
         if($_GET['ajout'] == "success") {
             echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
             echo '<script src="../../ALL/JS/notify.js"></script>';
-            echo '<script>AlertSuccess("cours ajouté avec succès");</script>';
+            echo '<script>AlertSuccess("Cours ajouté avec succès");</script>';
         }
         else if ($_GET['ajout'] == "error") {
             echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
@@ -23,7 +23,7 @@
             // chargement de la notification
             echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
             echo '<script src="../../ALL/JS/notify.js"></script>';
-            echo '<script>AlertSuccess("Modification effectée avec succès");</script>';
+            echo '<script>AlertSuccess("Cours modifié avec succès");</script>';
         }
     }
     // Permet de supprimer par ID les utilisateurs

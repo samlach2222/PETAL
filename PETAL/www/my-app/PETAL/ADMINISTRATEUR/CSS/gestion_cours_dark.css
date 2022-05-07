@@ -100,7 +100,7 @@ label > input[type="checkbox"] + *:hover {
     font-size: 105%;
 }
 #plus {
-    content: url("../../Ressources/Pictures/Plus_Picture_Light.png");
+    content: url("../../Ressources/Pictures/Plus_Dark.png");
 }
 
 #crayon {

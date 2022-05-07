@@ -29,11 +29,14 @@ function EditerCours() {
 
     if(idList.length === 1) {
         let id = idList[0];
+        var nom=document.getElementById('matiere').value;
         // Requete POST via AJAX
-        window.location.replace("../HTML/edition_cours.php?id="+id);
+        window.location.replace("../HTML/edition_cours.php?id="+id+"&matiere="+nom);
     }
-    else {
-        AlertError("Vous ne pouvez pas modifier plus d'un Cours");
+    else if (idList.length > 1) {
+        AlertError("Vous ne pouvez pas modifier plus d'un cours");
+    } else {
+        AlertError("Vous n'avez pas sélectionner de cours");
     }
 }
 function AjoutCours() {
