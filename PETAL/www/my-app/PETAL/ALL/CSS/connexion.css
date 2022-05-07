@@ -1,10 +1,21 @@
-body{
+@font-face {
+    font-family: Quicksand;
+    src: url(../../Ressources/Fonts/Quicksand/Quicksand-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: Vollkorn;
+    src: url(../../Ressources/Fonts/Vollkorn/Vollkorn-VariableFont_wght.ttf);
+}
+
+body {
     text-align:center;
     color: #1F1E1F;
     background-image: url(../../Ressources/Pictures/landscape2.png);
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
+    font-family: Quicksand, sans-serif;
 }
 
 div {
@@ -27,8 +38,9 @@ button {
     color: #1F1E1F;
 }
 
-p{
+p {
     font-size: 2em;
+    font-family: Vollkorn, serif;
 }
 
 span {
@@ -40,7 +52,7 @@ span {
     padding-left: 0.3em;
 }
 
-label{
+label {
     font-size: 1.2em;
 }
 
