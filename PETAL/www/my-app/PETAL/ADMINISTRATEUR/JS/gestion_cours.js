@@ -12,7 +12,7 @@ function SupprimerCours() {
     });
     let jsonArray = JSON.stringify(idList);
     // Requete POST via AJAX
-    $.post('../PHP/script_cours.php', {
+    $.post('../PHP/script_gestion_cours.php', {
         data: jsonArray
     });
 }
