@@ -1,6 +1,6 @@
 var popupOuvert = false;
 const popup = document.getElementById('popup');
-const topBarHauteur = document.getElementById('top-bar').getBoundingClientRect().height;
+var topBarHauteur = document.getElementById('top-bar').getBoundingClientRect().height;
 const lightTopBarBottomBorder = 4; //getComputedStyle(document.getElementById('top-bar'),null).getPropertyValue('border-bottom').substr(0, getComputedStyle(document.getElementById('top-bar'),null).getPropertyValue('border-bottom').indexOf('px'));
 var popupAnimation = null;
 
@@ -72,7 +72,7 @@ function ChangerTheme() {
             let newcss = css.replace("dark", "light");
             document.querySelector("link[rel='stylesheet']").setAttribute("href", newcss);
             
-            i += lightTopBarBottomBorder;
+            topBarHauteur += lightTopBarBottomBorder;
         }
         else if(cookieValue == 0){
             document.cookie = cookieDark; // dark theme
@@ -80,11 +80,13 @@ function ChangerTheme() {
             let newcss = css.replace("light", "dark");
             document.querySelector("link[rel='stylesheet']").setAttribute("href", newcss);
             
-            i -= lightTopBarBottomBorder;
+            topBarHauteur -= lightTopBarBottomBorder;
         }
     }
 
-    popup.style.top = i+"px";
+    if (popupOuvert && popupAnimation == null) {
+        popup.style.top = topBarHauteur+"px";
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function(){
