@@ -55,7 +55,7 @@ a {
 
 #popup {
     position: absolute;
-    right: 0;
+    right: 0.5em;
     border-color: #A30080;
     border-style: solid;
     border-top: 0;
