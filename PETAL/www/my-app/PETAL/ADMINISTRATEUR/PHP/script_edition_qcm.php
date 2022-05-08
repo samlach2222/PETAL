@@ -106,7 +106,7 @@ function AfficheQCM()
                     echo "<img id='Image".$idQ."' class=\"imageHidden\"><br>";
                     echo "<input type=\"hidden\" id='Himage".$idQ."' name='Himage".$idQ."' value=\"-1\">";}
                 else{
-                    echo "</br><img id=\"Image".$idQ."\" src=\"data:image;base64,".base64_encode($row[2])."\"><br>";
+                    echo "</br><img class='Image' id=\"Image".$idQ."\" src=\"data:image;base64,".base64_encode($row[2])."\"><br>";
                     echo "<input type=\"hidden\" id='Himage".$idQ."' name='Himage".$idQ."' value=\"".base64_encode($row[2])."\">";
                 }
                 echo "<div id=\"reponses".$idQ."\">";
@@ -409,7 +409,7 @@ function EnvoiAjoutQCM($isPublier){
                                 }
                                 if ($image=="-1") {
                                     $image=NULL;
-                                    $statement = $pdo->prepare('UPDATE question SET intitulé=:intitule, image=:image, reponseALaQuestion=:reponseALaQuestion, choix1=:choix1,choix2=:choix2,choix3=:choix3 WHERE idQCM=:idQCM');
+                                    $statement = $pdo->prepare('UPDATE question SET intitulé=:intitule, image=:image, reponseALaQuestion=:reponseALaQuestion, choix1=:choix1,choix2=:choix2,choix3=:choix3 WHERE idQCM=:idQCM AND idQuestion=:idQuestion');
                                     $executed = $statement->execute([
                                         'intitule' => $intitule,
                                         'image' => $image,
@@ -417,11 +417,12 @@ function EnvoiAjoutQCM($isPublier){
                                         'choix1' => $choix1,
                                         'choix2' => $choix2,
                                         'choix3' => $choix3,
-                                        'idQCM' => $idQCM
+                                        'idQCM' => $idQCM,
+                                        'idQuestion' => $idQ
                                     ]);
                                 }else
                                 {
-                                    $statement = $pdo->prepare('UPDATE question SET intitulé=:intitule, image=:image, reponseALaQuestion=:reponseALaQuestion, choix1=:choix1,choix2=:choix2,choix3=:choix3 WHERE idQCM=:idQCM');
+                                    $statement = $pdo->prepare('UPDATE question SET intitulé=:intitule, image=:image, reponseALaQuestion=:reponseALaQuestion, choix1=:choix1,choix2=:choix2,choix3=:choix3 WHERE idQCM=:idQCM AND idQuestion=:idQuestion');
                                     $executed = $statement->execute([
                                         'intitule' => $intitule,
                                         'image' => base64_decode($image),
@@ -429,7 +430,8 @@ function EnvoiAjoutQCM($isPublier){
                                         'choix1' => $choix1,
                                         'choix2' => $choix2,
                                         'choix3' => $choix3,
-                                        'idQCM' => $idQCM
+                                        'idQCM' => $idQCM,
+                                        'idQuestion' => $idQ
                                     ]);
                                 }
                                 next($list);

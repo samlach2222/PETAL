@@ -83,3 +83,7 @@ td{
 .imageHidden{
     display: none;
 }
+
+.Image {
+    height: 100px;
+}
