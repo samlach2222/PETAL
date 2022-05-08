@@ -35,7 +35,6 @@
     //Insert un etudiant avec son numero l'id de la question et sa réponse choisie pour la question, si le Select de $req6 retourne false 
     $req7 = $pdo->prepare('INSERT INTO reponsedeetudiant VALUES (:num, :idQuestion, :repChoisi)');
 
-
     for($i=1; $i<=count($question); $i++){
         if(isset($_POST["reponse".$i])){
             //on execute req6 qui va permettre de savoir si une réponse a déjà été enregistré pour cette réponse
@@ -59,11 +58,6 @@
                 $resultat++;
             }
         }
-        else {
-            //update sur repondeDeEtudiant si pas de réponse choisi 
-            $req5 = $pdo->prepare('UPDATE reponsedeetudiant SET reponseChoisie = :rep WHERE num = :num AND idQuestion = :idQuestion');
-            $req5->execute(array('rep' => NULL, 'num' => $num, 'idQuestion' => $question[$i-1][0]));
-        }
     }
 
 
@@ -82,7 +76,7 @@
     <br/>
     <br/>
 
-    <form action='' method='post' onsubmit='return false'>
+    <form action='' method='post'>
     ";
     
     $n = 1;
@@ -99,26 +93,73 @@
                 <img src='data:image;base64,".base64_encode($row[2])."'> </img>
                 ";
         }
-            echo"
+
+        echo"
             </div>
             <br/>
                 <span id='rep'> Reponse ".$n." :</span>
                     <br/>                
-                    <label>
-                        <input type='radio' name=\"reponse".$n."\" value='1'/> ".$row[4]."
+                    <label>";
+
+
+        $req6->execute(array('num' => $num, 'idQuestion' => $row[0])); // on prépare avec l'id utilisateur et l'id question
+        $res = $req6->fetch();
+
+        $reponseChoisieBdd = $res[2];
+        if($res[2] != null){
+            switch($res[2]){
+                case 1:
+                    echo"
+                        <input type='radio' checked name=\"reponse".$n."\" value='1'/> ".$row[4]."
                         <br/>
                         <input type='radio' name=\"reponse".$n."\" value='2'/> ".$row[5]." 
                         <br/>
                         <input type='radio' name=\"reponse".$n."\" value='3'/> ".$row[6]." 
                         <br/>
-                    </label>
-        </div>
-        ";
+                        </label>
+                        </div>";
+                    break;
+                case 2:
+                    echo"
+                        <input type='radio' name=\"reponse".$n."\" value='1'/> ".$row[4]."
+                        <br/>
+                        <input type='radio' checked name=\"reponse".$n."\" value='2'/> ".$row[5]." 
+                        <br/>
+                        <input type='radio' name=\"reponse".$n."\" value='3'/> ".$row[6]." 
+                        <br/>
+                        </label>
+                        </div>";
+                    break;
+                case 3:
+                    echo"
+                        <input type='radio' name=\"reponse".$n."\" value='1'/> ".$row[4]."
+                        <br/>
+                        <input type='radio' name=\"reponse".$n."\" value='2'/> ".$row[5]." 
+                        <br/>
+                        <input type='radio' checked name=\"reponse".$n."\" value='3'/> ".$row[6]." 
+                        <br/>
+                        </label>
+                        </div>";
+                    break;
+            }
+        }
+        else {
+            echo"
+                <input type='radio' name=\"reponse".$n."\" value='1'/> ".$row[4]."
+                <br/>
+                <input type='radio' name=\"reponse".$n."\" value='2'/> ".$row[5]." 
+                <br/>
+                <input type='radio' name=\"reponse".$n."\" value='3'/> ".$row[6]." 
+                <br/>
+                </label>
+                </div>";
+        }
+
         $n++;
     }
 
     echo "
-        <button type ='submit' id='valider'>
+        <button type='submit' id='valider'>
             Valider
         </button>
         </form>
