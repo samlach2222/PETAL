@@ -30,8 +30,6 @@
                 </div>
             </form>
         </div>
-        <!-- envoie un mail à l'utilisateur -->
-        <a href="https://www.google.com">Mot de passe oublié</a>
     </div>
     </div>
 
