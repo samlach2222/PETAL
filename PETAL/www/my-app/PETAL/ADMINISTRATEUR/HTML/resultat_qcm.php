@@ -11,14 +11,14 @@
     ?>
     <link rel="icon" type="image/x-icon" href="../../Ressources/Icon/logo%20PETAL.svg">
     <meta charset="UTF-8">
-    <title>Resultat du QCM</title>
+    <title>Résultats du QCM</title>
 </head>
 <body>
     <?php include("../../ALL/HTML/bandeau.php");
     include("../PHP/script_resultat_qcm.php");?>
     <div id="corps">
     	<div id="titre">
-    		<h1>Resultat QCM 1</h1>
+    		<h1>Résultats de <?php AfficheNomQCM(); ?></h1>
     	</div>
         <div id="conteneurRetour"><a href="liste_qcm.php" id="retour">retour</a></div>
         <div id="tableaux">
