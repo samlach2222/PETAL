@@ -7,7 +7,7 @@ definer_user=root
 definer_host=localhost
 suid=2
 with_check_option=0
-timestamp=2022-05-06 07:49:37
+timestamp=2022-05-08 21:44:20
 create-version=1
 source=SELECT idSujetForum, nomSujet, nom, prenom, nbMessages, resolu, nomMatiere, sujetforum.num\n    FROM sujetforum NATURAL JOIN (\n        SELECT idSujetForum, COUNT(*) AS nbMessages\n        FROM messageforum\n        GROUP BY idSujetForum\n    ) AS tableNbMessages LEFT JOIN utilisateur ON sujetforum.num = utilisateur.num
 client_cs_name=utf8mb4
