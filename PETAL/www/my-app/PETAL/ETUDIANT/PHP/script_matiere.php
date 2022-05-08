@@ -75,7 +75,7 @@
     $donnees5 = $pdo->query($sql5);
     while ($tmp5 = $donnees5->fetch())
     {
-        echo "<a href=\"qcm.php?id=".$tmp5[1]."\" target=\"_blank\" class=\"lien\"><div>".$tmp5[0]."</div></a>";
+        echo "<a href=\"qcm.php?id=".$tmp5[1]."\" class=\"lien\"><div>".$tmp5[0]."</div></a>";
     }
 
     echo "
@@ -85,6 +85,6 @@
     $donnees6 = $pdo->query($sql6);
     while ($tmp6 = $donnees6->fetch())
     {
-        echo "<a href=\"qcm.php?id=".$tmp6[1]."\" target=\"_blank\" class=\"lien\"><div>".$tmp6[0]."</div></a>";
+        echo "<a href=\"qcm.php?id=".$tmp6[1]."\" class=\"lien\"><div>".$tmp6[0]."</div></a>";
     }
 ?>
