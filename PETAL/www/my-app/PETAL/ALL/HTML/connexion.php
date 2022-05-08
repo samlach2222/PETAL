@@ -14,7 +14,7 @@
         <div id="second">
             <form method="POST">
                 <label for="nom_user">Nom d'utilisateur</label>
-                <span class="hovertext" data-hover="adresse mail ou numéro d'étudiant">?</span>
+                <span class="hovertext" data-hover="adresse mail ou numéro d'utilisateur">?</span>
                 <br/>
                 <input type="text" id="nom_user" name="nom_user" maxlength="75"/>
                 <br/>

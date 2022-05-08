@@ -28,19 +28,18 @@
             <table id="info">
                 <tr>
                     <td>
-                        <p> NOM Prenom :</p>
+                        <p> Prénom NOM :</p>
                         <output id="name"> <?php echo $_SESSION['nom'] ?> </output>
-                        
                     </td>
                     <td>
-                        <p> Numero Telephone :</p>
+                        <p> Numéro de téléphone :</p>
                         <output id="numTel"> <?php echo $_SESSION['numTel'] ?> </output>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <p> Identifiant :</p>
-                        <output id="idEtu"> <?php echo $_SESSION['num'] ?> </output>
+                        <p> Numéro d'utilisateur :</p>
+                        <output id="idAdmin"> <?php echo $_SESSION['num'] ?> </output>
                     </td>
                     <td>
                         <p> Mail :</p>
@@ -50,7 +49,7 @@
             </table>
 
         </div>
-        </br>
+        <br/>
 
         <?php include("../PHP/script_tableau_perso.php");?>
 

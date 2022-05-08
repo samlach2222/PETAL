@@ -27,17 +27,17 @@
             <table id="info">
                 <tr>
                     <td>
-                        <p> NOM Prenom :</p>
+                        <p> Prénom NOM :</p>
                         <output id="name"> <?php echo $_SESSION['nom'] ?> </output>
                     </td>
                     <td>
-                        <p> Numero Administrateur :</p>
+                        <p> Numéro de téléphone :</p>
                         <output id="numTel"> <?php echo $_SESSION['numTel'] ?> </output>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <p> Identifiant :</p>
+                        <p> Numéro d'utilisateur :</p>
                         <output id="idAdmin"> <?php echo $_SESSION['num'] ?> </output>
                     </td>
                     <td>
@@ -48,7 +48,7 @@
             </table>
 
         </div>
-        </br>
+        <br/>
     </div>
 
 </body>
