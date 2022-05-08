@@ -75,7 +75,7 @@
                     <label>
                         <input type=\"hidden\" name=\"idCours\" value=\"" . $row[1] . "\" id=\"idCours\"/>
                         <input type=\"checkbox\" class=\"CB\" name=\"cours\" value=\"value\"/>
-                        <span>" .ucfirst(strtolower($row[0])). "</span>
+                        <span>".$row[0]."</span>
                     </label>
                 </li>";
             }

@@ -28,9 +28,9 @@
         foreach ($pdo->query($queryR) as $row) {
             $query = "SELECT prenom, nom, num FROM utilisateur WHERE num = " . $row[0];
             foreach ($pdo->query($query) as $row2) {
-                echo "<tr class=\"note\"><td>".strtoupper($row2[1])." ".ucfirst(strtolower($row2[0]))."</td>";
+                echo "<tr class=\"note\"><td>".ucfirst(mb_strtolower($row2[0], 'UTF-8')).' '.mb_strtoupper($row2[1], 'UTF-8')."</td>";
             }
-            echo "<td><span>".strtoupper($row[1])."/20</span></td></tr>";
+            echo "<td><span>".str_replace('.',',',$row[1])."/20</span></td></tr>";
         }
     }
     function AfficheMoyenneQCM() {
@@ -44,7 +44,7 @@
         $idQCM=$_GET['id'];
         $queryM = "SELECT moyenne, idQCM FROM moyenneqcm WHERE idQCM = " . $idQCM;
         foreach ($pdo->query($queryM) as $row) {
-            echo "<span>".strtoupper($row[0])." /20 </span>";
+            echo "<span>".str_replace('.',',',$row[0])."/20 </span>";
         }
     }
 ?>
