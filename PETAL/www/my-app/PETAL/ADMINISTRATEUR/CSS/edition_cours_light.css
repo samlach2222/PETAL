@@ -52,12 +52,15 @@ table {
     border: 3px solid #1f1e1f;
     background: url("../../Ressources/Pictures/Plus_Picture_Light.png") no-repeat center #cd5162;
     background-size: 50%;
+    color: #1f1e1f;
+    white-space: pre-wrap;
 }
 
 input[type="text"] {
     background-color: #f88c95;
     border: 3px solid #1f1e1f;
     height: 2em;
+    color: #1f1e1f;
 }
 #typeCours{
     color: 1F1E1F;

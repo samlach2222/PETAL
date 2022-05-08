@@ -14,13 +14,16 @@
     <title>Edition d'un cours</title>
 </head>
 <body>
-<?php include("../../ALL/HTML/bandeau.php");
-include("../PHP/script_edition_cours.php");?>
+<?php
+    include("../PHP/script_edition_cours.php");
+    RedirectGestion();
+    include("../../ALL/HTML/bandeau.php");
+?>
 <div id="content">
     <div id="title">
         <h1 id="createAdmin">Ajout de cours</h1>
     </div>
-    <form>
+    <form method="POST" enctype="multipart/form-data">
         <table>
             <?php AffichageEdition(); ?>
             <tr>
@@ -28,7 +31,7 @@ include("../PHP/script_edition_cours.php");?>
                     <input type="submit" name="valider" value="Valider" id="valider">
                 </td>
                 <td>
-                    <input type="button" name="annuler" value="Annuler" id="annuler" onClick="window.location.href='gestion_cours.php'">
+                    <input type="button" name="annuler" value="Annuler" id="annuler" onClick="window.location.href='gestion_cours.php?matiere=<?php echo $_GET['matiere']; ?>'">
                 </td>
             </tr>
         </table>
