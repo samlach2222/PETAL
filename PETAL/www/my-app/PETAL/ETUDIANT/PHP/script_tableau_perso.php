@@ -37,9 +37,9 @@
 
 	for($i=0; $i<count($matiere); $i++){
 		for($j=0; $j<count($notes); $j++){
-			if($matiere[$i][0] == $notes[$j][1]){
-				$moyenne[$i] = $notes[$j][0];
-				$mention[$i] = mention($notes[$j][0]);
+			if($matiere[$i][0] == $notes[$j][0]){
+				$moyenne[$i] = str_replace('.',',',$notes[$j][1]).'/20,00';
+				$mention[$i] = mention($notes[$j][1]);
 			}
 			else{
 				$moyenne[$i] = "/";
@@ -61,7 +61,6 @@
             </tr>
 		";
 	}
-
 
 	echo"
 			</table>
