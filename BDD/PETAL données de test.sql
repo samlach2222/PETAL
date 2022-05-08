@@ -47,9 +47,9 @@ ALTER TABLE cours AUTO_INCREMENT = 1;
 INSERT INTO cours VALUES (NULL, 'CM01 - Introduction à la sieste', '/my-app/PETAL/Cours/Sieste quantique/Academie_du_sommeil-sieste-3.pdf', 'CM', 'Sieste quantique');
 
 ALTER TABLE qcm AUTO_INCREMENT = 1;
-INSERT INTO qcm VALUES (NULL, 'Contrôle histoire de la sieste', '2022-12-25 23:59:59', '1', '1', 'Sieste quantique');
-INSERT INTO qcm VALUES (NULL, 'La sieste dans le monde', '2022-09-01 23:59:59', '1', '1', 'Sieste quantique');
-INSERT INTO qcm VALUES (NULL, 'Test de connaissances', NULL, '0', '0', 'Sieste quantique');
+INSERT INTO qcm VALUES (NULL, 'Contrôle histoire de la sieste', '2022-12-25 23:59:59', '1', 'Sieste quantique');
+INSERT INTO qcm VALUES (NULL, 'La sieste dans le monde', '2022-09-01 23:59:59', '1', 'Sieste quantique');
+INSERT INTO qcm VALUES (NULL, 'Test de connaissances', NULL, '0', 'Sieste quantique');
 
 ALTER TABLE question AUTO_INCREMENT = 1;
 INSERT INTO question VALUES (NULL, 'En quelle année Christophe Colomb a découvert la sieste ?', NULL, '1', '1492', '2022', '1789', '1');
