@@ -16,7 +16,7 @@ DROP TABLE IF EXISTS ReponseDeEtudiant;
 
 -- Creation des tables
 CREATE TABLE Utilisateur (
-    num INT NOT NULL,
+    num INT UNSIGNED NOT NULL,
     admin BOOLEAN NOT NULL DEFAULT false,
     photoProfil MEDIUMBLOB,
     nom VARCHAR(50) NOT NULL,
@@ -30,13 +30,13 @@ CREATE TABLE Utilisateur (
 CREATE TABLE Matiere (
     nomMatiere VARCHAR(50) NOT NULL,
     image MEDIUMBLOB,
-    num INT NOT NULL,
+    num INT UNSIGNED NOT NULL,
     PRIMARY KEY(nomMatiere),
     FOREIGN KEY(num) REFERENCES Utilisateur(num) ON DELETE CASCADE
 );
 
 CREATE TABLE EtuMatiere (
-    num INT NOT NULL,
+    num INT UNSIGNED NOT NULL,
     nomMatiere VARCHAR(50) NOT NULL,
     PRIMARY KEY (num, nomMatiere),
     FOREIGN KEY (num) REFERENCES Utilisateur(num) ON DELETE CASCADE,
@@ -44,29 +44,29 @@ CREATE TABLE EtuMatiere (
 );
 
 CREATE TABLE SujetForum (
-    idSujetForum INT NOT NULL AUTO_INCREMENT,
+    idSujetForum INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nomSujet VARCHAR(50) NOT NULL,
     resolu BOOLEAN NOT NULL DEFAULT false,
     nomMatiere VARCHAR(50) NOT NULL,
-    num INT,
+    num INT UNSIGNED,
     PRIMARY KEY (idSujetForum),
     FOREIGN KEY (nomMatiere) REFERENCES Matiere(nomMatiere) ON DELETE CASCADE,
     FOREIGN KEY (num) REFERENCES Utilisateur(num)
 );
 
 CREATE TABLE MessageForum (
-    idMessage INT NOT NULL AUTO_INCREMENT,
+    idMessage INT UNSIGNED NOT NULL AUTO_INCREMENT,
     contenuMessage VARCHAR(2000) NOT NULL,
     dateHeure DATETIME NOT NULL,
-    idSujetForum INT NOT NULL,
-    num INT,
+    idSujetForum INT UNSIGNED NOT NULL,
+    num INT UNSIGNED,
     PRIMARY KEY (idMessage),
     FOREIGN KEY (idSujetForum) REFERENCES SujetForum(idSujetForum) ON DELETE CASCADE,
     FOREIGN KEY (num) REFERENCES Utilisateur(num)
 );
 
 CREATE TABLE Cours (
-    idCours INT NOT NULL AUTO_INCREMENT,
+    idCours INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nomCours VARCHAR(50) NOT NULL,
     fichier VARCHAR(512) NOT NULL,
     typeCours ENUM('CM','TD','TP') NOT NULL,
@@ -76,7 +76,7 @@ CREATE TABLE Cours (
 );
 
 CREATE TABLE QCM (
-    idQCM INT NOT NULL AUTO_INCREMENT,
+    idQCM INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nomQCM VARCHAR(50) NOT NULL,
     dateHeureFin DATETIME,
     evalue BOOLEAN NOT NULL,
@@ -87,21 +87,21 @@ CREATE TABLE QCM (
 );
 
 CREATE TABLE Question (
-    idQuestion INT NOT NULL AUTO_INCREMENT,
+    idQuestion INT UNSIGNED NOT NULL AUTO_INCREMENT,
     intitulé VARCHAR(300) NOT NULL,
     image MEDIUMBLOB,
     reponseALaQuestion TINYINT NOT NULL,
     choix1 VARCHAR(150) NOT NULL,
     choix2 VARCHAR(150) NOT NULL,
     choix3 VARCHAR(150) NOT NULL,
-    idQCM INT NOT NULL,
+    idQCM INT UNSIGNED NOT NULL,
     PRIMARY KEY (idQuestion),
     FOREIGN KEY (idQCM) REFERENCES QCM(idQCM) ON DELETE CASCADE
 );
 
 CREATE TABLE ReponseDeEtudiant (
-    num INT NOT NULL,
-    idQuestion INT NOT NULL,
+    num INT UNSIGNED NOT NULL,
+    idQuestion INT UNSIGNED NOT NULL,
     reponseChoisie TINYINT,
     PRIMARY KEY (num, idQuestion),
     FOREIGN KEY (num) REFERENCES Utilisateur(num) ON DELETE CASCADE,
