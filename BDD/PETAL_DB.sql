@@ -123,6 +123,7 @@ CREATE VIEW ResultatEtudiant AS
     ) AS TableNombreReponsesCorrectes NATURAL JOIN (
         SELECT idQCM, num, nomQCM, nomMatiere, COUNT(*) AS nombreQuestions
         FROM qcm NATURAL JOIN question NATURAL JOIN reponsedeetudiant
+        WHERE publie = true
         GROUP BY idQCM, num
     ) AS TableNombreQuestions;
 
