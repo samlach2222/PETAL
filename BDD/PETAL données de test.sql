@@ -43,7 +43,8 @@ Cordialement', '2022-04-09 10:34:47', '2', '3');
 INSERT INTO messageforum VALUES (NULL, 'Faut que tu retrouves Python, il s\'est perdu', '2022-04-09 10:34:47', '2', '5');
 
 ALTER TABLE cours AUTO_INCREMENT = 1;
-INSERT INTO cours VALUES (NULL, 'Examen blanc de 2021', '/my-app/PETAL/Cours/Matiere 1/TD 1.pdf', 'TD', 'Sieste quantique');
+-- Source du fichier : https://emf.fr/wp-content/uploads/2013/12/Academie_du_sommeil-sieste-3.pdf
+INSERT INTO cours VALUES (NULL, 'CM01 - Introduction à la sieste', '/my-app/PETAL/Cours/Sieste quantique/Academie_du_sommeil-sieste-3.pdf', 'CM', 'Sieste quantique');
 
 ALTER TABLE qcm AUTO_INCREMENT = 1;
 INSERT INTO qcm VALUES (NULL, 'Contrôle histoire de la sieste', '2022-12-25 23:59:59', '1', '1', 'Sieste quantique');
