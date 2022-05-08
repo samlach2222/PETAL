@@ -5,21 +5,20 @@
     $num = $_SESSION['num'];
     $idQCM = $_GET['id'];
 
+    //requête permettant de récupérer le nom du QCM
     $req2 = $pdo->prepare('SELECT nomQCM FROM qcm WHERE idQCM = :idQCM');
     $req2->execute(array('idQCM' => $idQCM));
     $nom = $req2->fetch();
     $nomQCM = $nom[0];
 
 
+    //requête permettant de récupérer les questions du QCM et leurs réponses
     $req3 = $pdo->prepare('SELECT * FROM Question WHERE idQCM = :idQCM');
     $req3->execute(array('idQCM' => $idQCM));
     $question = $req3->fetchAll();
 
-    // var_dump($question);
 
-
-
-//requête récupérant les bonnes reponses du QCM
+    //requête récupérant les bonnes reponses du QCM
     $req3 = $pdo->prepare('SELECT reponseALaQuestion FROM question WHERE idQCM = :idQCM');
     $req3->execute(array('idQCM' => $idQCM));
     $rep = $req3->fetchAll();
@@ -27,7 +26,7 @@
     $resultat = 0;
 
 
-    //update sur repondeDeEtudiant si une réponsea été choisi
+    //update sur repondeDeEtudiant lorsque une réponse a été cochée
     $req4 = $pdo->prepare('UPDATE reponsedeetudiant SET reponseChoisie = :rep WHERE num = :num AND idQuestion = :idQuestion');
 
     //Select sur repondeDeEtudiant pour savoir si une réponse à déjà était enregistré
@@ -39,11 +38,11 @@
 
     for($i=1; $i<=count($question); $i++){
         if(isset($_POST["reponse".$i])){
-            //recherche si la ligne existe dans la base de données
+            //on execute req6 qui va permettre de savoir si une réponse a déjà été enregistré pour cette réponse
             $req6->execute(array('num' => $num, 'idQuestion' => $question[$i-1][0]));
             $verif = $req6->fetch();
 
-            //Si la réponse de l'étudiant n'a pas encore été enregistré pour la question alors on execute req7
+            //Si la réponse de l'étudiant n'a pas encore été enregistré pour la question alors on execute req7 qui va insérer sa réponse dans la bdd
             if($verif == false){
                 $req7->execute(array('num' => $num, 'idQuestion' => $question[$i-1][0], 'repChoisi' => $_POST["reponse".$i]));
                 echo 1;
@@ -83,7 +82,7 @@
     <br/>
     <br/>
 
-    <form action='' method='post'>
+    <form action='' method='post' onsubmit='return false'>
     ";
     
     $n = 1;
@@ -106,7 +105,7 @@
                 <span id='rep'> Reponse ".$n." :</span>
                     <br/>                
                     <label>
-                        <input type='radio' name=\"reponse".$n."\" value='1'/> ".$row[4]." 
+                        <input type='radio' name=\"reponse".$n."\" value='1'/> ".$row[4]."
                         <br/>
                         <input type='radio' name=\"reponse".$n."\" value='2'/> ".$row[5]." 
                         <br/>
