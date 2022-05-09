@@ -46,6 +46,11 @@ a {
     margin-left: auto;
 }
 
+#top-bar-right:hover * {
+    color: #1F1E1F;
+    border-color: #1F1E1F;
+}
+
 #imgBandeau {
     border-style: solid;
     border-color: #EEE0E8;
