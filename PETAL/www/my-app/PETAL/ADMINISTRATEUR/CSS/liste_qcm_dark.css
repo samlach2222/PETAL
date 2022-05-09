@@ -114,6 +114,10 @@ label > input[type="checkbox"] + *:hover {
 #eyeIcon {
     content: url("../../Ressources/Pictures/Eye_Dark.png");
 }
+#eyeIcon:hover {
+    /* Filtre de la même couleur qu'un QCM selectionné */
+    filter: invert(40%) sepia(91%) saturate(7022%) hue-rotate(352deg) brightness(85%) contrast(136%);
+}
 h1{
     font-family: Volkorn;
 }

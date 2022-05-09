@@ -81,3 +81,9 @@ h2 {
     padding-right: 0.5vh;
     padding-left: 0.5vh;
 }
+
+.cours:hover {
+    border-color: #EEE0E8;
+    background-color: #A30080;
+    color: #EEE0E8;
+}
