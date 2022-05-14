@@ -22,11 +22,14 @@
 
         global $rowsMessages;
         $rowsMessages = $prepared->fetchAll();
-
+        
         if (count($rowsMessages) == 0) {
             header('location: liste_sujets_forum.php');
             exit;
         }
+        
+        global $nomMatiere;
+        $nomMatiere = $rowsMessages[0][6];
     }
 
     function ListeCours() {
@@ -35,19 +38,25 @@
         $prepared = $pdo->prepare("SELECT nomMatiere FROM etumatiere WHERE num = :num;", array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
         $prepared->execute(array('num' => $_SESSION['num']));
         $rows = $prepared->fetchAll();
+        
+        $matiereNumber = 0;
+        $countMatiere = 0;
+        global $nomMatiere;
 
         //Récupère toutes les matières dont l'étudiant a accès
         $liste = array();
         foreach ($rows as $row) {
             array_push($liste, '<li><a href="liste_sujets_forum.php?matiere='.$row[0].'">'.$row[0].'</a></li>');
+            
+            if ($row[0] == $nomMatiere) {
+                $matiereNumber = $countMatiere;
+            }
+            
+            $countMatiere++;
         }
 
         //Propose de revenir au cours de la matière du sujet selectionné
-        global $rowsMessages;
-        global $nomMatiere;
-        $nomMatiere = $rowsMessages[0][6];
-
-        array_unshift($liste, '<li id="retour-cours"><a id="a-retour-cours" href="matiere.php?matiere='.$nomMatiere.'">Cours de '.$nomMatiere.'</a></li>');
+        array_unshift($liste, '<li id="retour-cours"><a id="a-retour-cours" href="matiere.php?matiere='.$matiereNumber.'">Cours de '.$nomMatiere.'</a></li>');
 
         //Affiche la liste des cours
         foreach ($liste as $item) {

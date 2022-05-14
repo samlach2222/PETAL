@@ -39,6 +39,9 @@
         $prepared = $pdo->prepare("SELECT nomMatiere FROM etumatiere WHERE num = :num;", array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
         $prepared->execute(array('num' => $_SESSION['num']));
         $rows = $prepared->fetchAll();
+        
+        $matiereNumber = 0;
+        $countMatiere = 0;
 
         //Récupère toutes les matières dont l'étudiant a accès
         $liste = array();
@@ -48,12 +51,15 @@
 
             if (isset($_GET['matiere']) && $_GET['matiere'] == $row[0]){
                 $aAcces = true;
+                $matiereNumber = $countMatiere;
             }
+            
+            $countMatiere++;
         }
 
         //Si la matière selectionné est valide, affiche un message pour revenir à la liste des cours
         if ($aAcces) {
-            array_unshift($liste, '<li id="retour-cours"><a id="a-retour-cours" href="matiere.php?matiere='.$_GET['matiere'].'">Cours de '.$_GET['matiere'].'</a></li>');
+            array_unshift($liste, '<li id="retour-cours"><a id="a-retour-cours" href="matiere.php?matiere='.$matiereNumber.'">Cours de '.$_GET['matiere'].'</a></li>');
         }
 
         //Affiche la liste des cours
