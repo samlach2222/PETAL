@@ -83,15 +83,7 @@
                 ]);
                 if($executed){ // si la requête n'a pas pu être passée
                     // Redirection en fin de requête
-                    header("Location: ../HTML/gestion_utilisateurs.php?ajout=success");
-                    
-                    $sql = "SELECT nomMatiere FROM matiere";
-                    $donnees = $pdo->query($sql);
-                    while($tmp = $donnees->fetch())
-                    {
-                        $sql2 = "INSERT INTO etumatiere VALUES ('".$numEtu."', '".$tmp[0]."')";
-                        $pdo->query($sql2);
-                    }
+                    header("Location: ../HTML/gestion_utilisateurs.php?ajout=success&ajoutEtudiant");
                 }
                 else {
                     // Redirection en fin de requête

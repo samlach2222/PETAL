@@ -5,11 +5,16 @@ function AlertError(message){
     })
 }
 
-function AlertSuccess(message){
+function AlertSuccess(message, isHtml = false){
     swal({
         title: message,
         icon: "success",
     })
+    
+    if (isHtml) {
+        let titleElement = document.getElementsByClassName('swal-title')[0];
+        titleElement.innerHTML = message;
+    }
 }
 
 function AlertWarning(message){

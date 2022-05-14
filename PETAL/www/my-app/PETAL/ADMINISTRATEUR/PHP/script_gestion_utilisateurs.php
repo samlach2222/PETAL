@@ -2,9 +2,15 @@
     // Si l'on reviens sur la page de gestion après avoir ajouté un utilisateur
     if(!empty($_GET['ajout'])) {
         if ($_GET['ajout'] == "success") {
-            echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
-            echo '<script src="../../ALL/JS/notify.js"></script>';
-            echo '<script>AlertSuccess("Utilisateur ajouté avec succès");</script>';
+            if (isset($_GET['ajoutEtudiant'])) {
+                echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
+                echo '<script src="../../ALL/JS/notify.js"></script>';
+                echo '<script>AlertSuccess("<span style=\'white-space: pre-line\'>Utilisateur ajouté avec succès\n\nN\'oubliez pas de lui <a href=\'gestion_matiere.php\' style=\'text-decoration: underline\'>ajouté l\'accès aux matières</a></span>", true);</script>';                
+            } else {
+                echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
+                echo '<script src="../../ALL/JS/notify.js"></script>';
+                echo '<script>AlertSuccess("Utilisateur ajouté avec succès");</script>';
+            }
         }
         else if ($_GET['ajout'] == "error") {
             echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
