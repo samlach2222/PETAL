@@ -11,24 +11,37 @@
             header("location: ../../ALL/HTML/connexion.php");
             exit;
         }
-    }
-
-    function ShowForumButton() {
-        if (!$_SESSION['admin']) {
-            echo '<div id="boutonForum">
-                <a href="../../ETUDIANT/HTML/liste_sujets_forum.php">Forum</a>
-            </div>';
-        }
-
+        
         // redirection si on est pas dans la bonne section
         $url = $_SERVER['REQUEST_URI'];
         if($_SESSION['admin'] == 1 && strpos($url, "ADMINISTRATEUR") == false) // si on est admin et qu'on est pas dans la partie ADMIN
         {
             header("location: ../../ADMINISTRATEUR/HTML/accueil_admin.php");
+            exit;
         }
         else if($_SESSION['admin'] == 0 && strpos($url, "ETUDIANT") == false) // si on est etudiant et qu'on est pas dans la partie ETUDIANT
         {
             header("location: ../../ETUDIANT/HTML/accueil_etudiant.php");
+            exit;
+        }
+    }
+
+    function ShowForumButton() {
+        if ($_SESSION['admin']){
+            echo '<div id="boutonForum">
+                <a href="../../ADMINISTRATEUR/HTML/accueil_admin.php">Accueil</a>
+            </div>';
+        } else {
+            $url = $_SERVER['REQUEST_URI'];
+            if (strpos($url, "forum") != false) {
+                echo '<div id="boutonForum">
+                    <a href="../../ETUDIANT/HTML/accueil_etudiant.php">Accueil</a>
+                </div>';
+            } else {
+                echo '<div id="boutonForum">
+                    <a href="../../ETUDIANT/HTML/liste_sujets_forum.php">Forum</a>
+                </div>';
+            }
         }
     }
 
