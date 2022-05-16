@@ -36,11 +36,9 @@
                     AfficheQCM();
                 ?>     
             </div>
-    		<div id="boutonBas">
-                <input type="button" name="add" value="+" id="add" onclick="ajoutQuestion()" class="SecondButton">
-                <input type="submit" class="SecondButton" name="valider" value="Valider" id="valider">
-                <input type="submit" class="SecondButton" name="publier" value="Publier" id="publier">    
-            </div>
+    		<?php
+                AfficheBoutonsBas();
+            ?>
             <input type="hidden" name="nbQuestion" id="nbQuestion" <?php if(!empty($_GET['id'])) {
                         updateNbQuestion();
                     }
