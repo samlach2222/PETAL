@@ -198,7 +198,7 @@ function AfficheTitreQCM()
             echo"</select></td>
                 <td>
                     <label>Date/heure de fin</label>
-                    <input type=\"date\" name=\"dateHeureFin\" id=\"dateHeureFin\" value=\"".$row[0]."\">
+                    <input type=\"datetime-local\" name=\"dateHeureFin\" id=\"dateHeureFin\" value=\"".date('Y-m-d\TH:i', strtotime($row[0]))."\">
             </td>";
         }
     }
@@ -227,7 +227,7 @@ function AfficheTitreQCM()
         echo"</select></td>
             <td>
                 <label>Date/heure de fin</label>
-                <input type=\"date\" name=\"dateHeureFin\" id=\"dateHeureFin\" value=\"\">
+                <input type=\"datetime-local\" name=\"dateHeureFin\" id=\"dateHeureFin\" value=\"\">
         </td>";
     }
 }
