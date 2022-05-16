@@ -43,7 +43,9 @@
         
         global $pdo;
         //La quatrième colonne permet de pré-cocher les étudiants ayant actuellement accès à la matière
-        $rows = $pdo->query("SELECT utilisateur.num, nom, prenom, IF(!ISNULL(tableEtuMatiere.num), 'checked', null) AS dejaAjoute FROM utilisateur LEFT JOIN (SELECT num FROM etumatiere WHERE nomMatiere = '3') AS tableEtuMatiere ON utilisateur.num = tableEtuMatiere.num WHERE admin = 0");
+        $prepared = $pdo->prepare("SELECT utilisateur.num, nom, prenom, IF(!ISNULL(tableEtuMatiere.num), 'checked', null) AS dejaAjoute FROM utilisateur LEFT JOIN (SELECT num FROM etumatiere WHERE nomMatiere = :nomMatiere) AS tableEtuMatiere ON utilisateur.num = tableEtuMatiere.num WHERE admin = 0", array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+        $prepared->execute(array('nomMatiere' => $_GET['matiere']));
+        $rows = $prepared->fetchAll();
         
         global $aucunEtudiant;
         $aucunEtudiant = count($rows) == 0;
