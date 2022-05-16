@@ -44,7 +44,6 @@
             //Si la réponse de l'étudiant n'a pas encore été enregistré pour la question alors on execute req7 qui va insérer sa réponse dans la bdd
             if($verif == false){
                 $req7->execute(array('num' => $num, 'idQuestion' => $question[$i-1][0], 'repChoisi' => $_POST["reponse".$i]));
-                echo 1;
             }
 
             //Sinon on met à jour la réponse de l'étudiant
