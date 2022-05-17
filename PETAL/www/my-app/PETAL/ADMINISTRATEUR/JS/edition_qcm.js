@@ -6,6 +6,13 @@ function AjoutImageQCM(num) {
     for (var i = 2; i < num.length; i++) {
         idQ=idQ+num[i];
     }
+    
+    //Suppression de l'ancienne image
+    document.querySelector('#Image'+idQ).removeAttribute("src");
+    document.querySelector('#Image'+idQ).removeAttribute("height");
+    document.querySelector('#Image'+idQ).setAttribute("class", "imageHidden");
+    document.querySelector('#Himage'+idQ).setAttribute("value", -1);
+    
     var input = document.createElement('input');
     input.type = 'file';
     input.onchange = e => {
@@ -140,6 +147,20 @@ function ajoutQuestion() {
     document.getElementById('nbQuestion').setAttribute('value',comp);
 
     document.getElementById('nbAjoutQuestionJs').setAttribute('value',nbA);
+    
+    var boutonEnlever = document.getElementById('remove');
+    if (!boutonEnlever) { // si il n'y a pas de bouton enlever question
+        //<input type="button" name="add" value="+" id="add" onclick="ajoutQuestion()" class="SecondButton">
+        boutonEnlever = document.createElement('input');
+        boutonEnlever.setAttribute('type','button');
+        boutonEnlever.setAttribute('name','remove');
+        boutonEnlever.value = '-';
+        boutonEnlever.id = 'remove';
+        boutonEnlever.setAttribute('onclick','enleverDerniereQuestion()');
+        boutonEnlever.className = 'SecondButton';
+        
+        document.getElementById('boutonBas').prepend(boutonEnlever);
+    }
 }
 function reponse(numR,idQ) {
     document.getElementById('reponseQ'+idQ).setAttribute('value',numR);
@@ -148,4 +169,13 @@ function matiereSelect() {
     var listSelect=document.getElementById('matiere');
     var selected=listSelect.options[listSelect.selectedIndex].value;
     document.getElementById('matiereSelectionner').setAttribute('value',selected);
+}
+function enleverDerniereQuestion() {
+    const divQuestions = document.getElementById('questions');
+    divQuestions.removeChild(divQuestions.lastChild);
+    nbA--;
+    
+    if (nbA == 0) {
+        document.getElementById('remove').remove();
+    }
 }

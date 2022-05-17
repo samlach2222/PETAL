@@ -101,7 +101,7 @@ function AfficheQCM()
                     echo '<div class="question">
                             <label>Question '.$i.' : '.$row[1].'</label>';
                     if ($row[2]!=NULL) {
-                        echo "<br/><img class='Image' id=\"Image".$idQ."\" src=\"data:image;base64,".base64_encode($row[2])."\"><br/>";
+                        echo "<br><img class='Image' id=\"Image".$idQ."\" src=\"data:image;base64,".base64_encode($row[2])."\"><br>";
                     }
                     echo "<div id=\"reponses".$idQ."\">";
                     if ($row[3]==1) {
@@ -131,7 +131,7 @@ function AfficheQCM()
                             <input type=\"button\" onclick=\"AjoutImageQCM(this.id)\" class=\"BtAjoutImage\" id=\"bt".$idQ."\" value=\"Ajout image\" name=\"ajoutImage\">
                     ";
                     if ($row[2]==NULL) {
-                        echo "<img id='Image".$idQ."' class=\"imageHidden\"><br>";
+                        echo "<br><img id='Image".$idQ."' class=\"imageHidden\"><br>";
                         echo "<input type=\"hidden\" id='Himage".$idQ."' name='Himage".$idQ."' value=\"-1\">";}
                     else{
                         echo "</br><img class='Image' id=\"Image".$idQ."\" src=\"data:image;base64,".base64_encode($row[2])."\"><br>";

@@ -39,12 +39,8 @@
     		<?php
                 AfficheBoutonsBas();
             ?>
-            <input type="hidden" name="nbQuestion" id="nbQuestion" <?php if(!empty($_GET['id'])) {
-                        updateNbQuestion();
-                    }
-                    else{
-                        echo "value=\"0\"";
-                    } ?>>
+            <input type="hidden" name="nbQuestion" id="nbQuestion" <?php
+                    updateNbQuestion(); ?>>
             <input type="hidden" name="idQCM" id="idQCM" <?php if(!empty($_GET['id'])) {
                 echo "value=\"".$_GET['id']."\"";
             }
