@@ -23,6 +23,7 @@ span {
 
 form {
     position: relative;
+    padding-bottom: 3em;
 }
 
 output {
@@ -30,14 +31,9 @@ output {
     font-size: larger;
 }
 
-input[type="radio"]: checked + *{
+label > input[type="radio"]:checked + * {
     color: #CD5162;
     font-size: large;
-}
-
-#qcm div {
-    padding-left: 1.5em;
-    padding-right: 1.5em;
 }
 
 #valider {
@@ -68,10 +64,9 @@ input[type="radio"]: checked + *{
 }
 
 #qcm {
-    width: 100%;
-    position: absolute;
+    width: calc(100% - 2em);
     top: 5em;
-    padding: 0;
+    margin: 1em;
 }
 
 #bandeau {

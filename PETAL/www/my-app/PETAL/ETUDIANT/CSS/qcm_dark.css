@@ -22,6 +22,7 @@ span{
 
 form {
     position: relative;
+    padding-bottom: 3em;
 }
 
 output {
@@ -62,10 +63,9 @@ label > input[type="radio"]:checked + * {
 }
 
 #qcm {
-    width: 100%;
-    position: absolute;
+    width: calc(100% - 2em);
     top: 5em;
-    padding: 0;
+    margin: 1em;
 }
 
 #bandeau {

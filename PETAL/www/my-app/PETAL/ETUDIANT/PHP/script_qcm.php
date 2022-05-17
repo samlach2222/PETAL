@@ -59,7 +59,6 @@
         }
     }
 
-
     echo"
         <div>
             <a id='retour' href='../../ETUDIANT/HTML/accueil_etudiant.php'> Retour </a>
@@ -79,6 +78,7 @@
     ";
     
     $n = 1;
+    $validateButton = true;
 
     foreach($question as $row){
         echo"
@@ -101,54 +101,120 @@
                     <label>";
 
 
+        // cocher les cases répondues par l'utilisateur
         $req6->execute(array('num' => $num, 'idQuestion' => $row[0])); // on prépare avec l'id utilisateur et l'id question
         $res = $req6->fetch();
 
-        $reponseChoisieBdd = $res[2];
+        $reponseALaQuestion = $rep[$n -1];
+
         if($res[2] != null){
+            $validateButton = false;
             switch($res[2]){
                 case 1:
-                    echo"
-                        <input type='radio' checked name=\"reponse".$n."\" value='1'/> ".$row[4]."
+                    if($reponseALaQuestion[0] == 1){
+                        echo"
+                        <span style='color : green;'>".$row[4]."</span>
                         <br/>
-                        <input type='radio' name=\"reponse".$n."\" value='2'/> ".$row[5]." 
+                        <span>".$row[5]."</span> 
                         <br/>
-                        <input type='radio' name=\"reponse".$n."\" value='3'/> ".$row[6]." 
+                        <span>".$row[6]."</span> 
                         <br/>
                         </label>
                         </div>";
+                    }
+                    else {
+                        echo "<span style='color : red;'>".$row[4]."</span><br/>";
+
+                        if($reponseALaQuestion[0] == 2){
+                            echo "<span style='color : green;'>".$row[5]."</span><br/>";
+                        }
+                        else {
+                            echo "<span>".$row[5]."</span><br/>";
+                        }
+
+                        if($reponseALaQuestion[0] == 3){
+                            echo "<span style='color : green;'>".$row[6]."</span> <br/>";
+                        }
+                        else {
+                            echo "<span>".$row[6]."</span> <br/>";
+                        }
+
+                        echo "</label></div>";
+                    }
                     break;
                 case 2:
-                    echo"
-                        <input type='radio' name=\"reponse".$n."\" value='1'/> ".$row[4]."
+                    if($reponseALaQuestion[0] == 2){
+                        echo"
+                        <span>".$row[4]."</span>
                         <br/>
-                        <input type='radio' checked name=\"reponse".$n."\" value='2'/> ".$row[5]." 
+                        <span style='color : green;'>".$row[5]."</span> 
                         <br/>
-                        <input type='radio' name=\"reponse".$n."\" value='3'/> ".$row[6]." 
+                        <span>".$row[6]."</span> 
                         <br/>
                         </label>
                         </div>";
+                    }
+                    else {
+                        if($reponseALaQuestion[0] == 1){
+                            echo "<span style='color : green;'>".$row[4]."</span><br/>";
+                        }
+                        else {
+                            echo "<span>".$row[4]."</span><br/>";
+                        }
+
+                        echo "<span style='color : red;'>".$row[5]."</span><br/>";
+
+                        if($reponseALaQuestion[0] == 3){
+                            echo "<span style='color : green;'>".$row[6]."</span> <br/>";
+                        }
+                        else {
+                            echo "<span>".$row[6]."</span> <br/>";
+                        }
+
+                        echo "</label></div>";
+                    }
                     break;
                 case 3:
-                    echo"
-                        <input type='radio' name=\"reponse".$n."\" value='1'/> ".$row[4]."
+                    if($reponseALaQuestion[0] == 3){
+                        echo"
+                        <span>".$row[4]."</span>
                         <br/>
-                        <input type='radio' name=\"reponse".$n."\" value='2'/> ".$row[5]." 
+                        <span>".$row[5]."</span> 
                         <br/>
-                        <input type='radio' checked name=\"reponse".$n."\" value='3'/> ".$row[6]." 
+                        <span style='color : green;'>".$row[6]."</span> 
                         <br/>
                         </label>
                         </div>";
+                    }
+                    else {
+                        if($reponseALaQuestion[0] == 1){
+                            echo "<span style='color : green;'>".$row[4]."</span><br/>";
+                        }
+                        else {
+                            echo "<span>".$row[4]."</span><br/>";
+                        }
+
+                        if($reponseALaQuestion[0] == 2){
+                            echo "<span style='color : green;'>".$row[5]."</span> <br/>";
+                        }
+                        else {
+                            echo "<span>".$row[5]."</span> <br/>";
+                        }
+
+                        echo "<span style='color : red;'>".$row[6]."</span><br/>";
+
+                        echo "</label></div>";
+                    }
                     break;
             }
         }
         else {
             echo"
-                <input type='radio' name=\"reponse".$n."\" value='1'/> ".$row[4]."
+                <input type='radio' name=\"reponse".$n."\" value='1'/> <span>".$row[4]."</span>
                 <br/>
-                <input type='radio' name=\"reponse".$n."\" value='2'/> ".$row[5]." 
+                <input type='radio' name=\"reponse".$n."\" value='2'/> <span>".$row[5]."</span> 
                 <br/>
-                <input type='radio' name=\"reponse".$n."\" value='3'/> ".$row[6]." 
+                <input type='radio' name=\"reponse".$n."\" value='3'/> <span>".$row[6]."</span>
                 <br/>
                 </label>
                 </div>";
@@ -157,10 +223,11 @@
         $n++;
     }
 
+    if($validateButton) {
+        echo "<button type='submit' id='valider'>Valider</button>";
+    }
+
     echo "
-        <button type='submit' id='valider'>
-            Valider
-        </button>
         </form>
     </div>
     <br/>
