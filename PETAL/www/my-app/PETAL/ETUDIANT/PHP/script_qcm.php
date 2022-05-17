@@ -34,10 +34,9 @@
 
     //Insert un etudiant avec son numero l'id de la question et sa réponse choisie pour la question, si le Select de $req6 retourne false 
     $req7 = $pdo->prepare('INSERT INTO reponsedeetudiant VALUES (:num, :idQuestion, :repChoisi)');
-    
-    if (isset($_POST['valider'])) {
-        for($i=1; $i<=count($question); $i++){
-        if(isset($_POST["reponse".$i])){ //si une des 3 réponses a été sélectionnée
+
+    for($i=1; $i<=count($question); $i++){
+        if(isset($_POST["reponse".$i])){
             //on execute req6 qui va permettre de savoir si une réponse a déjà été enregistré pour cette réponse
             $req6->execute(array('num' => $num, 'idQuestion' => $question[$i-1][0]));
             $verif = $req6->fetch();
@@ -57,22 +56,7 @@
             if($rep[$i-1][0]== $_POST["reponse".$i]){
                 $resultat++;
             }
-        } else {
-            //on execute req6 qui va permettre de savoir si une réponse a déjà été enregistré pour cette réponse
-            $req6->execute(array('num' => $num, 'idQuestion' => $question[$i-1][0]));
-            $verif = $req6->fetch();
-
-            //Si la réponse de l'étudiant n'a pas encore été enregistré pour la question alors on execute req7 qui va insérer sa réponse dans la bdd
-            if($verif == false){
-                $req7->execute(array('num' => $num, 'idQuestion' => $question[$i-1][0], 'repChoisi' => null));
-            }
-
-            //Sinon on met à jour la réponse de l'étudiant
-            else{
-                $req4->execute(array('rep' => null, 'num' => $num, 'idQuestion' => $question[$i-1][0]));                
-            }
         }
-    }   
     }
 
     echo"
@@ -122,7 +106,8 @@
         $res = $req6->fetch();
 
         $reponseALaQuestion = $rep[$n -1];
-        
+
+        if($res[2] != null){
             $validateButton = false;
             switch($res[2]){
                 case 1:
@@ -221,61 +206,25 @@
                         echo "</label></div>";
                     }
                     break;
-                case null:
-                    switch ($reponseALaQuestion[0]) {
-                        case 1:
-                            echo"
-                            <span style='color : orange;'>".$row[4]."</span>
-                            <br/>
-                            <span>".$row[5]."</span> 
-                            <br/>
-                            <span>".$row[6]."</span> 
-                            <br/>
-                            </label>
-                            </div>";
-                            break;
-                        case 2:
-                            echo"
-                            <span>".$row[4]."</span>
-                            <br/>
-                            <span style='color : orange;'>".$row[5]."</span> 
-                            <br/>
-                            <span>".$row[6]."</span> 
-                            <br/>
-                            </label>
-                            </div>";
-                            break;
-                        case 3:
-                            echo"
-                            <span>".$row[4]."</span>
-                            <br/>
-                            <span>".$row[5]."</span> 
-                            <br/>
-                            <span style='color : orange;'>".$row[6]."</span> 
-                            <br/>
-                            </label>
-                            </div>";
-                            break;
-                    }
-                    break;
-                default:
-                    echo"
-                        <input type='radio' name=\"reponse".$n."\" value='1'/> <span>".$row[4]."</span>
-                        <br/>
-                        <input type='radio' name=\"reponse".$n."\" value='2'/> <span>".$row[5]."</span> 
-                        <br/>
-                        <input type='radio' name=\"reponse".$n."\" value='3'/> <span>".$row[6]."</span>
-                        <br/>
-                        </label>
-                        </div>";
-                    break;
             }
+        }
+        else {
+            echo"
+                <input type='radio' name=\"reponse".$n."\" value='1'/> <span>".$row[4]."</span>
+                <br/>
+                <input type='radio' name=\"reponse".$n."\" value='2'/> <span>".$row[5]."</span> 
+                <br/>
+                <input type='radio' name=\"reponse".$n."\" value='3'/> <span>".$row[6]."</span>
+                <br/>
+                </label>
+                </div>";
+        }
 
         $n++;
     }
 
     if($validateButton) {
-        echo "<button type='submit' id='valider' name='valider'>Valider</button>";
+        echo "<button type='submit' id='valider'>Valider</button>";
     }
 
     echo "
