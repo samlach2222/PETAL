@@ -33,9 +33,11 @@
                     ImageMatiere();
                     AfficheListeEtudiant();
                 ?>
+                <input type="button" value="Sélectionner tout" id="selectAll" style="border:none; border-top: 4px solid ;" onClick="javascript:SelectionnerTout()">
             </div>
             <?php BoutonValider(); ?>
         </form>
     </div>
+    <script src="../JS/ajout_etudiant_matiere.js"></script>
 </body>
 </html>

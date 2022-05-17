@@ -30,8 +30,8 @@ h1 {
     min-height: 45vh;
     background-repeat: no-repeat;
     background-size: cover;
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
     border-bottom: 4px solid #1f1e1f;;
 }
 
@@ -84,7 +84,14 @@ h1 {
     margin: 1em;
 }
 
-#valider {
+#valider, #selectAll {
     background-color: #CD5162;
     font-size: 1.6em;
+    color: #1F1F1F;
+}
+
+#selectAll {
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    border-color: #1F1F1F;
 }
