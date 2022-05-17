@@ -30,7 +30,7 @@
         <div id=\"content\">
         <div id=\"titre\">
             <h1>".$nomMatiere."</h1>
-            <a class=\"retour\" href=\"accueil_etudiant.php\"><- retour</a>
+            <a class=\"retour\" href=\"accueil_etudiant.php\">retour</a>
         </div>
         <h2>CM</h2>
         <div class=\"liste\">

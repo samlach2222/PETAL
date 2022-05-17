@@ -29,6 +29,7 @@ body {
     background-color: #1D0027;
     height: 20%;
     font-family: Volkorn;
+    padding-top: 0.5em;
 }
 
 h1 {
@@ -83,7 +84,5 @@ h2 {
 }
 
 .cours:hover {
-    border-color: #1F1E1F;
-    background-color: #F88C95;
-    color: #1F1E1F;
+    background-color: #ff00c9;
 }
