@@ -119,11 +119,14 @@
 
         // cocher les cases répondues par l'utilisateur
         $req6->execute(array('num' => $num, 'idQuestion' => $row[0])); // on prépare avec l'id utilisateur et l'id question
+        
         $res = $req6->fetch();
 
         $reponseALaQuestion = $rep[$n -1];
         
+        if ($res) {
             $validateButton = false;
+            
             switch($res[2]){
                 case 1:
                     if($reponseALaQuestion[0] == 1){
@@ -258,18 +261,18 @@
                             break;
                     }
                     break;
-                default:
-                    echo"
-                        <input type='radio' name=\"reponse".$n."\" value='1'/> <span>".$row[4]."</span>
-                        <br/>
-                        <input type='radio' name=\"reponse".$n."\" value='2'/> <span>".$row[5]."</span> 
-                        <br/>
-                        <input type='radio' name=\"reponse".$n."\" value='3'/> <span>".$row[6]."</span>
-                        <br/>
-                        </label>
-                        </div>";
-                    break;
             }
+        } else {
+            echo"
+                <input type='radio' name=\"reponse".$n."\" value='1'/> <span>".$row[4]."</span>
+                <br/>
+                <input type='radio' name=\"reponse".$n."\" value='2'/> <span>".$row[5]."</span> 
+                <br/>
+                <input type='radio' name=\"reponse".$n."\" value='3'/> <span>".$row[6]."</span>
+                <br/>
+                </label>
+                </div>";
+        }
 
         $n++;
     }
