@@ -48,6 +48,9 @@
     {
         // Récupération des données
         $photoProfil = $_POST["b64Image"];
+        if ($photoProfil == '') {
+            $photoProfil = null;
+        }
         $prenom = $_POST['prenomEtu'];
         $nom = $_POST['nomEtu'];
         $adresseMail = $_POST['mailEtu'];

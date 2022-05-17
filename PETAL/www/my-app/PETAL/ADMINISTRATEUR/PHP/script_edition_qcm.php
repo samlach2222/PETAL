@@ -245,11 +245,20 @@ function AfficheTitreQCM()
             $query->execute(array('idQCM' => $_GET['id']));
             $rows=$query->fetchAll();
             foreach ($rows as $row) {
-                echo"</select></td>
-                    <td>
-                        <label>Date/heure de fin</label>
-                        <input type=\"datetime-local\" name=\"dateHeureFin\" id=\"dateHeureFin\" value=\"".date('Y-m-d\TH:i', strtotime($row[0]))."\">
-                </td>";
+                
+                if ($row[0]) { // ne pas pré-remplir si dateHeureFin est null dans la BDD
+                    echo"</select></td>
+                        <td>
+                            <label>Date/heure de fin</label>
+                            <input type=\"datetime-local\" name=\"dateHeureFin\" id=\"dateHeureFin\" value=\"".date('Y-m-d\TH:i', strtotime($row[0]))."\">
+                    </td>";   
+                } else {
+                    echo"</select></td>
+                        <td>
+                            <label>Date/heure de fin</label>
+                            <input type=\"datetime-local\" name=\"dateHeureFin\" id=\"dateHeureFin\">
+                    </td>";  
+                }
             }
         }
     }

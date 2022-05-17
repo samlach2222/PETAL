@@ -42,11 +42,16 @@
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
             }
+            
+            $imageMatiereDecodee = base64_decode($imageMatiere);
+            if ($imageMatiereDecodee == '') {
+                $imageMatiereDecodee = null;
+            }
 
             $statement = $pdo->prepare('INSERT INTO Matiere (nomMatiere, image, num) VALUES (:nomMatiere, :image, :num)');
             $executed = $statement->execute([
                 'nomMatiere' => $nomMatiere,
-                'image' => base64_decode($imageMatiere),
+                'image' => $imageMatiereDecodee,
                 'num' => $_SESSION['num'],
             ]);
 
