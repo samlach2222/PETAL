@@ -318,11 +318,10 @@ function EnvoiAjoutQCM($isPublier){
         } else {
             if ($_POST['idQCM']==-1) {//mode ajout
                 // Requete d'insertion
-                $statement = $pdo->prepare('INSERT INTO QCM (nomQCM, dateHeureFin,evalue, publie, nomMatiere) VALUES (:nomQCM, :dateHeureFin, :evalue, :publie, :nomMatiere)');
+                $statement = $pdo->prepare('INSERT INTO QCM (nomQCM, dateHeureFin, publie, nomMatiere) VALUES (:nomQCM, :dateHeureFin, :publie, :nomMatiere)');
                 $executed = $statement->execute([
                     'nomQCM' => $nomQCM,
                     'dateHeureFin' => $dateHeureFin,
-                    'evalue'=>$isPublier,
                     'publie' => $isPublier,
                     'nomMatiere' => $nomMatiere
                 ]);
@@ -330,11 +329,10 @@ function EnvoiAjoutQCM($isPublier){
                 $idQCM=$pdo->lastInsertId();
             } else { //mode modification si aucune question avant dans la BDD
                 $idQCM=$_POST['idQCM'];
-                $statement = $pdo->prepare('UPDATE QCM SET nomQCM=:nomQCM, dateHeureFin=:dateHeureFin,evalue=:evalue, publie=:publie, nomMatiere=:nomMatiere WHERE idQCM=:idQCM');
+                $statement = $pdo->prepare('UPDATE QCM SET nomQCM=:nomQCM, dateHeureFin=:dateHeureFin, publie=:publie, nomMatiere=:nomMatiere WHERE idQCM=:idQCM');
                 $executed = $statement->execute([
                     'nomQCM' => $nomQCM,
                     'dateHeureFin' => $dateHeureFin,
-                    'evalue'=>$isPublier,
                     'publie' => $isPublier,
                     'nomMatiere' => $nomMatiere,
                     'idQCM' => $idQCM
@@ -414,11 +412,10 @@ function EnvoiAjoutQCM($isPublier){
                     header("Location: ../HTML/edition_qcm.php?modification=error");
                 } else { //mode modification 
                     $idQCM=$_POST['idQCM'];
-                    $statement = $pdo->prepare('UPDATE QCM SET nomQCM=:nomQCM, dateHeureFin=:dateHeureFin,evalue=:evalue, publie=:publie, nomMatiere=:nomMatiere WHERE idQCM=:idQCM');
+                    $statement = $pdo->prepare('UPDATE QCM SET nomQCM=:nomQCM, dateHeureFin=:dateHeureFin, publie=:publie, nomMatiere=:nomMatiere WHERE idQCM=:idQCM');
                     $executed = $statement->execute([
                         'nomQCM' => $nomQCM,
                         'dateHeureFin' => $dateHeureFin,
-                        'evalue'=>$isPublier,
                         'publie' => $isPublier,
                         'nomMatiere' => $nomMatiere,
                         'idQCM' => $idQCM
