@@ -350,6 +350,11 @@ function EnvoiAjoutQCM($isPublier){
             }
 
             if ($executed) {
+                if ($nbQuestion==0) {
+                    header("Location: ../HTML/liste_qcm.php?publication=error");
+                    exit;
+                }
+                
                 for ($i=1; $i <= $nbQuestion; $i++) { 
                     $intitule=$_POST['intitule'.$i];
                     $image=$_POST['Himage'.$i];

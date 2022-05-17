@@ -26,6 +26,14 @@
             echo '<script>AlertSuccess("Modification effectée avec succès");</script>';
         }
     }
+    else if(!empty($_GET['publication'])) {
+        if($_GET['publication'] == "error") {
+            // chargement de la notification
+            echo '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>';
+            echo '<script src="../../ALL/JS/notify.js"></script>';
+            echo '<script>AlertError("Erreur : Un QCM sans question ne peut pas être publié");</script>';
+        }
+    }
     // Permet de supprimer par ID les utilisateurs
     if(isset($_POST)){
         if(isset($_POST['data'])){
