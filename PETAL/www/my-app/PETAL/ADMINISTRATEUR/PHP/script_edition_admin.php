@@ -54,6 +54,9 @@
         $nom = $_POST['nomAdmin'];
         $adresseMail = $_POST['mailAdmin'];
         $numeroTelephone = $_POST['telAdmin'];
+        if ($numeroTelephone == '') {
+            $numeroTelephone = null;
+        }
         $motDePasse = $_POST['passAdmin'];
 
         if (isset($_POST['numAdmin'])) { // mode ajout
@@ -115,7 +118,7 @@
 
                 // Requete d'insertion
                 $statement = $pdo->prepare('UPDATE utilisateur SET photoProfil = :photoProfil, nom = :nom, prenom = :prenom, adresseMail = :adresseMail, numeroTelephone = :numeroTelephone, motDePasse = :motDePasse WHERE num = :numAdmin');
-                $test = $statement->execute([
+                $executed = $statement->execute([
                     'numAdmin' => $numAdmin,
                     'photoProfil' => base64_decode($photoProfil),
                     'prenom' => $prenom,
@@ -125,8 +128,14 @@
                     'motDePasse' => password_hash($motDePasse, PASSWORD_DEFAULT)
                 ]);
 
-                // Redirection en fin de requête
-                header("Location: ../HTML/gestion_utilisateurs.php?modification=success");
+                if($executed){ // si la requête n'a pas pu être passée
+                    // Redirection en fin de requête
+                    header("Location: ../HTML/gestion_utilisateurs.php?modification=success");
+                }
+                else {
+                    // Redirection en fin de requête
+                    header("Location: ../HTML/gestion_utilisateurs.php?modification=error");
+                }
             }
         }
     }
